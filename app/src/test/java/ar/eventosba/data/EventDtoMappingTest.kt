@@ -3,6 +3,9 @@ package ar.eventosba.data
 import ar.eventosba.data.remote.EventsFeedDto
 import ar.eventosba.data.remote.NetworkModule
 import ar.eventosba.data.remote.toEntity
+// decodeFromString reificado es extension de StringFormat en
+// kotlinx.serialization (core): sin este import no resuelve.
+import kotlinx.serialization.decodeFromString
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNotNull
 import org.junit.Assert.assertNull

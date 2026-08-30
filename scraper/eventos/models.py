@@ -10,9 +10,25 @@ from __future__ import annotations
 import re
 import unicodedata
 from dataclasses import dataclass, field, asdict
+from datetime import date, datetime
 from typing import Optional
+from zoneinfo import ZoneInfo
 
 SCHEMA_VERSION = 1
+
+# El runner de GitHub Actions corre en UTC, pero "hoy" en esta app siempre
+# significa hoy en Buenos Aires. Sin esto, una corrida nocturna publicaria
+# la agenda del dia equivocado.
+BUENOS_AIRES = ZoneInfo("America/Argentina/Buenos_Aires")
+
+
+def today_ba() -> date:
+    """Fecha actual en Buenos Aires, independiente del huso del runner."""
+    return datetime.now(BUENOS_AIRES).date()
+
+
+def now_ba_iso() -> str:
+    return datetime.now(BUENOS_AIRES).isoformat(timespec="seconds")
 
 CATEGORIES = (
     "MUSICA",
@@ -44,6 +60,21 @@ class Venue:
     commune: Optional[int] = None
     lat: Optional[float] = None
     lon: Optional[float] = None
+
+    @property
+    def is_locatable(self) -> bool:
+        """Si no se puede ubicar, el evento no sirve para esta app.
+
+        Las agendas publican paginas indice ("Que hacer esta semana") con
+        marcado schema.org/Event pero sin `location`. Al caer en la sede por
+        defecto de la fuente quedan sin direccion, sin barrio y sin
+        coordenadas: no se pueden mapear ni abrir en la app de mapas.
+        """
+        return bool(
+            (self.lat is not None and self.lon is not None)
+            or self.address
+            or self.neighborhood
+        )
 
 
 @dataclass

@@ -2,14 +2,13 @@
 from __future__ import annotations
 
 import json
-from datetime import date, datetime, timedelta
+from datetime import date, timedelta
 from pathlib import Path
 from typing import Iterable, Optional
 
-from .models import SCHEMA_VERSION, Event
+from .models import BUENOS_AIRES, SCHEMA_VERSION, Event, now_ba_iso, today_ba
 from .sources import ALL_SOURCES, LocalSeedSource, http_session
 from .sources.base import Source
-
 
 def dedupe(events: Iterable[Event]) -> list[Event]:
     """Un evento suele aparecer en varias agendas: gana el mas completo.
@@ -75,7 +74,7 @@ def run(
     """Corre el pipeline completo y escribe el JSON que consume la app."""
     sources = ALL_SOURCES if sources is None else sources
     session = http_session()
-    today = date.today()
+    today = today_ba()
     targets = [(today + timedelta(days=i)).isoformat() for i in range(days)]
 
     collected: list[Event] = []
@@ -92,7 +91,14 @@ def run(
     if keep_existing and output.exists():
         collected.extend(_read_existing(output))
 
-    events = [e for e in dedupe(collected) if e.date >= today.isoformat()]
+    deduped = [e for e in dedupe(collected) if e.date >= today.isoformat()]
+
+    # Filtro final: sin sede ubicable el evento no se puede mostrar en el
+    # mapa ni abrir en la app de mapas, asi que no llega al feed.
+    events = [e for e in deduped if e.venue.is_locatable]
+    descartados = len(deduped) - len(events)
+    if descartados:
+        print(f"  Descartados {descartados} eventos sin sede ubicable.")
 
     problems = validate(events)
     if problems:
@@ -100,7 +106,7 @@ def run(
 
     payload = {
         "schema_version": SCHEMA_VERSION,
-        "generated_at": datetime.now().astimezone().isoformat(timespec="seconds"),
+        "generated_at": now_ba_iso(),
         "city": "Ciudad Autónoma de Buenos Aires",
         "license": "Datos públicos recopilados de agendas oficiales. Uso informativo.",
         "events": [e.to_dict() for e in events],
