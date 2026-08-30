@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agenda gratuita de Buenos Aires — API abierta</title>
+<style>
+  :root { color-scheme: light dark; --fg:#141414; --bg:#faf9f7; --muted:#5d5d5d; --line:#e2ded8; --accent:#0a5c9e; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#ececec; --bg:#16181c; --muted:#a0a0a0; --line:#2c2f36; --accent:#7cb8f0; } }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font:16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width:44rem; margin:0 auto; padding:3rem 1.25rem 4rem; }
+  h1 { font-size:1.9rem; line-height:1.2; margin:0 0 .4rem; letter-spacing:-.02em; }
+  .sub { color:var(--muted); margin:0 0 2rem; }
+  h2 { font-size:1.05rem; margin:2.2rem 0 .6rem; }
+  code, pre { font-family:ui-monospace, SFMono-Regular, Menlo, monospace; font-size:.87rem; }
+  pre { background:rgba(128,128,128,.12); padding:.9rem 1rem; border-radius:8px;
+        overflow-x:auto; border:1px solid var(--line); }
+  a { color:var(--accent); }
+  .stat { display:flex; gap:1.5rem; flex-wrap:wrap; padding:1rem 0; border-top:1px solid var(--line);
+          border-bottom:1px solid var(--line); margin:1.5rem 0; }
+  .stat div b { display:block; font-size:1.5rem; }
+  .stat div span { color:var(--muted); font-size:.82rem; }
+  ul { padding-left:1.2rem; } li { margin:.3rem 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Agenda de eventos gratuitos de Buenos Aires</h1>
+  <p class="sub">Feed JSON abierto, actualizado todos los días por un bot. Sin API key, sin registro, sin costo.</p>
+
+  <div class="stat">
+    <div><b id="count">—</b><span>eventos publicados</span></div>
+    <div><b id="updated">—</b><span>última actualización</span></div>
+    <div><b id="venues">—</b><span>sedes</span></div>
+  </div>
+
+  <h2>Endpoint</h2>
+  <pre><code>GET ./events.json</code></pre>
+  <p>Contrato de datos: <a href="./events.schema.json">events.schema.json</a> (JSON Schema 2020-12).</p>
+
+  <h2>Categorías</h2>
+  <ul>
+    <li><code>MUSICA</code> · <code>ARTES_VISUALES</code> · <code>CINE</code> · <code>TEATRO</code> · <code>INFANTILES</code> · <code>FERIAS</code> · <code>OTROS</code></li>
+  </ul>
+
+  <h2>Modalidad de ingreso</h2>
+  <ul>
+    <li><code>INGRESO_LIBRE</code> — se entra sin trámite previo</li>
+    <li><code>ORDEN_DE_LLEGADA</code> — sujeto al aforo de la sala</li>
+    <li><code>RESERVA_PREVIA</code> — requiere reserva digital</li>
+  </ul>
+
+  <h2>Cómo se mantiene</h2>
+  <p>Un script de Python corre en GitHub Actions cada mañana, normaliza las agendas
+     oficiales y commitea <code>docs/events.json</code>. GitHub Pages lo sirve por HTTPS
+     con CDN. La app Android lo descarga una vez al día y lo cachea en Room para
+     funcionar sin conexión.</p>
+
+<script>
+fetch('./events.json')
+  .then(r => r.json())
+  .then(d => {
+    document.getElementById('count').textContent = d.events.length;
+    document.getElementById('venues').textContent =
+      new Set(d.events.map(e => e.venue.id)).size;
+    document.getElementById('updated').textContent =
+      new Date(d.generated_at).toLocaleDateString('es-AR', { day:'2-digit', month:'short' });
+  })
+  .catch(() => { document.getElementById('count').textContent = 'n/d'; });
+</script>
+</main>
+</body>
+</html>

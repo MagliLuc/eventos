@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Agenda Gratis BA</string>
+
+    <string name="home_title">Eventos gratuitos</string>
+    <string name="search_hint">Buscar por título, sede o barrio</string>
+    <string name="filter_all">Todos</string>
+    <string name="empty_title">No hay eventos con estos filtros</string>
+    <string name="empty_subtitle">Probá quitar alguno o cambiar la fecha.</string>
+    <string name="offline_banner">Sin conexión · mostrando la última agenda descargada</string>
+    <string name="retry">Reintentar</string>
+
+    <string name="action_map">Mapa</string>
+    <string name="action_list">Lista</string>
+    <string name="action_calendar">Agendar</string>
+    <string name="action_directions">Cómo llegar</string>
+    <string name="action_share">Compartir</string>
+    <string name="action_favorite">Guardar</string>
+    <string name="action_reserve">Reservar</string>
+    <string name="action_source">Ver fuente</string>
+
+    <string name="no_calendar_app">No hay una app de calendario instalada</string>
+    <string name="no_maps_app">No hay una app de mapas instalada</string>
+    <string name="no_browser_app">No hay un navegador instalado</string>
+
+    <string name="tab_all">Agenda</string>
+    <string name="tab_favorites">Guardados</string>
+
+    <string name="osm_attribution">© Colaboradores de OpenStreetMap</string>
+</resources>
