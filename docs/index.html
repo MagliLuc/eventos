@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Agenda gratuita de Buenos Aires — API abierta</title>
+<title>Agenda Gratis BA</title>
 <style>
   :root { color-scheme: light dark; --fg:#141414; --bg:#faf9f7; --muted:#5d5d5d; --line:#e2ded8; --accent:#0a5c9e; }
   @media (prefers-color-scheme: dark) { :root { --fg:#ececec; --bg:#16181c; --muted:#a0a0a0; --line:#2c2f36; --accent:#7cb8f0; } }
@@ -22,12 +22,34 @@
   .stat div b { display:block; font-size:1.5rem; }
   .stat div span { color:var(--muted); font-size:.82rem; }
   ul { padding-left:1.2rem; } li { margin:.3rem 0; }
+  .cta { display:flex; gap:1rem; align-items:center; flex-wrap:wrap;
+         background:rgba(10,92,158,.07); border:1px solid var(--line);
+         border-radius:12px; padding:1.25rem; margin:1.5rem 0; }
+  @media (prefers-color-scheme: dark) { .cta { background:rgba(124,184,240,.09); } }
+  .cta .txt { flex:1 1 14rem; }
+  .cta h2 { margin:0 0 .2rem; font-size:1.05rem; }
+  .cta p { margin:0; color:var(--muted); font-size:.88rem; }
+  .btn { display:inline-block; background:var(--accent); color:#fff; text-decoration:none;
+         font-weight:600; padding:.7rem 1.4rem; border-radius:8px; white-space:nowrap; }
+  @media (prefers-color-scheme: dark) { .btn { color:#08243d; } }
+  .btn:hover { filter:brightness(1.08); }
 </style>
 </head>
 <body>
 <main>
   <h1>Agenda de eventos gratuitos de Buenos Aires</h1>
-  <p class="sub">Feed JSON abierto, actualizado todos los días por un bot. Sin API key, sin registro, sin costo.</p>
+  <p class="sub">App Android para descubrir eventos gratuitos y culturales de CABA, con su feed de datos abierto. Sin API key, sin registro, sin costo.</p>
+
+  <div class="cta">
+    <div class="txt">
+      <h2>Descargar la app</h2>
+      <p>APK del último build. Android 7.0 o superior. Al instalarlo, el teléfono
+         va a pedir permitir "fuentes desconocidas": es lo normal fuera de Play Store.</p>
+    </div>
+    <a class="btn" href="https://github.com/MagliLuc/eventos/releases/latest/download/agenda-gratis-ba.apk">
+      Descargar APK
+    </a>
+  </div>
 
   <div class="stat">
     <div><b id="count">—</b><span>eventos publicados</span></div>
@@ -35,7 +57,7 @@
     <div><b id="venues">—</b><span>sedes</span></div>
   </div>
 
-  <h2>Endpoint</h2>
+  <h2>Feed de datos (endpoint)</h2>
   <pre><code>GET ./events.json</code></pre>
   <p>Contrato de datos: <a href="./events.schema.json">events.schema.json</a> (JSON Schema 2020-12).</p>
 

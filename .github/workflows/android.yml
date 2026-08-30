@@ -3,9 +3,14 @@ name: Build Android
 on:
   push:
     branches: [main]
+    # El APK no depende del contenido del feed ni del scraper: si solo cambian
+    # esos, no hace falta recompilar.
     paths-ignore: ["docs/**", "scraper/**", "**/*.md"]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write   # necesario para publicar la release con el APK
 
 jobs:
   build:
@@ -23,8 +28,48 @@ jobs:
       - name: Compilar y correr tests unitarios
         run: ./gradlew --no-daemon assembleDebug testDebugUnitTest
 
+      - name: Renombrar el APK
+        # Nombre fijo y legible: es lo que ve quien lo descarga, y mantiene
+        # estable la URL /releases/latest/download/<nombre>.
+        run: |
+          mkdir -p dist
+          cp app/build/outputs/apk/debug/app-debug.apk dist/agenda-gratis-ba.apk
+
+      # Artifact para las corridas de PR, donde no se publica release.
       - uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: warn
+          path: dist/agenda-gratis-ba.apk
+          if-no-files-found: error
+
+      - name: Publicar el APK en la release "latest"
+        # Solo desde main: un PR no debe pisar la descarga publica.
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          FECHA=$(TZ=America/Argentina/Buenos_Aires date '+%Y-%m-%d %H:%M')
+          # Release rodante: se recrea apuntando al commit actual para que
+          # /releases/latest/download/agenda-gratis-ba.apk sea un enlace
+          # permanente y siempre sirva el ultimo build.
+          gh release delete latest --yes --cleanup-tag 2>/dev/null || true
+          gh release create latest dist/agenda-gratis-ba.apk \
+            --target "$GITHUB_SHA" \
+            --title "Agenda Gratis BA — último build" \
+            --notes "$(cat <<NOTAS
+          **Descarga directa:** [agenda-gratis-ba.apk](https://github.com/${{ github.repository }}/releases/latest/download/agenda-gratis-ba.apk)
+
+          Compilado el $FECHA (hora de Buenos Aires) desde \`${GITHUB_SHA:0:7}\`.
+
+          ### Instalación
+          1. Descargá el \`.apk\` desde el teléfono.
+          2. Al abrirlo, Android va a pedir habilitar **"Instalar apps de fuentes desconocidas"** para el navegador. Es lo normal fuera de Play Store.
+          3. Requiere **Android 7.0 (API 24)** o superior.
+
+          La primera vez necesita internet para bajar la agenda; después funciona offline.
+
+          ---
+          Build de depuración, firmado con la clave de debug de Android. Sirve para instalar y usar, pero no para publicar en Play Store.
+          NOTAS
+          )" \
+            --latest

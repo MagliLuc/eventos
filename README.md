@@ -3,6 +3,12 @@
 App Android para descubrir, filtrar y organizar la agenda de **eventos gratuitos
 y culturales de la Ciudad de Buenos Aires**.
 
+### ⬇️ [Descargar el APK](https://github.com/MagliLuc/eventos/releases/latest/download/agenda-gratis-ba.apk)
+
+Android 7.0 (API 24) o superior. El enlace es permanente y siempre sirve el
+último build de `main`: cada push a esa rama recompila y republica la release
+`latest`. También está el botón en <https://magliluc.github.io/eventos/>.
+
 Todo el stack es open source o de uso gratuito sin límite: **no hay ninguna
 pieza que pida tarjeta de crédito, suscripción ni API key.**
 
@@ -192,6 +198,9 @@ El feed queda en `https://<usuario>.github.io/<repo>/events.json`.
 
 ### App Android
 
+Para solo usarla, alcanza con el [APK de la release](https://github.com/MagliLuc/eventos/releases/latest/download/agenda-gratis-ba.apk).
+Para desarrollarla:
+
 1. Abrir el proyecto en Android Studio (Ladybug o posterior) y sincronizar.
 2. Poner tu URL en `app/build.gradle.kts`:
 
@@ -203,8 +212,13 @@ El feed queda en `https://<usuario>.github.io/<repo>/events.json`.
 
 ```bash
 ./gradlew testDebugUnitTest   # tests de filtrado y de mapeo del feed
-./gradlew assembleDebug
+./gradlew assembleDebug       # el APK queda en app/build/outputs/apk/debug/
 ```
+
+El workflow `android.yml` hace lo mismo en cada push a `main` y publica el APK
+en la release `latest`. Es un build de depuración firmado con la clave de debug:
+se instala y se usa sin problema, pero para Play Store hace falta un
+`signingConfig` propio (ver `app/build.gradle.kts`).
 
 ---
 
