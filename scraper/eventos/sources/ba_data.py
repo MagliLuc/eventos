@@ -116,6 +116,19 @@ class BaDataSource(Source):
         eventos = [e for row in rows if (e := self._to_event(row, window))]
         print(f"  [{self.name}] '{dataset}': {len(rows)} filas "
               f"-> {len(eventos)} en ventana")
+
+        # Bajar miles de filas y publicar cero es sospechoso: casi siempre
+        # significa que no se encontro la columna de fecha, no que el dataset
+        # sea historico. Se loguean las columnas reales y como quedo el
+        # parseo de la primera fila, que es lo unico que distingue un caso
+        # del otro sin tener acceso al portal.
+        if rows and not eventos:
+            muestra = rows[0]
+            fecha_cruda = _pick(muestra, "date")
+            print(f"  [{self.name}] '{dataset}' columnas: {list(muestra)[:14]}")
+            print(f"  [{self.name}] '{dataset}' fecha detectada: "
+                  f"{fecha_cruda!r} -> {_as_iso_date(fecha_cruda)!r} | "
+                  f"titulo: {_pick(muestra, 'title')!r}")
         return eventos
 
     def _get(self, session: requests.Session, path: str, params: dict,
