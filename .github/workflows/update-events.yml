@@ -39,10 +39,16 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/events.json scraper/geocache.json
+          git add docs/events.json
+          # geocache.json solo existe si hubo que consultar Nominatim; cuando
+          # todas las sedes salen del catalogo local no se crea, y un `git add`
+          # con un pathspec que no matchea aborta con exit 128.
+          if [ -f scraper/geocache.json ]; then
+            git add scraper/geocache.json
+          fi
           if git diff --staged --quiet; then
             echo "Sin cambios en la agenda."
           else
-            git commit -m "chore(data): actualizar agenda $(date -u +%Y-%m-%d)"
+            git commit -m "chore(data): actualizar agenda $(TZ=America/Argentina/Buenos_Aires date +%Y-%m-%d)"
             git push
           fi
