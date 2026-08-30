@@ -10,6 +10,7 @@ prueban varios alias por campo y se sigue de largo si ninguno esta.
 """
 from __future__ import annotations
 
+import time
 from typing import Any, Optional
 
 import requests
@@ -90,54 +91,83 @@ class BaDataSource(Source):
                       f"{len(rows)} filas -> {len(events)} eventos en ventana")
                 if events:
                     return events
+        self._diagnostico(session)
         return []
 
+    def _get(self, session: requests.Session, path: str, params: dict,
+             intentos: int = 3) -> Optional[dict]:
+        """GET con reintento ante 5xx.
+
+        El portal contesta 502 de forma intermitente: en la corrida del
+        2026-08-30 la misma URL dio 502 y, segundos despues, 200. Un 5xx es
+        transitorio y merece reintento; un 404 no, y corta enseguida.
+        """
+        espera = 2.0
+        for intento in range(1, intentos + 1):
+            try:
+                r = session.get(f"{CKAN_BASE}/{path}", params=params, timeout=30)
+                if r.status_code >= 500:
+                    raise requests.HTTPError(f"{r.status_code} del portal")
+                r.raise_for_status()
+                return r.json()
+            except requests.HTTPError as exc:
+                if "404" in str(exc):
+                    return None          # el dataset no existe: no insistir
+                if intento < intentos:
+                    time.sleep(espera)
+                    espera *= 2
+                    continue
+                print(f"  [{self.name}] {path} agotó reintentos: {exc}")
+            except Exception as exc:
+                print(f"  [{self.name}] {path} falló: {exc}")
+                return None
+        return None
+
     def _candidatos(self, session: requests.Session) -> list[str]:
-        """Ids fijos primero; si fallan, los que descubra package_search."""
+        """Ids fijos primero; si fallan, los que descubra la busqueda."""
         encontrados: list[str] = list(DATASETS)
         for termino in BUSQUEDAS:
-            try:
-                r = session.get(
-                    f"{CKAN_BASE}/package_search",
-                    params={"q": termino, "rows": 5},
-                    timeout=30,
-                )
-                r.raise_for_status()
-                for paquete in r.json()["result"]["results"]:
-                    nombre = paquete.get("name")
-                    if nombre and nombre not in encontrados:
-                        encontrados.append(nombre)
-                        print(f"  [{self.name}] descubierto por búsqueda: {nombre}")
-            except Exception as exc:
-                print(f"  [{self.name}] búsqueda '{termino}' falló: {exc}")
+            data = self._get(session, "package_search", {"q": termino, "rows": 8})
+            for paquete in (data or {}).get("result", {}).get("results", []):
+                nombre = paquete.get("name")
+                if nombre and nombre not in encontrados:
+                    encontrados.append(nombre)
+                    print(f"  [{self.name}] descubierto por búsqueda: {nombre}")
         return encontrados
+
+    def _diagnostico(self, session: requests.Session) -> None:
+        """Lista los datasets del portal que suenan a agenda.
+
+        Si ningun candidato sirvio, el log de la proxima corrida deja los ids
+        reales anotados y no hay que salir a buscarlos a mano.
+        """
+        data = self._get(session, "package_list", {})
+        nombres = (data or {}).get("result") or []
+        if not nombres:
+            return
+        claves = ("agenda", "cultur", "evento", "actividad", "museo", "teatro")
+        pistas = [n for n in nombres if any(k in n.lower() for k in claves)]
+        print(f"  [{self.name}] el portal tiene {len(nombres)} datasets; "
+              f"candidatos por nombre: {pistas[:25] or 'ninguno'}")
 
     def _rows(self, session: requests.Session, dataset: str) -> list[dict]:
         """Resuelve el dataset -> recurso con datastore -> filas."""
-        try:
-            meta = session.get(
-                f"{CKAN_BASE}/package_show", params={"id": dataset}, timeout=30
-            )
-            meta.raise_for_status()
-            resources = meta.json()["result"]["resources"]
-        except Exception as exc:
-            print(f"  [{self.name}] '{dataset}' no disponible: {exc}")
+        data = self._get(session, "package_show", {"id": dataset})
+        if not data:
             return []
+        resources = data.get("result", {}).get("resources", [])
 
         for resource in resources:
             # Solo los recursos cargados al datastore son consultables por API.
             if not resource.get("datastore_active"):
                 continue
-            try:
-                data = session.get(
-                    f"{CKAN_BASE}/datastore_search",
-                    params={"resource_id": resource["id"], "limit": 1000},
-                    timeout=30,
-                )
-                data.raise_for_status()
-                return data.json()["result"]["records"]
-            except Exception as exc:
-                print(f"  [{self.name}] recurso {resource.get('name')}: {exc}")
+            filas = self._get(
+                session, "datastore_search",
+                {"resource_id": resource["id"], "limit": 1000},
+            )
+            registros = (filas or {}).get("result", {}).get("records")
+            if registros:
+                return registros
         return []
 
     def _to_event(self, row: dict, window: DateWindow) -> Optional[Event]:
