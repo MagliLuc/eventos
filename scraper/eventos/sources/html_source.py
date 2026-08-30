@@ -1,12 +1,11 @@
 """Fuente HTML generica: JSON-LD primero, selectores CSS como respaldo."""
 from __future__ import annotations
 
-from datetime import datetime
 from typing import Optional
 
 import requests
 
-from ..models import Event
+from ..models import Event, now_ba_iso
 from ..normalize import (
     clean_text,
     detect_access_mode,
@@ -96,7 +95,7 @@ class HtmlAgendaSource(Source):
             source_name=self.name,
             source_url=node.get("url") or self.url,
             image_url=_first_image(node.get("image")),
-            updated_at=datetime.now().astimezone().isoformat(timespec="seconds"),
+            updated_at=now_ba_iso(),
         )
 
     # -- Selectores CSS ---------------------------------------------------
@@ -130,7 +129,7 @@ class HtmlAgendaSource(Source):
             venue=build_venue(text_of(node, self.venue_selector) or self.default_venue),
             source_name=self.name,
             source_url=link_of(node, self.link_selector, self.url) or self.url,
-            updated_at=datetime.now().astimezone().isoformat(timespec="seconds"),
+            updated_at=now_ba_iso(),
         )
 
 

@@ -1,7 +1,7 @@
 name: Publicar en GitHub Pages
 
 # GitHub Pages sirve docs/events.json gratis, con CDN y HTTPS incluidos.
-# Requisito unico: Settings -> Pages -> Source: "GitHub Actions".
+# El workflow habilita Pages solo en la primera corrida (enablement: true).
 on:
   push:
     branches: [main]
@@ -27,7 +27,12 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+      # enablement: true habilita Pages via API en la primera corrida.
+      # Sin esto el workflow falla con "Get Pages site failed: Not Found"
+      # hasta que alguien lo active a mano en Settings.
       - uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: docs
