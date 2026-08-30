@@ -67,3 +67,63 @@ def test_la_ventana_rechaza_fechas_fuera_de_rango_e_invalidas():
     assert not ventana.contains("2026-09-08")
     assert not ventana.contains("08/09/2026")   # no es ISO
     assert not ventana.contains(None)
+
+
+# --- BA Data: parseo de CSV ------------------------------------------------
+# La corrida del 2026-08-30 mostró que los datasets del portal publican CSV
+# para descarga y no están cargados al datastore, así que este camino es el
+# que realmente trae los datos.
+
+def _csv_falso(contenido: str):
+    from unittest.mock import Mock
+    sesion = Mock()
+    sesion.get.return_value = Mock(
+        content=contenido.encode("utf-8"), raise_for_status=Mock()
+    )
+    return sesion
+
+
+def test_csv_con_bom_y_separador_coma():
+    from eventos.sources.ba_data import BaDataSource
+    filas = BaDataSource()._csv(
+        _csv_falso('﻿titulo,fecha\nMilonga,2026-09-05\n'), "http://x/y.csv"
+    )
+    assert filas == [{"titulo": "Milonga", "fecha": "2026-09-05"}]
+
+
+def test_csv_con_separador_punto_y_coma():
+    from eventos.sources.ba_data import BaDataSource
+    filas = BaDataSource()._csv(
+        _csv_falso('titulo;fecha\nConcierto;2026-09-06\n'), "http://x/y.csv"
+    )
+    assert filas == [{"titulo": "Concierto", "fecha": "2026-09-06"}]
+
+
+def test_una_fila_del_csv_se_mapea_a_evento():
+    from eventos.models import DateWindow
+    from eventos.sources.ba_data import BaDataSource
+    ventana = DateWindow(start=date(2026, 9, 1), end=date(2026, 9, 30))
+    evento = BaDataSource()._to_event(
+        {
+            "titulo": "Concierto en el Colón",
+            "fecha": "05/09/2026",          # formato dd/mm/aaaa
+            "hora": "20:00",
+            "sede": "Teatro Colón",
+            "precio": "gratis",
+        },
+        ventana,
+    )
+    assert evento is not None
+    assert evento.date == "2026-09-05"
+    assert evento.start_time == "20:00"
+    assert evento.venue.neighborhood == "San Nicolás"   # del catálogo local
+
+
+def test_una_fila_paga_no_entra():
+    from eventos.models import DateWindow
+    from eventos.sources.ba_data import BaDataSource
+    ventana = DateWindow(start=date(2026, 9, 1), end=date(2026, 9, 30))
+    evento = BaDataSource()._to_event(
+        {"titulo": "Ópera", "fecha": "05/09/2026", "precio": "$ 25.000"}, ventana
+    )
+    assert evento is None
