@@ -13,6 +13,14 @@ on:
     paths:
       - "docs/**"
       - ".github/workflows/pages.yml"
+  # GitHub no dispara workflows con eventos generados por el GITHUB_TOKEN.
+  # El bot de la agenda commitea docs/events.json con ese token, asi que su
+  # push NUNCA disparaba el `push` de arriba: el JSON quedaba en el repo pero
+  # el sitio seguia sirviendo el del ultimo deploy hecho por una persona.
+  # `workflow_run` si se dispara al terminar el otro workflow.
+  workflow_run:
+    workflows: ["Actualizar agenda de eventos"]
+    types: [completed]
   workflow_dispatch:
 
 permissions:
@@ -30,8 +38,17 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    # Con workflow_run solo publicar si la corrida de la agenda salio bien:
+    # no tiene sentido desplegar un JSON que fallo la validacion.
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success'
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Explicito: en workflow_run el checkout por defecto puede quedar en
+          # un commit anterior al que acaba de pushear el bot.
+          ref: main
       # Se deja enablement: true igual. No sirve para la creacion inicial
       # (ver arriba), pero es no-op cuando Pages ya esta activo y vuelve a
       # habilitarlo solo si alguien lo desactiva mas adelante.
