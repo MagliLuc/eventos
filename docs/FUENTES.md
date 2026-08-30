@@ -91,12 +91,46 @@ Lecturas:
   consistentes con la hipótesis del bloqueo por IP pero sin probarla: haría
   falta sondear desde otra red.
 
-> **Ojo con lo que un feed garantiza.** Que Teatro Colón publique RSS no
-> significa que vaya a aportar eventos: un ítem de RSS es un artículo. El
-> extractor entra a cada ficha y busca JSON-LD; si las notas no lo traen, el
-> aporte va a ser cero y el log lo va a decir ("N notas sin schema.org/Event").
-> Se integran igual porque el costo es una entrada en `sources.json` y la
-> próxima corrida lo responde con datos.
+### Resultado de activarlas (corrida 22:09)
+
+La advertencia se cumplió:
+
+```
+[Usina del Arte]  10 notas sin schema.org/Event  ->  0 eventos
+[Teatro Colón]    10 notas sin schema.org/Event  ->  0 eventos
+```
+
+Los feeds existen y traen diez entradas cada uno, pero **las fichas enlazadas
+no marcan `schema.org/Event`**. Sin ese marcado no hay fecha ni sede del
+evento, solo la fecha de publicación de la nota — y datear un evento con la
+fecha en que se publicó el artículo es exactamente el error que generó siete
+copias del mismo evento. Se quedan como activas porque no cuestan nada y
+cualquier día pueden empezar a marcar; el log dice si aportan.
+
+**Conclusión sobre RSS en este dominio**: sirve para descubrir URLs, no para
+obtener eventos. Salvo que el sitio marque JSON-LD en las fichas, un feed no
+alcanza.
+
+### BA Data: el CSV funciona, la fecha no
+
+```
+'teatro-colon-programacion-actual':   18 filas -> 0 en ventana
+'eventos-direccion-general-musica':   82 filas -> 0 en ventana
+'teatro-colon-visitas-guiadas':     9392 filas -> 0 en ventana
+'ba-diversa':                         46 filas -> 0 en ventana
+```
+
+Nueve mil quinientas filas descargadas y parseadas, cero publicadas. Un
+dataset llamado "programación **actual**" con 18 filas y ninguna vigente no
+cierra: lo más probable es que los alias de columna no matcheen los nombres
+reales, no que los datos sean históricos.
+
+Por eso ahora, cuando un dataset trae filas y no produce eventos, se loguean
+**las columnas reales y cómo quedó el parseo de la primera fila**. Eso
+distingue las dos causas sin tener acceso al portal:
+
+- `fecha detectada: None` → el alias de columna no matchea; hay que sumarlo.
+- `fecha detectada: '2019-03-01'` → el dataset es histórico y no sirve.
 
 ---
 
