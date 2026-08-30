@@ -1,0 +1,151 @@
+"""BA Data: portal oficial de datos abiertos del GCBA, sobre CKAN.
+
+Es la fuente mas solida del proyecto y la unica con compromiso institucional
+de actualizacion. La API de CKAN es publica: no pide API key, ni registro, ni
+tarjeta. Se consulta el datastore del recurso y se mapean las columnas.
+
+Los nombres de columna de estos datasets cambian entre publicaciones
+(`titulo` / `nombre` / `evento`...), asi que en vez de hardcodear uno se
+prueban varios alias por campo y se sigue de largo si ninguno esta.
+"""
+from __future__ import annotations
+
+from typing import Any, Optional
+
+import requests
+
+from ..models import DateWindow, Event, now_ba_iso
+from ..normalize import clean_text, detect_access_mode, detect_category, is_free, parse_times
+from ..venues import build_venue
+from .base import Source
+
+CKAN_BASE = "https://data.buenosaires.gob.ar/api/3/action"
+
+# Datasets candidatos, en orden de preferencia.
+DATASETS = ("agenda-cultural", "actividades-culturales")
+
+# Alias de columnas: el primero que aparezca con valor gana.
+ALIAS = {
+    "title": ("titulo", "nombre", "evento", "actividad", "title", "name"),
+    "description": ("descripcion", "detalle", "resumen", "bajada", "description"),
+    "date": ("fecha", "fecha_inicio", "fecha_desde", "start_date", "dia"),
+    "time": ("hora", "horario", "hora_inicio", "start_time"),
+    "venue": ("sede", "lugar", "espacio", "establecimiento", "venue", "nombre_sede"),
+    "address": ("direccion", "domicilio", "calle", "address"),
+    "neighborhood": ("barrio", "neighborhood"),
+    "category": ("categoria", "disciplina", "tipo", "rubro", "category"),
+    "price": ("precio", "costo", "arancel", "valor", "entrada"),
+    "url": ("url", "link", "enlace", "web"),
+    "lat": ("lat", "latitud", "latitude", "y"),
+    "lon": ("lon", "long", "longitud", "longitude", "x"),
+}
+
+
+def _pick(row: dict, field: str) -> Optional[Any]:
+    for alias in ALIAS[field]:
+        for key, value in row.items():
+            if key.strip().lower() == alias and value not in (None, "", "-"):
+                return value
+    return None
+
+
+def _as_float(value: Any) -> Optional[float]:
+    try:
+        return float(str(value).replace(",", "."))
+    except (TypeError, ValueError):
+        return None
+
+
+def _as_iso_date(value: Any) -> Optional[str]:
+    """Acepta 2026-08-30, 2026-08-30T20:00, 30/08/2026 y 30-08-2026."""
+    text = str(value or "").strip()
+    if not text:
+        return None
+    if len(text) >= 10 and text[4] == "-" and text[7] == "-":
+        return text[:10]
+    for sep in ("/", "-"):
+        parts = text[:10].split(sep)
+        if len(parts) == 3 and len(parts[0]) <= 2:
+            day, month, year = parts
+            if len(year) == 4:
+                return f"{year}-{int(month):02d}-{int(day):02d}"
+    return None
+
+
+class BaDataSource(Source):
+    name = "BA Data (datos abiertos GCBA)"
+    url = CKAN_BASE
+
+    def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
+        for dataset in DATASETS:
+            rows = self._rows(session, dataset)
+            if rows:
+                events = [e for row in rows if (e := self._to_event(row, window))]
+                if events:
+                    print(f"  [{self.name}] dataset '{dataset}': {len(rows)} filas")
+                    return events
+        return []
+
+    def _rows(self, session: requests.Session, dataset: str) -> list[dict]:
+        """Resuelve el dataset -> recurso con datastore -> filas."""
+        try:
+            meta = session.get(
+                f"{CKAN_BASE}/package_show", params={"id": dataset}, timeout=30
+            )
+            meta.raise_for_status()
+            resources = meta.json()["result"]["resources"]
+        except Exception as exc:
+            print(f"  [{self.name}] '{dataset}' no disponible: {exc}")
+            return []
+
+        for resource in resources:
+            # Solo los recursos cargados al datastore son consultables por API.
+            if not resource.get("datastore_active"):
+                continue
+            try:
+                data = session.get(
+                    f"{CKAN_BASE}/datastore_search",
+                    params={"resource_id": resource["id"], "limit": 1000},
+                    timeout=30,
+                )
+                data.raise_for_status()
+                return data.json()["result"]["records"]
+            except Exception as exc:
+                print(f"  [{self.name}] recurso {resource.get('name')}: {exc}")
+        return []
+
+    def _to_event(self, row: dict, window: DateWindow) -> Optional[Event]:
+        title = clean_text(_pick(row, "title"), 160)
+        iso_date = _as_iso_date(_pick(row, "date"))
+        if not title or not window.contains(iso_date):
+            return None
+
+        price = _pick(row, "price")
+        description = clean_text(_pick(row, "description"))
+        if not is_free(title, description, str(price or "")):
+            return None
+
+        start_time, end_time = parse_times(str(_pick(row, "time") or ""))
+        venue = build_venue(
+            str(_pick(row, "venue") or "Ciudad de Buenos Aires"),
+            clean_text(_pick(row, "address"), 120),
+        )
+        if not venue.neighborhood:
+            venue.neighborhood = clean_text(_pick(row, "neighborhood"), 60)
+        if venue.lat is None:
+            venue.lat = _as_float(_pick(row, "lat"))
+            venue.lon = _as_float(_pick(row, "lon"))
+
+        return Event(
+            title=title,
+            description=description,
+            category=detect_category(title, description, str(_pick(row, "category") or "")),
+            access_mode=detect_access_mode(title, description, str(price or "")),
+            date=iso_date,
+            start_time=start_time,
+            end_time=end_time,
+            venue=venue,
+            source_name="BA Data",
+            source_url=str(_pick(row, "url") or "https://data.buenosaires.gob.ar/"),
+            updated_at=now_ba_iso(),
+        )

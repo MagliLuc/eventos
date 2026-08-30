@@ -10,7 +10,7 @@ from __future__ import annotations
 import re
 import unicodedata
 from dataclasses import dataclass, field, asdict
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from typing import Optional
 from zoneinfo import ZoneInfo
 
@@ -29,6 +29,38 @@ def today_ba() -> date:
 
 def now_ba_iso() -> str:
     return datetime.now(BUENOS_AIRES).isoformat(timespec="seconds")
+
+
+@dataclass(frozen=True)
+class DateWindow:
+    """Rango de fechas que se quiere publicar, en hora de Buenos Aires.
+
+    Las fuentes reciben la ventana entera y se descargan UNA sola vez. Antes
+    se las llamaba una vez por dia, lo que multiplicaba los requests por la
+    cantidad de dias y, cuando la pagina no traia fecha legible, clonaba el
+    mismo evento con una fecha distinta por cada llamada.
+    """
+
+    start: date
+    end: date
+
+    @classmethod
+    def upcoming(cls, days: int) -> "DateWindow":
+        today = today_ba()
+        return cls(start=today, end=today + timedelta(days=max(days - 1, 0)))
+
+    def contains(self, value: Optional[str]) -> bool:
+        """`value` es una fecha ISO (YYYY-MM-DD); un valor invalido no entra."""
+        if not value:
+            return False
+        try:
+            parsed = date.fromisoformat(value[:10])
+        except ValueError:
+            return False
+        return self.start <= parsed <= self.end
+
+    def __str__(self) -> str:
+        return f"{self.start} a {self.end}"
 
 CATEGORIES = (
     "MUSICA",

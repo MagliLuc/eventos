@@ -22,8 +22,8 @@ DEFAULT_OUTPUT = Path(__file__).resolve().parents[1] / "docs" / "events.json"
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
-    parser.add_argument("--days", type=int, default=7,
-                        help="ventana de dias a publicar (default: 7)")
+    parser.add_argument("--days", type=int, default=21,
+                        help="ventana de dias a publicar (default: 21)")
     parser.add_argument("--offline", action="store_true",
                         help="no sale a la red; usa solo scraper/seed/")
     args = parser.parse_args()

@@ -134,6 +134,7 @@ flag estuviera en esa fila se perdería cada mañana.
 ```
 scraper/
 ├── run_scraper.py            # CLI
+├── discover.py               # sonda sitios buscando APIs ocultas
 ├── requirements.txt
 ├── seed/                     # agenda curada a mano (red de seguridad)
 ├── tests/                    # 14 tests, corren sin red
@@ -143,7 +144,9 @@ scraper/
     ├── venues.py             # catálogo de sedes + geocoding gratis (Nominatim)
     ├── pipeline.py           # dedupe, validación y escritura del JSON
     └── sources/
-        ├── html_source.py    # JSON-LD primero, selectores CSS como plan B
+        ├── html_source.py       # JSON-LD primero, selectores CSS como plan B
+        ├── ba_data.py           # API CKAN oficial del GCBA (sin API key)
+        ├── agendas_culturales.py # Recoleta, Bicentenario, MNBA, CTBA, Cultura
         ├── palacio_libertad.py
         ├── usina_del_arte.py
         ├── ba_turismo.py
@@ -152,13 +155,21 @@ scraper/
 
 ```bash
 pip install -r scraper/requirements.txt
-python scraper/run_scraper.py --days 7      # escribe docs/events.json
+python scraper/run_scraper.py --days 21     # escribe docs/events.json
 python scraper/run_scraper.py --offline     # sin red, solo seed local
+python scraper/discover.py                  # ¿qué sitios exponen una API?
 python -m pytest scraper/tests -q
 ```
 
 Decisiones que hacen que esto se mantenga solo:
 
+- **Una descarga por fuente.** `Source.fetch` recibe la ventana entera
+  (`DateWindow`) y se llama una sola vez. Antes se la llamaba una vez por día:
+  además de multiplicar los requests, cuando la página no traía fecha legible
+  el mismo evento se clonaba con una fecha distinta por cada llamada.
+- **Sin fecha legible, no hay evento.** Se descarta y se cuenta en el log:
+  muchos descartes seguidos es la señal de que los selectores de esa fuente
+  quedaron viejos.
 - **JSON-LD antes que selectores CSS.** Las agendas oficiales corren sobre
   WordPress/Drupal y emiten `schema.org/Event` en un `<script type="application/ld+json">`.
   Ese marcado se rompe mucho menos que un `div.clase-que-cambia`. Los

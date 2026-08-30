@@ -6,11 +6,12 @@ defecto de la fuente entraban al feed 7 pseudo-eventos (uno por dia de la
 ventana) sin direccion, sin barrio y sin coordenadas.
 """
 import sys
+from datetime import date
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from eventos.models import Event, Venue  # noqa: E402
+from eventos.models import DateWindow, Event, Venue  # noqa: E402
 from eventos.pipeline import dedupe  # noqa: E402
 
 
@@ -56,3 +57,13 @@ def test_se_descartan_los_pseudo_eventos_de_la_pagina_indice():
     publicados = [e for e in dedupe(basura + reales) if e.venue.is_locatable]
 
     assert [e.title for e in publicados] == ["Gran Milonga de Cierre"]
+
+
+def test_la_ventana_rechaza_fechas_fuera_de_rango_e_invalidas():
+    ventana = DateWindow(start=date(2026, 9, 1), end=date(2026, 9, 7))
+    assert ventana.contains("2026-09-01")
+    assert ventana.contains("2026-09-07T20:00:00-03:00")
+    assert not ventana.contains("2026-08-31")
+    assert not ventana.contains("2026-09-08")
+    assert not ventana.contains("08/09/2026")   # no es ISO
+    assert not ventana.contains(None)

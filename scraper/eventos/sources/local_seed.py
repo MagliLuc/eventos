@@ -11,7 +11,7 @@ from pathlib import Path
 
 import requests
 
-from ..models import Event, Venue
+from ..models import DateWindow, Event, Venue
 from .base import Source
 
 SEED_DIR = Path(__file__).resolve().parents[2] / "seed"
@@ -21,7 +21,7 @@ class LocalSeedSource(Source):
     name = "seed local"
     url = str(SEED_DIR)
 
-    def fetch(self, session: requests.Session, target_date: str) -> list[Event]:
+    def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
         if not SEED_DIR.exists():
             return []
         events: list[Event] = []

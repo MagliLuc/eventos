@@ -3,7 +3,9 @@ package ar.eventosba.domain
 import ar.eventosba.domain.model.AccessMode
 import ar.eventosba.domain.model.Category
 import ar.eventosba.domain.model.Event
+import ar.eventosba.domain.model.DateRangeFilter
 import ar.eventosba.domain.model.EventFilter
+import ar.eventosba.domain.model.SortOrder
 import ar.eventosba.domain.model.TimeSlot
 import ar.eventosba.domain.model.Venue
 import org.junit.Assert.assertEquals
@@ -48,11 +50,14 @@ class EventFilterTest {
 
     private val all = listOf(milonga, muestra, colon)
 
-    private fun apply(filter: EventFilter) = all.filter(filter::matches).map { it.id }
+    private val hoy: LocalDate = LocalDate.of(2026, 8, 30)   // domingo
+
+    private fun apply(filter: EventFilter) = filter.apply(all, hoy).map { it.id }
 
     @Test
-    fun `sin filtros devuelve todo`() {
-        assertEquals(listOf("milonga", "muestra", "colon"), apply(EventFilter()))
+    fun `sin filtros devuelve todo, ya ordenado por hora`() {
+        // Mismo día para los tres, así que manda la hora: 13:00, 17:00, 20:00.
+        assertEquals(listOf("muestra", "milonga", "colon"), apply(EventFilter()))
     }
 
     @Test
@@ -173,3 +178,79 @@ class EventFilterTest {
         imageUrl = null,
     )
 }
+
+    // --- Rangos de fecha -------------------------------------------------
+
+    @Test
+    fun `el rango HOY deja solo los de hoy`() {
+        val manana = milonga.copy(id = "manana", date = hoy.plusDays(1))
+        val lista = listOf(milonga, manana)
+        val filtro = EventFilter(dateRange = DateRangeFilter.HOY)
+        assertEquals(listOf("milonga"), filtro.apply(lista, hoy).map { it.id })
+    }
+
+    @Test
+    fun `el finde incluye sabado y domingo`() {
+        // hoy es domingo 30-08-2026: el finde en curso es 29 y 30.
+        assertTrue(DateRangeFilter.FIN_DE_SEMANA.matches(LocalDate.of(2026, 8, 29), hoy))
+        assertTrue(DateRangeFilter.FIN_DE_SEMANA.matches(hoy, hoy))
+        assertFalse(DateRangeFilter.FIN_DE_SEMANA.matches(LocalDate.of(2026, 8, 31), hoy))
+    }
+
+    @Test
+    fun `el finde desde un dia de semana apunta al sabado siguiente`() {
+        val miercoles = LocalDate.of(2026, 9, 2)
+        assertTrue(DateRangeFilter.FIN_DE_SEMANA.matches(LocalDate.of(2026, 9, 5), miercoles))
+        assertTrue(DateRangeFilter.FIN_DE_SEMANA.matches(LocalDate.of(2026, 9, 6), miercoles))
+        assertFalse(DateRangeFilter.FIN_DE_SEMANA.matches(miercoles, miercoles))
+    }
+
+    @Test
+    fun `tocar dos veces el mismo rango lo desactiva`() {
+        val filtro = EventFilter()
+            .toggleDateRange(DateRangeFilter.HOY)
+            .toggleDateRange(DateRangeFilter.HOY)
+        assertEquals(DateRangeFilter.TODAS, filtro.dateRange)
+        assertEquals(0, filtro.activeCount)
+    }
+
+    // --- Ordenamiento ----------------------------------------------------
+
+    @Test
+    fun `orden por fecha ascendente y descendente son inversos`() {
+        val manana = milonga.copy(id = "manana", date = hoy.plusDays(1))
+        val lista = listOf(manana, milonga)
+        val asc = EventFilter(sortOrder = SortOrder.FECHA_ASC).apply(lista, hoy).map { it.id }
+        val desc = EventFilter(sortOrder = SortOrder.FECHA_DESC).apply(lista, hoy).map { it.id }
+        assertEquals(listOf("milonga", "manana"), asc)
+        assertEquals(listOf("manana", "milonga"), desc)
+    }
+
+    @Test
+    fun `dentro del mismo dia ordena por hora y los sin horario van al final`() {
+        val sinHora = milonga.copy(id = "sin-hora", startTime = null)
+        val lista = listOf(sinHora, colon, muestra)
+        val orden = EventFilter(sortOrder = SortOrder.FECHA_ASC).apply(lista, hoy).map { it.id }
+        assertEquals(listOf("muestra", "colon", "sin-hora"), orden)
+    }
+
+    @Test
+    fun `orden alfabetico ignora mayusculas y no agrupa por dia`() {
+        val orden = EventFilter(sortOrder = SortOrder.TITULO).apply(all, hoy).map { it.id }
+        assertEquals(listOf("milonga", "muestra", "colon"), orden)
+        assertFalse(SortOrder.TITULO.groupsByDay)
+        assertTrue(SortOrder.FECHA_ASC.groupsByDay)
+    }
+
+    @Test
+    fun `el orden no cuenta como filtro activo`() {
+        val filtro = EventFilter(sortOrder = SortOrder.FECHA_DESC)
+        assertEquals(0, filtro.activeCount)
+        assertTrue(filtro.isEmpty)
+    }
+
+    @Test
+    fun `limpiar conserva el orden elegido`() {
+        val filtro = EventFilter(sortOrder = SortOrder.TITULO).toggleCategory(Category.MUSICA)
+        assertEquals(SortOrder.TITULO, filtro.cleared().sortOrder)
+    }

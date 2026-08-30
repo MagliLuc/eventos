@@ -7,7 +7,7 @@ from typing import Optional
 import requests
 from bs4 import BeautifulSoup
 
-from ..models import Event
+from ..models import DateWindow, Event
 
 USER_AGENT = (
     "eventos-caba-bot/1.0 (+https://github.com/MagliLuc/eventos) "
@@ -43,21 +43,25 @@ def fetch_soup(session: requests.Session, url: str,
 
 
 class Source:
-    """Fuente de eventos. Las subclases implementan `fetch`."""
+    """Fuente de eventos. Las subclases implementan `fetch`.
+
+    `fetch` recibe la ventana completa y se llama UNA vez por corrida: es
+    responsabilidad de la fuente devolver todo lo que caiga dentro.
+    """
 
     name: str = "generic"
     url: str = ""
 
-    def fetch(self, session: requests.Session, target_date: str) -> list[Event]:
+    def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
         raise NotImplementedError
 
-    def safe_fetch(self, session: requests.Session, target_date: str) -> list[Event]:
+    def safe_fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
         try:
-            events = self.fetch(session, target_date)
+            events = self.fetch(session, window)
             print(f"  [{self.name}] {len(events)} eventos")
             return events
         except Exception as exc:  # una fuente rota no tumba la corrida
-            print(f"  [{self.name}] ERROR: {exc}")
+            print(f"  [{self.name}] ERROR: {type(exc).__name__}: {exc}")
             return []
 
 
