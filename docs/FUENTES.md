@@ -15,7 +15,7 @@ y cada capa de interpretación es una fuente de error.
 |---|---|---|---|---|
 | 1 | **iCalendar (.ics)** | Fecha, hora, lugar ya normalizados | Muy baja — formato RFC 5545 | ✅ `IcsSource` |
 | 2 | **The Events Calendar (WP)** | JSON con `start_date`, `venue`, **`cost`** | Muy baja — API versionada | ✅ `TribeEventsSource` |
-| 3 | **CKAN / datos abiertos** | Tablas oficiales (CSV o datastore) | Baja — pero los ids cambian | ✅ `BaDataSource` |
+| 3 | **CKAN / datos abiertos** | Tablas oficiales — ojo: suelen ser **históricas** | Baja, pero puede no ser agenda | ✅ `BaDataSource` |
 | 4 | **JSON-LD schema.org/Event** | Evento estructurado en el HTML | Baja — sobrevive rediseños | ✅ `HtmlAgendaSource` |
 | 5 | **API interna de la SPA** | Lo mismo que ve la web | Media — no versionada | 🔍 lo detecta `discover.py` |
 | 6 | **RSS / Atom** | Artículos, **no eventos** | Media | ✅ `RssSource` (+ JSON-LD por ficha) |
@@ -44,8 +44,8 @@ segundos y cientos de MB por corrida.
 Verificado en corridas de GitHub Actions del 2026-08-30, no supuesto.
 
 ### Funcionando
-- **BA Data (CKAN)** — alcanzable desde CI. 454 datasets. Devuelve 502
-  intermitente, por eso el GET reintenta ante 5xx.
+- **BA Data (CKAN)** — alcanzable desde CI, pero **sus datasets culturales son
+  archivo histórico** (ver más abajo). Aporta cero eventos vigentes.
 - **Usina del Arte**, **Centro Cultural Recoleta**, **Turismo BA** — responden
   200 pero los selectores no extraen fecha. Necesitan `discover.py`.
 
@@ -111,7 +111,7 @@ cualquier día pueden empezar a marcar; el log dice si aportan.
 obtener eventos. Salvo que el sitio marque JSON-LD en las fichas, un feed no
 alcanza.
 
-### BA Data: el CSV funciona, la fecha no
+### BA Data: no es una agenda (corrección)
 
 ```
 'teatro-colon-programacion-actual':   18 filas -> 0 en ventana
@@ -120,17 +120,35 @@ alcanza.
 'ba-diversa':                         46 filas -> 0 en ventana
 ```
 
-Nueve mil quinientas filas descargadas y parseadas, cero publicadas. Un
-dataset llamado "programación **actual**" con 18 filas y ninguna vigente no
-cierra: lo más probable es que los alias de columna no matcheen los nombres
-reales, no que los datos sean históricos.
+El diagnóstico de columnas respondió, y la respuesta desmiente la hipótesis
+que se venía sosteniendo. **La detección de fecha funcionaba perfecto**; el
+dato es viejo:
 
-Por eso ahora, cuando un dataset trae filas y no produce eventos, se loguean
-**las columnas reales y cómo quedó el parseo de la primera fila**. Eso
-distingue las dos causas sin tener acceso al portal:
+```
+eventos-direccion-general-musica  ['evento','fecha_desde','barrio','comuna'...]  → 2017-01-07
+teatro-colon-visitas-guiadas      ['PERIODO','FECHA','TIPO_VISITAS','VISITAS']   → 2016-01-01
+ba-diversa                        [...'fecha_inicio','asistentes_cantidad'...]   → 2015-06-16
+bafici                            ['id_filmcolor','name_es','name_en',...]       → sin fecha
+```
 
-- `fecha detectada: None` → el alias de columna no matchea; hay que sumarlo.
-- `fecha detectada: '2019-03-01'` → el dataset es histórico y no sirve.
+Las columnas delatan qué son en realidad: `VISITAS` y `asistentes_cantidad`
+son **estadísticas de asistencia**, e `id_filmcolor` es una **tabla de códigos
+de color de película**. Nada de eso es una agenda.
+
+> **Corrección.** Durante buena parte del trabajo se trató a BA Data como "la
+> fuente más prometedora, la única con compromiso institucional de
+> actualización". Es falso: **BA Data es un portal de transparencia y
+> estadística, no un feed de agenda cultural**. Los datasets con nombre de
+> evento son archivos históricos y reportes posteriores. No sirve para saber
+> qué pasa mañana.
+
+Se dejan solo `actividades-culturales` y `teatro-colon-programacion-actual`,
+los únicos dos que podrían traer programación vigente, y se agrega un aviso
+automático: cuando un dataset no produce eventos se reporta **la fecha más
+nueva que contiene**, que distingue de un vistazo las dos causas posibles:
+
+- `ninguna fila tiene fecha parseable` → falta un alias de columna.
+- `fecha más nueva: 2017-03-02 -> ARCHIVO` → el dataset es histórico.
 
 ---
 

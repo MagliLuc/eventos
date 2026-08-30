@@ -18,7 +18,7 @@
       "kind": "ckan",
       "url": "https://data.buenosaires.gob.ar/api/3/action",
       "status": "activo",
-      "note": "Alcanzable desde CI. 454 datasets; devuelve 502 intermitente, por eso el GET reintenta."
+      "note": "Alcanzable, pero es un portal de transparencia y estadística, no una agenda: sus datasets culturales son archivo (2015-2017) o conteos de asistentes. Quedan solo los dos ids que podrían traer programación vigente."
     },
     {
       "name": "Usina del Arte",

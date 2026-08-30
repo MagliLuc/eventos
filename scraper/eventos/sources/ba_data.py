@@ -17,22 +17,34 @@ from typing import Any, Optional
 
 import requests
 
-from ..models import DateWindow, Event, now_ba_iso
+from datetime import timedelta
+
+from ..models import DateWindow, Event, now_ba_iso, today_ba
 from ..normalize import clean_text, detect_access_mode, detect_category, is_free, parse_times
 from ..venues import build_venue
 from .base import Source
 
 CKAN_BASE = "https://data.buenosaires.gob.ar/api/3/action"
 
-# Ids REALES, sacados del propio portal: el autodiagnostico de la corrida del
-# 2026-08-30 listo los 454 datasets y estos son los que traen actividades.
-# 'agenda-cultural', que era lo que se pedia antes, no existe.
+# El diagnostico de columnas del 2026-08-30 mostro que casi todo lo que
+# parecia una agenda en este portal es en realidad archivo o estadistica:
+#
+#   eventos-direccion-general-musica -> ultima fecha 2017-01-07
+#   teatro-colon-visitas-guiadas     -> columnas PERIODO/VISITAS: conteos de
+#                                       asistentes desde 2016, no eventos
+#   ba-diversa                       -> asistentes_cantidad, desde 2015
+#   bafici                           -> id_filmcolor: tabla de codigos
+#
+# BA Data es un portal de transparencia, no un feed de agenda. Quedan solo
+# los dos ids que todavia podrian traer programacion vigente; el resto se
+# saca para no descargar 9.500 filas historicas en cada corrida.
 DATASETS = (
     "actividades-culturales",
     "teatro-colon-programacion-actual",
-    "eventos-direccion-general-musica",
-    "teatro-colon-visitas-guiadas",
 )
+
+# Antiguedad a partir de la cual se considera que un dataset es archivo.
+ANIOS_PARA_ARCHIVO = 2
 
 # Terminos de busqueda para el fallback.
 BUSQUEDAS = ("agenda cultural", "actividades culturales", "eventos culturales")
@@ -129,6 +141,19 @@ class BaDataSource(Source):
             print(f"  [{self.name}] '{dataset}' fecha detectada: "
                   f"{fecha_cruda!r} -> {_as_iso_date(fecha_cruda)!r} | "
                   f"titulo: {_pick(muestra, 'title')!r}")
+
+            # La fecha mas nueva del dataset distingue "no encontre la
+            # columna" de "esto es un archivo historico".
+            fechas = [f for row in rows if (f := _as_iso_date(_pick(row, "date")))]
+            if fechas:
+                mas_nueva = max(fechas)
+                corte = (today_ba() - timedelta(days=365 * ANIOS_PARA_ARCHIVO))
+                aviso = " -> ARCHIVO, no sirve como agenda" if mas_nueva < corte.isoformat() else ""
+                print(f"  [{self.name}] '{dataset}' fecha más nueva: "
+                      f"{mas_nueva}{aviso}")
+            else:
+                print(f"  [{self.name}] '{dataset}' ninguna fila tiene fecha "
+                      f"parseable -> falta un alias de columna")
         return eventos
 
     def _get(self, session: requests.Session, path: str, params: dict,
