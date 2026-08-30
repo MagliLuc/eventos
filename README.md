@@ -177,9 +177,16 @@ Decisiones que hacen que esto se mantenga solo:
   subclase para retocarlos sin tocar el pipeline.
 - **Una fuente caída no tumba la corrida.** `safe_fetch` atrapa la excepción,
   loguea y sigue con las demás.
-- **Nunca se publica un JSON vacío.** El pipeline arrastra los eventos del
-  archivo anterior y `refresh()` en la app rechaza un feed vacío: si todas las
-  fuentes fallan, la agenda anterior sigue en pie.
+- **Nunca se publica un JSON vacío.** Si el pipeline no produce ningún evento
+  deja el archivo anterior intacto y falla la corrida: un feed con cero
+  eventos deja la web en blanco y no se distingue de "hoy no hay nada". La app
+  además rechaza un feed vacío en `refresh()`.
+- **Cabeceras de navegador.** Cinco sitios `.gob.ar` devolvían 403 al
+  User-Agent de bot (hay un WAF filtrando por cabeceras). Son páginas públicas
+  que cualquiera abre en un navegador, así que se mandan las cabeceras de uno
+  — dejando el proyecto identificado en el `User-Agent` y en `From` para que
+  el sitio sepa quiénes somos. El volumen sigue siendo un puñado de requests
+  por día.
 - **Geocoding sin costo.** Las sedes se repiten, así que un catálogo local
   resuelve casi todo. Para una sede nueva se consulta Nominatim (OSM, gratis y
   sin API key), respetando su política de 1 req/s y cacheando el resultado en

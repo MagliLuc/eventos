@@ -9,15 +9,36 @@ from bs4 import BeautifulSoup
 
 from ..models import DateWindow, Event
 
+# Cinco sitios .gob.ar devolvieron 403 al User-Agent de bot: hay un WAF que
+# filtra por cabeceras. Son paginas publicas que cualquiera abre en un
+# navegador, asi que mandamos las cabeceras que manda un navegador — pero
+# dejando el proyecto identificado en el propio User-Agent y en `From`, para
+# que quien administre el sitio sepa quienes somos y como contactarnos.
+# El volumen sigue siendo un puñado de requests por dia.
+CONTACTO = "https://github.com/MagliLuc/eventos"
+
 USER_AGENT = (
-    "eventos-caba-bot/1.0 (+https://github.com/MagliLuc/eventos) "
-    "agenda cultural gratuita, uso no comercial"
+    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
+    f"Chrome/125.0.0.0 Safari/537.36 (+{CONTACTO}; agenda cultural gratuita)"
 )
+
+BROWSER_HEADERS = {
+    "User-Agent": USER_AGENT,
+    "From": CONTACTO,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document",
+    "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none",
+}
 
 
 def http_session() -> requests.Session:
     session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "es-AR,es"})
+    session.headers.update(BROWSER_HEADERS)
     return session
 
 

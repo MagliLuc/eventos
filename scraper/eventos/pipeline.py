@@ -112,6 +112,15 @@ def run(
     if problems:
         raise ValueError("JSON invalido:\n  - " + "\n  - ".join(problems))
 
+    # Nunca publicar un feed vacio. Preferimos dejar el archivo anterior
+    # tal cual y que la corrida quede en rojo: un JSON con cero eventos
+    # deja la web en blanco y no se distingue de "hoy no hay nada".
+    if not events:
+        raise ValueError(
+            "El pipeline no produjo ningun evento: se conserva "
+            f"{output} sin cambios. Revisar el log de las fuentes."
+        )
+
     payload = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": now_ba_iso(),
