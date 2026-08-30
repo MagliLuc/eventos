@@ -178,13 +178,15 @@ Decisiones que hacen que esto se mantenga solo:
 ### Backend gratuito (5 minutos)
 
 1. Fork o push de este repo a un **repositorio público**.
-2. **Settings → Actions → General → Workflow permissions: Read and write.**
+2. **Settings → Pages → Source: GitHub Actions.**
+   Este paso es manual sí o sí: el `GITHUB_TOKEN` del workflow no puede crear
+   el sitio de Pages aunque tenga `pages: write` (la API de creación pide
+   permisos de administración y devuelve *Resource not accessible by
+   integration*). Una vez activado, el deploy es automático para siempre.
+3. **Settings → Actions → General → Workflow permissions: Read and write.**
    (lo necesita el bot para commitear `docs/events.json`).
-3. Pestaña **Actions → "Actualizar agenda de eventos" → Run workflow** para
+4. Pestaña **Actions → "Actualizar agenda de eventos" → Run workflow** para
    la primera corrida; de ahí en más va solo todos los días.
-
-El workflow de Pages se encarga de habilitar Pages solo (`enablement: true`),
-así que no hace falta tocar Settings → Pages.
 
 El feed queda en `https://<usuario>.github.io/<repo>/events.json`.
 
