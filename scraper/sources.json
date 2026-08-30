@@ -8,9 +8,9 @@
     "        candidato -> NO se consulta; solo lo sondea discover.py",
     "        bloqueado -> no se consulta; se deja documentado el porqué",
     "",
-    "Los status salen de corridas reales, no de suposiciones. Para promover",
-    "un candidato a activo: correr `python scraper/discover.py` desde una red",
-    "argentina y pegar acá lo que emita."
+    "Las notas que empiezan con 'Prospección:' salen de la corrida real del",
+    "workflow discover.yml, no de suposiciones. Para volver a sondear todo:",
+    "Actions -> Prospección de fuentes -> Run workflow."
   ],
   "sources": [
     {
@@ -22,11 +22,11 @@
     },
     {
       "name": "Usina del Arte",
-      "kind": "css",
-      "url": "https://usinadelarte.ar/actividades/",
+      "kind": "rss",
+      "url": "https://usinadelarte.ar/feed/atom",
       "venue": "Usina del Arte",
       "status": "activo",
-      "note": "Responde 200 desde CI pero los selectores no sacan fecha. Revisar con discover.py."
+      "note": "Prospección: feed Atom con 10 entradas. Antes se leía por selectores y no sacaba fecha."
     },
     {
       "name": "Centro Cultural Recoleta",
@@ -34,7 +34,7 @@
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "Su 443 no habla TLS; por http responde 200. Selectores sin verificar."
+      "note": "Prospección: 200 pero sin ICS, Tribe, JSON-LD ni feed. Solo queda scraping por selectores."
     },
     {
       "name": "Turismo Buenos Aires",
@@ -42,9 +42,8 @@
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Responde lento; sin JSON-LD utilizable."
+      "note": "Prospección: 200 sin marcado estructurado."
     },
-
     {
       "name": "Palacio Libertad",
       "kind": "css",
@@ -77,14 +76,13 @@
       "status": "bloqueado",
       "note": "403 igual que arriba."
     },
-
     {
       "name": "DisfrutemosBA",
       "kind": "jsonld",
       "url": "https://disfrutemosba.buenosaires.gob.ar/",
       "venue": "Ciudad de Buenos Aires",
-      "status": "candidato",
-      "note": "Agenda oficial del GCBA. Es una SPA: lo valioso es el endpoint XHR que llama, no el HTML. Buscar con discover.py."
+      "status": "bloqueado",
+      "note": "Prospección: ConnectTimeout desde el runner. La agenda oficial del GCBA no responde a tiempo."
     },
     {
       "name": "Qué Hacemos",
@@ -92,7 +90,7 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Tiene sección dedicada a eventos gratis. Probar tribe/wp-json/rss."
+      "note": "Prospección: 200 pero sin ICS/Tribe/JSON-LD/feed ni wp-json. Requiere selectores; revisar a mano."
     },
     {
       "name": "Gratis en Buenos Aires",
@@ -100,15 +98,15 @@
       "url": "https://gratisenbuenosaires.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Agenda diaria, 100% gratuitos: el mejor calce temático del proyecto."
+      "note": "Prospección: 200 sin marcado ni wp-json. El mejor calce temático, pero hoy solo por selectores."
     },
     {
       "name": "Baires Secreta",
       "kind": "rss",
       "url": "https://bairessecreta.com/",
       "venue": "Ciudad de Buenos Aires",
-      "status": "candidato",
-      "note": "Blog de planes. Probablemente WordPress."
+      "status": "bloqueado",
+      "note": "Prospección: HTTP 202, respuesta típica de un challenge de Cloudflare. No se resuelve sin navegador."
     },
     {
       "name": "Time Out Buenos Aires",
@@ -116,7 +114,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Medio grande: suele traer marcado schema.org."
+      "note": "Prospección: 200 sin marcado estructurado."
     },
     {
       "name": "Alternativa Teatral",
@@ -124,15 +122,15 @@
       "url": "https://www.alternativateatral.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Cartelera teatral completa; incluye funciones a la gorra y gratuitas."
+      "note": "Prospección: 200 sin marcado estructurado."
     },
     {
       "name": "Teatro Colón",
-      "kind": "jsonld",
-      "url": "https://teatrocolon.org.ar/es/calendario",
+      "kind": "rss",
+      "url": "https://teatrocolon.org.ar/feed",
       "venue": "Teatro Colón",
-      "status": "candidato",
-      "note": "Dominio .org.ar, distinto de los .gob.ar bloqueados: puede no estar filtrado."
+      "status": "activo",
+      "note": "Prospección: RSS con 10 entradas. Dominio .org.ar, no afectado por los 403 de los .gob.ar."
     },
     {
       "name": "Casa Nacional del Bicentenario",
