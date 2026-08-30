@@ -2,11 +2,18 @@
 from __future__ import annotations
 
 import json
-from datetime import date, timedelta
+from datetime import date
 from pathlib import Path
 from typing import Iterable, Optional
 
-from .models import BUENOS_AIRES, SCHEMA_VERSION, Event, now_ba_iso, today_ba
+from .models import (
+    BUENOS_AIRES,
+    SCHEMA_VERSION,
+    DateWindow,
+    Event,
+    now_ba_iso,
+    today_ba,
+)
 from .sources import ALL_SOURCES, LocalSeedSource, http_session
 from .sources.base import Source
 
@@ -75,15 +82,16 @@ def run(
     sources = ALL_SOURCES if sources is None else sources
     session = http_session()
     today = today_ba()
-    targets = [(today + timedelta(days=i)).isoformat() for i in range(days)]
+    window = DateWindow.upcoming(days)
+    print(f"Ventana: {window}")
 
     collected: list[Event] = []
     for source in sources:
-        for target in targets:
-            collected.extend(source.safe_fetch(session, target))
+        # Una sola llamada por fuente: la ventana entera va como parametro.
+        collected.extend(source.safe_fetch(session, window))
 
     if include_seed:
-        collected.extend(LocalSeedSource().safe_fetch(session, today.isoformat()))
+        collected.extend(LocalSeedSource().safe_fetch(session, window))
 
     # Red de seguridad: si hoy no scrapeamos nada (sitio caido, cambio de
     # maquetado), conservamos el JSON anterior en vez de publicar un archivo

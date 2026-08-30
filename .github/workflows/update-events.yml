@@ -5,6 +5,13 @@ name: Actualizar agenda de eventos
 on:
   schedule:
     - cron: "0 9 * * *"   # 06:00 en Buenos Aires (UTC-3)
+  # Cualquier cambio al scraper regenera la agenda en el acto, sin esperar al
+  # cron del dia siguiente ni tener que dispararlo a mano.
+  push:
+    branches: [main]
+    paths:
+      - "scraper/**"
+      - ".github/workflows/update-events.yml"
   workflow_dispatch:       # permite dispararlo a mano desde la pestaña Actions
 
 permissions:
@@ -30,7 +37,7 @@ jobs:
         run: pip install -r scraper/requirements.txt pytest
 
       - name: Correr scraper
-        run: python scraper/run_scraper.py --days 7
+        run: python scraper/run_scraper.py --days 21
 
       - name: Validar JSON generado
         run: python -m pytest scraper/tests -q

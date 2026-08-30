@@ -10,8 +10,10 @@ import ar.eventosba.data.repository.EventRepository
 import ar.eventosba.di.AppContainer
 import ar.eventosba.domain.model.AccessMode
 import ar.eventosba.domain.model.Category
+import ar.eventosba.domain.model.DateRangeFilter
 import ar.eventosba.domain.model.Event
 import ar.eventosba.domain.model.EventFilter
+import ar.eventosba.domain.model.SortOrder
 import ar.eventosba.domain.model.TimeSlot
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -34,8 +36,14 @@ data class HomeUiState(
     val availableNeighborhoods: List<String>
         get() = allEvents.mapNotNull { it.venue.neighborhood }.distinct().sorted()
 
-    val availableDates: List<LocalDate>
-        get() = allEvents.map { it.date }.distinct().sorted()
+    /**
+     * Rangos con al menos un evento. Evita ofrecer "Fin de semana" cuando no
+     * hay nada ese finde y el usuario toca y se queda con la lista vacía.
+     */
+    fun availableDateRanges(today: LocalDate = LocalDate.now()): List<DateRangeFilter> =
+        DateRangeFilter.entries.filter { range ->
+            range == DateRangeFilter.TODAS || allEvents.any { range.matches(it.date, today) }
+        }
 
     /** Cuenta por categoria, para mostrar cuantos eventos hay detras de cada chip. */
     val countByCategory: Map<Category, Int>
@@ -62,9 +70,9 @@ class HomeViewModel(
         repository.lastSyncMillis,
     ) { events, activeFilter, isRefreshing, errorMessage, lastSync ->
         HomeUiState(
-            // El filtrado ocurre en memoria sobre la lista ya cacheada: es
-            // instantaneo mientras el usuario tipea y no toca la red.
-            events = events.filter(activeFilter::matches),
+            // Filtrado y ordenamiento en memoria sobre la lista ya cacheada:
+            // instantaneo mientras el usuario tipea y sin tocar la red.
+            events = activeFilter.apply(events),
             allEvents = events,
             filter = activeFilter,
             isRefreshing = isRefreshing,
@@ -100,7 +108,8 @@ class HomeViewModel(
     fun onNeighborhoodToggle(value: String) = filter.update { it.toggleNeighborhood(value) }
     fun onTimeSlotToggle(value: TimeSlot) = filter.update { it.toggleTimeSlot(value) }
     fun onAccessModeToggle(value: AccessMode) = filter.update { it.toggleAccessMode(value) }
-    fun onDateSelect(value: LocalDate?) = filter.update { it.copy(date = value) }
+    fun onDateRangeToggle(value: DateRangeFilter) = filter.update { it.toggleDateRange(value) }
+    fun onSortOrderChange(value: SortOrder) = filter.update { it.copy(sortOrder = value) }
     fun onFavoritesToggle() = filter.update { it.copy(onlyFavorites = !it.onlyFavorites) }
     fun clearFilters() = filter.update { it.cleared() }
     fun dismissError() { error.value = null }

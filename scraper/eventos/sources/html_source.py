@@ -5,7 +5,7 @@ from typing import Optional
 
 import requests
 
-from ..models import Event, now_ba_iso
+from ..models import DateWindow, Event, now_ba_iso
 from ..normalize import (
     clean_text,
     detect_access_mode,
@@ -35,7 +35,7 @@ class HtmlAgendaSource(Source):
     summary_selector: str = "p"
     link_selector: str = "a"
 
-    def fetch(self, session: requests.Session, target_date: str) -> list[Event]:
+    def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
         soup = fetch_soup(session, self.url)
         if soup is None:
             return []
@@ -43,23 +43,29 @@ class HtmlAgendaSource(Source):
         events = [
             event
             for node in extract_jsonld_events(soup)
-            if (event := self._from_jsonld(node, target_date))
+            if (event := self._from_jsonld(node, window))
         ]
         if events:
             return events
 
         print(f"  [{self.name}] sin JSON-LD utilizable, uso selectores CSS")
-        return [
+        self._sin_fecha = 0
+        events = [
             event
             for node in soup.select(self.item_selector)
-            if (event := self._from_html(node, target_date))
+            if (event := self._from_html(node, window))
         ]
+        if self._sin_fecha:
+            # Sintoma tipico de selectores desactualizados: la pagina lista
+            # cosas pero ninguna trae fecha legible.
+            print(f"  [{self.name}] {self._sin_fecha} descartados sin fecha legible")
+        return events
 
     # -- JSON-LD ----------------------------------------------------------
-    def _from_jsonld(self, node: dict, target_date: str) -> Optional[Event]:
+    def _from_jsonld(self, node: dict, window: DateWindow) -> Optional[Event]:
         title = clean_text(node.get("name"), 160)
         start = node.get("startDate") or ""
-        if not title or not start.startswith(target_date):
+        if not title or not window.contains(start):
             return None
 
         description = clean_text(node.get("description"))
@@ -99,7 +105,7 @@ class HtmlAgendaSource(Source):
         )
 
     # -- Selectores CSS ---------------------------------------------------
-    def _from_html(self, node, target_date: str) -> Optional[Event]:
+    def _from_html(self, node, window: DateWindow) -> Optional[Event]:
         title = clean_text(text_of(node, self.title_selector), 160)
         if not title:
             return None
@@ -107,7 +113,12 @@ class HtmlAgendaSource(Source):
         date_text = text_of(node, self.date_selector) or ""
         time_node = node.select_one(self.date_selector)
         iso_date = (time_node.get("datetime", "")[:10] if time_node else "")
-        if iso_date and iso_date != target_date:
+
+        # Sin fecha legible se descarta. Antes se asumia la fecha pedida, y
+        # como el pipeline llamaba a la fuente una vez por dia, un mismo
+        # evento terminaba clonado con una fecha distinta por cada llamada.
+        if not window.contains(iso_date):
+            self._sin_fecha = getattr(self, "_sin_fecha", 0) + 1
             return None
 
         summary = clean_text(text_of(node, self.summary_selector))
@@ -123,7 +134,7 @@ class HtmlAgendaSource(Source):
             description=summary,
             category=detect_category(title, summary),
             access_mode=detect_access_mode(blob),
-            date=iso_date or target_date,
+            date=iso_date,
             start_time=start_time,
             end_time=end_time,
             venue=build_venue(text_of(node, self.venue_selector) or self.default_venue),

@@ -1,10 +1,66 @@
 package ar.eventosba.domain.model
 
+import java.time.DayOfWeek
 import java.time.LocalDate
 
 /**
- * Estado de filtrado de la home. Se aplica en memoria sobre la lista ya
- * cacheada: no hay round-trip a la red ni consultas SQL por cada tecla.
+ * Rangos rapidos de fecha.
+ *
+ * Con una ventana de 21 dias, un chip por dia serian 21 chips ilegibles. La
+ * gente no piensa "18 de septiembre", piensa "hoy", "mañana", "el finde".
+ */
+enum class DateRangeFilter(val label: String) {
+    TODAS("Cualquier día"),
+    HOY("Hoy"),
+    MANANA("Mañana"),
+    FIN_DE_SEMANA("Fin de semana"),
+    PROXIMOS_7("Próximos 7 días");
+
+    fun matches(date: LocalDate, today: LocalDate = LocalDate.now()): Boolean = when (this) {
+        TODAS -> true
+        HOY -> date == today
+        MANANA -> date == today.plusDays(1)
+        // El finde que viene, y si hoy ya es sábado o domingo, este.
+        FIN_DE_SEMANA -> date in today.weekendRange()
+        PROXIMOS_7 -> !date.isBefore(today) && date.isBefore(today.plusDays(8))
+    }
+}
+
+private fun LocalDate.weekendRange(): ClosedRange<LocalDate> {
+    val saturday = when (dayOfWeek) {
+        DayOfWeek.SATURDAY -> this
+        DayOfWeek.SUNDAY -> minusDays(1)
+        else -> plusDays((DayOfWeek.SATURDAY.value - dayOfWeek.value).toLong())
+    }
+    return saturday..saturday.plusDays(1)
+}
+
+/** Criterios de ordenamiento disponibles en la home. */
+enum class SortOrder(val label: String) {
+    FECHA_ASC("Próximos primero"),
+    FECHA_DESC("Más lejanos primero"),
+    TITULO("Alfabético");
+
+    /** El agrupado por día solo tiene sentido si el orden es cronológico. */
+    val groupsByDay: Boolean get() = this != TITULO
+
+    fun comparator(): Comparator<Event> = when (this) {
+        FECHA_ASC -> compareBy<Event> { it.date }
+            // Los eventos sin horario van al final del día, no al principio.
+            .thenBy { it.startTime == null }
+            .thenBy { it.startTime }
+            .thenBy { it.title }
+        FECHA_DESC -> compareByDescending<Event> { it.date }
+            .thenBy { it.startTime == null }
+            .thenBy { it.startTime }
+            .thenBy { it.title }
+        TITULO -> compareBy({ it.title.lowercase() }, { it.date })
+    }
+}
+
+/**
+ * Estado de filtrado y ordenamiento de la home. Se aplica en memoria sobre la
+ * lista ya cacheada: no hay round-trip a la red ni consultas SQL por tecla.
  */
 data class EventFilter(
     val query: String = "",
@@ -12,37 +68,45 @@ data class EventFilter(
     val neighborhoods: Set<String> = emptySet(),
     val timeSlots: Set<TimeSlot> = emptySet(),
     val accessModes: Set<AccessMode> = emptySet(),
-    val date: LocalDate? = null,
+    val dateRange: DateRangeFilter = DateRangeFilter.TODAS,
+    val sortOrder: SortOrder = SortOrder.FECHA_ASC,
     val onlyFavorites: Boolean = false,
 ) {
+    /** Cuántos filtros hay puestos. El orden no cuenta: no descarta nada. */
     val activeCount: Int
         get() = categories.size + neighborhoods.size + timeSlots.size +
-            accessModes.size + (if (date != null) 1 else 0)
+            accessModes.size + (if (dateRange != DateRangeFilter.TODAS) 1 else 0)
 
     val isEmpty: Boolean get() = activeCount == 0 && query.isBlank() && !onlyFavorites
 
-    fun matches(event: Event): Boolean =
+    fun matches(event: Event, today: LocalDate = LocalDate.now()): Boolean =
         event.matchesQuery(query) &&
             (categories.isEmpty() || event.category in categories) &&
             (neighborhoods.isEmpty() || event.venue.neighborhood in neighborhoods) &&
             (timeSlots.isEmpty() || event.timeSlot in timeSlots) &&
             (accessModes.isEmpty() || event.accessMode in accessModes) &&
-            (date == null || event.date == date) &&
+            dateRange.matches(event.date, today) &&
             (!onlyFavorites || event.isFavorite)
 
-    fun toggleCategory(value: Category) =
-        copy(categories = categories.toggle(value))
+    /** Filtra y ordena en un solo paso. */
+    fun apply(events: List<Event>, today: LocalDate = LocalDate.now()): List<Event> =
+        events.filter { matches(it, today) }.sortedWith(sortOrder.comparator())
 
-    fun toggleNeighborhood(value: String) =
-        copy(neighborhoods = neighborhoods.toggle(value))
+    fun toggleCategory(value: Category) = copy(categories = categories.toggle(value))
+    fun toggleNeighborhood(value: String) = copy(neighborhoods = neighborhoods.toggle(value))
+    fun toggleTimeSlot(value: TimeSlot) = copy(timeSlots = timeSlots.toggle(value))
+    fun toggleAccessMode(value: AccessMode) = copy(accessModes = accessModes.toggle(value))
 
-    fun toggleTimeSlot(value: TimeSlot) =
-        copy(timeSlots = timeSlots.toggle(value))
+    /** Volver a tocar el rango activo lo desactiva. */
+    fun toggleDateRange(value: DateRangeFilter) =
+        copy(dateRange = if (dateRange == value) DateRangeFilter.TODAS else value)
 
-    fun toggleAccessMode(value: AccessMode) =
-        copy(accessModes = accessModes.toggle(value))
-
-    fun cleared() = EventFilter(query = query, onlyFavorites = onlyFavorites)
+    /** Limpiar borra los filtros, no la búsqueda, el orden ni los guardados. */
+    fun cleared() = EventFilter(
+        query = query,
+        sortOrder = sortOrder,
+        onlyFavorites = onlyFavorites,
+    )
 }
 
 private fun <T> Set<T>.toggle(value: T): Set<T> =

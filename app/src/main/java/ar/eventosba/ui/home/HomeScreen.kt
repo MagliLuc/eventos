@@ -101,12 +101,14 @@ fun HomeScreen(
                 filter = state.filter,
                 countByCategory = state.countByCategory,
                 neighborhoods = state.availableNeighborhoods,
-                dates = state.availableDates,
+                dateRanges = state.availableDateRanges(),
+                resultCount = state.events.size,
                 onCategoryToggle = viewModel::onCategoryToggle,
                 onNeighborhoodToggle = viewModel::onNeighborhoodToggle,
                 onTimeSlotToggle = viewModel::onTimeSlotToggle,
                 onAccessModeToggle = viewModel::onAccessModeToggle,
-                onDateSelect = viewModel::onDateSelect,
+                onDateRangeToggle = viewModel::onDateRangeToggle,
+                onSortOrderChange = viewModel::onSortOrderChange,
                 onClear = viewModel::clearFilters,
             )
 
@@ -125,6 +127,7 @@ fun HomeScreen(
                 )
                 else -> EventList(
                     events = state.events,
+                    groupByDay = state.filter.sortOrder.groupsByDay,
                     onEventClick = onEventClick,
                     onFavoriteClick = viewModel::toggleFavorite,
                 )
@@ -136,23 +139,34 @@ fun HomeScreen(
 @Composable
 private fun EventList(
     events: List<Event>,
+    groupByDay: Boolean,
     onEventClick: (String) -> Unit,
     onFavoriteClick: (String) -> Unit,
 ) {
-    // Agrupamos por dia para que el usuario no tenga que leer 20 fechas
-    // repetidas. La lista ya viene ordenada desde SQL.
-    val grouped = events.groupBy { it.date }
     val today = LocalDate.now()
 
     LazyColumn(
         contentPadding = PaddingValues(horizontal = 14.dp, vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        grouped.forEach { (date, dayEvents) ->
-            item(key = "header-$date") {
-                DayHeader(label = date.friendlyLabel(today), count = dayEvents.size)
+        if (groupByDay) {
+            // Encabezado por dia: evita leer la misma fecha veinte veces.
+            // Solo tiene sentido con orden cronologico; en alfabetico las
+            // fechas se intercalan y los encabezados serian ruido.
+            events.groupBy { it.date }.forEach { (date, dayEvents) ->
+                item(key = "header-$date") {
+                    DayHeader(label = date.friendlyLabel(today), count = dayEvents.size)
+                }
+                items(dayEvents, key = { it.id }) { event ->
+                    EventCard(
+                        event = event,
+                        onClick = { onEventClick(event.id) },
+                        onFavoriteClick = { onFavoriteClick(event.id) },
+                    )
+                }
             }
-            items(dayEvents, key = { it.id }) { event ->
+        } else {
+            items(events, key = { it.id }) { event ->
                 EventCard(
                     event = event,
                     onClick = { onEventClick(event.id) },
