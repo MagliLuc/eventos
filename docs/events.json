@@ -1,9 +1,38 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-30T17:35:56-03:00",
+  "generated_at": "2026-08-30T17:48:18-03:00",
   "city": "Ciudad Autónoma de Buenos Aires",
   "license": "Datos públicos recopilados de agendas oficiales. Uso informativo.",
   "events": [
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-08-30",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-08-30",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
     {
       "id": "mnba-paseo-esculturas-2026-08-30",
       "title": "Paseo de las Esculturas",
@@ -27,6 +56,35 @@
         "commune": 2,
         "lat": -34.5838,
         "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-08-30",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-08-30",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -59,6 +117,36 @@
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "feria-de-mataderos-feria-tradicional-de-mataderos-2026-08-30",
+      "title": "Feria Tradicional de Mataderos",
+      "description": "Puestos de artesanías criollas, destrezas gauchas y música folklórica en vivo.",
+      "category": "FERIAS",
+      "tags": [
+        "folklore",
+        "aire-libre",
+        "artesanias"
+      ],
+      "date": "2026-08-30",
+      "start_time": "11:00",
+      "end_time": null,
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "feria-de-mataderos",
+        "name": "Feria de Mataderos",
+        "address": "Av. de los Corrales y Lisandro de la Torre",
+        "neighborhood": "Mataderos",
+        "commune": 9,
+        "lat": -34.658,
+        "lon": -58.503
+      },
+      "source_name": "Turismo Buenos Aires",
+      "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "image_url": null,
       "updated_at": "2026-08-30T06:00:00-03:00"
     },
@@ -182,6 +270,35 @@
       "updated_at": "2026-08-30T06:00:00-03:00"
     },
     {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-08-30",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-08-30",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
       "id": "ccr-exhibiciones-2026-08-30",
       "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
       "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
@@ -241,6 +358,35 @@
       "updated_at": "2026-08-30T06:00:00-03:00"
     },
     {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-08-30",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-08-30",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
       "id": "palacio-un-palacio-para-borges-2026-08-30",
       "title": "Un Palacio para Borges & muestras temporales",
       "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
@@ -258,6 +404,35 @@
       "venue": {
         "id": "palacio-libertad",
         "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-08-30",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-08-30",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
         "address": "Sarmiento 151",
         "neighborhood": "San Nicolás",
         "commune": 1,
@@ -295,6 +470,35 @@
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-08-30",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-08-30",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
       "image_url": null,
       "updated_at": "2026-08-30T06:00:00-03:00"
     },
@@ -585,6 +789,4214 @@
       },
       "source_name": "Tango BA",
       "source_url": "https://tangoba.org/festival-mundial/actividades-del-mundial/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-08-31",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-08-31",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-01",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-01",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-01",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-01",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-01",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-01",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-01",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-01",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-01",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-01",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-01",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-01",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-02",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-02",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-02",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-02",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-02",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-02",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-02",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-02",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-02",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-02",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-02",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-02",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-03",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-03",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-03",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-03",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-03",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-03",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-03",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-03",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-03",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-03",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-03",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-03",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-04",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-04",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-04",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-04",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-04",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-04",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-04",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-04",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-04",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-04",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-04",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-04",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-05",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-05",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-05",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-05",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-05",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-05",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-05",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-05",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-05",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-05",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-05",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-05",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-06",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-06",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-06",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-06",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "feria-de-mataderos-feria-tradicional-de-mataderos-2026-09-06",
+      "title": "Feria Tradicional de Mataderos",
+      "description": "Puestos de artesanías criollas, destrezas gauchas y música folklórica en vivo.",
+      "category": "FERIAS",
+      "tags": [
+        "folklore",
+        "aire-libre",
+        "artesanias"
+      ],
+      "date": "2026-09-06",
+      "start_time": "11:00",
+      "end_time": null,
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "feria-de-mataderos",
+        "name": "Feria de Mataderos",
+        "address": "Av. de los Corrales y Lisandro de la Torre",
+        "neighborhood": "Mataderos",
+        "commune": 9,
+        "lat": -34.658,
+        "lon": -58.503
+      },
+      "source_name": "Turismo Buenos Aires",
+      "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-06",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-06",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-06",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-06",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-06",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-06",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-06",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-06",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-07",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-07",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-08",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-08",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-08",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-08",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-08",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-08",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-08",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-08",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-08",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-08",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-08",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-08",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-09",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-09",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-09",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-09",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-09",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-09",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-09",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-09",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-09",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-09",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-09",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-09",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-10",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-10",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-10",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-10",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-10",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-10",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-10",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-10",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-10",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-10",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-10",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-10",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-11",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-11",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-11",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-11",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-11",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-11",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-11",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-11",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-11",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-11",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-11",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-11",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-12",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-12",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-12",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-12",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-12",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-12",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-12",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-12",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-12",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-12",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-12",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-12",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-13",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-13",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-13",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-13",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "feria-de-mataderos-feria-tradicional-de-mataderos-2026-09-13",
+      "title": "Feria Tradicional de Mataderos",
+      "description": "Puestos de artesanías criollas, destrezas gauchas y música folklórica en vivo.",
+      "category": "FERIAS",
+      "tags": [
+        "folklore",
+        "aire-libre",
+        "artesanias"
+      ],
+      "date": "2026-09-13",
+      "start_time": "11:00",
+      "end_time": null,
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "feria-de-mataderos",
+        "name": "Feria de Mataderos",
+        "address": "Av. de los Corrales y Lisandro de la Torre",
+        "neighborhood": "Mataderos",
+        "commune": 9,
+        "lat": -34.658,
+        "lon": -58.503
+      },
+      "source_name": "Turismo Buenos Aires",
+      "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-13",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-13",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-13",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-13",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-13",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-13",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-13",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-13",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-14",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-14",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-15",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-15",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-15",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-15",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-15",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-15",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-15",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-15",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-15",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-15",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-15",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-15",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-16",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-16",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-16",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-16",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-16",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-16",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-16",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-16",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-16",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-16",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-16",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-16",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-17",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-17",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-17",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-17",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-17",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-17",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-17",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-17",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-17",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-17",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-17",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-17",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-18",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-18",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-18",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-18",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-18",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-18",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-18",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-18",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-18",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-18",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-18",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-18",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-19",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-19",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-19",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-19",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-19",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-19",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-19",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-19",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-19",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-19",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-19",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-19",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-20",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-20",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-20",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-20",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "feria-de-mataderos-feria-tradicional-de-mataderos-2026-09-20",
+      "title": "Feria Tradicional de Mataderos",
+      "description": "Puestos de artesanías criollas, destrezas gauchas y música folklórica en vivo.",
+      "category": "FERIAS",
+      "tags": [
+        "folklore",
+        "aire-libre",
+        "artesanias"
+      ],
+      "date": "2026-09-20",
+      "start_time": "11:00",
+      "end_time": null,
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "feria-de-mataderos",
+        "name": "Feria de Mataderos",
+        "address": "Av. de los Corrales y Lisandro de la Torre",
+        "neighborhood": "Mataderos",
+        "commune": 9,
+        "lat": -34.658,
+        "lon": -58.503
+      },
+      "source_name": "Turismo Buenos Aires",
+      "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-20",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-20",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-20",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-20",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-20",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-20",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-20",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-20",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-21",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-21",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-22",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-22",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-22",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-22",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-22",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-22",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-22",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-22",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-22",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-22",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-22",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-22",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-23",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-23",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-23",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-23",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-23",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-23",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-23",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-23",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-23",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-23",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-23",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-23",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-24",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-24",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-24",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-24",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-24",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-24",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-24",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-24",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-24",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-24",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-24",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-24",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-25",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-25",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-25",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-25",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-25",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-25",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-25",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-25",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-25",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-25",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-25",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-25",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-26",
+      "title": "Paseo de las Esculturas",
+      "description": "Espacio parquizado al aire libre de 2.000 m² con esculturas, en el Museo Nacional de Bellas Artes.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "aire-libre",
+        "escultura"
+      ],
+      "date": "2026-09-26",
+      "start_time": "09:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-nacional-bellas-artes",
+        "name": "Museo Nacional de Bellas Artes",
+        "address": "Av. del Libertador 1473",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.5838,
+        "lon": -58.3919
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-26",
+      "title": "Celeste Bandera (Nora Iniesta) y Éxodo Jujeño",
+      "description": "Muestra «Celeste Bandera» de Nora Iniesta junto al ciclo pictórico «Éxodo jujeño, Belgrano y sus hazañas» de Andrea Avagnina.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "historia"
+      ],
+      "date": "2026-09-26",
+      "start_time": "10:30",
+      "end_time": "18:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "museo-del-cabildo",
+        "name": "Museo Histórico Nacional del Cabildo",
+        "address": "Bolívar 65",
+        "neighborhood": "Monserrat",
+        "commune": 1,
+        "lat": -34.6086,
+        "lon": -58.373
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-26",
+      "title": "Exhibiciones: Klemm, Valcárcel Medina, El juguete rabioso",
+      "description": "Grilla expositiva del Centro Cultural Recoleta: «Federico Klemm. Iluminador de mitos», «Isidoro Valcárcel Medina: El transcurrir», «El juguete rabioso: 100 años», «Fantasía de valor», «Plástica escatológica» e «Hijos de la Luna».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "museo"
+      ],
+      "date": "2026-09-26",
+      "start_time": "13:00",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "centro-cultural-recoleta",
+        "name": "Centro Cultural Recoleta",
+        "address": "Junín 1930",
+        "neighborhood": "Recoleta",
+        "commune": 2,
+        "lat": -34.583,
+        "lon": -58.3937
+      },
+      "source_name": "Centro Cultural Recoleta",
+      "source_url": "http://www.centroculturalrecoleta.org/agenda",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-26",
+      "title": "Un Palacio para Borges & muestras temporales",
+      "description": "Proyecto multidisciplinario dedicado a Borges, más la videoinstalación inmersiva «Desborde» de Patricia Viel y la exhibición «Joyeros Argentinos».",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "literatura"
+      ],
+      "date": "2026-09-26",
+      "start_time": "14:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "palacio-libertad-atelier-pinocho-la-fabrica-de-marta-2026-09-26",
+      "title": "Atelier Pinocho & La Fábrica de Marta",
+      "description": "Taller de construcción de objetos lúdicos en «La Desfábrica de Juguetes» e instalación participativa inspirada en el lenguaje plástico de Marta Minujín.",
+      "category": "INFANTILES",
+      "tags": [
+        "taller",
+        "familia"
+      ],
+      "date": "2026-09-26",
+      "start_time": "14:30",
+      "end_time": "19:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "palacio-libertad",
+        "name": "Palacio Libertad · Tercer Piso",
+        "address": "Sarmiento 151",
+        "neighborhood": "San Nicolás",
+        "commune": 1,
+        "lat": -34.6031,
+        "lon": -58.3696
+      },
+      "source_name": "Palacio Libertad",
+      "source_url": "https://palaciolibertad.gob.ar/agenda/",
+      "image_url": null,
+      "updated_at": "2026-08-30T06:00:00-03:00"
+    },
+    {
+      "id": "casa-nacional-bicentenario-metamorfosis-creciente-litoral-2026-09-26",
+      "title": "Metamorfosis & Creciente litoral",
+      "description": "Muestra «Metamorfosis» de Milton Kalbermatter (pinturas en acrílico y libros de artista) y la colectiva «Creciente litoral» del Museo Provincial de Bellas Artes de Entre Ríos.",
+      "category": "ARTES_VISUALES",
+      "tags": [
+        "muestra",
+        "pintura"
+      ],
+      "date": "2026-09-26",
+      "start_time": "15:00",
+      "end_time": "20:00",
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "reservation_url": null,
+      "venue": {
+        "id": "casa-nacional-bicentenario",
+        "name": "Casa Nacional del Bicentenario",
+        "address": "Riobamba 985",
+        "neighborhood": "Balvanera",
+        "commune": 3,
+        "lat": -34.5959,
+        "lon": -58.3945
+      },
+      "source_name": "Argentina.gob.ar",
+      "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
       "image_url": null,
       "updated_at": "2026-08-30T06:00:00-03:00"
     }
