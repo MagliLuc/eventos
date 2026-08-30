@@ -177,7 +177,6 @@ class EventFilterTest {
         sourceUrl = null,
         imageUrl = null,
     )
-}
 
     // --- Rangos de fecha -------------------------------------------------
 
@@ -254,3 +253,5 @@ class EventFilterTest {
         val filtro = EventFilter(sortOrder = SortOrder.TITULO).toggleCategory(Category.MUSICA)
         assertEquals(SortOrder.TITULO, filtro.cleared().sortOrder)
     }
+
+}
