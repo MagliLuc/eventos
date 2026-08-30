@@ -21,6 +21,7 @@ Uso:
     python scraper/discover.py                    # candidatos de sources.json
     python scraper/discover.py https://sitio.ar   # uno puntual
     python scraper/discover.py --todos            # incluye los ya activos
+    python scraper/discover.py --compacto         # una línea por sitio (para CI)
 """
 from __future__ import annotations
 
@@ -218,9 +219,51 @@ def revisar(ses, entrada: dict) -> dict | None:
     return None
 
 
+def revisar_compacto(ses, entrada: dict) -> dict | None:
+    """Una línea por sitio. Para leer el resultado desde el log de CI."""
+    url, nombre, base = entrada["url"], entrada.get("name", "?"), _base(entrada["url"])
+
+    for etiqueta, sonda in (
+        ("ics", lambda: probar_ics(ses, base)),
+        ("tribe", lambda: probar_tribe(ses, base)),
+        ("jsonld", lambda: probar_jsonld(ses, url)),
+        ("rss", lambda: probar_feed(ses, base)),
+    ):
+        resultado = sonda()
+        if resultado:
+            detalle, config = resultado
+            print(f"  OK   {nombre:<34} {etiqueta:<7} {detalle}")
+            return {"name": nombre, "kind": config["kind"], "url": config["url"],
+                    "venue": entrada.get("venue", ""), "status": "activo"}
+
+    # Sin mecanismo estructurado: al menos dejar dicho POR QUE.
+    r = _get(ses, url, timeout=30)
+    if isinstance(r, Exception):
+        motivo = f"red: {type(r).__name__}"
+    elif r.status_code != 200:
+        motivo = f"HTTP {r.status_code}"
+    else:
+        extras = []
+        if probar_wp(ses, base):
+            extras.append("tiene wp-json/posts")
+        if probar_ckan(ses, base):
+            extras.append("tiene CKAN")
+        for marca, etiqueta in (("__NEXT_DATA__", "Next.js"), ("__NUXT__", "Nuxt")):
+            if marca in r.text:
+                extras.append(f"SPA {etiqueta}")
+        apis = sorted(set(re.findall(
+            r'["\'](/(?:api|wp-json|jsonapi|graphql)/[^"\'\s?]{3,60})', r.text)))
+        if apis:
+            extras.append("endpoints: " + ", ".join(apis[:3]))
+        motivo = "200 sin marcado" + (" — " + "; ".join(extras) if extras else "")
+    print(f"  --   {nombre:<34} {'':<7} {motivo}")
+    return None
+
+
 def main() -> int:
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     todos = "--todos" in sys.argv
+    compacto = "--compacto" in sys.argv
 
     if args:
         entradas = [{"name": u, "url": u} for u in args]
@@ -229,10 +272,14 @@ def main() -> int:
         if todos:
             entradas += [{"name": f.name, "url": f.url} for f in cargar()]
 
-    print(f"Sondeando {len(entradas)} sitio(s). "
-          f"{VERDE}Verde{FIN} = mecanismo utilizable.")
     ses = sesion()
-    propuestas = [p for e in entradas if (p := revisar(ses, e))]
+    if compacto:
+        print(f"### PROSPECCION: {len(entradas)} sitio(s) ###")
+        propuestas = [p for e in entradas if (p := revisar_compacto(ses, e))]
+    else:
+        print(f"Sondeando {len(entradas)} sitio(s). "
+              f"{VERDE}Verde{FIN} = mecanismo utilizable.")
+        propuestas = [p for e in entradas if (p := revisar(ses, e))]
 
     print("\n" + "=" * 70)
     if propuestas:
