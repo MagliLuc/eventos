@@ -177,6 +177,12 @@ Decisiones que hacen que esto se mantenga solo:
   subclase para retocarlos sin tocar el pipeline.
 - **Una fuente caída no tumba la corrida.** `safe_fetch` atrapa la excepción,
   loguea y sigue con las demás.
+- **El deploy se encadena con `workflow_run`.** Los push hechos con el
+  `GITHUB_TOKEN` no disparan otros workflows, así que el commit diario del bot
+  sobre `docs/events.json` nunca disparaba el deploy de Pages: el JSON se
+  actualizaba en el repo pero el sitio seguía sirviendo el del último deploy
+  hecho por una persona. `pages.yml` escucha la finalización de
+  `update-events.yml` en vez de depender del push.
 - **Nunca se publica un JSON vacío.** Si el pipeline no produce ningún evento
   deja el archivo anterior intacto y falla la corrida: un feed con cero
   eventos deja la web en blanco y no se distingue de "hoy no hay nada". La app
