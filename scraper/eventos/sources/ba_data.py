@@ -22,10 +22,15 @@ from .base import Source
 
 CKAN_BASE = "https://data.buenosaires.gob.ar/api/3/action"
 
-# Ids candidatos, probados primero por ser los mas directos. La corrida del
-# 2026-08-30 devolvio 404 para 'agenda-cultural': los ids del portal cambian,
-# asi que si ninguno matchea se cae a `package_search`, que los descubre.
-DATASETS = ("agenda-cultural", "actividades-culturales", "agenda-cultural-gcba")
+# Ids REALES, sacados del propio portal: el autodiagnostico de la corrida del
+# 2026-08-30 listo los 454 datasets y estos son los que traen actividades.
+# 'agenda-cultural', que era lo que se pedia antes, no existe.
+DATASETS = (
+    "actividades-culturales",
+    "teatro-colon-programacion-actual",
+    "eventos-direccion-general-musica",
+    "teatro-colon-visitas-guiadas",
+)
 
 # Terminos de busqueda para el fallback.
 BUSQUEDAS = ("agenda cultural", "actividades culturales", "eventos culturales")
@@ -83,16 +88,33 @@ class BaDataSource(Source):
     url = CKAN_BASE
 
     def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
-        for dataset in self._candidatos(session):
-            rows = self._rows(session, dataset)
-            if rows:
-                events = [e for row in rows if (e := self._to_event(row, window))]
-                print(f"  [{self.name}] dataset '{dataset}': "
-                      f"{len(rows)} filas -> {len(events)} eventos en ventana")
-                if events:
-                    return events
-        self._diagnostico(session)
-        return []
+        # Se acumulan TODOS los datasets, no se corta en el primero que sirva:
+        # cada uno trae actividades distintas (el Colon no se solapa con la
+        # Direccion General de Musica). El dedupe del pipeline se ocupa si
+        # alguna se repite.
+        eventos: list[Event] = []
+        for dataset in DATASETS:
+            eventos.extend(self._del_dataset(session, dataset, window))
+
+        # Solo si los ids conocidos no dieron nada se sale a buscar mas.
+        if not eventos:
+            for dataset in self._candidatos(session):
+                if dataset not in DATASETS:
+                    eventos.extend(self._del_dataset(session, dataset, window))
+
+        if not eventos:
+            self._diagnostico(session)
+        return eventos
+
+    def _del_dataset(self, session: requests.Session, dataset: str,
+                     window: DateWindow) -> list[Event]:
+        rows = self._rows(session, dataset)
+        if not rows:
+            return []
+        eventos = [e for row in rows if (e := self._to_event(row, window))]
+        print(f"  [{self.name}] '{dataset}': {len(rows)} filas "
+              f"-> {len(eventos)} en ventana")
+        return eventos
 
     def _get(self, session: requests.Session, path: str, params: dict,
              intentos: int = 3) -> Optional[dict]:
