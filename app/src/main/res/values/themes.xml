@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- El tema real vive en Compose (ui/theme). Este es solo el splash del
+         arranque y evita el flash blanco antes del primer frame. -->
+    <style name="Theme.EventosBA" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/surface</item>
+        <item name="android:statusBarColor">@color/surface</item>
+    </style>
+</resources>

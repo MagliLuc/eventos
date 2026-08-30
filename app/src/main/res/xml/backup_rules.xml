@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Los eventos se vuelven a descargar; los favoritos y ajustes no. -->
+    <include domain="database" path="eventos.db" />
+    <include domain="sharedpref" path="." />
+</full-backup-content>
