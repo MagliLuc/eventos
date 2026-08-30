@@ -10,6 +10,8 @@ prueban varios alias por campo y se sigue de largo si ninguno esta.
 """
 from __future__ import annotations
 
+import csv
+import io
 import time
 from typing import Any, Optional
 
@@ -179,8 +181,8 @@ class BaDataSource(Source):
             return []
         resources = data.get("result", {}).get("resources", [])
 
+        # Camino 1: el datastore, que se consulta por API.
         for resource in resources:
-            # Solo los recursos cargados al datastore son consultables por API.
             if not resource.get("datastore_active"):
                 continue
             filas = self._get(
@@ -190,7 +192,45 @@ class BaDataSource(Source):
             registros = (filas or {}).get("result", {}).get("records")
             if registros:
                 return registros
+
+        # Camino 2: bajar el CSV.
+        # La mayoria de los datasets de BA Data publican archivos para
+        # descarga y NO estan cargados al datastore, asi que quedarse solo
+        # con el camino 1 los descarta a todos en silencio.
+        for resource in resources:
+            if (resource.get("format") or "").upper() not in ("CSV", "XLSX"):
+                continue
+            url = resource.get("url")
+            if not url or not url.lower().endswith(".csv"):
+                continue
+            registros = self._csv(session, url)
+            if registros:
+                print(f"  [{self.name}] '{dataset}': CSV con {len(registros)} filas")
+                return registros
+
+        formatos = sorted({(r.get("format") or "?") for r in resources})
+        print(f"  [{self.name}] '{dataset}': sin datos utilizables "
+              f"(recursos: {formatos or 'ninguno'})")
         return []
+
+    def _csv(self, session: requests.Session, url: str) -> list[dict]:
+        """Descarga y parsea un CSV. Sin dependencias: csv es de la stdlib."""
+        try:
+            r = session.get(url, timeout=60)
+            r.raise_for_status()
+        except Exception as exc:
+            print(f"  [{self.name}] CSV {url[:60]}: {exc}")
+            return []
+
+        # Los CSV del GCBA vienen en UTF-8, a veces con BOM y a veces con ';'.
+        texto = r.content.decode("utf-8-sig", errors="replace")
+        muestra = texto[:4096]
+        delimitador = ";" if muestra.count(";") > muestra.count(",") else ","
+        try:
+            return list(csv.DictReader(io.StringIO(texto), delimiter=delimitador))
+        except csv.Error as exc:
+            print(f"  [{self.name}] CSV ilegible: {exc}")
+            return []
 
     def _to_event(self, row: dict, window: DateWindow) -> Optional[Event]:
         title = clean_text(_pick(row, "title"), 160)
