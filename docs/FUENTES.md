@@ -63,11 +63,40 @@ Azure en EE.UU.
 > argentina. Si esos sitios responden 200 ahí y 403 en CI, es la IP. Ningún
 > cambio de código lo arregla; hay que mover *dónde* corre el scraper.
 
-### Sin probar (candidatas)
-Ver `sources.json`. Las más prometedoras por calce temático:
-**Gratis en Buenos Aires** (agenda diaria, 100% gratuitos), **Qué Hacemos**
-(sección dedicada a eventos gratis) y **DisfrutemosBA** (agenda oficial del
-GCBA, SPA — lo valioso es su endpoint interno).
+### Prospección del 2026-08-30 desde el runner
+
+Quince sitios sondeados contra ocho mecanismos. Resultado crudo:
+
+| Sitio | Resultado |
+|---|---|
+| **Teatro Colón** | ✅ RSS, 10 entradas → activo |
+| **Usina del Arte** | ✅ Atom, 10 entradas → activo |
+| Palacio Libertad · MNBA · Complejo Teatral · Cultura Nación | HTTP 403 |
+| DisfrutemosBA | ConnectTimeout |
+| Baires Secreta | HTTP 202 — challenge de Cloudflare |
+| Qué Hacemos · Gratis en BA · Time Out · Alternativa Teatral | 200 sin marcado |
+| Centro Cultural Recoleta · Turismo BA | 200 sin marcado |
+
+Lecturas:
+
+- **Los feeds siguen vivos donde uno no los busca.** Teatro Colón y Usina
+  publican RSS/Atom y nadie lo miraba: se les estaba raspando el HTML.
+- **"200 sin marcado" es el caso mayoritario.** Ni ICS, ni The Events Calendar,
+  ni JSON-LD, ni feed, ni `wp-json`. Para esos sitios no hay atajo: o
+  selectores CSS, o nada.
+- **HTTP 202 en Baires Secreta** es la respuesta típica de un challenge de
+  Cloudflare. No se resuelve con cabeceras; haría falta un navegador, que es
+  justo lo que este proyecto evita.
+- **Los cuatro 403 se repiten** desde el mismo rango de IPs, así que quedan
+  consistentes con la hipótesis del bloqueo por IP pero sin probarla: haría
+  falta sondear desde otra red.
+
+> **Ojo con lo que un feed garantiza.** Que Teatro Colón publique RSS no
+> significa que vaya a aportar eventos: un ítem de RSS es un artículo. El
+> extractor entra a cada ficha y busca JSON-LD; si las notas no lo traen, el
+> aporte va a ser cero y el log lo va a decir ("N notas sin schema.org/Event").
+> Se integran igual porque el costo es una entrada en `sources.json` y la
+> próxima corrida lo responde con datos.
 
 ---
 
