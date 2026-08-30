@@ -14,7 +14,8 @@ from .models import (
     now_ba_iso,
     today_ba,
 )
-from .sources import ALL_SOURCES, LocalSeedSource, http_session
+from .registry import cargar as cargar_fuentes
+from .sources import LocalSeedSource, http_session
 from .sources.base import Source
 
 def dedupe(events: Iterable[Event]) -> list[Event]:
@@ -79,7 +80,7 @@ def run(
     keep_existing: bool = True,
 ) -> dict:
     """Corre el pipeline completo y escribe el JSON que consume la app."""
-    sources = ALL_SOURCES if sources is None else sources
+    sources = cargar_fuentes() if sources is None else sources
     session = http_session()
     today = today_ba()
     window = DateWindow.upcoming(days)
