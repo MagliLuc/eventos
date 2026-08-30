@@ -5,7 +5,6 @@ from .palacio_libertad import PalacioLibertadSource
 from .usina_del_arte import UsinaDelArteSource
 from .ba_turismo import BuenosAiresTurismoSource
 from .agendas_culturales import (
-    CasaBicentenarioSource,
     CentroCulturalRecoletaSource,
     ComplejoTeatralSource,
     CulturaNacionSource,
@@ -20,7 +19,6 @@ ALL_SOURCES: list[Source] = [
     PalacioLibertadSource(),
     UsinaDelArteSource(),
     CentroCulturalRecoletaSource(),
-    CasaBicentenarioSource(),
     MuseoBellasArtesSource(),
     ComplejoTeatralSource(),
     CulturaNacionSource(),
@@ -37,7 +35,6 @@ __all__ = [
     "UsinaDelArteSource",
     "BuenosAiresTurismoSource",
     "CentroCulturalRecoletaSource",
-    "CasaBicentenarioSource",
     "MuseoBellasArtesSource",
     "ComplejoTeatralSource",
     "CulturaNacionSource",

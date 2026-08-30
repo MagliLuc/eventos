@@ -21,8 +21,13 @@ from .base import Source
 
 CKAN_BASE = "https://data.buenosaires.gob.ar/api/3/action"
 
-# Datasets candidatos, en orden de preferencia.
-DATASETS = ("agenda-cultural", "actividades-culturales")
+# Ids candidatos, probados primero por ser los mas directos. La corrida del
+# 2026-08-30 devolvio 404 para 'agenda-cultural': los ids del portal cambian,
+# asi que si ninguno matchea se cae a `package_search`, que los descubre.
+DATASETS = ("agenda-cultural", "actividades-culturales", "agenda-cultural-gcba")
+
+# Terminos de busqueda para el fallback.
+BUSQUEDAS = ("agenda cultural", "actividades culturales", "eventos culturales")
 
 # Alias de columnas: el primero que aparezca con valor gana.
 ALIAS = {
@@ -77,14 +82,35 @@ class BaDataSource(Source):
     url = CKAN_BASE
 
     def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
-        for dataset in DATASETS:
+        for dataset in self._candidatos(session):
             rows = self._rows(session, dataset)
             if rows:
                 events = [e for row in rows if (e := self._to_event(row, window))]
+                print(f"  [{self.name}] dataset '{dataset}': "
+                      f"{len(rows)} filas -> {len(events)} eventos en ventana")
                 if events:
-                    print(f"  [{self.name}] dataset '{dataset}': {len(rows)} filas")
                     return events
         return []
+
+    def _candidatos(self, session: requests.Session) -> list[str]:
+        """Ids fijos primero; si fallan, los que descubra package_search."""
+        encontrados: list[str] = list(DATASETS)
+        for termino in BUSQUEDAS:
+            try:
+                r = session.get(
+                    f"{CKAN_BASE}/package_search",
+                    params={"q": termino, "rows": 5},
+                    timeout=30,
+                )
+                r.raise_for_status()
+                for paquete in r.json()["result"]["results"]:
+                    nombre = paquete.get("name")
+                    if nombre and nombre not in encontrados:
+                        encontrados.append(nombre)
+                        print(f"  [{self.name}] descubierto por búsqueda: {nombre}")
+            except Exception as exc:
+                print(f"  [{self.name}] búsqueda '{termino}' falló: {exc}")
+        return encontrados
 
     def _rows(self, session: requests.Session, dataset: str) -> list[dict]:
         """Resuelve el dataset -> recurso con datastore -> filas."""
