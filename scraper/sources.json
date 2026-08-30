@@ -1,0 +1,146 @@
+{
+  "_comment": [
+    "Registro de fuentes. Agregar una fuente es agregar una entrada acá: no",
+    "hace falta escribir código salvo que el sitio use un mecanismo nuevo.",
+    "",
+    "kind:   ics | tribe | rss | jsonld | css | ckan",
+    "status: activo    -> se consulta en cada corrida",
+    "        candidato -> NO se consulta; solo lo sondea discover.py",
+    "        bloqueado -> no se consulta; se deja documentado el porqué",
+    "",
+    "Los status salen de corridas reales, no de suposiciones. Para promover",
+    "un candidato a activo: correr `python scraper/discover.py` desde una red",
+    "argentina y pegar acá lo que emita."
+  ],
+  "sources": [
+    {
+      "name": "BA Data (datos abiertos GCBA)",
+      "kind": "ckan",
+      "url": "https://data.buenosaires.gob.ar/api/3/action",
+      "status": "activo",
+      "note": "Alcanzable desde CI. 454 datasets; devuelve 502 intermitente, por eso el GET reintenta."
+    },
+    {
+      "name": "Usina del Arte",
+      "kind": "css",
+      "url": "https://usinadelarte.ar/actividades/",
+      "venue": "Usina del Arte",
+      "status": "activo",
+      "note": "Responde 200 desde CI pero los selectores no sacan fecha. Revisar con discover.py."
+    },
+    {
+      "name": "Centro Cultural Recoleta",
+      "kind": "css",
+      "url": "http://www.centroculturalrecoleta.org/agenda",
+      "venue": "Centro Cultural Recoleta",
+      "status": "activo",
+      "note": "Su 443 no habla TLS; por http responde 200. Selectores sin verificar."
+    },
+    {
+      "name": "Turismo Buenos Aires",
+      "kind": "css",
+      "url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "activo",
+      "note": "Responde lento; sin JSON-LD utilizable."
+    },
+
+    {
+      "name": "Palacio Libertad",
+      "kind": "css",
+      "url": "https://palaciolibertad.gob.ar/agenda/",
+      "venue": "Palacio Libertad",
+      "status": "bloqueado",
+      "note": "403 en 3 intentos, también con cabeceras completas de navegador. Sospecha: bloqueo por IP de datacenter."
+    },
+    {
+      "name": "Museo Nacional de Bellas Artes",
+      "kind": "css",
+      "url": "https://www.bellasartes.gob.ar/agenda/",
+      "venue": "Museo Nacional de Bellas Artes",
+      "status": "bloqueado",
+      "note": "403 igual que arriba."
+    },
+    {
+      "name": "Complejo Teatral de Buenos Aires",
+      "kind": "css",
+      "url": "https://complejoteatral.gob.ar/cartelera",
+      "venue": "Teatro San Martín",
+      "status": "bloqueado",
+      "note": "403 igual que arriba."
+    },
+    {
+      "name": "Cultura Nación",
+      "kind": "css",
+      "url": "https://www.cultura.gob.ar/agenda/",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "bloqueado",
+      "note": "403 igual que arriba."
+    },
+
+    {
+      "name": "DisfrutemosBA",
+      "kind": "jsonld",
+      "url": "https://disfrutemosba.buenosaires.gob.ar/",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Agenda oficial del GCBA. Es una SPA: lo valioso es el endpoint XHR que llama, no el HTML. Buscar con discover.py."
+    },
+    {
+      "name": "Qué Hacemos",
+      "kind": "rss",
+      "url": "https://www.quehacemos.com.ar/eventos-gratis",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Tiene sección dedicada a eventos gratis. Probar tribe/wp-json/rss."
+    },
+    {
+      "name": "Gratis en Buenos Aires",
+      "kind": "rss",
+      "url": "https://gratisenbuenosaires.com/",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Agenda diaria, 100% gratuitos: el mejor calce temático del proyecto."
+    },
+    {
+      "name": "Baires Secreta",
+      "kind": "rss",
+      "url": "https://bairessecreta.com/",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Blog de planes. Probablemente WordPress."
+    },
+    {
+      "name": "Time Out Buenos Aires",
+      "kind": "jsonld",
+      "url": "https://www.timeout.com/es/buenos-aires",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Medio grande: suele traer marcado schema.org."
+    },
+    {
+      "name": "Alternativa Teatral",
+      "kind": "jsonld",
+      "url": "https://www.alternativateatral.com/",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Cartelera teatral completa; incluye funciones a la gorra y gratuitas."
+    },
+    {
+      "name": "Teatro Colón",
+      "kind": "jsonld",
+      "url": "https://teatrocolon.org.ar/es/calendario",
+      "venue": "Teatro Colón",
+      "status": "candidato",
+      "note": "Dominio .org.ar, distinto de los .gob.ar bloqueados: puede no estar filtrado."
+    },
+    {
+      "name": "Casa Nacional del Bicentenario",
+      "kind": "jsonld",
+      "url": "",
+      "venue": "Casa Nacional del Bicentenario",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. El dominio que se supuso antes no resuelve por DNS; no volver a inventarlo."
+    }
+  ]
+}

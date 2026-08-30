@@ -1,20 +1,27 @@
 #!/usr/bin/env python3
-"""Sondea sitios de eventos buscando endpoints estructurados.
+"""Sondea sitios de eventos y emite la configuración de las fuentes que sirven.
 
-Antes de pelear con selectores CSS conviene revisar si el sitio ya expone
-los datos en limpio. Este script prueba, por cada dominio:
+Este script existe porque quien escribe el scraper casi nunca puede probar los
+sitios objetivo (red bloqueada, geo-restricciones, WAF). En vez de adivinar
+selectores, se corre esto desde una red con acceso real y se pega en
+`scraper/sources.json` lo que imprime al final.
 
-  - WordPress REST      /wp-json/wp/v2/posts        (activa por defecto)
-  - Drupal JSON:API     /jsonapi
-  - CKAN                /api/3/action/package_list  (portales de datos)
-  - Sitemaps            /sitemap.xml, /sitemap_index.xml
-  - Feeds               /feed, /rss, /atom.xml, /events.ics
-  - JSON-LD             schema.org/Event embebido en el HTML
-  - SPA                 __NEXT_DATA__ / __NUXT__ / llamadas fetch visibles
+Prueba, por cada sitio y en orden de calidad de dato:
+
+  1. ICS        /events.ics, /?ical=1, /agenda.ics, /calendario.ics
+  2. Tribe      /wp-json/tribe/events/v1/events   (The Events Calendar)
+  3. JSON-LD    schema.org/Event embebido en la página
+  4. WP posts   /wp-json/wp/v2/posts              (artículos, no eventos)
+  5. RSS/Atom   /feed, /rss, /atom.xml, /feed/atom
+  6. CKAN       /api/3/action/package_list
+  7. SPA        __NEXT_DATA__ / __NUXT__ y endpoints en el código
+  8. Selectores conteo de nodos que parecen items
 
 Uso:
-    python scraper/discover.py                      # los sitios del proyecto
-    python scraper/discover.py https://otro.gob.ar  # uno puntual
+    python scraper/discover.py                    # candidatos de sources.json
+    python scraper/discover.py https://sitio.ar   # uno puntual
+    python scraper/discover.py --todos            # incluye los ya activos
+    python scraper/discover.py --compacto         # una línea por sitio (para CI)
 """
 from __future__ import annotations
 
@@ -29,114 +36,260 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import requests  # noqa: E402
 from bs4 import BeautifulSoup  # noqa: E402
 
-from eventos.sources import ALL_SOURCES  # noqa: E402
-from eventos.sources.base import USER_AGENT, extract_jsonld_events  # noqa: E402
+from eventos.registry import candidatos, cargar  # noqa: E402
+from eventos.sources.base import BROWSER_HEADERS, extract_jsonld_events  # noqa: E402
+from eventos.sources.feeds import parse_feed, parse_ics  # noqa: E402
 
-SONDAS = [
-    ("WordPress REST", "/wp-json/wp/v2/posts?per_page=1", "json"),
-    ("WordPress REST (tipo evento)", "/wp-json/wp/v2/evento?per_page=1", "json"),
-    ("Drupal JSON:API", "/jsonapi", "json"),
-    ("CKAN", "/api/3/action/package_list", "json"),
-    ("Sitemap", "/sitemap.xml", "xml"),
-    ("Sitemap index", "/sitemap_index.xml", "xml"),
-    ("RSS", "/feed", "xml"),
-    ("RSS alternativo", "/rss", "xml"),
-]
+VERDE, AMARILLO, ROJO, GRIS, FIN = (
+    "\033[32m", "\033[33m", "\033[31m", "\033[90m", "\033[0m")
 
-VERDE, ROJO, GRIS, RESET = "\033[32m", "\033[31m", "\033[90m", "\033[0m"
+RUTAS_ICS = ("/events.ics", "/?ical=1", "/agenda.ics", "/calendario.ics")
+RUTAS_FEED = ("/feed", "/rss", "/feed/atom", "/atom.xml", "/index.xml")
+RUTA_TRIBE = "/wp-json/tribe/events/v1/events"
+RUTA_WP = "/wp-json/wp/v2/posts?per_page=1"
+RUTA_CKAN = "/api/3/action/package_list"
 
 
-def _session() -> requests.Session:
+def sesion() -> requests.Session:
     s = requests.Session()
-    s.headers.update({"User-Agent": USER_AGENT, "Accept-Language": "es-AR,es"})
+    s.headers.update(BROWSER_HEADERS)
     return s
 
 
-def _probe(session, base: str, path: str, kind: str) -> tuple[bool, str]:
-    url = urljoin(base, path)
+def _get(ses, url: str, timeout: int = 20):
     try:
-        r = session.get(url, timeout=15, allow_redirects=True)
+        return ses.get(url, timeout=timeout, allow_redirects=True)
     except Exception as exc:
-        return False, f"{type(exc).__name__}"
-    if r.status_code != 200:
-        return False, f"HTTP {r.status_code}"
-
-    body = r.text.strip()
-    if kind == "json":
-        try:
-            data = json.loads(body)
-        except json.JSONDecodeError:
-            return False, "responde 200 pero no es JSON"
-        n = len(data) if isinstance(data, (list, dict)) else 0
-        return True, f"JSON con {n} claves/items — {url}"
-    if kind == "xml" and body[:5].lower().startswith(("<?xml", "<urls", "<rss")):
-        return True, f"{len(body)//1024} KB — {url}"
-    return False, "no parece el formato esperado"
+        return exc
 
 
-def _inspect_page(session, url: str) -> list[str]:
-    """Mira el HTML de la agenda: JSON-LD, SPA y endpoints en el código."""
-    hallazgos: list[str] = []
+def _base(url: str) -> str:
+    partes = urlparse(url)
+    return f"{partes.scheme}://{partes.netloc}"
+
+
+# --- sondas -----------------------------------------------------------------
+
+def probar_ics(ses, base: str) -> tuple[str, dict] | None:
+    for ruta in RUTAS_ICS:
+        url = urljoin(base, ruta)
+        r = _get(ses, url)
+        if isinstance(r, Exception) or r.status_code != 200:
+            continue
+        eventos = parse_ics(r.text)
+        if eventos:
+            return f"{len(eventos)} VEVENT", {"kind": "ics", "url": url}
+    return None
+
+
+def probar_tribe(ses, base: str) -> tuple[str, dict] | None:
+    url = urljoin(base, RUTA_TRIBE)
+    r = _get(ses, url)
+    if isinstance(r, Exception) or r.status_code != 200:
+        return None
     try:
-        r = session.get(url, timeout=20)
-        r.raise_for_status()
-    except Exception as exc:
-        return [f"{ROJO}no responde: {type(exc).__name__}{RESET}"]
+        datos = r.json()
+    except ValueError:
+        return None
+    eventos = datos.get("events")
+    if isinstance(eventos, list):
+        gratis = sum(1 for e in eventos
+                     if not str(e.get("cost") or "").strip()
+                     or re.fullmatch(r"0([.,]0+)?|gratis|free", str(e.get("cost")), re.I))
+        return (f"{len(eventos)} eventos ({gratis} sin costo)",
+                {"kind": "tribe", "url": url})
+    return None
 
-    soup = BeautifulSoup(r.text, "lxml")
 
-    eventos = extract_jsonld_events(soup)
+def probar_jsonld(ses, url: str) -> tuple[str, dict] | None:
+    r = _get(ses, url, timeout=30)
+    if isinstance(r, Exception) or r.status_code != 200:
+        return None
+    sopa = BeautifulSoup(r.text, "lxml")
+    eventos = extract_jsonld_events(sopa)
     if eventos:
-        nombres = [e.get("name", "?") for e in eventos[:3]]
-        hallazgos.append(f"{VERDE}JSON-LD: {len(eventos)} schema.org/Event{RESET} → {nombres}")
+        nombres = [e.get("name", "?") for e in eventos[:2]]
+        return f"{len(eventos)} schema.org/Event → {nombres}", {"kind": "jsonld", "url": url}
+    return None
+
+
+def probar_feed(ses, base: str) -> tuple[str, dict] | None:
+    for ruta in RUTAS_FEED:
+        url = urljoin(base, ruta)
+        r = _get(ses, url)
+        if isinstance(r, Exception) or r.status_code != 200:
+            continue
+        entradas = parse_feed(r.text)
+        if entradas:
+            return f"{len(entradas)} entradas", {"kind": "rss", "url": url}
+    return None
+
+
+def probar_wp(ses, base: str) -> str | None:
+    r = _get(ses, urljoin(base, RUTA_WP))
+    if isinstance(r, Exception) or r.status_code != 200:
+        return None
+    try:
+        datos = r.json()
+    except ValueError:
+        return None
+    return f"{len(datos)} post(s)" if isinstance(datos, list) else None
+
+
+def probar_ckan(ses, base: str) -> str | None:
+    r = _get(ses, urljoin(base, RUTA_CKAN))
+    if isinstance(r, Exception) or r.status_code != 200:
+        return None
+    try:
+        datos = r.json()
+    except ValueError:
+        return None
+    nombres = datos.get("result") or []
+    return f"{len(nombres)} datasets" if nombres else None
+
+
+def inspeccionar_pagina(ses, url: str) -> list[str]:
+    """SPA, endpoints internos y densidad de nodos: pistas de último recurso."""
+    pistas: list[str] = []
+    r = _get(ses, url, timeout=30)
+    if isinstance(r, Exception):
+        return [f"{ROJO}no responde: {type(r).__name__}{FIN}"]
+    if r.status_code != 200:
+        pistas.append(f"{ROJO}HTTP {r.status_code}{FIN}"
+                      + (f"  {AMARILLO}← probable bloqueo por IP o WAF{FIN}"
+                         if r.status_code in (403, 429) else ""))
+        return pistas
 
     for marca, etiqueta in (("__NEXT_DATA__", "Next.js"), ("__NUXT__", "Nuxt")):
         if marca in r.text:
-            hallazgos.append(
-                f"{VERDE}SPA {etiqueta} detectada{RESET} — el estado inicial viene "
-                f"embebido en <script id=\"{marca}\">, se puede leer directo"
-            )
+            pistas.append(f"{VERDE}SPA {etiqueta}{FIN}: el estado inicial está en "
+                          f'<script id="{marca}">, se lee directo')
 
-    # Endpoints que la propia pagina llama: la via mas rentable.
-    apis = set(re.findall(r'["\'](/(?:api|wp-json|jsonapi)/[^"\'\s?]{3,60})', r.text))
-    for api in sorted(apis)[:6]:
-        hallazgos.append(f"{VERDE}endpoint en el código:{RESET} {urljoin(url, api)}")
+    apis = sorted(set(re.findall(
+        r'["\'](/(?:api|wp-json|jsonapi|graphql)/[^"\'\s?]{3,60})', r.text)))
+    for api in apis[:6]:
+        pistas.append(f"{VERDE}endpoint en el código{FIN}: {urljoin(url, api)}")
 
-    if not hallazgos:
-        n = len(soup.select("article, .evento, .card, .actividad"))
-        hallazgos.append(
-            f"{GRIS}sin datos estructurados; {n} nodos que parecen items "
-            f"→ toca scraping por selectores{RESET}"
-        )
-    return hallazgos
+    if not pistas:
+        sopa = BeautifulSoup(r.text, "lxml")
+        n = len(sopa.select("article, .evento, .card, .actividad, .event"))
+        pistas.append(f"{GRIS}sin datos estructurados; {n} nodos tipo item "
+                      f"→ haría falta scraping por selectores{FIN}")
+    return pistas
 
 
-def revisar(session, url: str) -> None:
-    base = f"{urlparse(url).scheme}://{urlparse(url).netloc}"
-    print(f"\n\033[1m{base}\033[0m  ({url})")
+# --- orquestación -----------------------------------------------------------
 
-    for nombre, path, kind in SONDAS:
-        ok, detalle = _probe(session, base, path, kind)
-        marca = f"{VERDE}✓{RESET}" if ok else f"{GRIS}·{RESET}"
-        color = "" if ok else GRIS
-        print(f"  {marca} {color}{nombre:<28}{RESET} {color}{detalle}{RESET}")
+def revisar(ses, entrada: dict) -> dict | None:
+    url = entrada["url"]
+    nombre = entrada.get("name", url)
+    base = _base(url)
+    print(f"\n\033[1m{nombre}\033[0m  {GRIS}{url}{FIN}")
 
-    print("  — página de agenda —")
-    for linea in _inspect_page(session, url):
-        print(f"    {linea}")
+    for etiqueta, sonda in (
+        ("ICS (calendario)", lambda: probar_ics(ses, base)),
+        ("Tribe / The Events Calendar", lambda: probar_tribe(ses, base)),
+        ("JSON-LD schema.org/Event", lambda: probar_jsonld(ses, url)),
+        ("RSS / Atom", lambda: probar_feed(ses, base)),
+    ):
+        resultado = sonda()
+        if resultado:
+            detalle, config = resultado
+            print(f"  {VERDE}✓ {etiqueta:<28}{FIN} {detalle}")
+            propuesta = {
+                "name": entrada.get("name", nombre),
+                "kind": config["kind"],
+                "url": config["url"],
+                "venue": entrada.get("venue", ""),
+                "status": "activo",
+            }
+            print(f"  {VERDE}→ usar este mecanismo{FIN}")
+            return propuesta
+        print(f"  {GRIS}· {etiqueta:<28} no{FIN}")
+
+    for etiqueta, sonda in (("WordPress REST", lambda: probar_wp(ses, base)),
+                            ("CKAN", lambda: probar_ckan(ses, base))):
+        detalle = sonda()
+        marca = f"{AMARILLO}~{FIN}" if detalle else f"{GRIS}·{FIN}"
+        print(f"  {marca} {etiqueta:<28} {detalle or 'no'}")
+
+    print(f"  {GRIS}— página —{FIN}")
+    for pista in inspeccionar_pagina(ses, url):
+        print(f"    {pista}")
+    return None
+
+
+def revisar_compacto(ses, entrada: dict) -> dict | None:
+    """Una línea por sitio. Para leer el resultado desde el log de CI."""
+    url, nombre, base = entrada["url"], entrada.get("name", "?"), _base(entrada["url"])
+
+    for etiqueta, sonda in (
+        ("ics", lambda: probar_ics(ses, base)),
+        ("tribe", lambda: probar_tribe(ses, base)),
+        ("jsonld", lambda: probar_jsonld(ses, url)),
+        ("rss", lambda: probar_feed(ses, base)),
+    ):
+        resultado = sonda()
+        if resultado:
+            detalle, config = resultado
+            print(f"  OK   {nombre:<34} {etiqueta:<7} {detalle}")
+            return {"name": nombre, "kind": config["kind"], "url": config["url"],
+                    "venue": entrada.get("venue", ""), "status": "activo"}
+
+    # Sin mecanismo estructurado: al menos dejar dicho POR QUE.
+    r = _get(ses, url, timeout=30)
+    if isinstance(r, Exception):
+        motivo = f"red: {type(r).__name__}"
+    elif r.status_code != 200:
+        motivo = f"HTTP {r.status_code}"
+    else:
+        extras = []
+        if probar_wp(ses, base):
+            extras.append("tiene wp-json/posts")
+        if probar_ckan(ses, base):
+            extras.append("tiene CKAN")
+        for marca, etiqueta in (("__NEXT_DATA__", "Next.js"), ("__NUXT__", "Nuxt")):
+            if marca in r.text:
+                extras.append(f"SPA {etiqueta}")
+        apis = sorted(set(re.findall(
+            r'["\'](/(?:api|wp-json|jsonapi|graphql)/[^"\'\s?]{3,60})', r.text)))
+        if apis:
+            extras.append("endpoints: " + ", ".join(apis[:3]))
+        motivo = "200 sin marcado" + (" — " + "; ".join(extras) if extras else "")
+    print(f"  --   {nombre:<34} {'':<7} {motivo}")
+    return None
 
 
 def main() -> int:
-    urls = sys.argv[1:] or [s.url for s in ALL_SOURCES if s.url.startswith("http")]
-    session = _session()
-    print(f"Sondeando {len(urls)} sitio(s). Verde = hay datos estructurados.")
-    for url in urls:
-        revisar(session, url)
-    print(
-        "\nSi algo salió en verde, conviene escribir una Source contra ese "
-        "endpoint en vez de pelear con selectores CSS: es JSON y no se rompe "
-        "con cada rediseño."
-    )
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    todos = "--todos" in sys.argv
+    compacto = "--compacto" in sys.argv
+
+    if args:
+        entradas = [{"name": u, "url": u} for u in args]
+    else:
+        entradas = candidatos()
+        if todos:
+            entradas += [{"name": f.name, "url": f.url} for f in cargar()]
+
+    ses = sesion()
+    if compacto:
+        print(f"### PROSPECCION: {len(entradas)} sitio(s) ###")
+        propuestas = [p for e in entradas if (p := revisar_compacto(ses, e))]
+    else:
+        print(f"Sondeando {len(entradas)} sitio(s). "
+              f"{VERDE}Verde{FIN} = mecanismo utilizable.")
+        propuestas = [p for e in entradas if (p := revisar(ses, e))]
+
+    print("\n" + "=" * 70)
+    if propuestas:
+        print(f"{VERDE}{len(propuestas)} fuente(s) utilizable(s).{FIN} "
+              f"Pegá esto en la lista `sources` de scraper/sources.json:\n")
+        print(json.dumps(propuestas, ensure_ascii=False, indent=2))
+    else:
+        print(f"{AMARILLO}Ninguna expuso un mecanismo estructurado.{FIN}")
+        print("Si viste muchos HTTP 403, corré esto desde otra red: sería\n"
+              "bloqueo por IP y no algo que se arregle en el código.")
     return 0
 
 

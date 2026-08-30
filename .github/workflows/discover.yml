@@ -1,0 +1,42 @@
+name: Prospección de fuentes
+
+# Corre `discover.py` desde el runner y deja el resultado en el log.
+#
+# Existe porque quien mantiene el scraper suele no poder alcanzar los sitios
+# objetivo desde su máquina. El runner sí tiene salida a internet, así que la
+# prospección se hace acá y la configuración que emite se pega en sources.json.
+#
+# Ojo con lo que este workflow NO puede responder: los cuatro sitios .gob.ar
+# que dan 403 lo hacen desde este mismo rango de IPs, así que si vuelven a dar
+# 403 no prueba que sea bloqueo por IP — solo lo deja consistente. Lo que sí
+# responde, y es lo que suma eventos, es si las candidatas son utilizables.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "scraper/sources.json"
+      - "scraper/discover.py"
+      - ".github/workflows/discover.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "0 12 * * 1"   # lunes 09:00 en Buenos Aires: detecta sitios que se caen
+
+jobs:
+  sondear:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scraper/requirements.txt
+
+      - name: Instalar dependencias
+        run: pip install -r scraper/requirements.txt
+
+      - name: Sondear candidatas y activas
+        # Nunca falla el workflow: su salida es informativa, no un veredicto.
+        run: python scraper/discover.py --compacto --todos || true

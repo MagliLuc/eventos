@@ -134,7 +134,8 @@ flag estuviera en esa fila se perdería cada mañana.
 ```
 scraper/
 ├── run_scraper.py            # CLI
-├── discover.py               # sonda sitios buscando APIs ocultas
+├── discover.py               # sonda sitios y emite la config que funciona
+├── sources.json              # REGISTRO de fuentes (datos, no código)
 ├── requirements.txt
 ├── seed/                     # agenda curada a mano (red de seguridad)
 ├── tests/                    # 14 tests, corren sin red
@@ -143,13 +144,11 @@ scraper/
     ├── normalize.py          # categoría, modalidad e horarios desde texto libre
     ├── venues.py             # catálogo de sedes + geocoding gratis (Nominatim)
     ├── pipeline.py           # dedupe, validación y escritura del JSON
+    ├── registry.py           # arma las fuentes desde sources.json
     └── sources/
-        ├── html_source.py       # JSON-LD primero, selectores CSS como plan B
-        ├── ba_data.py           # API CKAN oficial del GCBA (sin API key)
-        ├── agendas_culturales.py # Recoleta, Bicentenario, MNBA, CTBA, Cultura
-        ├── palacio_libertad.py
-        ├── usina_del_arte.py
-        ├── ba_turismo.py
+        ├── feeds.py          # ICS, The Events Calendar (WP), RSS/Atom
+        ├── ba_data.py        # API CKAN del GCBA (sin API key)
+        ├── html_source.py    # JSON-LD primero, selectores CSS como plan B
         └── local_seed.py
 ```
 
@@ -170,6 +169,14 @@ Decisiones que hacen que esto se mantenga solo:
 - **Sin fecha legible, no hay evento.** Se descarta y se cuenta en el log:
   muchos descartes seguidos es la señal de que los selectores de esa fuente
   quedaron viejos.
+- **Agregar una fuente es configuración, no código.** `sources.json` dice qué
+  se consulta y con qué mecanismo; `eventos/registry.py` la instancia. Solo se
+  escribe Python si aparece un mecanismo nuevo.
+- **`discover.py` emite la configuración.** Quien escribe el scraper casi nunca
+  puede probar los sitios objetivo (red bloqueada, geo-restricción, WAF), así
+  que en vez de adivinar selectores se corre el prospector desde una red con
+  acceso y se pega lo que imprime. El panorama completo de fuentes y
+  mecanismos está en [docs/FUENTES.md](docs/FUENTES.md).
 - **JSON-LD antes que selectores CSS.** Las agendas oficiales corren sobre
   WordPress/Drupal y emiten `schema.org/Event` en un `<script type="application/ld+json">`.
   Ese marcado se rompe mucho menos que un `div.clase-que-cambia`. Los
