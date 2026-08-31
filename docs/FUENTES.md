@@ -19,9 +19,11 @@ y cada capa de interpretación es una fuente de error.
 | 4 | **JSON-LD schema.org/Event** | Evento estructurado en el HTML | Baja — sobrevive rediseños | ✅ `HtmlAgendaSource` |
 | 5 | **API interna de la SPA** | Lo mismo que ve la web | Media — no versionada | 🔍 lo detecta `discover.py` |
 | 6 | **RSS / Atom** | Artículos, **no eventos** | Media | ✅ `RssSource` (+ JSON-LD por ficha) |
-| 7 | **WordPress `/wp/v2/posts`** | Artículos | Media | 🔍 lo detecta `discover.py` |
-| 8 | **Selectores CSS** | Lo que se logre sacar | **Alta** — muere con cada rediseño | ✅ último recurso |
-| 9 | **Navegador headless** | Cualquier cosa | Alta + costo de CI | ❌ evitado |
+| 7 | **JSON-LD en la ficha** | El evento, aunque el listado no lo marque | Media-baja | ✅ `FichasSource` |
+| 8 | **WordPress `/wp/v2/posts`** | Artículos | Media | 🔍 lo detecta `discover.py` |
+| 9 | **Fecha escrita en la prosa** | Fecha y hora, si están literales | Media-alta | ✅ `eventos/fechas.py` |
+| 10 | **Selectores CSS** | Lo que se logre sacar | **Alta** — muere con cada rediseño | ✅ último recurso |
+| 11 | **Navegador headless** | Cualquier cosa | Alta + costo de CI | ❌ evitado |
 
 Dos aclaraciones que evitan expectativas falsas:
 
@@ -37,9 +39,73 @@ con JS, el dato viene de una llamada `fetch` — y esa llamada devuelve JSON
 limpio. Buscar ese endpoint (mecanismo 5) cuesta cinco minutos y ahorra 30
 segundos y cientos de MB por corrida.
 
+**Antes de escribir selectores, mirar la ficha.** El mecanismo 7 es el que más
+fuentes destrabó: es habitual que el *listado* se arme por JavaScript y no
+tenga nada que leer, mientras la ficha de cada actividad emite
+`schema.org/Event` porque el CMS lo genera solo. `FichasSource` usa el listado
+únicamente como índice. Es preferible a los selectores porque no depende del
+maquetado del listado, que es justo lo que más cambia.
+
+**La prosa es el último recurso antes de rendirse, y tiene reglas.** Cuando la
+ficha no marca nada, se lee el texto — pero la fecha tiene que estar
+**escrita**. Nada de resolver «este finde» contra el día de la corrida: eso es
+lo que una vez produjo siete copias del mismo evento. Por eso `fechas.py` usa
+expresiones regulares y **no** `dateparser`, cuya gracia es precisamente
+inferir fechas relativas a hoy. Además, en prosa se exige que el texto diga que
+es gratis: `is_free` acepta por defecto lo que no menciona precio, y eso sirve
+para JSON-LD (donde existe el campo `offers`) pero no para una nota
+periodística, donde el silencio no significa gratis.
+
 ---
 
-## 2. Estado real de las fuentes
+## 2. Cómo se decide, y por qué CI es el único que puede mirar
+
+Desde donde se mantiene este scraper **no hay salida a internet hacia los
+sitios objetivo**: el proxy rechaza el CONNECT a `palaciolibertad.gob.ar`,
+`bellasartes.gob.ar` y compañía, y la herramienta de fetch devuelve
+`EGRESS_BLOCKED`. Quien lo pidió tampoco puede probar nada en su máquina. El
+único punto de la cadena con red real es el runner de Actions.
+
+De ahí sale la regla de trabajo de este archivo: **ningún estado de
+`sources.json` se escribe por deducción**. Lo decide una corrida.
+
+`scraper/diagnostico.py` (workflow «Diagnóstico de fuentes») pide cada sitio
+por cuatro caminos y **commitea lo que vio** en `scraper/diagnostico/` —
+archivos, no un artifact `.zip`, porque un artifact no se puede leer desde
+acá y el HTML real es lo que permite escribir selectores sin adivinarlos.
+
+Lo que cada combinación significa:
+
+| robots.txt | `requests` | `curl_cffi` (TLS de Chrome) | IPv4 forzado | Conclusión |
+|---|---|---|---|---|
+| 200 | 200 | — | — | El transporte no es el problema |
+| 200 | 403 | **200** | — | **Fingerprinting TLS**: activar `curl_cffi` |
+| 200 | timeout | timeout | **200** | AAAA sin ruta: marcar `force_ipv4` |
+| 200 | 403 | 403 | 403 | **No es la IP** — es la forma del pedido, y el perfil de Chrome no alcanzó |
+| 403 | 403 | 403 | 403 | Recién acá tiene sentido sospechar de la IP |
+| — | prohibido por robots | — | — | No se scrapea, punto |
+
+La fila importante es la segunda. Un WAF (Cloudflare, Akamai, DataDome) lee el
+*ClientHello* de TLS antes de que el pedido llegue a la capa HTTP: el orden de
+cifrados y extensiones de `requests`/OpenSSL —el «JA3»— es idéntico en millones
+de bots y no se parece al de ningún navegador. **Eso explica por qué mandar
+diez cabeceras de navegador no movió nada**: la decisión ya estaba tomada.
+`curl_cffi` reproduce el stack TLS de Chrome, incluido el frame `SETTINGS` de
+HTTP/2.
+
+La cuarta fila también decide algo que se venía suponiendo: si `robots.txt`
+responde 200 desde la misma IP y con el mismo cliente, y la agenda no, **no es
+bloqueo por IP**.
+
+Dos límites que nos ponemos, y no son decorativos: `robots.txt` manda (si el
+sitio nos prohíbe la ruta, no se pide), y seguimos identificados — `From` y el
+User-Agent llevan la URL del proyecto, así que quien administre el sitio sabe
+quiénes somos y cómo frenarnos. Son páginas públicas y el volumen es un puñado
+de pedidos por día.
+
+---
+
+## 3. Estado real de las fuentes
 
 Verificado en corridas de GitHub Actions del 2026-08-30, no supuesto.
 
@@ -152,7 +218,7 @@ nueva que contiene**, que distingue de un vistazo las dos causas posibles:
 
 ---
 
-## 3. Redes sociales
+## 4. Redes sociales
 
 Investigado. El resumen es que **casi todo está cerrado**, y conviene saberlo
 antes de invertir tiempo.
@@ -181,7 +247,7 @@ agenda porteña. Es gratis, está permitido y no requiere raspar nada.
 
 ---
 
-## 4. Cómo sumar una fuente
+## 5. Cómo sumar una fuente
 
 1. Agregarla a `sources.json` con `"status": "candidato"`.
 2. Correr `python scraper/discover.py` **desde una red con acceso real**.
@@ -193,7 +259,7 @@ no está en la tabla de arriba.
 
 ---
 
-## 5. Principios que salieron de equivocarnos
+## 6. Principios que salieron de equivocarnos
 
 - **No inventar datos.** Sin fecha legible, el evento se descarta. Sin sede
   ubicable, también: a un evento sin lugar no se puede ir.
