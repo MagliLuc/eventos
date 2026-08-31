@@ -81,21 +81,50 @@ Lo que cada combinación significa:
 | 200 | 200 | — | — | El transporte no es el problema |
 | 200 | 403 | **200** | — | **Fingerprinting TLS**: activar `curl_cffi` |
 | 200 | timeout | timeout | **200** | AAAA sin ruta: marcar `force_ipv4` |
-| 200 | 403 | 403 | 403 | **No es la IP** — es la forma del pedido, y el perfil de Chrome no alcanzó |
-| 403 | 403 | 403 | 403 | Recién acá tiene sentido sospechar de la IP |
+| 200 | 403 | 403 | 403 | Ni TLS ni IPv6. **Mirar las cabeceras**: ahí está el mecanismo real |
 | — | prohibido por robots | — | — | No se scrapea, punto |
 
-La fila importante es la segunda. Un WAF (Cloudflare, Akamai, DataDome) lee el
-*ClientHello* de TLS antes de que el pedido llegue a la capa HTTP: el orden de
-cifrados y extensiones de `requests`/OpenSSL —el «JA3»— es idéntico en millones
-de bots y no se parece al de ningún navegador. **Eso explica por qué mandar
-diez cabeceras de navegador no movió nada**: la decisión ya estaba tomada.
-`curl_cffi` reproduce el stack TLS de Chrome, incluido el frame `SETTINGS` de
-HTTP/2.
+**La conclusión no está en el código de estado: está en las cabeceras.** Dos
+que deciden todo:
 
-La cuarta fila también decide algo que se venía suponiendo: si `robots.txt`
-responde 200 desde la misma IP y con el mismo cliente, y la agenda no, **no es
-bloqueo por IP**.
+- `Cf-Mitigated: challenge` — Cloudflare sirvió una **página de desafío** en
+  lugar de la respuesta. Se resuelve ejecutando el JavaScript del desafío y
+  quedándose con la cookie `cf_clearance`; no se resuelve cambiando de IP ni de
+  país.
+- `cf-cache-status: HIT` — la respuesta salió de la caché del borde y **nunca
+  llegó al origen**.
+
+### Una corrección, porque el error es instructivo
+
+Acá se afirmó: *«si robots.txt responde 200 desde la misma IP y con el mismo
+cliente, y la agenda no, no es bloqueo por IP»*. **Para el Complejo Teatral eso
+es falso**: su robots.txt volvió con `cf-cache-status: HIT`, o sea servido por
+la caché sin tocar el origen ni el desafío. No probaba nada sobre la IP.
+
+Lo que sí quedó probado, con las cabeceras a la vista: los cuatro `.gob.ar` y
+Baires Secreta devuelven un **desafío del CDN** (Cloudflare en los cuatro,
+CloudFront en Baires Secreta). Y la hipótesis del fingerprinting TLS quedó
+descartada aparte: `curl_cffi` con perfil de Chrome recibe el mismo 403 que
+`requests` — y en Gratis en Buenos Aires es directamente peor, porque ahí
+`requests` pasa con 200 y el perfil de Chrome recibe 403.
+
+### Por qué un proxy argentino no es la respuesta
+
+Se evaluó, porque parecía lo obvio:
+
+- **VPN gratuita con salida argentina no existe**: ProtonVPN free da 5 países y
+  Windscribe free 11; en los dos, Argentina es plan pago.
+- **Cloudflare Workers free** (100k pedidos/día, sin tarjeta) no deja elegir
+  país de egreso: saldría por EE.UU. igual que el runner.
+- **Listas de proxies públicos argentinos**: existen, pero son IPs que caen sin
+  aviso, ya vienen marcadas, y meten un intermediario que puede alterar el
+  contenido en tránsito. No se justifica para leer una agenda pública.
+- Y el punto de fondo: **ninguno ejecuta el JavaScript del desafío**, que es lo
+  que el CDN está pidiendo.
+
+Lo que sí queda por probar, y es gratis: que el mismo CDN sirva alguna ruta con
+datos desde su caché (`sitemap.xml`, `/feed`, `wp-json`, `.ics`). El
+diagnóstico las sondea cuando la agenda viene desafiada.
 
 Dos límites que nos ponemos, y no son decorativos: `robots.txt` manda (si el
 sitio nos prohíbe la ruta, no se pide), y seguimos identificados — `From` y el

@@ -11,13 +11,16 @@ puedan escribir selectores contra el marcado de verdad en vez de adivinarlo.
 Lo que responde, por sitio:
 
   * ¿robots.txt nos deja? (y si no, se acabó la discusión para esa ruta)
-  * ¿el 403 es por IP o por forma del pedido? Si robots.txt da 200 desde la
-    misma IP y el mismo cliente, y la agenda da 403, no es la IP.
+  * ¿quién rechaza, y con qué? Las cabeceras lo dicen: `Cf-Mitigated:
+    challenge` es un desafío de Cloudflare, `cf-cache-status: HIT` es una
+    respuesta servida del borde sin llegar al origen. Ojo con confundirlos:
+    que robots.txt vuelva 200 NO prueba que el origen nos deje entrar, porque
+    puede haber salido de la caché. Es un error que ya cometimos acá.
   * ¿es fingerprinting TLS? Si `curl_cffi` con el perfil de Chrome pasa donde
-    `requests` falla, sí: el WAF decidió mirando el ClientHello, antes de leer
-    una sola cabecera. Es la hipótesis que explica por qué mandar diez
-    cabeceras de navegador no movió nada.
+    `requests` falla, sí. (Se probó: no lo era.)
   * ¿el timeout es IPv6 sin ruta? Se repite el pedido forzando IPv4.
+  * Si la agenda está desafiada, ¿hay alguna ruta con datos que el CDN igual
+    sirva cacheada? Es la vía barata: no necesita ni navegador ni proxy.
   * ¿hay un mecanismo mejor que los selectores? Feeds declarados en el <head>,
     sitemap, y —esto es lo que más suele destrabar— JSON-LD en la *ficha* del
     evento aunque el listado no lo tenga.
@@ -183,6 +186,41 @@ def jsonld_en_fichas(sesion, urls: list[str]) -> list[dict]:
     return hallazgos
 
 
+# Rutas que un CDN suele servir desde su caché. Van en orden de calidad de dato.
+RUTAS_POR_LA_CACHE = (
+    "/events.ics", "/?ical=1",
+    "/wp-json/tribe/events/v1/events", "/wp-json/wp/v2/posts?per_page=5",
+    "/sitemap.xml", "/sitemap_index.xml",
+    "/feed", "/feed/", "/rss",
+)
+
+
+def puertas_por_la_cache(sesion, base: str) -> list[dict]:
+    """Busca rutas que el CDN sirva sin lanzar el desafío.
+
+    De dónde sale la idea: el robots.txt del Complejo Teatral volvió con
+    `cf-cache-status: HIT` y **sin** `Cf-Mitigated`, mientras su agenda volvía
+    403 con desafío. O sea que Cloudflare desafía lo dinámico y entrega lo
+    cacheado sin preguntar. Si alguna ruta con datos cae del lado cacheado, se
+    entra por ahí y no hace falta ni navegador ni proxy.
+    """
+    puertas = []
+    for ruta in RUTAS_POR_LA_CACHE:
+        info = _registrar(sesion, urljoin(base, ruta), timeout=20)
+        cabeceras = {k.lower(): v for k, v in (info.get("cabeceras") or {}).items()}
+        info["desafiada"] = "cf-mitigated" in cabeceras
+        info["cache"] = cabeceras.get("cf-cache-status", "")
+        info["ruta"] = ruta
+        if info.get("status") == 200 and not info["desafiada"] and info.get("bytes"):
+            info["abierta"] = True
+            puertas.append(info)
+            print(f"    ABIERTA: {ruta:<34} 200, {info['bytes']} bytes"
+                  f"{', cache ' + info['cache'] if info['cache'] else ''}")
+        else:
+            puertas.append(info)
+    return puertas
+
+
 def wayback(sesion, url: str) -> dict:
     """Último recurso: si el sitio nos cierra la puerta, ¿hay copia archivada?
 
@@ -253,8 +291,21 @@ def revisar(entrada: dict) -> dict:
             break
 
     if not crudo:
-        informe["wayback"] = wayback(plano, url)
-        print(f"  wayback: {informe['wayback'] or 'sin copia'}")
+        # La agenda no se puede leer. Antes de rendirse, ver si el CDN entrega
+        # alguna ruta con datos desde su caché, sin lanzar el desafío.
+        print("  -- rutas que el CDN podria servir cacheadas --")
+        informe["puertas"] = puertas_por_la_cache(plano, base)
+        abiertas = [p for p in informe["puertas"] if p.get("abierta")]
+        if abiertas:
+            informe["veredicto"] += (
+                f"  PERO hay {len(abiertas)} ruta(s) abierta(s) sin desafio: "
+                + ", ".join(p["ruta"] for p in abiertas))
+            print(f"  -> {len(abiertas)} puerta(s) abierta(s); "
+                  f"la agenda se puede leer por ahi")
+        else:
+            print("    ninguna: el desafio tapa todo el dominio")
+            informe["wayback"] = wayback(plano, url)
+            print(f"  wayback: {informe['wayback'] or 'sin copia'}")
         return informe
 
     sopa = BeautifulSoup(crudo, "lxml")
