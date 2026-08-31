@@ -20,6 +20,12 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  # Dos diagnósticos a la vez se pisarían el commit de la evidencia. El nuevo
+  # gana: siempre trae el estado más reciente.
+  group: diagnostico-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   diagnosticar:
     runs-on: ubuntu-latest
@@ -46,6 +52,18 @@ jobs:
 
       - name: Diagnosticar todas las fuentes
         run: python scraper/diagnostico.py || true
+
+      - name: Corrida en seco del pipeline
+        # `update-events.yml` solo corre en main, así que en una rama no hay
+        # forma de saber si las fuentes activas aportan algo hasta mergear.
+        # Esto corre el pipeline completo contra un archivo descartable: el
+        # log dice cuántos eventos saca cada fuente y la agenda publicada no
+        # se toca. Es la única verificación de que el trabajo sirvió.
+        run: |
+          python scraper/run_scraper.py --days 21 \
+            --output "${RUNNER_TEMP}/prueba-events.json" || true
+          echo "--- la agenda publicada quedó intacta: ---"
+          git diff --stat docs/events.json || true
 
       - name: Commitear la evidencia
         # El diagnóstico tarda ~15 min y en ese rato la rama puede haber
