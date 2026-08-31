@@ -107,27 +107,51 @@ de pedidos por día.
 
 ## 3. Estado real de las fuentes
 
-Verificado en corridas de GitHub Actions del 2026-08-30, no supuesto.
+Medido en la corrida en seco del pipeline (workflow «Diagnóstico de fuentes»,
+paso *Corrida en seco*), no supuesto. **26 eventos de fuentes en vivo**, contra
+0 cuando empezó este trabajo.
 
-### Funcionando
-- **BA Data (CKAN)** — alcanzable desde CI, pero **sus datasets culturales son
-  archivo histórico** (ver más abajo). Aporta cero eventos vigentes.
-- **Usina del Arte**, **Centro Cultural Recoleta**, **Turismo BA** — responden
-  200 pero los selectores no extraen fecha. Necesitan `discover.py`.
+### Aportando eventos
 
-### Bloqueadas: 403 desde GitHub Actions
-`palaciolibertad.gob.ar`, `bellasartes.gob.ar`, `complejoteatral.gob.ar`,
-`cultura.gob.ar` devuelven **403 en los tres intentos, también con un set
-completo de cabeceras de navegador**. Eso descarta el filtrado por User-Agent.
+| Fuente | Fichas | Eventos | Cómo |
+|---|---|---|---|
+| **Museo Moderno** | 10 | **14** | prosa de la ficha; 8 de 10 con actividad |
+| **Centro Cultural Recoleta** | 27 | **11** | fecha en la tarjeta del listado |
+| **Qué Hacemos** | 8 | **1** | `schema.org/Event` en cada ficha |
 
-El dato que orienta: `data.buenosaires.gob.ar` **sí** responde desde el mismo
-runner. Que caigan los cuatro `www.*` y no el portal de datos apunta a
-**bloqueo por IP de datacenter** — los runners de GitHub corren en rangos de
-Azure en EE.UU.
+Qué Hacemos rinde poco en número pero es la de mejor dato: su marcado es
+impecable y el filtro descarta bien los shows pagos que su sección «eventos
+gratis» también enlaza. Su sitemap tiene 10 URLs más para explorar.
 
-> **Cómo confirmarlo**: correr `python scraper/discover.py` desde una red
-> argentina. Si esos sitios responden 200 ahí y 403 en CI, es la IP. Ningún
-> cambio de código lo arregla; hay que mover *dónde* corre el scraper.
+### Activas, todavía sin aportar — con el motivo medido
+
+| Fuente | Qué pasa |
+|---|---|
+| **Teatro Colón** | 9 fichas, 9 dicen «Comprar entradas». Es el resultado correcto: el Colón vende entradas. Queda activa por las funciones gratuitas que sí hace. |
+| **Usina del Arte** | 10 fichas; su listado muestra actividades ya pasadas. Cuando publique la agenda siguiente entra sola. |
+| **El Cultural San Martín** | 40 fichas por sitemap, pero el sitemap trae páginas del sitio y no funciones. Falta un `ruta_ficha` sacado de su HTML. |
+| **Fundación Proa** | enlaza una sola ficha y su fecha cayó fuera de la ventana. |
+
+### Fuera, con motivo probado
+
+- **BA Data (CKAN)** — su propio `robots.txt` prohíbe `/api/`. No se fuerza: la
+  regla vale también cuando incomoda. Da igual para el resultado, porque ya
+  estaba probado que sus datasets culturales son archivo (2015-2017) y
+  estadística, no agenda.
+- **Turismo BA** — su sitemap está podrido: de 21 URLs, 12 dan 404 y el resto
+  son notas de 2016-2018. Gastaba 21 pedidos por corrida en nada.
+- **Planetario** — sus espectáculos cuelgan de la raíz sin prefijo común
+  (`/agujeros-negros-supermasivos`, `/alerta-espacial…`), así que ningún
+  `ruta_ficha` los distingue del menú. Y tiene `/tickets`: además son pagos.
+
+### Sin solución dentro de la restricción de costo cero
+
+Los cuatro `.gob.ar` (`bellasartes`, `complejoteatral`, `cultura`,
+`palaciolibertad`) y Baires Secreta. La sección 2 explica qué quedó descartado
+y qué queda: un WAF con cookie de challenge o un filtro por país. Ninguno se
+resuelve desde un runner en EE.UU. sin pagar un proxy, así que **se documentan
+en vez de seguir intentando**. `disfrutemosba` y Konex directamente no
+responden por ninguna vía.
 
 ### Prospección del 2026-08-30 desde el runner
 

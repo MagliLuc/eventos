@@ -39,7 +39,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "venue": "Usina del Arte",
       "status": "activo",
-      "note": "HTML 2026-08-31: volvió a responder (la caída de la corrida anterior era temporal). Sus fichas están en /actividad/<slug>; se pasa del feed al listado, que es el índice completo.",
+      "note": "Corrida en seco 2026-08-31 (2ª): 10 fichas, 0 eventos — 7 sin fecha dentro de la ventana y 3 sin decir que sean gratis. Su listado muestra actividades ya pasadas (las fechas leídas eran del 28 al 30/08). Queda activa: cuando publique la agenda siguiente va a entrar sola.",
       "ruta_ficha": "/actividad/"
     },
     {
@@ -48,7 +48,7 @@
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "HTML 2026-08-31: el listado tiene 27 fichas en /agenda/<slug> y —esto es lo importante— la fecha está en la tarjeta, no en la ficha: 'Desde el jueves 20.08 | 18 h'. De ahí que el lector de fichas ahora guarde el texto de la tarjeta y que fechas.py entienda dd.mm.",
+      "note": "Corrida en seco 2026-08-31 (2ª): 11 eventos. Es la mejor fuente en vivo junto con Museo Moderno. Expone 27 fichas y el tope de 15 dejaba 12 afuera, de ahí que ahora sea 30.",
       "ruta_ficha": "/agenda/"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "HTML 2026-08-31: CONFIRMADO. Las fichas viven en /eventos/<slug> y las 3 probadas traen schema.org/Event. El listado expone 8 y el sitemap otras 10.",
+      "note": "Corrida en seco 2026-08-31 (2ª): 1 evento. Sus fichas traen schema.org/Event impecable, pero la sección 'eventos gratis' enlaza también shows pagos y el filtro los descarta bien. Su sitemap tiene 10 URLs más para explorar.",
       "ruta_ficha": "/eventos/"
     },
     {
@@ -148,7 +148,7 @@
       "url": "https://teatrocolon.org.ar/",
       "venue": "Teatro Colón",
       "status": "activo",
-      "note": "HTML 2026-08-31: su sitemap.xml es sólo un índice y apunta a production-sitemap.xml, que es donde están las funciones. Antes se leían los índices como si fueran fichas; ahora se siguen.",
+      "note": "Corrida en seco 2026-08-31 (2ª): 9 fichas, 9 descartadas por decir 'Comprar entradas'. Es el resultado correcto: el Colón vende entradas. Queda activa por si publica funciones gratuitas, que las hace.",
       "ruta_ficha": "/produccion"
     },
     {
@@ -180,7 +180,7 @@
       "url": "https://museomoderno.org/agenda/",
       "venue": "Museo de Arte Moderno de Buenos Aires",
       "status": "activo",
-      "note": "HTML 2026-08-31: la agenda real es /agenda/, no /es/actividades — por eso no se le encontraba ninguna ficha. WordPress con feed declarado y sitemap_index."
+      "note": "Corrida en seco 2026-08-31 (2ª): 14 eventos, 8 de 10 fichas con actividad. La mejor de todas."
     },
     {
       "name": "Fundación Proa",
@@ -188,7 +188,7 @@
       "url": "https://proa.org/",
       "venue": "Fundación Proa",
       "status": "activo",
-      "note": "HTML 2026-08-31: responde desde la raíz. Se activa por fichas."
+      "note": "Corrida en seco 2026-08-31 (2ª): su listado enlaza una sola ficha y su fecha cayó fuera de la ventana. Queda activa porque cuesta un pedido."
     },
     {
       "name": "Ciudad Cultural Konex",
@@ -204,15 +204,15 @@
       "url": "https://www.elculturalsanmartin.org/",
       "venue": "El Cultural San Martín",
       "status": "activo",
-      "note": "HTML 2026-08-31: responde. WordPress con /feed/ declarado y sitemap_index. Se activa por fichas y el log dirá si aporta."
+      "note": "Corrida en seco 2026-08-31 (2ª): 40 fichas por sitemap, 15 leídas, todas descartadas por no decir que sean gratis. El sitemap trae páginas del sitio, no funciones. Falta un `ruta_ficha` que salga de mirar su HTML."
     },
     {
       "name": "Planetario Galileo Galilei",
       "kind": "fichas",
       "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
       "venue": "Planetario Galileo Galilei",
-      "status": "activo",
-      "note": "HTML 2026-08-31: /agenda no existe; la programación está en /espectaculos-publico-general, que es lo que enlaza su propio menú."
+      "status": "candidato",
+      "note": "Corrida en seco 2026-08-31 (2ª): sin fichas. Sus espectáculos cuelgan de la raíz sin prefijo común (/agujeros-negros-supermasivos, /alerta-espacial…), así que no hay `ruta_ficha` que los distinga del menú. Y tiene /tickets, o sea que además son pagos. Sale de activo: no vale el pedido."
     },
     {
       "name": "Bibliotecas de la Ciudad",

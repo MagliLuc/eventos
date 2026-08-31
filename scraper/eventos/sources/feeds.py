@@ -327,7 +327,9 @@ class LectorDeFichas(Source):
     """
 
     default_venue: str = ""
-    max_items: int = 15
+    # Recoleta expone 27 fichas y con el tope en 15 se perdian 12. El costo de
+    # subirlo es tiempo, no dinero: la pausa por dominio lo mantiene cortes.
+    max_items: int = 30
 
     def _leer_fichas(self, session, enlaces: list[str], window: DateWindow,
                      titulos: dict[str, str] | None = None,
@@ -462,7 +464,7 @@ class RssSource(LectorDeFichas):
     """Feed RSS/Atom: se usa solo para descubrir qué fichas leer."""
 
     def __init__(self, name: str, url: str, default_venue: str = "",
-                 max_items: int = 15):
+                 max_items: int = 30):
         self.name, self.url = name, url
         self.default_venue, self.max_items = default_venue, max_items
 
@@ -497,7 +499,7 @@ class FichasSource(LectorDeFichas):
     """
 
     def __init__(self, name: str, url: str, default_venue: str = "",
-                 max_items: int = 15, ruta_ficha: str = ""):
+                 max_items: int = 30, ruta_ficha: str = ""):
         self.name, self.url = name, url
         self.default_venue, self.max_items = default_venue, max_items
         # Opcional: fragmento que debe aparecer en la ruta de la ficha, para
