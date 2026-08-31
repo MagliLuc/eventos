@@ -21,11 +21,11 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33712,
+      "bytes": 33713,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
-        "X-Powered-By": "PHP/8.2.30",
-        "Link": "<https://usinadelarte.ar/wp-json/>; rel=\"https://api.w.org/\"",
+        "x-powered-by": "PHP/8.2.30",
+        "link": "<https://usinadelarte.ar/wp-json/>; rel=\"https://api.w.org/\"",
         "Server": "hcdn"
       },
       "cookies": [],
@@ -49,7 +49,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33712,
+      "bytes": 33709,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -208,41 +208,24 @@
     },
     "requests": {
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 2543,
+      "resultado": "HTTP 500",
+      "status": 500,
+      "bytes": 4006,
       "cabeceras": {
-        "Server": "Apache",
         "Content-Type": "text/html; charset=UTF-8"
       },
       "cookies": [
-        " TS9d594f32027",
-        "BIGipServerPool_apache-rhel7_prd"
+        "TS9d594f32027"
       ],
-      "final": "https://mantenimiento.buenosaires.gob.ar"
+      "final": "https://turismo.buenosaires.gob.ar/es/eventos"
     },
     "curl_cffi_chrome": {
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 2543,
+      "resultado": "HTTP 500",
+      "status": 500,
+      "bytes": 4006,
       "cabeceras": {
-        "server": "Apache",
         "content-type": "text/html; charset=UTF-8"
-      },
-      "cookies": [
-        " TS9d594f32027",
-        "BIGipServerPool_apache-rhel7_prd"
-      ],
-      "final": "https://mantenimiento.buenosaires.gob.ar/"
-    },
-    "ipv4_forzado": {
-      "url": "https://turismo.buenosaires.gob.ar/es/eventos",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 222256,
-      "cabeceras": {
-        "Content-Type": "text/html; charset=utf-8"
       },
       "cookies": [
         " TS0164d353",
@@ -251,15 +234,173 @@
       ],
       "final": "https://turismo.buenosaires.gob.ar/es/eventos"
     },
-    "veredicto": "responde bien con requests; el problema no es el transporte",
-    "transporte_que_funciono": "curl_cffi/chrome",
-    "titulo_pagina": "ASI",
-    "feeds_declarados": [],
-    "sitemap": "",
-    "urls_sitemap": [],
-    "jsonld_en_listado": 0,
-    "fichas_probadas": [],
-    "jsonld_en_fichas": 0
+    "ipv4_forzado": {
+      "url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "resultado": "HTTP 500",
+      "status": 500,
+      "bytes": 4006,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        " TS0164d353",
+        " TS9d594f32027",
+        "BIGipServerPool_Varnish-Enterprise"
+      ],
+      "final": "https://turismo.buenosaires.gob.ar/es/eventos"
+    },
+    "veredicto": "sin via de acceso (requests 500, chrome 500, ipv4 500)",
+    "puertas": [
+      {
+        "url": "https://turismo.buenosaires.gob.ar/events.ics",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/?ical=1",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/sitemap.xml",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/sitemap.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/feed",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/feed/",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://turismo.buenosaires.gob.ar/rss",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 4006,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://turismo.buenosaires.gob.ar/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": true,
+      "timestamp": "20260610203830",
+      "url": "http://web.archive.org/web/20260610203830/https://turismo.buenosaires.gob.ar/es/eventos"
+    }
   },
   {
     "name": "Palacio Libertad",
@@ -270,12 +411,12 @@
       "url": "https://palaciolibertad.gob.ar/robots.txt",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3464,
+      "bytes": 3452,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a17c693ba5a0-SEA"
+        "CF-RAY": "a33b6b275e769d52-ORD"
       },
       "cookies": [],
       "final": "https://palaciolibertad.gob.ar/robots.txt",
@@ -285,12 +426,12 @@
       "url": "https://palaciolibertad.gob.ar/agenda/",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3410,
+      "bytes": 3370,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a18e1fbbd443-SEA"
+        "CF-RAY": "a33b6b393fc6ba7a-ORD"
       },
       "cookies": [],
       "final": "https://palaciolibertad.gob.ar/agenda/"
@@ -304,7 +445,7 @@
         "content-type": "text/html; charset=UTF-8",
         "cf-mitigated": "challenge",
         "server": "cloudflare",
-        "cf-ray": "a339a19769e6065f-SEA"
+        "cf-ray": "a33b6b429c1f2258-ORD"
       },
       "cookies": [],
       "final": "https://palaciolibertad.gob.ar/agenda/"
@@ -313,17 +454,172 @@
       "url": "https://palaciolibertad.gob.ar/agenda/",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3410,
+      "bytes": 3377,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a1a09d6ced3d-SJC"
+        "CF-RAY": "a33b6b4bfe139d52-ORD"
       },
       "cookies": [],
       "final": "https://palaciolibertad.gob.ar/agenda/"
     },
     "veredicto": "sin via de acceso (requests 403, chrome 403, ipv4 403)",
+    "puertas": [
+      {
+        "url": "https://palaciolibertad.gob.ar/events.ics",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3414,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6b717cd19d52-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/events.ics",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/?ical=1",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3431,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6b7adb55ba7a-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/?ical=1",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3446,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6b843afb2986-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3468,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6b8d99a82c1d-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/sitemap.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3430,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6b96f9eb10a1-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/sitemap.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3417,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6ba058016209-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/sitemap_index.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/feed",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3376,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6ba9b8adc48f-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/feed",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/feed/",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3413,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6bb31df2ba7a-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/feed/",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://palaciolibertad.gob.ar/rss",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3371,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6bbc8a09e25b-ORD"
+        },
+        "cookies": [],
+        "final": "https://palaciolibertad.gob.ar/rss",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": true,
       "timestamp": "20260401182126",
@@ -344,7 +640,7 @@
         "Content-Type": "text/plain; charset=utf-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a1cc1c301c1b-SEA"
+        "CF-RAY": "a33b6bc11dfea3de-ORD"
       },
       "cookies": [],
       "final": "https://www.bellasartes.gob.ar/robots.txt",
@@ -354,12 +650,12 @@
       "url": "https://www.bellasartes.gob.ar/agenda/",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3378,
+      "bytes": 3411,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a1e84cc36899-SJC"
+        "CF-RAY": "a33b6bd2da034f3f-ORD"
       },
       "cookies": [],
       "final": "https://www.bellasartes.gob.ar/agenda/"
@@ -373,7 +669,7 @@
         "content-type": "text/html; charset=UTF-8",
         "cf-mitigated": "challenge",
         "server": "cloudflare",
-        "cf-ray": "a339a1f5be90586f-SJC"
+        "cf-ray": "a33b6bdc3b38e26a-ORD"
       },
       "cookies": [],
       "final": "https://www.bellasartes.gob.ar/agenda/"
@@ -382,17 +678,172 @@
       "url": "https://www.bellasartes.gob.ar/agenda/",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3374,
+      "bytes": 3378,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a1f68aa37565-SEA"
+        "CF-RAY": "a33b6be599ce6181-ORD"
       },
       "cookies": [],
       "final": "https://www.bellasartes.gob.ar/agenda/"
     },
     "veredicto": "HTTP 403 en la agenda pero robots.txt da 200 desde la misma IP y el mismo cliente: NO es bloqueo por IP ni fingerprinting TLS (el perfil de Chrome da lo mismo). Queda un WAF que exige cookie de challenge, o filtro por pais.",
+    "puertas": [
+      {
+        "url": "https://www.bellasartes.gob.ar/events.ics",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3385,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c0b1d5890b3-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/events.ics",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/?ical=1",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3394,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c146b966181-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/?ical=1",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3457,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c1ddfed6b84-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3470,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c273a3cead6-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/sitemap.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3399,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c309b284f3f-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/sitemap.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3425,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c39ff4d1263-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/sitemap_index.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/feed",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3407,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c435f956181-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/feed",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/feed/",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3409,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c4cbcb690b3-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/feed/",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.bellasartes.gob.ar/rss",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3408,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6c561d9eead6-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.bellasartes.gob.ar/rss",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": true,
       "timestamp": "20260228082353",
@@ -414,7 +865,7 @@
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a339a21599f9ddb8-SEA"
+        "CF-RAY": "a33b6c644889a162-ORD"
       },
       "cookies": [],
       "final": "https://complejoteatral.gob.ar/robots.txt",
@@ -424,12 +875,12 @@
       "url": "https://complejoteatral.gob.ar/cartelera",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3370,
+      "bytes": 3372,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a226ea43ddb8-SEA"
+        "CF-RAY": "a33b6c75c830a162-ORD"
       },
       "cookies": [],
       "final": "https://complejoteatral.gob.ar/cartelera"
@@ -438,12 +889,12 @@
       "url": "https://complejoteatral.gob.ar/cartelera",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 6037,
+      "bytes": 6016,
       "cabeceras": {
         "content-type": "text/html; charset=UTF-8",
         "cf-mitigated": "challenge",
         "server": "cloudflare",
-        "cf-ray": "a339a2307cd5cfe9-SJC"
+        "cf-ray": "a33b6c7f69d77e38-ORD"
       },
       "cookies": [],
       "final": "https://complejoteatral.gob.ar/cartelera"
@@ -452,17 +903,172 @@
       "url": "https://complejoteatral.gob.ar/cartelera",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3368,
+      "bytes": 3371,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a23a4fe076f8-SEA"
+        "CF-RAY": "a33b6c88cd0d6089-ORD"
       },
       "cookies": [],
       "final": "https://complejoteatral.gob.ar/cartelera"
     },
     "veredicto": "HTTP 403 en la agenda pero robots.txt da 200 desde la misma IP y el mismo cliente: NO es bloqueo por IP ni fingerprinting TLS (el perfil de Chrome da lo mismo). Queda un WAF que exige cookie de challenge, o filtro por pais.",
+    "puertas": [
+      {
+        "url": "https://complejoteatral.gob.ar/events.ics",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3401,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cae3ac947a1-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/events.ics",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/?ical=1",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3391,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cb79a04fc36-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/?ical=1",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3433,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cc10f795314-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3455,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cca5ba7a162-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/sitemap.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3421,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cd3bb316089-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/sitemap.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3404,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cdd1a6df85d-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/sitemap_index.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/feed",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3369,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6ce688a4f851-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/feed",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/feed/",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3404,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cefdbe2fc36-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/feed/",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://complejoteatral.gob.ar/rss",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3366,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6cf93a9993b1-ORD"
+        },
+        "cookies": [],
+        "final": "https://complejoteatral.gob.ar/rss",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": false,
       "timestamp": null,
@@ -483,7 +1089,7 @@
         "Content-Type": "text/plain; charset=utf-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a259affa3c7d-SJC"
+        "CF-RAY": "a33b6cfd5b92b0fc-ORD"
       },
       "cookies": [],
       "final": "https://www.cultura.gob.ar/robots.txt",
@@ -493,12 +1099,12 @@
       "url": "https://www.cultura.gob.ar/agenda/",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3369,
+      "bytes": 3366,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a26b6ddedc0d-SJC"
+        "CF-RAY": "a33b6d0f1876c5e4-ORD"
       },
       "cookies": [],
       "final": "https://www.cultura.gob.ar/agenda/"
@@ -512,7 +1118,7 @@
         "content-type": "text/html; charset=UTF-8",
         "cf-mitigated": "challenge",
         "server": "cloudflare",
-        "cf-ray": "a339a274c85046f8-SJC"
+        "cf-ray": "a33b6d18787e8764-ORD"
       },
       "cookies": [],
       "final": "https://www.cultura.gob.ar/agenda/"
@@ -521,17 +1127,172 @@
       "url": "https://www.cultura.gob.ar/agenda/",
       "resultado": "HTTP 403",
       "status": 403,
-      "bytes": 3368,
+      "bytes": 3367,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Cf-Mitigated": "challenge",
         "Server": "cloudflare",
-        "CF-RAY": "a339a27e2ff13c7d-SJC"
+        "CF-RAY": "a33b6d21ef86acb1-ORD"
       },
       "cookies": [],
       "final": "https://www.cultura.gob.ar/agenda/"
     },
     "veredicto": "HTTP 403 en la agenda pero robots.txt da 200 desde la misma IP y el mismo cliente: NO es bloqueo por IP ni fingerprinting TLS (el perfil de Chrome da lo mismo). Queda un WAF que exige cookie de challenge, o filtro por pais.",
+    "puertas": [
+      {
+        "url": "https://www.cultura.gob.ar/events.ics",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3369,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d475f391143-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/events.ics",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/?ical=1",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3392,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d50bf84b0fc-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/?ical=1",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3410,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d5a2850acb1-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3440,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d637aef1106-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/sitemap.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3394,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d6cd9c2c5e4-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/sitemap.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3372,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d76499aa465-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/sitemap_index.xml",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/feed",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3372,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d7f9b661143-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/feed",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/feed/",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3367,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d88fddbb0fc-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/feed/",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.cultura.gob.ar/rss",
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 3363,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Cf-Mitigated": "challenge",
+          "Server": "cloudflare",
+          "CF-RAY": "a33b6d926d1dacb1-ORD"
+        },
+        "cookies": [],
+        "final": "https://www.cultura.gob.ar/rss",
+        "desafiada": true,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": true,
       "timestamp": "20240418203445",
@@ -546,25 +1307,99 @@
     "robots": {
       "url": "https://disfrutemosba.buenosaires.gob.ar/robots.txt",
       "resultado": "error",
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f14799c9370>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f710955f620>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
       "permite_la_ruta": true
     },
     "requests": {
       "url": "https://disfrutemosba.buenosaires.gob.ar/",
       "resultado": "error",
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f14799c9970>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=30)'))"
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c41d0>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=30)'))"
     },
     "curl_cffi_chrome": {
       "url": "https://disfrutemosba.buenosaires.gob.ar/",
       "resultado": "error",
-      "error": "Timeout: Failed to perform, curl: (28) Connection timed out after 30002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+      "error": "Timeout: Failed to perform, curl: (28) Connection timed out after 30001 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
     },
     "ipv4_forzado": {
       "url": "https://disfrutemosba.buenosaires.gob.ar/",
       "resultado": "error",
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f147acaa360>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=60)'))"
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: / (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c52e0>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=60)'))"
     },
     "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/events.ics",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c55e0>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/?ical=1",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c5190>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c4410>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c4890>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c57f0>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c5e80>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/feed",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c6360>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/feed/",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c67b0>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://disfrutemosba.buenosaires.gob.ar/rss",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='disfrutemosba.buenosaires.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by ConnectTimeoutError(<HTTPSConnection(host='disfrutemosba.buenosaires.gob.ar', port=443) at 0x7f71093c6c00>, 'Connection to disfrutemosba.buenosaires.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": true,
       "timestamp": "20231201053305",
@@ -586,7 +1421,7 @@
         "X-Powered-By": "Express",
         "Server": "cloudflare",
         "Cf-Cache-Status": "HIT",
-        "CF-RAY": "a339a9dc5ba6cee9-SJC"
+        "CF-RAY": "a33b79548d361393-ORD"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/robots.txt",
@@ -602,7 +1437,7 @@
         "x-powered-by": "Express",
         "Server": "cloudflare",
         "cf-cache-status": "REVALIDATED",
-        "CF-RAY": "a339a9edcac9cee9-SJC"
+        "CF-RAY": "a33b79661ad11393-ORD"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -617,7 +1452,7 @@
         "x-powered-by": "Express",
         "server": "cloudflare",
         "cf-cache-status": "HIT",
-        "cf-ray": "a339a9f77960208c-SJC"
+        "cf-ray": "a33b796fa8e85e0c-ORD"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -626,13 +1461,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 19462,
+      "bytes": 19544,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "Server": "cloudflare",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a339aa00bd88cf23-SJC"
+        "CF-RAY": "a33b797919801247-ORD"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -671,7 +1506,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-08-31T05:34:09.812Z",
+              "validFrom": "2026-08-31T10:50:33.394Z",
               "category": "Free"
             }
           }
@@ -690,7 +1525,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-08-31T05:34:11.259Z",
+              "validFrom": "2026-08-31T10:50:34.887Z",
               "category": "Free"
             }
           }
@@ -723,7 +1558,8 @@
       "bytes": 336,
       "cabeceras": {
         "Server": "nginx",
-        "Content-Type": "text/plain; charset=utf-8"
+        "Content-Type": "text/plain; charset=utf-8",
+        "Link": "<https://public-api.wordpress.com/wp-json/?rest_route=/sites/gratisenbuenosaires.wordpress.com>; rel=\"https://api.w.org/\""
       },
       "cookies": [],
       "final": "https://gratisenbuenosaires.com/robots.txt",
@@ -733,7 +1569,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60126,
+      "bytes": 60143,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -760,7 +1596,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60058,
+      "bytes": 60259,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -793,7 +1629,7 @@
         "Server": "CloudFront",
         "Content-Type": "text/html; charset=UTF-8",
         "X-Cache": "Error from cloudfront",
-        "Via": "1.1 7b7ed180a68f72f1dd6bcc5c75fd0210.cloudfront.net (CloudFront)"
+        "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://bairessecreta.com/robots.txt",
@@ -808,7 +1644,7 @@
         "Server": "CloudFront",
         "Content-Type": "text/html; charset=UTF-8",
         "X-Cache": "Error from cloudfront",
-        "Via": "1.1 7b7ed180a68f72f1dd6bcc5c75fd0210.cloudfront.net (CloudFront)"
+        "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://bairessecreta.com/"
@@ -822,7 +1658,7 @@
         "server": "CloudFront",
         "content-type": "text/html; charset=UTF-8",
         "x-cache": "Error from cloudfront",
-        "via": "1.1 ee30ad75b0d5067a56c4e84f3f168abe.cloudfront.net (CloudFront)"
+        "via": "1.1 6c1523d2d6afbcacf7b5c3d3f467f8c4.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://bairessecreta.com/"
@@ -836,12 +1672,167 @@
         "Server": "CloudFront",
         "Content-Type": "text/html; charset=UTF-8",
         "X-Cache": "Error from cloudfront",
-        "Via": "1.1 ee30ad75b0d5067a56c4e84f3f168abe.cloudfront.net (CloudFront)"
+        "Via": "1.1 8267ddda05eecda7c23d647573952fee.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://bairessecreta.com/"
     },
     "veredicto": "sin via de acceso (requests 202, chrome 202, ipv4 202)",
+    "puertas": [
+      {
+        "url": "https://bairessecreta.com/events.ics",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://bairessecreta.com/?ical=1",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://bairessecreta.com/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://bairessecreta.com/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://bairessecreta.com/sitemap.xml",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/sitemap.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://bairessecreta.com/sitemap_index.xml",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://bairessecreta.com/feed",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://bairessecreta.com/feed/",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://bairessecreta.com/rss",
+        "resultado": "HTTP 202",
+        "status": 202,
+        "bytes": 1999,
+        "cabeceras": {
+          "Server": "CloudFront",
+          "Content-Type": "text/html; charset=UTF-8",
+          "X-Cache": "Error from cloudfront",
+          "Via": "1.1 e8e5d02c2ea3d5f8a88bac040b29c218.cloudfront.net (CloudFront)"
+        },
+        "cookies": [],
+        "final": "https://bairessecreta.com/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": true,
       "timestamp": "20260828215336",
@@ -873,11 +1864,11 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40778,
+      "bytes": 40732,
       "cabeceras": {
         "server": "akka-http/10.2.10",
-        "via": "1.1 google",
-        "Content-Type": "text/html; charset=UTF-8"
+        "content-type": "text/html; charset=UTF-8",
+        "via": "1.1 google"
       },
       "cookies": [],
       "final": "https://www.timeout.com/es/buenos-aires"
@@ -886,7 +1877,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 284221,
+      "bytes": 284227,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -901,11 +1892,11 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40778,
+      "bytes": 40817,
       "cabeceras": {
         "server": "akka-http/10.2.10",
-        "via": "1.1 google",
-        "Content-Type": "text/html; charset=UTF-8"
+        "content-type": "text/html; charset=UTF-8",
+        "via": "1.1 google"
       },
       "cookies": [
         "_TO_Canary"
@@ -1022,7 +2013,7 @@
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a339aba77a904d21-SJC"
+        "CF-RAY": "a33b7b5dcfde41cb-ORD"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/robots.txt",
@@ -1032,13 +2023,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21828,
+      "bytes": 21710,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a339abb8de544d21-SJC"
+        "CF-RAY": "a33b7b6f8b6e41cb-ORD"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -1053,7 +2044,7 @@
         "server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a339abc2bd03f883-SEA"
+        "cf-ray": "a33b7b791ecceae2-ORD"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -1062,13 +2053,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21828,
+      "bytes": 21816,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a339abcc1b0c83bf-SEA"
+        "CF-RAY": "a33b7b82780cc5fe-ORD"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -1164,6 +2155,143 @@
       "final": "https://malba.org.ar/actividades/"
     },
     "veredicto": "HTTP 429: es ritmo, no bloqueo. El sitio responde; hay que espaciar los pedidos y volver a probar.",
+    "puertas": [
+      {
+        "url": "https://www.malba.org.ar/events.ics",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.malba.org.ar/?ical=1",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.malba.org.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.malba.org.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.malba.org.ar/sitemap.xml",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/sitemap.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.malba.org.ar/sitemap_index.xml",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.malba.org.ar/feed",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.malba.org.ar/feed/",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.malba.org.ar/rss",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": false,
       "timestamp": null,
@@ -1186,7 +2314,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "BYPASS",
-        "CF-RAY": "a339ac3eaec9ed38-SJC"
+        "CF-RAY": "a33b7c440c3d72eb-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/robots.txt",
@@ -1203,7 +2331,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a339ac4f7d5ded38-SJC"
+        "CF-RAY": "a33b7c559cdd72eb-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1219,7 +2347,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a339ac591c4df56e-SJC"
+        "cf-ray": "a33b7c5f289034ad-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1235,7 +2363,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a339ac6278ce1990-SJC"
+        "CF-RAY": "a33b7c689e45eb5c-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1375,6 +2503,80 @@
       "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /agenda/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))"
     },
     "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://www.ciudadculturalkonex.org/events.ics",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /events.ics (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/?ical=1",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /?ical=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/sitemap.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/sitemap_index.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/feed",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/feed/",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.ciudadculturalkonex.org/rss",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.ciudadculturalkonex.org', port=443): Max retries exceeded with url: /rss (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
     "wayback": {
       "disponible": false,
       "timestamp": null,
@@ -1396,7 +2598,7 @@
         "link": "<https://www.elculturalsanmartin.org/wp-json/>; rel=\"https://api.w.org/\"",
         "Server": "cloudflare",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a339ad44fd04ce7c-SJC"
+        "CF-RAY": "a33b7da74c7df4eb-ORD"
       },
       "cookies": [],
       "final": "https://www.elculturalsanmartin.org/robots.txt",
@@ -1406,12 +2608,12 @@
       "url": "https://www.elculturalsanmartin.org/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 30258,
+      "bytes": 30820,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a339ad55b88cce7c-SJC"
+        "CF-RAY": "a33b7db99b33f4eb-ORD"
       },
       "cookies": [],
       "final": "https://www.elculturalsanmartin.org/"
@@ -1420,12 +2622,12 @@
       "url": "https://www.elculturalsanmartin.org/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 139696,
+      "bytes": 144916,
       "cabeceras": {
         "content-type": "text/html; charset=UTF-8",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a339ad5f6925c6ec-SJC"
+        "cf-ray": "a33b7dc32cebf7fc-ORD"
       },
       "cookies": [],
       "final": "https://www.elculturalsanmartin.org/"
@@ -1434,12 +2636,12 @@
       "url": "https://www.elculturalsanmartin.org/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 30258,
+      "bytes": 30849,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a339ad68b95a3d57-SJC"
+        "CF-RAY": "a33b7dcc89712041-ORD"
       },
       "cookies": [],
       "final": "https://www.elculturalsanmartin.org/"
@@ -1492,13 +2694,12 @@
     },
     "requests": {
       "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 46916,
+      "resultado": "HTTP 500",
+      "status": 500,
+      "bytes": 74,
       "cabeceras": {
         "Server": "Apache",
         "X-Powered-By": "PHP/7.1.30",
-        "Link": "</espectaculos-publico-general>; rel=\"canonical\", </node/139>; rel=\"shortlink\", </espectaculos-publico-general>; rel=\"revision\"",
         "Content-Type": "text/html; charset=UTF-8"
       },
       "cookies": [
@@ -1508,13 +2709,12 @@
     },
     "curl_cffi_chrome": {
       "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 46916,
+      "resultado": "HTTP 500",
+      "status": 500,
+      "bytes": 74,
       "cabeceras": {
         "server": "Apache",
         "x-powered-by": "PHP/7.1.30",
-        "link": "</espectaculos-publico-general>; rel=\"canonical\", </node/139>; rel=\"shortlink\", </espectaculos-publico-general>; rel=\"revision\"",
         "content-type": "text/html; charset=UTF-8"
       },
       "cookies": [
@@ -1525,13 +2725,12 @@
     },
     "ipv4_forzado": {
       "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 46916,
+      "resultado": "HTTP 500",
+      "status": 500,
+      "bytes": 74,
       "cabeceras": {
         "Server": "Apache",
         "X-Powered-By": "PHP/7.1.30",
-        "Link": "</espectaculos-publico-general>; rel=\"canonical\", </node/139>; rel=\"shortlink\", </espectaculos-publico-general>; rel=\"revision\"",
         "Content-Type": "text/html; charset=UTF-8"
       },
       "cookies": [
@@ -1540,15 +2739,176 @@
       ],
       "final": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general"
     },
-    "veredicto": "responde bien con requests; el problema no es el transporte",
-    "transporte_que_funciono": "curl_cffi/chrome",
-    "titulo_pagina": "Planetario Galileo Galilei",
-    "feeds_declarados": [],
-    "sitemap": "",
-    "urls_sitemap": [],
-    "jsonld_en_listado": 0,
-    "fichas_probadas": [],
-    "jsonld_en_fichas": 0
+    "veredicto": "sin via de acceso (requests 500, chrome 500, ipv4 500)",
+    "puertas": [
+      {
+        "url": "https://planetario.buenosaires.gob.ar/events.ics",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/?ical=1",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/sitemap.xml",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/sitemap.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/feed",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/feed/",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://planetario.buenosaires.gob.ar/rss",
+        "resultado": "HTTP 500",
+        "status": 500,
+        "bytes": 74,
+        "cabeceras": {
+          "Server": "Apache",
+          "X-Powered-By": "PHP/7.1.30",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [
+          "TS9d594f32027"
+        ],
+        "final": "https://planetario.buenosaires.gob.ar/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": true,
+      "timestamp": "20260518145914",
+      "url": "http://web.archive.org/web/20260518145914/https://planetario.buenosaires.gob.ar/espectaculos-publico-general"
+    }
   },
   {
     "name": "Bibliotecas de la Ciudad",
@@ -1581,7 +2941,7 @@
       "cabeceras": {
         "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
         "content-type": "text/html; charset=UTF-8",
-        "X-Cache": "HIT"
+        "X-Cache": "MISS"
       },
       "cookies": [
         " TS019ed99a",
@@ -1618,6 +2978,7 @@
         "X-Cache": "HIT"
       },
       "cookies": [
+        " BIGipServerocp4-pe-wks-http",
         " TS019ed99a",
         " TSd756dd8e027",
         "a98f8af3197ae016e517143635e419df"
