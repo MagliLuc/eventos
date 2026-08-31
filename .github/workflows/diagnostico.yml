@@ -13,8 +13,13 @@ on:
   workflow_dispatch:
   push:
     paths:
-      - "scraper/diagnostico.py"
-      - "scraper/eventos/http.py"
+      # Cualquier cambio del scraper, no solo del diagnóstico: la corrida en
+      # seco es la única verificación de que una fuente aporta algo, y con el
+      # filtro angosto de antes un arreglo de la extracción no la disparaba.
+      - "scraper/**"
+      # La negación va después porque gana el último patrón que matchea: así
+      # el commit de evidencia del propio job no se dispara a sí mismo.
+      - "!scraper/diagnostico/**"
       - ".github/workflows/diagnostico.yml"
 
 permissions:
