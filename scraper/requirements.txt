@@ -2,3 +2,9 @@ requests==2.32.3
 beautifulsoup4==4.12.3
 lxml==5.3.0
 jsonschema==4.23.0
+
+# Reproduce el handshake TLS de Chrome (JA3 + SETTINGS de HTTP/2). Varios de
+# los sitios .gob.ar de la agenda devuelven 403 mirando el ClientHello, antes
+# de leer una sola cabecera: por eso mandar cabeceras de navegador no alcanzo.
+# Si falta, el scraper cae a requests y sigue funcionando.
+curl_cffi==0.7.4

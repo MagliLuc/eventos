@@ -24,11 +24,20 @@ import re
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from typing import Iterable, Optional
+from urllib.parse import urljoin, urlparse
 
 import requests
 
+from ..fechas import extraer_fechas
 from ..models import DateWindow, Event, now_ba_iso
-from ..normalize import clean_text, detect_access_mode, detect_category, is_free, parse_times
+from ..normalize import (
+    clean_text,
+    detect_access_mode,
+    detect_category,
+    is_explicitly_free,
+    is_free,
+    parse_times,
+)
 from ..venues import build_venue
 from .base import Source, extract_jsonld_events, fetch_soup
 
@@ -237,55 +246,109 @@ def parse_feed(texto: str) -> list[dict]:
     return entradas
 
 
-class RssSource(Source):
-    """Feed de un portal o blog.
+PALABRAS_EVENTO = ("evento", "agenda", "actividad", "cartelera", "espectaculo",
+                   "muestra", "exposicion", "programacion", "funcion", "obra")
 
-    Ojo con la expectativa: un ítem de RSS es un *artículo*, no un evento. No
-    trae fecha de evento ni sede. Por eso, en vez de inventar esos datos, se
-    entra a cada ficha enlazada y se busca JSON-LD schema.org/Event ahí. Si la
-    nota no marca eventos, la entrada se descarta: preferimos publicar menos y
-    correcto antes que fabricar fechas.
+
+class LectorDeFichas(Source):
+    """Entra a la ficha de cada actividad y saca el evento de ahí.
+
+    Es la respuesta a los dos problemas que más fuentes nos costaron:
+
+      * un ítem de RSS es un *artículo*, no un evento: no trae fecha de evento
+        ni sede;
+      * varios listados dan 200 sin marcado porque se arman por JavaScript,
+        pero la ficha de cada actividad sí emite schema.org/Event, que el CMS
+        genera solo.
+
+    En los dos casos la salida es la misma: juntar URLs de ficha (de un feed o
+    de los enlaces del listado) y leer cada una. Primero JSON-LD; si no hay, la
+    prosa, exigiendo que la fecha esté escrita y que diga que es gratis. Sin
+    eso, se descarta: preferimos publicar menos y correcto antes que fabricar
+    fechas, que es exactamente el bug que ya tuvimos una vez.
     """
 
-    def __init__(self, name: str, url: str, default_venue: str = "",
-                 max_items: int = 15):
-        self.name, self.url = name, url
-        self.default_venue, self.max_items = default_venue, max_items
+    default_venue: str = ""
+    max_items: int = 15
 
-    def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
-        try:
-            r = session.get(self.url, timeout=45)
-            r.raise_for_status()
-        except Exception as exc:
-            print(f"  [{self.name}] feed no responde: {exc}")
-            return []
-
-        entradas = parse_feed(r.text)
-        if not entradas:
-            print(f"  [{self.name}] el feed no parsea como RSS/Atom")
-            return []
-
+    def _leer_fichas(self, session, enlaces: list[str], window: DateWindow,
+                     titulos: dict[str, str] | None = None) -> list[Event]:
+        titulos = titulos or {}
         eventos: list[Event] = []
-        sin_marcado = 0
-        for entrada in entradas[: self.max_items]:
-            enlace = entrada.get("link")
-            if not enlace:
-                continue
+        sin_marcado = sin_fecha = sin_precio = 0
+
+        for enlace in enlaces[: self.max_items]:
             sopa = fetch_soup(session, enlace, retries=1)
             if sopa is None:
                 continue
+
             nodos = extract_jsonld_events(sopa)
-            if not nodos:
-                sin_marcado += 1
+            if nodos:
+                for nodo in nodos:
+                    evento = self._de_jsonld(nodo, window, enlace)
+                    if evento:
+                        eventos.append(evento)
                 continue
-            for nodo in nodos:
-                evento = self._de_jsonld(nodo, window, enlace)
-                if evento:
-                    eventos.append(evento)
+
+            sin_marcado += 1
+            desde_texto, motivo = self._de_texto(
+                sopa, {"title": titulos.get(enlace)}, window, enlace)
+            eventos.extend(desde_texto)
+            sin_fecha += motivo == "fecha"
+            sin_precio += motivo == "precio"
 
         if sin_marcado:
-            print(f"  [{self.name}] {sin_marcado} notas sin schema.org/Event")
+            print(f"  [{self.name}] {sin_marcado} fichas sin schema.org/Event "
+                  f"(leidas como texto: {sin_fecha} sin fecha escrita, "
+                  f"{sin_precio} sin decir que sean gratis)")
         return eventos
+
+    # -- Plan B: la ficha en prosa ----------------------------------------
+    def _de_texto(self, sopa, entrada: dict, window: DateWindow,
+                  enlace: str) -> tuple[list[Event], str]:
+        """Arma eventos leyendo la nota. Devuelve (eventos, motivo del cero).
+
+        Se mira solo el titulo y la entradilla, no la nota entera: la fecha de
+        la actividad esta arriba, y mas abajo aparecen fechas de otras cosas
+        que meterian eventos que no son.
+        """
+        titular = sopa.find("h1")
+        titulo = clean_text(
+            (titular.get_text(" ", strip=True) if titular else None)
+            or entrada.get("title"), 160)
+        if not titulo:
+            return [], "titulo"
+
+        cuerpo = sopa.find("article") or sopa.find("main") or sopa
+        parrafos = [p.get_text(" ", strip=True) for p in cuerpo.find_all("p")[:6]]
+        entradilla = " ".join(p for p in parrafos if p)[:900]
+        clave = f"{titulo}. {entradilla}"
+
+        if not is_explicitly_free(clave):
+            return [], "precio"
+
+        fechas = extraer_fechas(clave, window)
+        if not fechas:
+            return [], "fecha"
+
+        inicio, fin = parse_times(clave)
+        descripcion = clean_text(entradilla)
+        return [
+            Event(
+                title=titulo,
+                description=descripcion,
+                category=detect_category(titulo, descripcion),
+                access_mode=detect_access_mode(titulo, descripcion),
+                date=fecha,
+                start_time=inicio,
+                end_time=fin,
+                venue=build_venue(self.default_venue),
+                source_name=self.name,
+                source_url=enlace,
+                updated_at=now_ba_iso(),
+            )
+            for fecha in fechas
+        ], ""
 
     def _de_jsonld(self, nodo: dict, window: DateWindow,
                    origen: str) -> Optional[Event]:
@@ -317,3 +380,82 @@ class RssSource(Source):
             source_url=nodo.get("url") or origen,
             updated_at=now_ba_iso(),
         )
+
+
+class RssSource(LectorDeFichas):
+    """Feed RSS/Atom: se usa solo para descubrir qué fichas leer."""
+
+    def __init__(self, name: str, url: str, default_venue: str = "",
+                 max_items: int = 15):
+        self.name, self.url = name, url
+        self.default_venue, self.max_items = default_venue, max_items
+
+    def fetch(self, session, window: DateWindow) -> list[Event]:
+        try:
+            r = session.get(self.url, timeout=45)
+            r.raise_for_status()
+        except Exception as exc:
+            print(f"  [{self.name}] feed no responde: {exc}")
+            return []
+
+        entradas = parse_feed(r.text)
+        if not entradas:
+            print(f"  [{self.name}] el feed no parsea como RSS/Atom")
+            return []
+
+        enlaces, titulos = [], {}
+        for entrada in entradas:
+            enlace = entrada.get("link")
+            if enlace and enlace not in titulos:
+                enlaces.append(enlace)
+                titulos[enlace] = entrada.get("title") or ""
+        return self._leer_fichas(session, enlaces, window, titulos)
+
+
+class FichasSource(LectorDeFichas):
+    """Listado HTML sin marcado, pero con fichas que sí lo tienen.
+
+    El listado se usa solo como índice: se juntan los enlaces que parecen
+    ficha de actividad y se lee cada uno. Es preferible a los selectores CSS
+    porque no depende del maquetado del listado, que es lo que más cambia.
+    """
+
+    def __init__(self, name: str, url: str, default_venue: str = "",
+                 max_items: int = 15, ruta_ficha: str = ""):
+        self.name, self.url = name, url
+        self.default_venue, self.max_items = default_venue, max_items
+        # Opcional: fragmento que debe aparecer en la ruta de la ficha, para
+        # cuando las palabras genéricas traen de más (p. ej. "/actividad/").
+        self.ruta_ficha = ruta_ficha
+
+    def fetch(self, session, window: DateWindow) -> list[Event]:
+        sopa = fetch_soup(session, self.url)
+        if sopa is None:
+            return []
+        enlaces = self._fichas(sopa)
+        if not enlaces:
+            print(f"  [{self.name}] el listado no expone enlaces a fichas")
+            return []
+        print(f"  [{self.name}] {len(enlaces)} fichas encontradas en el listado")
+        return self._leer_fichas(session, enlaces, window)
+
+    def _fichas(self, sopa) -> list[str]:
+        base = f"{urlparse(self.url).scheme}://{urlparse(self.url).netloc}"
+        encontrados: list[str] = []
+        for a in sopa.find_all("a", href=True):
+            destino = urljoin(self.url, a["href"]).split("#")[0]
+            if not destino.startswith(base):
+                continue
+            if destino.rstrip("/") == self.url.rstrip("/"):
+                continue
+            ruta = urlparse(destino).path.lower()
+            if self.ruta_ficha:
+                calza = self.ruta_ficha in ruta
+            else:
+                # Una ficha vive un nivel más adentro que el listado; el
+                # segmento extra evita traerse el propio menú del sitio.
+                calza = (any(p in ruta for p in PALABRAS_EVENTO)
+                         and len(ruta.strip("/").split("/")) >= 2)
+            if calza and destino not in encontrados:
+                encontrados.append(destino)
+        return encontrados

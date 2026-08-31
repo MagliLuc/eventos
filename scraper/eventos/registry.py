@@ -12,7 +12,7 @@ from pathlib import Path
 
 from .sources.ba_data import BaDataSource
 from .sources.base import Source
-from .sources.feeds import IcsSource, RssSource, TribeEventsSource
+from .sources.feeds import FichasSource, IcsSource, RssSource, TribeEventsSource
 from .sources.html_source import HtmlAgendaSource
 
 REGISTRO = Path(__file__).resolve().parent.parent / "sources.json"
@@ -32,6 +32,20 @@ class _AgendaConfigurable(HtmlAgendaSource):
                 setattr(self, atributo, valor)
 
 
+def _transporte(fuente: Source, entrada: dict) -> Source:
+    """Aplica las opciones de red que la entrada declare.
+
+    `force_ipv4` y `timeout` son las dos perillas que resuelven un
+    ConnectTimeout que no es caida del sitio, y se declaran por fuente para
+    no penalizar la corrida entera.
+    """
+    if entrada.get("force_ipv4"):
+        fuente.force_ipv4 = True
+    if isinstance(entrada.get("timeout"), int):
+        fuente.timeout = entrada["timeout"]
+    return fuente
+
+
 def _construir(entrada: dict) -> Source | None:
     kind = entrada.get("kind")
     nombre = entrada.get("name") or "sin nombre"
@@ -49,6 +63,12 @@ def _construir(entrada: dict) -> Source | None:
         return TribeEventsSource(nombre, url, sede)
     if kind == "rss":
         return RssSource(nombre, url, sede)
+    if kind == "fichas":
+        # Listado sin marcado propio, pero con fichas que traen JSON-LD o la
+        # fecha escrita. Es preferible a `css`: no depende del maquetado del
+        # listado, que es justo lo que mas cambia.
+        return FichasSource(nombre, url, sede,
+                            ruta_ficha=entrada.get("ruta_ficha", ""))
     if kind in ("jsonld", "css"):
         return _AgendaConfigurable(nombre, url, sede, entrada.get("selectors"))
 
@@ -67,7 +87,7 @@ def cargar(ruta: Path = REGISTRO, incluir: tuple[str, ...] = ("activo",)) -> lis
             continue
         fuente = _construir(entrada)
         if fuente is not None:
-            fuentes.append(fuente)
+            fuentes.append(_transporte(fuente, entrada))
     return fuentes
 
 

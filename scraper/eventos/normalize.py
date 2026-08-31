@@ -114,6 +114,20 @@ def is_free(*texts: Optional[str]) -> bool:
     return not any(marker in haystack for marker in paid_markers)
 
 
+def is_explicitly_free(*texts: Optional[str]) -> bool:
+    """Como `is_free`, pero exige que el texto lo diga.
+
+    `is_free` acepta por defecto lo que no menciona precio, y esta bien para
+    JSON-LD, donde el campo `offers` ya dice cuanto sale. Cuando la fuente es
+    prosa de una nota periodistica no hay tal campo: ahi el silencio no
+    significa gratis, asi que se exige la palabra.
+    """
+    haystack = strip_accents(" ".join(t for t in texts if t))
+    return any(marker in haystack for marker in
+               ("gratis", "gratuit", "entrada libre", "ingreso libre",
+                "acceso libre", "sin cargo"))
+
+
 def clean_text(text: Optional[str], limit: int = 400) -> Optional[str]:
     """Colapsa espacios y recorta descripciones largas del HTML original."""
     if not text:
