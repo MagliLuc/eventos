@@ -18,9 +18,12 @@
     "        candidato -> NO se consulta; solo lo sondea discover.py",
     "        bloqueado -> no se consulta; se deja documentado el porqué",
     "",
-    "Las notas que empiezan con 'Prospección:' salen de la corrida real del",
-    "workflow discover.yml, no de suposiciones. Para volver a sondear todo:",
-    "Actions -> Prospección de fuentes -> Run workflow."
+    "Ninguna nota de acá es una suposición: todas salen de una corrida real.",
+    "  'Diagnóstico <fecha>:' -> workflow 'Diagnóstico de fuentes', que prueba",
+    "                            robots.txt y cuatro transportes por sitio y",
+    "                            deja el HTML en scraper/diagnostico/.",
+    "  'Prospección:'         -> workflow 'Prospección de fuentes'.",
+    "Para rehacerlas: Actions -> el workflow que corresponda -> Run workflow."
   ],
   "sources": [
     {
@@ -35,8 +38,8 @@
       "kind": "rss",
       "url": "https://usinadelarte.ar/feed/atom",
       "venue": "Usina del Arte",
-      "status": "activo",
-      "note": "Prospección: feed Atom con 10 entradas. Antes se leía por selectores y no sacaba fecha."
+      "status": "bloqueado",
+      "note": "Diagnóstico 2026-08-31: dejó de responder — error de red por los cuatro transportes y sin copia en Wayback. El 2026-08-30 su feed Atom servía 10 entradas, así que puede ser caída temporal: revisar en el sondeo de los lunes antes de darla por muerta."
     },
     {
       "name": "Centro Cultural Recoleta",
@@ -44,7 +47,7 @@
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "Prospección: 200 sin ICS, Tribe, JSON-LD ni feed *en el listado*. Pasó de 'css' a 'fichas': con selectores genéricos daba 0, y lo que falta probar es si la ficha de cada actividad trae JSON-LD o la fecha escrita."
+      "note": "Diagnóstico 2026-08-31: 200 por los cuatro transportes. Se encuentran 3 fichas pero ninguna trae JSON-LD: depende del plan B por prosa. Sin feed declarado ni sitemap."
     },
     {
       "name": "Turismo Buenos Aires",
@@ -52,7 +55,7 @@
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Prospección: 200 sin marcado en el listado. Pasó de 'css' a 'fichas' por lo mismo que Recoleta."
+      "note": "Diagnóstico 2026-08-31: 200. Su sitemap lista 15 URLs de evento, pero las fichas no traen JSON-LD: depende del plan B por prosa."
     },
     {
       "name": "Palacio Libertad",
@@ -60,7 +63,7 @@
       "url": "https://palaciolibertad.gob.ar/agenda/",
       "venue": "Palacio Libertad",
       "status": "bloqueado",
-      "note": "403 en 3 intentos, también con cabeceras completas de navegador. Sospecha: bloqueo por IP de datacenter."
+      "note": "Diagnóstico 2026-08-31: 403 por los cuatro transportes, robots.txt incluido — o sea que acá el dominio entero nos cierra la puerta, a diferencia de los otros tres. Hay copia en Wayback de abril 2026, muy vieja para una agenda."
     },
     {
       "name": "Museo Nacional de Bellas Artes",
@@ -68,7 +71,7 @@
       "url": "https://www.bellasartes.gob.ar/agenda/",
       "venue": "Museo Nacional de Bellas Artes",
       "status": "bloqueado",
-      "note": "403 igual que arriba."
+      "note": "Diagnóstico 2026-08-31: 403 con requests Y con el perfil TLS de Chrome, pero robots.txt del mismo dominio responde 200 desde la misma IP y el mismo cliente. Eso descarta dos cosas: no es bloqueo por IP y no es fingerprinting TLS. Queda un WAF que exige cookie de challenge, o un filtro por país sobre las rutas de contenido. Ninguna de las dos se resuelve gratis desde un runner en EE.UU."
     },
     {
       "name": "Complejo Teatral de Buenos Aires",
@@ -76,7 +79,7 @@
       "url": "https://complejoteatral.gob.ar/cartelera",
       "venue": "Teatro San Martín",
       "status": "bloqueado",
-      "note": "403 igual que arriba."
+      "note": "Diagnóstico 2026-08-31: 403 con requests Y con el perfil TLS de Chrome, pero robots.txt del mismo dominio responde 200 desde la misma IP y el mismo cliente. Eso descarta dos cosas: no es bloqueo por IP y no es fingerprinting TLS. Queda un WAF que exige cookie de challenge, o un filtro por país sobre las rutas de contenido. Ninguna de las dos se resuelve gratis desde un runner en EE.UU."
     },
     {
       "name": "Cultura Nación",
@@ -84,7 +87,7 @@
       "url": "https://www.cultura.gob.ar/agenda/",
       "venue": "Ciudad de Buenos Aires",
       "status": "bloqueado",
-      "note": "403 igual que arriba."
+      "note": "Diagnóstico 2026-08-31: 403 con requests Y con el perfil TLS de Chrome, pero robots.txt del mismo dominio responde 200 desde la misma IP y el mismo cliente. Eso descarta dos cosas: no es bloqueo por IP y no es fingerprinting TLS. Queda un WAF que exige cookie de challenge, o un filtro por país sobre las rutas de contenido. Ninguna de las dos se resuelve gratis desde un runner en EE.UU."
     },
     {
       "name": "DisfrutemosBA",
@@ -94,15 +97,15 @@
       "status": "bloqueado",
       "force_ipv4": true,
       "timeout": 60,
-      "note": "Prospección: ConnectTimeout desde el runner. Hipótesis a confirmar con diagnostico.py: registro AAAA sin ruta real desde el runner, que cuelga hasta agotar el timeout sin llegar a probar IPv4. Por eso quedan declarados force_ipv4 y un timeout largo."
+      "note": "Diagnóstico 2026-08-31: descartada la hipótesis de IPv6. Con force_ipv4 y 60s de timeout tampoco responde, ni siquiera robots.txt. No es que tarde: no contesta. Hay copia en Wayback de 2023, inservible para agenda."
     },
     {
       "name": "Qué Hacemos",
-      "kind": "rss",
+      "kind": "fichas",
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
-      "status": "candidato",
-      "note": "Prospección: 200 pero sin ICS/Tribe/JSON-LD/feed ni wp-json. Requiere selectores; revisar a mano."
+      "status": "activo",
+      "note": "Diagnóstico 2026-08-31: CONFIRMADO. 200, y 3 de 3 fichas traen schema.org/Event. Además declara feed en api.quehacemos.com.ar/feed.xml y su sitemap lista 10 URLs de evento. La URL es literalmente su sección de eventos gratis: es la mejor fuente que apareció."
     },
     {
       "name": "Gratis en Buenos Aires",
@@ -110,7 +113,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Prospección: 200 sin marcado ni wp-json. El mejor calce temático, pero hoy solo por selectores."
+      "note": "Diagnóstico 2026-08-31: 200 con requests — y 403 con el perfil TLS de Chrome, o sea que acá imitar al navegador es PEOR. Sin feed, sin sitemap y sin fichas detectables. HTML capturado; requiere selectores."
     },
     {
       "name": "Baires Secreta",
@@ -118,7 +121,7 @@
       "url": "https://bairessecreta.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "bloqueado",
-      "note": "Prospección: HTTP 202, respuesta típica de un challenge de Cloudflare. No se resuelve sin navegador."
+      "note": "Diagnóstico 2026-08-31: HTTP 202 por los cuatro transportes, robots.txt incluido. Challenge de Cloudflare confirmado, y el perfil TLS de Chrome no lo pasa. Sin navegador no se resuelve, y eso está fuera de alcance."
     },
     {
       "name": "Time Out Buenos Aires",
@@ -126,7 +129,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Prospección: 200 sin marcado estructurado."
+      "note": "Diagnóstico 2026-08-31: 200, HTML capturado. 3 fichas, ninguna con JSON-LD y sin feed ni sitemap. Requiere selectores escritos sobre el HTML real."
     },
     {
       "name": "Alternativa Teatral",
@@ -134,7 +137,7 @@
       "url": "https://www.alternativateatral.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Prospección: 200 sin marcado estructurado."
+      "note": "Diagnóstico 2026-08-31: 200, HTML capturado. Ni fichas ni feed ni sitemap. Requiere selectores escritos sobre el HTML real."
     },
     {
       "name": "Teatro Colón",
@@ -142,7 +145,7 @@
       "url": "https://teatrocolon.org.ar/feed",
       "venue": "Teatro Colón",
       "status": "activo",
-      "note": "Prospección: RSS con 10 entradas. Dominio .org.ar, no afectado por los 403 de los .gob.ar."
+      "note": "Diagnóstico 2026-08-31: 200. Su sitemap lista 14 URLs de evento y el feed anda, pero las fichas no traen JSON-LD. Con la lectura de prosa nueva puede empezar a aportar; antes daba 0 fijo."
     },
     {
       "name": "Casa Nacional del Bicentenario",
@@ -152,7 +155,6 @@
       "status": "candidato",
       "note": "URL A CONFIRMAR. El dominio que se supuso antes no resuelve por DNS; no volver a inventarlo."
     },
-
     {
       "_comment": [
         "De acá para abajo, salas y museos que todavía no se sondearon. Las",
@@ -166,39 +168,39 @@
       "url": "https://www.malba.org.ar/actividades/",
       "venue": "MALBA",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "note": "Diagnóstico 2026-08-31: HTTP 429. No es bloqueo: es que el diagnóstico le pegó cuatro veces en menos de un segundo. Ya se agregó una pausa mínima por dominio; hay que volver a sondearlo."
     },
     {
       "name": "Museo Moderno",
       "kind": "fichas",
       "url": "https://www.museomoderno.org/es/actividades",
       "venue": "Museo de Arte Moderno de Buenos Aires",
-      "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "status": "activo",
+      "note": "Diagnóstico 2026-08-31: 200. WordPress confirmado (declara /feed/, /comments/feed/ y wp-json/wp/v2/posts) y sitemap_index con 5 URLs de evento. Las fichas no traen JSON-LD, así que depende del plan B por prosa."
     },
     {
       "name": "Fundación Proa",
       "kind": "fichas",
-      "url": "https://proa.org/esp/agenda.php",
+      "url": "https://proa.org/",
       "venue": "Fundación Proa",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "note": "Diagnóstico 2026-08-31: 404 en la ruta que supuse (/esp/agenda.php). La URL queda apuntando a la raíz para que el prospector encuentre la agenda."
     },
     {
       "name": "Ciudad Cultural Konex",
       "kind": "fichas",
       "url": "https://www.ciudadculturalkonex.org/agenda/",
       "venue": "Ciudad Cultural Konex",
-      "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar. Ojo: mucha programación paga; el filtro de gratuidad va a descartar casi todo."
+      "status": "bloqueado",
+      "note": "Diagnóstico 2026-08-31: no resuelve por DNS desde el runner, por ninguno de los cuatro transportes, y no hay copia en Wayback. El dominio que supuse probablemente no sea el real."
     },
     {
       "name": "El Cultural San Martín",
       "kind": "fichas",
-      "url": "https://elculturalsanmartin.org/agenda",
+      "url": "https://elculturalsanmartin.org/",
       "venue": "El Cultural San Martín",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "note": "Diagnóstico 2026-08-31: 404 en /agenda, pero robots.txt del dominio responde. La URL queda en la raíz para que el prospector encuentre la agenda."
     },
     {
       "name": "Planetario Galileo Galilei",
@@ -206,15 +208,15 @@
       "url": "https://planetario.buenosaires.gob.ar/agenda",
       "venue": "Planetario Galileo Galilei",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar. Dominio .gob.ar: puede caer en el mismo 403 que los otros."
+      "note": "Diagnóstico 2026-08-31: 200 por los cuatro transportes, HTML capturado. No se le encontró ninguna ficha: sus enlaces no matchean las palabras genéricas. Falta mirar el HTML y ponerle `ruta_ficha`."
     },
     {
       "name": "Bibliotecas de la Ciudad",
       "kind": "fichas",
-      "url": "https://buenosaires.gob.ar/cultura/bibliotecas",
+      "url": "https://buenosaires.gob.ar/cultura",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "note": "Diagnóstico 2026-08-31: 404 en /cultura/bibliotecas. Queda apuntando a /cultura."
     }
   ]
 }

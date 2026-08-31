@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import socket
 import threading
+import time
 import urllib.robotparser
 from contextlib import contextmanager
 from typing import Optional
@@ -74,6 +75,28 @@ def hay_tls_de_navegador() -> bool:
 # intento cuelga hasta agotar el timeout sin llegar a probar IPv4.
 
 _lock_ipv4 = threading.Lock()
+
+# ---------------------------------------------------------------------------
+# Ritmo por dominio
+# ---------------------------------------------------------------------------
+# El primer diagnóstico se ganó un HTTP 429 de MALBA él solito: le pegó cuatro
+# veces seguidas (robots + tres transportes) en menos de un segundo. Un 429 no
+# dice nada del sitio, dice que fuimos maleducados. Un intervalo mínimo por
+# host lo evita y de paso es la forma correcta de tratar a un servidor ajeno.
+
+PAUSA_POR_HOST = 1.5  # segundos
+
+_ultimo_pedido: dict[str, float] = {}
+_lock_ritmo = threading.Lock()
+
+
+def _esperar_turno(url: str) -> None:
+    host = urlparse(url).netloc
+    with _lock_ritmo:
+        desde = time.monotonic() - _ultimo_pedido.get(host, 0.0)
+        if desde < PAUSA_POR_HOST:
+            time.sleep(PAUSA_POR_HOST - desde)
+        _ultimo_pedido[host] = time.monotonic()
 
 
 @contextmanager
@@ -169,6 +192,7 @@ class PoliteSession:
         """GET sin chequear robots.txt. Solo para pedir robots.txt mismo."""
         kwargs.setdefault("timeout", timeout or self.timeout)
         kwargs.setdefault("allow_redirects", True)
+        _esperar_turno(url)
         if self.force_ipv4:
             with solo_ipv4():
                 return self._session.get(url, **kwargs)

@@ -229,6 +229,11 @@ def revisar(entrada: dict) -> dict:
     informe["curl_cffi_chrome"] = _registrar(chrome, url)
     informe["ipv4_forzado"] = _registrar(ipv4, url, timeout=60)
 
+    # Un 404 en la ruta configurada no dice si el dominio sirve: la URL puede
+    # estar simplemente mal. Distinguirlo evita descartar un sitio bueno.
+    if informe["requests"].get("status") == 404 and base != url.rstrip("/"):
+        informe["raiz_responde"] = _registrar(plano, base).get("status")
+
     for etiqueta in ("robots", "requests", "curl_cffi_chrome", "ipv4_forzado"):
         print(f"  {etiqueta:<18} {informe[etiqueta].get('resultado')}")
 
@@ -291,12 +296,23 @@ def _veredicto(informe: dict) -> str:
     if ipv4 == 200 and plano != 200:
         return ("era IPv6 sin ruta: forzando IPv4 responde. Marcar "
                 "force_ipv4 en sources.json.")
-    if robots == 200 and plano in (403, 202, 429):
-        return (f"HTTP {plano} en la agenda pero robots.txt da 200 desde la misma "
-                f"IP y el mismo cliente: NO es bloqueo por IP, es por forma del "
-                f"pedido, y el perfil de Chrome tampoco alcanzo.")
+    if 429 in (plano, chrome, ipv4):
+        # Un 429 no dice nada del sitio: dice que pedimos demasiado rapido.
+        return ("HTTP 429: es ritmo, no bloqueo. El sitio responde; hay que "
+                "espaciar los pedidos y volver a probar.")
+    if plano == 404:
+        raiz = informe.get("raiz_responde")
+        if raiz == 200:
+            return ("404: la URL esta mal, pero el dominio responde. Sondear la "
+                    "raiz con discover.py para encontrar la agenda.")
+        return "404: la URL configurada no existe. Hay que corregirla."
     if plano is None and chrome is None and ipv4 is None:
         return "no responde por ninguna via: caida, DNS o bloqueo de red"
+    if robots == 200 and plano in (403, 202):
+        return (f"HTTP {plano} en la agenda pero robots.txt da 200 desde la misma "
+                f"IP y el mismo cliente: NO es bloqueo por IP ni fingerprinting "
+                f"TLS (el perfil de Chrome da lo mismo). Queda un WAF que exige "
+                f"cookie de challenge, o filtro por pais.")
     return f"sin via de acceso (requests {plano}, chrome {chrome}, ipv4 {ipv4})"
 
 
