@@ -22,6 +22,7 @@ from __future__ import annotations
 import json
 import re
 import xml.etree.ElementTree as ET
+from collections import Counter
 from datetime import datetime
 from typing import Iterable, Optional
 from urllib.parse import urljoin, urlparse
@@ -249,6 +250,15 @@ def parse_feed(texto: str) -> list[dict]:
 PALABRAS_EVENTO = ("evento", "agenda", "actividad", "cartelera", "espectaculo",
                    "muestra", "exposicion", "programacion", "funcion", "obra")
 
+TOPE_FICHA = 9000  # caracteres de la ficha que se miran para fecha y precio.
+
+MOTIVOS = {
+    "ok": "con evento",
+    "titulo": "sin titulo legible",
+    "fecha": "sin fecha escrita",
+    "precio": "sin decir que sean gratis",
+}
+
 RUTAS_SITEMAP = ("/sitemap.xml", "/sitemap_index.xml")
 LOC_RE = re.compile(r"<loc>\s*([^<\s]+)\s*</loc>")
 
@@ -324,7 +334,12 @@ class LectorDeFichas(Source):
                      contexto: dict[str, str] | None = None) -> list[Event]:
         titulos, contexto = titulos or {}, contexto or {}
         eventos: list[Event] = []
-        sin_marcado = sin_fecha = sin_precio = 0
+        sin_marcado = 0
+        # Se cuentan TODOS los motivos, no una seleccion. La corrida anterior
+        # reporto "0 sin fecha, 0 sin precio" en fichas que rendian cero: el
+        # motivo real era "titulo" y no estaba en el contador, asi que el fallo
+        # se veia como un exito vacio.
+        motivos: Counter[str] = Counter()
 
         for enlace in enlaces[: self.max_items]:
             sopa = fetch_soup(session, enlace, retries=1)
@@ -344,13 +359,13 @@ class LectorDeFichas(Source):
                 sopa, {"title": titulos.get(enlace)}, window, enlace,
                 contexto.get(enlace, ""))
             eventos.extend(desde_texto)
-            sin_fecha += motivo == "fecha"
-            sin_precio += motivo == "precio"
+            motivos[motivo or "ok"] += 1
 
         if sin_marcado:
+            detalle = ", ".join(
+                f"{n} {MOTIVOS.get(m, m)}" for m, n in motivos.most_common())
             print(f"  [{self.name}] {sin_marcado} fichas sin schema.org/Event "
-                  f"(leidas como texto: {sin_fecha} sin fecha escrita, "
-                  f"{sin_precio} sin decir que sean gratis)")
+                  f"(leidas como texto: {detalle})")
         return eventos
 
     # -- Plan B: la ficha en prosa ----------------------------------------
@@ -366,29 +381,33 @@ class LectorDeFichas(Source):
         porque muchas veces es donde esta la fecha ("Desde el jueves 20.08 |
         18 h") mientras la ficha solo describe la actividad.
         """
-        titular = sopa.find("h1")
-        titulo = clean_text(
-            (titular.get_text(" ", strip=True) if titular else None)
-            or entrada.get("title"), 160)
+        titulo = _titulo_de(sopa, entrada.get("title"))
         if not titulo:
             return [], "titulo"
 
         cuerpo = sopa.find("article") or sopa.find("main") or sopa
         parrafos = [p.get_text(" ", strip=True) for p in cuerpo.find_all("p")[:6]]
         entradilla = " ".join(p for p in parrafos if p)[:900]
-        clave = f"{titulo}. {entradilla}"
 
-        if not is_explicitly_free(f"{clave} {tarjeta}"):
+        # La descripcion sale de la entradilla, pero la fecha y la gratuidad se
+        # buscan en toda la ficha: la Usina del Arte, por ejemplo, pone
+        # "Entrada libre y gratuita" y el bloque "Fechas y horarios" en una
+        # seccion aparte, bien despues del sexto parrafo. Mirar solo la
+        # entradilla descartaba sus diez actividades.
+        completo = f"{titulo}. {cuerpo.get_text(' ', strip=True)[:TOPE_FICHA]}"
+
+        if not is_explicitly_free(f"{completo} {tarjeta}"):
             return [], "precio"
 
-        # La ficha manda; la tarjeta es el respaldo.
-        fechas = extraer_fechas(clave, window) or extraer_fechas(tarjeta, window)
+        # La ficha manda; la tarjeta es el respaldo. La ventana es la que evita
+        # que una fecha suelta del pie de pagina se cuele como evento.
+        fechas = extraer_fechas(completo, window) or extraer_fechas(tarjeta, window)
         if not fechas:
             return [], "fecha"
 
-        inicio, fin = parse_times(clave)
+        inicio, fin = parse_times(f"{titulo}. {entradilla}")
         if not inicio:
-            inicio, fin = parse_times(tarjeta)
+            inicio, fin = parse_times(tarjeta) or (None, None)
         descripcion = clean_text(entradilla)
         return [
             Event(
@@ -541,6 +560,44 @@ class FichasSource(LectorDeFichas):
             encontrados.append(destino)
             contexto[destino] = _texto_de_la_tarjeta(a)
         return encontrados, contexto
+
+
+SEPARADORES_DE_TITULO = (" – ", " — ", " | ", " - ", " · ")
+
+
+def _titulo_de(sopa, respaldo: Optional[str] = None) -> Optional[str]:
+    """Titulo de la ficha: h1, si no og:title, si no <title>.
+
+    El respaldo no es teorico: las fichas de la Usina del Arte no tienen h1
+    y el titulo vive solo en <title>. Sin esto sus diez actividades se caian
+    todas, y encima en silencio.
+    """
+    titular = sopa.find("h1")
+    if titular:
+        limpio = clean_text(titular.get_text(" ", strip=True), 160)
+        if limpio:
+            return limpio
+
+    og = sopa.find("meta", attrs={"property": "og:title"})
+    crudo = (og.get("content") if og else None) or (
+        sopa.title.get_text(strip=True) if sopa.title else None)
+    if crudo:
+        # <title> casi siempre termina en el nombre del sitio: "Obra – Sala X".
+        # Se corta solo si la cola es mas corta que la cabeza, que es como se
+        # comporta un nombre de sitio. Sin ese recaudo, un titulo que ya usa el
+        # separador se parte al medio: "A + C | El detras de escena de una
+        # muestra" (Fundacion Proa) quedaba reducido a "A + C".
+        for sep in SEPARADORES_DE_TITULO:
+            if sep in crudo:
+                cabeza, cola = (p.strip() for p in crudo.rsplit(sep, 1))
+                if cabeza and len(cola) < len(cabeza):
+                    crudo = cabeza
+                break
+        limpio = clean_text(crudo, 160)
+        if limpio:
+            return limpio
+
+    return clean_text(respaldo, 160)
 
 
 def _texto_de_la_tarjeta(enlace) -> str:

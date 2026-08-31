@@ -134,9 +134,13 @@ def is_explicitly_free(*texts: Optional[str]) -> bool:
     significa gratis, asi que se exige la palabra.
     """
     haystack = strip_accents(" ".join(t for t in texts if t))
+    # "libre" solo no alcanza ("aire libre", "libre albedrio"), pero varias
+    # salas escriben "Actividad libre" o "Asistencia libre" y sin esos giros
+    # se descartaban eventos que si eran gratuitos: Fundacion Proa, por caso.
     return any(marker in haystack for marker in
                ("gratis", "gratuit", "entrada libre", "ingreso libre",
-                "acceso libre", "sin cargo"))
+                "acceso libre", "actividad libre", "asistencia libre",
+                "participacion libre", "entrada gratuita", "sin cargo"))
 
 
 def clean_text(text: Optional[str], limit: int = 400) -> Optional[str]:

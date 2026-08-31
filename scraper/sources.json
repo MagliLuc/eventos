@@ -30,8 +30,8 @@
       "name": "BA Data (datos abiertos GCBA)",
       "kind": "ckan",
       "url": "https://data.buenosaires.gob.ar/api/3/action",
-      "status": "activo",
-      "note": "Alcanzable, pero es un portal de transparencia y estadística, no una agenda: sus datasets culturales son archivo (2015-2017) o conteos de asistentes. Quedan solo los dos ids que podrían traer programación vigente."
+      "status": "bloqueado",
+      "note": "Corrida en seco 2026-08-31: su propio robots.txt prohíbe /api/, así que el gate lo frena antes de pedir nada. No se fuerza: la regla vale también cuando incomoda. Da igual para el resultado — ya estaba probado que sus datasets culturales son archivo (2015-2017) y estadística, no agenda, y aportaba cero."
     },
     {
       "name": "Usina del Arte",
@@ -56,8 +56,8 @@
       "kind": "fichas",
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "venue": "Ciudad de Buenos Aires",
-      "status": "activo",
-      "note": "HTML 2026-08-31: su listado no deja un solo enlace de evento (se arma por JavaScript), pero el sitemap lista 15. Por eso el lector de fichas ahora cae al sitemap cuando el listado no expone nada."
+      "status": "candidato",
+      "note": "Corrida en seco 2026-08-31: su listado no expone enlaces y su sitemap está podrido — de 21 URLs, 12 devuelven 404 y el resto son notas de 2016-2018, no eventos. Aportó 0. Se saca de activo para no gastar 21 pedidos por corrida en nada."
     },
     {
       "name": "Palacio Libertad",
