@@ -276,6 +276,14 @@ def revisar(entrada: dict) -> dict:
     print(f"  JSON-LD fichas   : {con_evento} en {len(informe['fichas_probadas'])} fichas")
 
     _guardar_html(nombre, sopa)
+
+    # El listado solo dice a dónde ir. Para escribir la extracción por prosa
+    # hace falta ver una ficha, así que se guarda la primera que responda.
+    for ficha in fichas[:1]:
+        crudo_ficha = _texto(exitosa, ficha, timeout=25)
+        if crudo_ficha:
+            _guardar_html(f"{nombre} ficha", BeautifulSoup(crudo_ficha, "lxml"))
+            informe["ficha_guardada"] = ficha
     return informe
 
 

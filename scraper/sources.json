@@ -35,11 +35,12 @@
     },
     {
       "name": "Usina del Arte",
-      "kind": "rss",
-      "url": "https://usinadelarte.ar/feed/atom",
+      "kind": "fichas",
+      "url": "https://usinadelarte.ar/actividades",
       "venue": "Usina del Arte",
-      "status": "bloqueado",
-      "note": "Diagnóstico 2026-08-31: dejó de responder — error de red por los cuatro transportes y sin copia en Wayback. El 2026-08-30 su feed Atom servía 10 entradas, así que puede ser caída temporal: revisar en el sondeo de los lunes antes de darla por muerta."
+      "status": "activo",
+      "note": "HTML 2026-08-31: volvió a responder (la caída de la corrida anterior era temporal). Sus fichas están en /actividad/<slug>; se pasa del feed al listado, que es el índice completo.",
+      "ruta_ficha": "/actividad/"
     },
     {
       "name": "Centro Cultural Recoleta",
@@ -47,7 +48,8 @@
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "Diagnóstico 2026-08-31: 200 por los cuatro transportes. Se encuentran 3 fichas pero ninguna trae JSON-LD: depende del plan B por prosa. Sin feed declarado ni sitemap."
+      "note": "HTML 2026-08-31: el listado tiene 27 fichas en /agenda/<slug> y —esto es lo importante— la fecha está en la tarjeta, no en la ficha: 'Desde el jueves 20.08 | 18 h'. De ahí que el lector de fichas ahora guarde el texto de la tarjeta y que fechas.py entienda dd.mm.",
+      "ruta_ficha": "/agenda/"
     },
     {
       "name": "Turismo Buenos Aires",
@@ -55,7 +57,7 @@
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Diagnóstico 2026-08-31: 200. Su sitemap lista 15 URLs de evento, pero las fichas no traen JSON-LD: depende del plan B por prosa."
+      "note": "HTML 2026-08-31: su listado no deja un solo enlace de evento (se arma por JavaScript), pero el sitemap lista 15. Por eso el lector de fichas ahora cae al sitemap cuando el listado no expone nada."
     },
     {
       "name": "Palacio Libertad",
@@ -105,7 +107,8 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Diagnóstico 2026-08-31: CONFIRMADO. 200, y 3 de 3 fichas traen schema.org/Event. Además declara feed en api.quehacemos.com.ar/feed.xml y su sitemap lista 10 URLs de evento. La URL es literalmente su sección de eventos gratis: es la mejor fuente que apareció."
+      "note": "HTML 2026-08-31: CONFIRMADO. Las fichas viven en /eventos/<slug> y las 3 probadas traen schema.org/Event. El listado expone 8 y el sitemap otras 10.",
+      "ruta_ficha": "/eventos/"
     },
     {
       "name": "Gratis en Buenos Aires",
@@ -141,11 +144,12 @@
     },
     {
       "name": "Teatro Colón",
-      "kind": "rss",
-      "url": "https://teatrocolon.org.ar/feed",
+      "kind": "fichas",
+      "url": "https://teatrocolon.org.ar/",
       "venue": "Teatro Colón",
       "status": "activo",
-      "note": "Diagnóstico 2026-08-31: 200. Su sitemap lista 14 URLs de evento y el feed anda, pero las fichas no traen JSON-LD. Con la lectura de prosa nueva puede empezar a aportar; antes daba 0 fijo."
+      "note": "HTML 2026-08-31: su sitemap.xml es sólo un índice y apunta a production-sitemap.xml, que es donde están las funciones. Antes se leían los índices como si fueran fichas; ahora se siguen.",
+      "ruta_ficha": "/produccion"
     },
     {
       "name": "Casa Nacional del Bicentenario",
@@ -173,18 +177,18 @@
     {
       "name": "Museo Moderno",
       "kind": "fichas",
-      "url": "https://www.museomoderno.org/es/actividades",
+      "url": "https://museomoderno.org/agenda/",
       "venue": "Museo de Arte Moderno de Buenos Aires",
       "status": "activo",
-      "note": "Diagnóstico 2026-08-31: 200. WordPress confirmado (declara /feed/, /comments/feed/ y wp-json/wp/v2/posts) y sitemap_index con 5 URLs de evento. Las fichas no traen JSON-LD, así que depende del plan B por prosa."
+      "note": "HTML 2026-08-31: la agenda real es /agenda/, no /es/actividades — por eso no se le encontraba ninguna ficha. WordPress con feed declarado y sitemap_index."
     },
     {
       "name": "Fundación Proa",
       "kind": "fichas",
       "url": "https://proa.org/",
       "venue": "Fundación Proa",
-      "status": "candidato",
-      "note": "Diagnóstico 2026-08-31: 404 en la ruta que supuse (/esp/agenda.php). La URL queda apuntando a la raíz para que el prospector encuentre la agenda."
+      "status": "activo",
+      "note": "HTML 2026-08-31: responde desde la raíz. Se activa por fichas."
     },
     {
       "name": "Ciudad Cultural Konex",
@@ -197,26 +201,26 @@
     {
       "name": "El Cultural San Martín",
       "kind": "fichas",
-      "url": "https://elculturalsanmartin.org/",
+      "url": "https://www.elculturalsanmartin.org/",
       "venue": "El Cultural San Martín",
-      "status": "candidato",
-      "note": "Diagnóstico 2026-08-31: 404 en /agenda, pero robots.txt del dominio responde. La URL queda en la raíz para que el prospector encuentre la agenda."
+      "status": "activo",
+      "note": "HTML 2026-08-31: responde. WordPress con /feed/ declarado y sitemap_index. Se activa por fichas y el log dirá si aporta."
     },
     {
       "name": "Planetario Galileo Galilei",
       "kind": "fichas",
-      "url": "https://planetario.buenosaires.gob.ar/agenda",
+      "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
       "venue": "Planetario Galileo Galilei",
-      "status": "candidato",
-      "note": "Diagnóstico 2026-08-31: 200 por los cuatro transportes, HTML capturado. No se le encontró ninguna ficha: sus enlaces no matchean las palabras genéricas. Falta mirar el HTML y ponerle `ruta_ficha`."
+      "status": "activo",
+      "note": "HTML 2026-08-31: /agenda no existe; la programación está en /espectaculos-publico-general, que es lo que enlaza su propio menú."
     },
     {
       "name": "Bibliotecas de la Ciudad",
       "kind": "fichas",
-      "url": "https://buenosaires.gob.ar/cultura",
+      "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Diagnóstico 2026-08-31: 404 en /cultura/bibliotecas. Queda apuntando a /cultura."
+      "note": "HTML 2026-08-31: la única URL con pinta de programación que expone el sitio. Sin sondear todavía."
     }
   ]
 }

@@ -249,6 +249,54 @@ def parse_feed(texto: str) -> list[dict]:
 PALABRAS_EVENTO = ("evento", "agenda", "actividad", "cartelera", "espectaculo",
                    "muestra", "exposicion", "programacion", "funcion", "obra")
 
+RUTAS_SITEMAP = ("/sitemap.xml", "/sitemap_index.xml")
+LOC_RE = re.compile(r"<loc>\s*([^<\s]+)\s*</loc>")
+
+
+def urls_de_sitemap(session, base: str, filtro: str = "",
+                    tope: int = 40) -> list[str]:
+    """URLs de ficha sacadas del sitemap, siguiendo los índices.
+
+    Hace falta porque varios listados se arman por JavaScript y no dejan un
+    solo enlace que leer, pero el sitemap sí lista cada actividad. Y hay que
+    seguir los índices: `sitemap.xml` suele ser sólo un índice que apunta a
+    `production-sitemap.xml` o similar, que es donde están los eventos de
+    verdad. Sin esto se leían los índices como si fueran fichas.
+    """
+    for ruta in RUTAS_SITEMAP:
+        try:
+            r = session.get(urljoin(base, ruta), timeout=25)
+            if r.status_code != 200:
+                continue
+        except Exception:
+            continue
+
+        urls = LOC_RE.findall(r.text)
+        if "<sitemapindex" in r.text:
+            # Es un índice: bajar a los sub-sitemaps que suenen a evento.
+            hojas = [u for u in urls
+                     if any(p in u.lower() for p in PALABRAS_EVENTO)] or urls[:3]
+            urls = []
+            for hoja in hojas[:3]:
+                try:
+                    rh = session.get(hoja, timeout=25)
+                    if rh.status_code == 200:
+                        urls.extend(LOC_RE.findall(rh.text))
+                except Exception:
+                    continue
+
+        # Un sub-sitemap no vuelve a filtrarse por palabra: ya lo dijo su
+        # nombre, y adentro las URLs pueden no repetirla.
+        candidatas = [u for u in urls if not u.endswith(".xml")]
+        if filtro:
+            candidatas = [u for u in candidatas if filtro in u.lower()]
+        elif "<sitemapindex" not in r.text:
+            candidatas = [u for u in candidatas
+                          if any(p in u.lower() for p in PALABRAS_EVENTO)]
+        if candidatas:
+            return candidatas[:tope]
+    return []
+
 
 class LectorDeFichas(Source):
     """Entra a la ficha de cada actividad y saca el evento de ahí.
@@ -272,8 +320,9 @@ class LectorDeFichas(Source):
     max_items: int = 15
 
     def _leer_fichas(self, session, enlaces: list[str], window: DateWindow,
-                     titulos: dict[str, str] | None = None) -> list[Event]:
-        titulos = titulos or {}
+                     titulos: dict[str, str] | None = None,
+                     contexto: dict[str, str] | None = None) -> list[Event]:
+        titulos, contexto = titulos or {}, contexto or {}
         eventos: list[Event] = []
         sin_marcado = sin_fecha = sin_precio = 0
 
@@ -292,7 +341,8 @@ class LectorDeFichas(Source):
 
             sin_marcado += 1
             desde_texto, motivo = self._de_texto(
-                sopa, {"title": titulos.get(enlace)}, window, enlace)
+                sopa, {"title": titulos.get(enlace)}, window, enlace,
+                contexto.get(enlace, ""))
             eventos.extend(desde_texto)
             sin_fecha += motivo == "fecha"
             sin_precio += motivo == "precio"
@@ -305,12 +355,16 @@ class LectorDeFichas(Source):
 
     # -- Plan B: la ficha en prosa ----------------------------------------
     def _de_texto(self, sopa, entrada: dict, window: DateWindow,
-                  enlace: str) -> tuple[list[Event], str]:
+                  enlace: str, tarjeta: str = "") -> tuple[list[Event], str]:
         """Arma eventos leyendo la nota. Devuelve (eventos, motivo del cero).
 
         Se mira solo el titulo y la entradilla, no la nota entera: la fecha de
         la actividad esta arriba, y mas abajo aparecen fechas de otras cosas
         que meterian eventos que no son.
+
+        `tarjeta` es el texto del listado que enlazaba a esta ficha. Va aparte
+        porque muchas veces es donde esta la fecha ("Desde el jueves 20.08 |
+        18 h") mientras la ficha solo describe la actividad.
         """
         titular = sopa.find("h1")
         titulo = clean_text(
@@ -324,14 +378,17 @@ class LectorDeFichas(Source):
         entradilla = " ".join(p for p in parrafos if p)[:900]
         clave = f"{titulo}. {entradilla}"
 
-        if not is_explicitly_free(clave):
+        if not is_explicitly_free(f"{clave} {tarjeta}"):
             return [], "precio"
 
-        fechas = extraer_fechas(clave, window)
+        # La ficha manda; la tarjeta es el respaldo.
+        fechas = extraer_fechas(clave, window) or extraer_fechas(tarjeta, window)
         if not fechas:
             return [], "fecha"
 
         inicio, fin = parse_times(clave)
+        if not inicio:
+            inicio, fin = parse_times(tarjeta)
         descripcion = clean_text(entradilla)
         return [
             Event(
@@ -428,23 +485,46 @@ class FichasSource(LectorDeFichas):
         # cuando las palabras genéricas traen de más (p. ej. "/actividad/").
         self.ruta_ficha = ruta_ficha
 
-    def fetch(self, session, window: DateWindow) -> list[Event]:
-        sopa = fetch_soup(session, self.url)
-        if sopa is None:
-            return []
-        enlaces = self._fichas(sopa)
-        if not enlaces:
-            print(f"  [{self.name}] el listado no expone enlaces a fichas")
-            return []
-        print(f"  [{self.name}] {len(enlaces)} fichas encontradas en el listado")
-        return self._leer_fichas(session, enlaces, window)
+    @property
+    def base(self) -> str:
+        partes = urlparse(self.url)
+        return f"{partes.scheme}://{partes.netloc}"
 
-    def _fichas(self, sopa) -> list[str]:
-        base = f"{urlparse(self.url).scheme}://{urlparse(self.url).netloc}"
+    def fetch(self, session, window: DateWindow) -> list[Event]:
+        contexto: dict[str, str] = {}
+        enlaces: list[str] = []
+
+        sopa = fetch_soup(session, self.url)
+        if sopa is not None:
+            enlaces, contexto = self._fichas(sopa)
+            if enlaces:
+                print(f"  [{self.name}] {len(enlaces)} fichas en el listado")
+
+        if not enlaces:
+            # Varios listados se arman por JavaScript y no dejan un enlace que
+            # leer, pero su sitemap lista cada actividad igual.
+            enlaces = urls_de_sitemap(session, self.base, self.ruta_ficha)
+            if enlaces:
+                print(f"  [{self.name}] {len(enlaces)} fichas por sitemap "
+                      f"(el listado no expone enlaces)")
+
+        if not enlaces:
+            print(f"  [{self.name}] sin fichas ni por listado ni por sitemap")
+            return []
+        return self._leer_fichas(session, enlaces, window, contexto=contexto)
+
+    def _fichas(self, sopa) -> tuple[list[str], dict[str, str]]:
+        """Enlaces de ficha y el texto de la tarjeta que los contiene.
+
+        La tarjeta importa: en varios listados la fecha está ahí y no en la
+        ficha ("Desde el jueves 20.08 | 18 h"). Guardarla evita perder el
+        evento cuando la ficha describe la actividad sin fecharla.
+        """
         encontrados: list[str] = []
+        contexto: dict[str, str] = {}
         for a in sopa.find_all("a", href=True):
             destino = urljoin(self.url, a["href"]).split("#")[0]
-            if not destino.startswith(base):
+            if not destino.startswith(self.base):
                 continue
             if destino.rstrip("/") == self.url.rstrip("/"):
                 continue
@@ -456,6 +536,21 @@ class FichasSource(LectorDeFichas):
                 # segmento extra evita traerse el propio menú del sitio.
                 calza = (any(p in ruta for p in PALABRAS_EVENTO)
                          and len(ruta.strip("/").split("/")) >= 2)
-            if calza and destino not in encontrados:
-                encontrados.append(destino)
-        return encontrados
+            if not calza or destino in contexto:
+                continue
+            encontrados.append(destino)
+            contexto[destino] = _texto_de_la_tarjeta(a)
+        return encontrados, contexto
+
+
+def _texto_de_la_tarjeta(enlace) -> str:
+    """Sube por el DOM hasta el primer ancestro con texto suficiente."""
+    nodo = enlace
+    for _ in range(5):
+        nodo = nodo.parent
+        if nodo is None:
+            break
+        texto = nodo.get_text(" ", strip=True)
+        if len(texto) > 40:
+            return texto[:400]
+    return enlace.get_text(" ", strip=True)[:400]
