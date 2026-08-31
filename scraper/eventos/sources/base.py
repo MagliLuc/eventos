@@ -4,46 +4,27 @@ from __future__ import annotations
 import time
 from typing import Optional
 
-import requests
 from bs4 import BeautifulSoup
 
+from ..http import (  # re-exportados: el resto del scraper los importa de aca
+    BROWSER_HEADERS,
+    CONTACTO,
+    USER_AGENT,
+    PoliteSession,
+    RobotsBloqueado,
+    http_session,
+)
 from ..models import DateWindow, Event
 
-# Cinco sitios .gob.ar devolvieron 403 al User-Agent de bot: hay un WAF que
-# filtra por cabeceras. Son paginas publicas que cualquiera abre en un
-# navegador, asi que mandamos las cabeceras que manda un navegador — pero
-# dejando el proyecto identificado en el propio User-Agent y en `From`, para
-# que quien administre el sitio sepa quienes somos y como contactarnos.
-# El volumen sigue siendo un puñado de requests por dia.
-CONTACTO = "https://github.com/MagliLuc/eventos"
-
-USER_AGENT = (
-    "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) "
-    f"Chrome/125.0.0.0 Safari/537.36 (+{CONTACTO}; agenda cultural gratuita)"
-)
-
-BROWSER_HEADERS = {
-    "User-Agent": USER_AGENT,
-    "From": CONTACTO,
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-    "Accept-Language": "es-AR,es;q=0.9,en;q=0.8",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
-    "Upgrade-Insecure-Requests": "1",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "none",
-}
+__all__ = [
+    "BROWSER_HEADERS", "CONTACTO", "USER_AGENT", "PoliteSession",
+    "RobotsBloqueado", "http_session", "fetch_soup", "Source",
+    "extract_jsonld_events", "text_of", "link_of",
+]
 
 
-def http_session() -> requests.Session:
-    session = requests.Session()
-    session.headers.update(BROWSER_HEADERS)
-    return session
-
-
-def fetch_soup(session: requests.Session, url: str,
-               retries: int = 3) -> Optional[BeautifulSoup]:
+def fetch_soup(session, url: str, retries: int = 3,
+               timeout: Optional[int] = None) -> Optional[BeautifulSoup]:
     """GET con backoff exponencial. Devuelve None si la fuente no responde.
 
     Una fuente caida no debe romper la corrida: el pipeline conserva los
@@ -52,9 +33,13 @@ def fetch_soup(session: requests.Session, url: str,
     delay = 2.0
     for attempt in range(1, retries + 1):
         try:
-            response = session.get(url, timeout=30)
+            response = session.get(url, timeout=timeout)
             response.raise_for_status()
             return BeautifulSoup(response.text, "lxml")
+        except RobotsBloqueado as exc:
+            # Reintentar no cambia nada y seria insistir donde nos dijeron que no.
+            print(f"  [http] {exc}")
+            return None
         except Exception as exc:
             print(f"  [http] intento {attempt}/{retries} fallo en {url}: {exc}")
             if attempt < retries:
@@ -73,12 +58,29 @@ class Source:
     name: str = "generic"
     url: str = ""
 
-    def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
+    # Una fuente puede pedir un transporte propio: IPv4 forzado cuando el
+    # dominio tiene AAAA sin ruta real (sintoma: ConnectTimeout) o un timeout
+    # mas largo si el sitio es lento. Vacio = usa la sesion compartida.
+    force_ipv4: bool = False
+    timeout: Optional[int] = None
+
+    def fetch(self, session, window: DateWindow) -> list[Event]:
         raise NotImplementedError
 
-    def safe_fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
+    def _session_propia(self, compartida):
+        """Sesion dedicada solo si la fuente pide algo distinto."""
+        if not (self.force_ipv4 or self.timeout):
+            return compartida
+        sesion = http_session(force_ipv4=self.force_ipv4,
+                              timeout=self.timeout or 30)
+        print(f"  [{self.name}] transporte propio: {sesion.transporte}"
+              f"{', IPv4 forzado' if self.force_ipv4 else ''}"
+              f", timeout {sesion.timeout}s")
+        return sesion
+
+    def safe_fetch(self, session, window: DateWindow) -> list[Event]:
         try:
-            events = self.fetch(session, window)
+            events = self.fetch(self._session_propia(session), window)
             print(f"  [{self.name}] {len(events)} eventos")
             return events
         except Exception as exc:  # una fuente rota no tumba la corrida

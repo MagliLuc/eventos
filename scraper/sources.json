@@ -3,7 +3,17 @@
     "Registro de fuentes. Agregar una fuente es agregar una entrada acá: no",
     "hace falta escribir código salvo que el sitio use un mecanismo nuevo.",
     "",
-    "kind:   ics | tribe | rss | jsonld | css | ckan",
+    "kind:   ics | tribe | rss | fichas | jsonld | css | ckan",
+    "        'fichas' usa el listado solo como índice: entra a la ficha de",
+    "        cada actividad y lee JSON-LD, o la fecha escrita en la prosa.",
+    "        Es preferible a 'css' porque no depende del maquetado del",
+    "        listado, que es lo que más cambia. 'ruta_ficha' acota qué",
+    "        enlaces son ficha cuando las palabras genéricas traen de más.",
+    "",
+    "Perillas de red, opcionales y por fuente:",
+    "  force_ipv4  -> el dominio tiene AAAA sin ruta desde el runner y cuelga",
+    "  timeout     -> segundos, para sitios lentos",
+    "",
     "status: activo    -> se consulta en cada corrida",
     "        candidato -> NO se consulta; solo lo sondea discover.py",
     "        bloqueado -> no se consulta; se deja documentado el porqué",
@@ -18,7 +28,7 @@
       "kind": "ckan",
       "url": "https://data.buenosaires.gob.ar/api/3/action",
       "status": "activo",
-      "note": "Alcanzable desde CI. 454 datasets; devuelve 502 intermitente, por eso el GET reintenta."
+      "note": "Alcanzable, pero es un portal de transparencia y estadística, no una agenda: sus datasets culturales son archivo (2015-2017) o conteos de asistentes. Quedan solo los dos ids que podrían traer programación vigente."
     },
     {
       "name": "Usina del Arte",
@@ -30,19 +40,19 @@
     },
     {
       "name": "Centro Cultural Recoleta",
-      "kind": "css",
+      "kind": "fichas",
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "Prospección: 200 pero sin ICS, Tribe, JSON-LD ni feed. Solo queda scraping por selectores."
+      "note": "Prospección: 200 sin ICS, Tribe, JSON-LD ni feed *en el listado*. Pasó de 'css' a 'fichas': con selectores genéricos daba 0, y lo que falta probar es si la ficha de cada actividad trae JSON-LD o la fecha escrita."
     },
     {
       "name": "Turismo Buenos Aires",
-      "kind": "css",
+      "kind": "fichas",
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Prospección: 200 sin marcado estructurado."
+      "note": "Prospección: 200 sin marcado en el listado. Pasó de 'css' a 'fichas' por lo mismo que Recoleta."
     },
     {
       "name": "Palacio Libertad",
@@ -82,7 +92,9 @@
       "url": "https://disfrutemosba.buenosaires.gob.ar/",
       "venue": "Ciudad de Buenos Aires",
       "status": "bloqueado",
-      "note": "Prospección: ConnectTimeout desde el runner. La agenda oficial del GCBA no responde a tiempo."
+      "force_ipv4": true,
+      "timeout": 60,
+      "note": "Prospección: ConnectTimeout desde el runner. Hipótesis a confirmar con diagnostico.py: registro AAAA sin ruta real desde el runner, que cuelga hasta agotar el timeout sin llegar a probar IPv4. Por eso quedan declarados force_ipv4 y un timeout largo."
     },
     {
       "name": "Qué Hacemos",
@@ -139,6 +151,70 @@
       "venue": "Casa Nacional del Bicentenario",
       "status": "candidato",
       "note": "URL A CONFIRMAR. El dominio que se supuso antes no resuelve por DNS; no volver a inventarlo."
+    },
+
+    {
+      "_comment": [
+        "De acá para abajo, salas y museos que todavía no se sondearon. Las",
+        "URLs son la conjetura evidente y NO están confirmadas: por eso entran",
+        "como 'candidato', que significa que discover.py las prueba y nadie las",
+        "consulta hasta que responda. Si una no resuelve, el prospector lo dice",
+        "y se corrige o se borra; ninguna llega a la app sin haber respondido."
+      ],
+      "name": "MALBA",
+      "kind": "fichas",
+      "url": "https://www.malba.org.ar/actividades/",
+      "venue": "MALBA",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar."
+    },
+    {
+      "name": "Museo Moderno",
+      "kind": "fichas",
+      "url": "https://www.museomoderno.org/es/actividades",
+      "venue": "Museo de Arte Moderno de Buenos Aires",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar."
+    },
+    {
+      "name": "Fundación Proa",
+      "kind": "fichas",
+      "url": "https://proa.org/esp/agenda.php",
+      "venue": "Fundación Proa",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar."
+    },
+    {
+      "name": "Ciudad Cultural Konex",
+      "kind": "fichas",
+      "url": "https://www.ciudadculturalkonex.org/agenda/",
+      "venue": "Ciudad Cultural Konex",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar. Ojo: mucha programación paga; el filtro de gratuidad va a descartar casi todo."
+    },
+    {
+      "name": "El Cultural San Martín",
+      "kind": "fichas",
+      "url": "https://elculturalsanmartin.org/agenda",
+      "venue": "El Cultural San Martín",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar."
+    },
+    {
+      "name": "Planetario Galileo Galilei",
+      "kind": "fichas",
+      "url": "https://planetario.buenosaires.gob.ar/agenda",
+      "venue": "Planetario Galileo Galilei",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar. Dominio .gob.ar: puede caer en el mismo 403 que los otros."
+    },
+    {
+      "name": "Bibliotecas de la Ciudad",
+      "kind": "fichas",
+      "url": "https://buenosaires.gob.ar/cultura/bibliotecas",
+      "venue": "Ciudad de Buenos Aires",
+      "status": "candidato",
+      "note": "Sin sondear. URL sin confirmar."
     }
   ]
 }
