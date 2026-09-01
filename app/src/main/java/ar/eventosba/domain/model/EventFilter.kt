@@ -65,6 +65,12 @@ enum class SortOrder(val label: String) {
 data class EventFilter(
     val query: String = "",
     val categories: Set<Category> = emptySet(),
+    /**
+     * Nivel grueso de la geografia. Va antes que [neighborhoods] porque
+     * con el AMBA entero los 48 barrios de CABA mas las localidades del
+     * Conurbano son una lista que nadie recorre: primero se elige zona.
+     */
+    val zones: Set<Zone> = emptySet(),
     val neighborhoods: Set<String> = emptySet(),
     val timeSlots: Set<TimeSlot> = emptySet(),
     val accessModes: Set<AccessMode> = emptySet(),
@@ -83,14 +89,16 @@ data class EventFilter(
 ) {
     /** Cuántos filtros hay puestos. El orden no cuenta: no descarta nada. */
     val activeCount: Int
-        get() = categories.size + neighborhoods.size + timeSlots.size +
-            accessModes.size + (if (dateRange != DateRangeFilter.TODAS) 1 else 0)
+        get() = categories.size + zones.size + neighborhoods.size +
+            timeSlots.size + accessModes.size +
+            (if (dateRange != DateRangeFilter.TODAS) 1 else 0)
 
     val isEmpty: Boolean get() = activeCount == 0 && query.isBlank() && !onlyFavorites
 
     fun matches(event: Event, today: LocalDate = LocalDate.now()): Boolean =
         event.matchesQuery(query) &&
             (categories.isEmpty() || event.category in categories) &&
+            (zones.isEmpty() || event.venue.zone in zones) &&
             (neighborhoods.isEmpty() || event.venue.neighborhood in neighborhoods) &&
             (timeSlots.isEmpty() || event.timeSlot in timeSlots) &&
             (accessModes.isEmpty() || event.accessMode in accessModes) &&
@@ -103,6 +111,20 @@ data class EventFilter(
         events.filter { matches(it, today) }.sortedWith(sortOrder.comparator())
 
     fun toggleCategory(value: Category) = copy(categories = categories.toggle(value))
+    /**
+     * Apagar una zona se lleva sus barrios elegidos.
+     *
+     * Sin esto queda un barrio marcado de una zona que ya no se muestra:
+     * el chip desaparece de la pantalla pero el filtro sigue puesto, y la
+     * lista se vacia sin que se vea por que.
+     */
+    fun toggleZone(value: Zone, barriosDeLaZona: Set<String> = emptySet()) =
+        if (value in zones) {
+            copy(zones = zones - value, neighborhoods = neighborhoods - barriosDeLaZona)
+        } else {
+            copy(zones = zones + value)
+        }
+
     fun toggleNeighborhood(value: String) = copy(neighborhoods = neighborhoods.toggle(value))
     fun toggleTimeSlot(value: TimeSlot) = copy(timeSlots = timeSlots.toggle(value))
     fun toggleAccessMode(value: AccessMode) = copy(accessModes = accessModes.toggle(value))

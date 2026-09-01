@@ -42,6 +42,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ar.eventosba.domain.model.AccessMode
 import ar.eventosba.domain.model.Category
+import ar.eventosba.domain.model.Contribution
 import ar.eventosba.domain.model.Event
 import ar.eventosba.domain.model.Venue
 import ar.eventosba.ui.theme.EventosTheme
@@ -89,6 +90,13 @@ fun EventCard(
                     CategoryTag(event.category)
                     Spacer(Modifier.width(6.dp))
                     AccessTag(event.accessMode)
+                    // Va al lado y no en lugar del modo de acceso: son
+                    // dos datos distintos, y una funcion a la gorra puede
+                    // pedir reserva igual.
+                    event.contribution?.let {
+                        Spacer(Modifier.width(6.dp))
+                        ContributionTag(it)
+                    }
                 }
 
                 Spacer(Modifier.height(8.dp))
@@ -193,6 +201,29 @@ private fun AccessTag(mode: AccessMode) {
     }
 }
 
+/**
+ * "A la gorra" se marca, no se calla.
+ *
+ * Sin esto la funcion se veria igual que una de ingreso libre, y quien
+ * llegara sin plata encima se encontraria con la gorra en la puerta de
+ * salida. Es el aviso que justifica que estas funciones entren a una app
+ * de eventos gratuitos.
+ */
+@Composable
+private fun ContributionTag(contribution: Contribution) {
+    Surface(
+        color = MaterialTheme.colorScheme.tertiary.copy(alpha = 0.14f),
+        contentColor = MaterialTheme.colorScheme.tertiary,
+        shape = RoundedCornerShape(6.dp),
+    ) {
+        Text(
+            text = contribution.shortLabel,
+            style = MaterialTheme.typography.labelSmall,
+            modifier = Modifier.padding(horizontal = 6.dp, vertical = 3.dp),
+        )
+    }
+}
+
 @Composable
 private fun InfoRow(icon: androidx.compose.ui.graphics.vector.ImageVector, text: String) {
     Row(
@@ -255,6 +286,7 @@ private fun EventCardPreview() {
                     startTime = LocalTime.of(17, 0),
                     endTime = LocalTime.of(20, 30),
                     accessMode = AccessMode.ORDEN_DE_LLEGADA,
+                    contribution = Contribution.A_LA_GORRA,
                     reservationUrl = null,
                     venue = Venue(
                         "usina-del-arte", "Usina del Arte", "Caffarena 1",

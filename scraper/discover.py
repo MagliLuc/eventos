@@ -317,9 +317,34 @@ def revisar(ses, entrada: dict) -> dict | None:
     return None
 
 
+def host_vivo(ses, url: str, timeout: int = 12) -> Exception | None:
+    """Un pedido corto a la raíz. Devuelve la excepción si el host no está.
+
+    Existe porque un host que no contesta cuesta carísimo: cada mecanismo
+    sondea entre 1 y 12 rutas con timeouts de 20-30 s, así que un dominio que
+    resuelve pero traga los paquetes quema diez o quince minutos él solo
+    antes de decir que no. Con once candidatas municipales de URL conjeturada,
+    eso convirtió una prospección de veinte minutos en uña de más de una hora.
+
+    Preguntar primero es además lo correcto: un sitio que no responde su
+    propia raíz tampoco va a responder /events.ics. Lo único que se pierde es
+    el caso raro de una raíz caída con subrutas sanas, y ese ya aparecía como
+    "no" de todos modos.
+    """
+    r = _get(ses, url, timeout=timeout)
+    return r if isinstance(r, Exception) else None
+
+
 def revisar_compacto(ses, entrada: dict) -> dict | None:
     """Una línea por sitio. Para leer el resultado desde el log de CI."""
     url, nombre, base = entrada["url"], entrada.get("name", "?"), _base(entrada["url"])
+
+    caida = host_vivo(ses, url)
+    if caida is not None:
+        # Un dominio inventado o caído se descarta acá, no después de treinta
+        # timeouts. Es información igual: dice que la URL hay que corregirla.
+        print(f"  --   {nombre:<34} {'':<7} no responde: {type(caida).__name__}")
+        return None
 
     for etiqueta, sonda in (
         ("ics", lambda: probar_ics(ses, base)),

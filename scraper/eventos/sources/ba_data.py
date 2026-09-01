@@ -20,7 +20,8 @@ import requests
 from datetime import timedelta
 
 from ..models import DateWindow, Event, now_ba_iso, today_ba
-from ..normalize import clean_text, detect_access_mode, detect_category, is_free, parse_times
+from ..normalize import (clean_text, detect_access_mode, detect_category,
+                         detect_contribution, is_free, parse_times)
 from ..venues import build_venue
 from .base import Source
 
@@ -297,6 +298,7 @@ class BaDataSource(Source):
             description=description,
             category=detect_category(title, description, str(_pick(row, "category") or "")),
             access_mode=detect_access_mode(title, description, str(price or "")),
+            contribution=detect_contribution(title, description, str(price or "")),
             date=iso_date,
             start_time=start_time,
             end_time=end_time,

@@ -14,6 +14,13 @@
     "  force_ipv4  -> el dominio tiene AAAA sin ruta desde el runner y cuelga",
     "  timeout     -> segundos, para sitios lentos",
     "",
+    "partido: el partido del Conurbano donde publica la fuente. Vacío = CABA.",
+    "  Decide la zona del evento y, con ella, si la dirección termina en",
+    "  'CABA' o en 'Provincia de Buenos Aires'. Se declara acá y NO se infiere",
+    "  del texto: buscar nombres de partido dentro de una dirección se",
+    "  equivoca solo, y ya tenemos el caso — 'Vicente López 2220' es la",
+    "  dirección del Museo Roca, en Recoleta.",
+    "",
     "status: activo    -> se consulta en cada corrida",
     "        candidato -> NO se consulta; solo lo sondea discover.py",
     "        bloqueado -> no se consulta; se deja documentado el porqué",
@@ -260,6 +267,7 @@
       "kind": "fichas",
       "url": "https://www.sanisidro.gob.ar/municipio/cultura",
       "venue": "San Isidro",
+      "partido": "San Isidro",
       "status": "candidato",
       "note": "La única URL municipal de esta tanda que no es conjetura: sale del documento de fuentes. Ojo: publica las actividades como notas de prensa, así que puede caer en el mismo problema que los RSS — nota sin fecha de evento."
     },
@@ -268,6 +276,7 @@
       "kind": "fichas",
       "url": "https://vicentelopez.gov.ar/cultura",
       "venue": "Vicente López",
+      "partido": "Vicente López",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Norte."
     },
@@ -276,6 +285,7 @@
       "kind": "fichas",
       "url": "https://www.tigre.gob.ar/cultura",
       "venue": "Tigre",
+      "partido": "Tigre",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Norte."
     },
@@ -284,6 +294,7 @@
       "kind": "fichas",
       "url": "https://www.sanmartin.gov.ar/cultura",
       "venue": "General San Martín",
+      "partido": "General San Martín",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Norte. No confundir con el Teatro San Martín de CABA ni con El Cultural San Martín."
     },
@@ -292,6 +303,7 @@
       "kind": "fichas",
       "url": "https://www.moron.gob.ar/cultura",
       "venue": "Morón",
+      "partido": "Morón",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Oeste."
     },
@@ -300,6 +312,7 @@
       "kind": "fichas",
       "url": "https://www.lamatanza.gov.ar/cultura",
       "venue": "La Matanza",
+      "partido": "La Matanza",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Oeste, y el partido más poblado del país: si responde, es la de mayor alcance de la tanda."
     },
@@ -308,6 +321,7 @@
       "kind": "fichas",
       "url": "https://www.quilmes.gov.ar/cultura",
       "venue": "Quilmes",
+      "partido": "Quilmes",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Sur."
     },
@@ -316,6 +330,7 @@
       "kind": "fichas",
       "url": "https://www.mda.gob.ar/cultura",
       "venue": "Avellaneda",
+      "partido": "Avellaneda",
       "status": "candidato",
       "note": "URL A CONFIRMAR, y el dominio es el más dudoso de la tanda. Conurbano Sur."
     },
@@ -324,6 +339,7 @@
       "kind": "fichas",
       "url": "https://www.lomasdezamora.gov.ar/cultura",
       "venue": "Lomas de Zamora",
+      "partido": "Lomas de Zamora",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Conurbano Sur."
     },
@@ -332,6 +348,7 @@
       "kind": "fichas",
       "url": "https://www.unsam.edu.ar/cultura/",
       "venue": "Universidad Nacional de San Martín",
+      "partido": "General San Martín",
       "status": "candidato",
       "note": "URL A CONFIRMAR. Los centros culturales universitarios del Conurbano suelen tener agenda propia y gratuita, y no dependen de que el municipio publique bien."
     }

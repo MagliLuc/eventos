@@ -120,8 +120,12 @@ object NativeIntents {
     }
 }
 
+// La cola sale de la zona, no de una constante: con la agenda ampliada al
+// AMBA, un ", CABA" fijo mandaba a la app de mapas a la calle homonima de
+// Capital para cualquier evento del Conurbano.
 private fun ar.eventosba.domain.model.Venue.locationLine(): String =
-    listOfNotNull(name, address, neighborhood).distinct().joinToString(", ") + ", CABA"
+    (listOfNotNull(name, address, neighborhood).distinct() + zone.locality)
+        .joinToString(", ")
 
 private fun Event.calendarDescription(): String = buildString {
     description?.let { appendLine(it) }

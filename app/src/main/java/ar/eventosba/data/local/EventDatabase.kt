@@ -9,7 +9,8 @@ import androidx.room.TypeConverters
 @Database(
     entities = [EventEntity::class, FavoriteEntity::class, SourceEntity::class],
     // 2: se suma `sources` y la columna source_id en `events`.
-    version = 2,
+    // 3: ampliacion al AMBA -- venue_zone y contribution en `events`.
+    version = 3,
     exportSchema = true,
 )
 @TypeConverters(Converters::class)

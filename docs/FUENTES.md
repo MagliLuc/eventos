@@ -381,7 +381,76 @@ agenda porteña. Es gratis, está permitido y no requiere raspar nada.
 
 ---
 
-## 5. Cómo sumar una fuente
+## 5. La ampliación al AMBA
+
+La app pasó de CABA a toda el Área Metropolitana. El disparador fue un
+documento de fuentes que llegó de afuera; lo que sigue separa lo que aportó de
+lo que no se sostiene, para no volver a intentarlo.
+
+### El error que hizo falta arreglar primero
+
+La app era de CABA **en el código**, no sólo en el nombre: `Venue.fullAddress`
+y `NativeIntents.locationLine()` le pegaban `", CABA"` a toda dirección antes
+de mandarla a la app de mapas. Un evento en San Isidro no habría quedado «sin
+zona»: habría mandado a alguien a la calle homónima de Capital. Lo mismo hacía
+la geocodificación, que consultaba Nominatim con `"…, Ciudad Autónoma de
+Buenos Aires"` fijo — y «Av. Mitre 500» existe en media docena de partidos.
+
+Ahora la cola sale de `Venue.zone`, y la consulta a Nominatim lleva el partido.
+
+### La zona se declara, no se infiere
+
+`sources.json` gana una perilla `partido` por fuente. La tentación era buscar
+nombres de partido dentro de la dirección, y se descartó por un caso de
+nuestros propios datos: **«Vicente López 2220» es la dirección del Museo Roca,
+en Recoleta**, y se escribe igual que el partido de Vicente López. Un test
+cubre exactamente eso, y otro falla si una entrada declara un partido que no
+está en el mapa de zonas — sin él, un partido mal escrito caería en CABA sin
+que nadie se entere.
+
+### «A la gorra» es un campo aparte, no un modo de acceso
+
+Se entra sin pagar y al final cada uno aporta lo que quiere. Podría haber sido
+un valor más de `access_mode`, y sería un error por dos razones:
+
+- **Son ejes independientes.** Una función puede ser a la gorra *y* pedir
+  reserva previa. En un solo enum, uno de los dos datos se pierde.
+- **Las instalaciones viejas.** `AccessMode.fromRaw` cae en `INGRESO_LIBRE`
+  ante un valor que no conoce: una app sin actualizar mostraría «Ingreso
+  libre» sobre una función a la gorra. Un campo nuevo lo ignora sin mentir.
+
+Hubo que aflojar `is_explicitly_free` para que acepte el giro, o las funciones
+se descartaban antes de llegar al campo. Y `detect_contribution` mira la ficha
+entera, igual que la gratuidad y por el mismo motivo: «a la gorra» suele estar
+en el bloque de entradas, bien después del copete.
+
+### Qué aportó el documento externo, y qué no
+
+Aportó el encuadre por jurisdicción y tres pistas: Alternativa Teatral (que ya
+era candidata; se le corrigió la URL a su cartelera gratuita), portales
+municipales, y ReCreo. El resto no aplica:
+
+| Recomendación | Por qué no |
+|---|---|
+| Eventbrite `/v3/events/search/` como fuente núcleo | Eventbrite **retiró la búsqueda pública de eventos a fines de 2019**. Hoy la API sólo lista eventos de organizaciones propias: el endpoint no existe. |
+| Baires Secreta por WP REST API | Probado: challenge de CloudFront (§3). |
+| GCBA Drupal con Playwright | Probado con Chromium real: no pasa (§3). |
+| CKAN de BA Data | Su `robots.txt` prohíbe `/api/`, justo la ruta recomendada; y sus datasets culturales son archivo 2015-2017. |
+| Rotación de User-Agent | Fuera del límite acordado. |
+| Ingeniería inversa de la app ReCreo interceptando tráfico | Fuera del límite acordado. Se sondea su web pública. |
+| PostgreSQL + PostGIS + Meilisearch + API con JWT | Rompe el costo cero: esto es un JSON estático en Pages. |
+
+Un detalle que conviene registrar: el documento define CKAN como
+*«Comprehensive **Kerbal** Archive Network»* — eso es el gestor de mods de un
+videojuego; el CKAN de datos abiertos es *Comprehensive **Knowledge** Archive
+Network*. No es una anécdota: dice que el texto no fue verificado. Por eso
+**ninguna de sus URLs se dio por buena**: las once fuentes nuevas entraron como
+`candidato`, con la nota diciendo que la URL es conjetura, y las decide una
+corrida de `discover.py` como todas las demás.
+
+---
+
+## 6. Cómo sumar una fuente
 
 1. Agregarla a `sources.json` con `"status": "candidato"`.
 2. Correr `python scraper/discover.py` **desde una red con acceso real**.
@@ -393,7 +462,7 @@ no está en la tabla de arriba.
 
 ---
 
-## 6. Principios que salieron de equivocarnos
+## 7. Principios que salieron de equivocarnos
 
 - **No inventar datos.** Sin fecha legible, el evento se descarta. Sin sede
   ubicable, también: a un evento sin lugar no se puede ir.

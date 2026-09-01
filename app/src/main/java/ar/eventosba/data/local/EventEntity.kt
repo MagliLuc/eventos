@@ -7,8 +7,10 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 import ar.eventosba.domain.model.AccessMode
 import ar.eventosba.domain.model.Category
+import ar.eventosba.domain.model.Contribution
 import ar.eventosba.domain.model.Event
 import ar.eventosba.domain.model.Venue
+import ar.eventosba.domain.model.Zone
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -25,6 +27,7 @@ import java.time.LocalTime
         Index("date"),
         Index("category"),
         Index("venue_neighborhood"),
+        Index("venue_zone"),
     ],
 )
 data class EventEntity(
@@ -37,6 +40,7 @@ data class EventEntity(
     @ColumnInfo(name = "start_time") val startTime: LocalTime?,
     @ColumnInfo(name = "end_time") val endTime: LocalTime?,
     @ColumnInfo(name = "access_mode") val accessMode: String,
+    val contribution: String?,
     @ColumnInfo(name = "reservation_url") val reservationUrl: String?,
     @Embedded(prefix = "venue_") val venue: VenueEmbedded,
     @ColumnInfo(name = "source_name") val sourceName: String?,
@@ -53,6 +57,7 @@ data class VenueEmbedded(
     val commune: Int?,
     val lat: Double?,
     val lon: Double?,
+    val zone: String = "CABA",
 )
 
 /**
@@ -82,6 +87,7 @@ fun EventWithFavorite.toDomain(): Event = Event(
     startTime = event.startTime,
     endTime = event.endTime,
     accessMode = AccessMode.fromRaw(event.accessMode),
+    contribution = Contribution.fromRaw(event.contribution),
     reservationUrl = event.reservationUrl,
     venue = Venue(
         id = event.venue.id,
@@ -91,6 +97,7 @@ fun EventWithFavorite.toDomain(): Event = Event(
         commune = event.venue.commune,
         lat = event.venue.lat,
         lon = event.venue.lon,
+        zone = Zone.fromRaw(event.venue.zone),
     ),
     sourceName = event.sourceName,
     sourceUrl = event.sourceUrl,

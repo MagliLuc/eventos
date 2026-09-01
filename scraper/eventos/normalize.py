@@ -35,6 +35,15 @@ RESERVA_KEYWORDS = ("reserva", "inscripcion previa", "entrada previa",
 ORDEN_KEYWORDS = ("orden de llegada", "hasta agotar", "por orden",
                   "sujeto a capacidad", "aforo", "capacidad de la sala")
 
+# "A la gorra": se entra sin pagar y al final cada uno aporta lo que quiere.
+# Es la modalidad habitual del teatro independiente del AMBA.
+#
+# "gorra" a secas no alcanza como marcador -- una obra puede llamarse "La
+# gorra" -- asi que se exige el giro completo.
+GORRA_KEYWORDS = ("a la gorra", "a la gorra consciente", "bono contribucion",
+                  "bono de contribucion", "contribucion voluntaria",
+                  "aporte voluntario", "colaboracion voluntaria")
+
 # El punto separa horas ("18.30 h") pero tambien fechas ("Desde el 20.09"),
 # que es como escribe su agenda el Centro Cultural Recoleta. Con los dos
 # puntos no hay ambiguedad; con el punto se exige la "h" o "hs", porque si no
@@ -75,6 +84,19 @@ def detect_access_mode(*texts: Optional[str]) -> str:
     if any(keyword in haystack for keyword in ORDEN_KEYWORDS):
         return "ORDEN_DE_LLEGADA"
     return "INGRESO_LIBRE"
+
+
+def detect_contribution(*texts: Optional[str]) -> Optional[str]:
+    """Devuelve "A_LA_GORRA" si el texto lo dice, o None.
+
+    Va aparte de `detect_access_mode` porque son ejes distintos: una funcion
+    a la gorra puede pedir reserva previa igual. Mezclados en un solo enum,
+    uno de los dos datos se perderia.
+    """
+    haystack = strip_accents(" ".join(t for t in texts if t))
+    if any(keyword in haystack for keyword in GORRA_KEYWORDS):
+        return "A_LA_GORRA"
+    return None
 
 
 def _clamp_time(hour: int, minute: int) -> Optional[str]:
@@ -132,15 +154,22 @@ def is_explicitly_free(*texts: Optional[str]) -> bool:
     JSON-LD, donde el campo `offers` ya dice cuanto sale. Cuando la fuente es
     prosa de una nota periodistica no hay tal campo: ahi el silencio no
     significa gratis, asi que se exige la palabra.
+
+    "A la gorra" tambien califica: se entra sin pagar. Que no sea del todo
+    gratis lo dice `detect_contribution`, y la app lo muestra con etiqueta
+    propia -- si en cambio se descartara aca, se perderia buena parte del
+    teatro independiente del AMBA sin que nadie se entere.
     """
     haystack = strip_accents(" ".join(t for t in texts if t))
     # "libre" solo no alcanza ("aire libre", "libre albedrio"), pero varias
     # salas escriben "Actividad libre" o "Asistencia libre" y sin esos giros
     # se descartaban eventos que si eran gratuitos: Fundacion Proa, por caso.
-    return any(marker in haystack for marker in
-               ("gratis", "gratuit", "entrada libre", "ingreso libre",
-                "acceso libre", "actividad libre", "asistencia libre",
-                "participacion libre", "entrada gratuita", "sin cargo"))
+    marcadores = (
+        "gratis", "gratuit", "entrada libre", "ingreso libre",
+        "acceso libre", "actividad libre", "asistencia libre",
+        "participacion libre", "entrada gratuita", "sin cargo",
+    ) + GORRA_KEYWORDS
+    return any(marker in haystack for marker in marcadores)
 
 
 def clean_text(text: Optional[str], limit: int = 400) -> Optional[str]:

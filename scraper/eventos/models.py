@@ -74,6 +74,40 @@ CATEGORIES = (
 
 ACCESS_MODES = ("INGRESO_LIBRE", "ORDEN_DE_LLEGADA", "RESERVA_PREVIA")
 
+# Como se paga, que es un eje distinto de como se entra.
+#
+# "A la gorra" no es un modo de acceso: se entra igual que a cualquier
+# funcion libre, y la plata se aporta al final. Tanto es asi que una funcion
+# puede ser a la gorra *y* con reserva previa. Metido en ACCESS_MODES, uno de
+# los dos datos se perderia.
+CONTRIBUTIONS = ("A_LA_GORRA",)
+
+# Zonas del AMBA. El corte no es caprichoso: son los accesos que la gente
+# usa para moverse (Norte por el Mitre y Panamericana, Oeste por el Sarmiento
+# y el Acceso Oeste, Sur por el Roca y la Riccheri), asi que "Conurbano
+# Norte" contesta la pregunta real, que es cuanto me cuesta llegar.
+ZONES = ("CABA", "CONURBANO_NORTE", "CONURBANO_SUR", "CONURBANO_OESTE")
+
+# Partido -> zona. Es el mapa que convierte una localidad suelta en algo
+# filtrable; lo consume `venues.zona_de_partido`.
+PARTIDOS_POR_ZONA: dict[str, tuple[str, ...]] = {
+    "CONURBANO_NORTE": (
+        "Vicente López", "San Isidro", "San Fernando", "Tigre",
+        "General San Martín", "Tres de Febrero", "San Miguel",
+        "José C. Paz", "Malvinas Argentinas", "Escobar", "Pilar",
+    ),
+    "CONURBANO_OESTE": (
+        "Morón", "La Matanza", "Merlo", "Moreno", "Ituzaingó", "Hurlingham",
+        "Marcos Paz", "General Rodríguez", "Luján",
+    ),
+    "CONURBANO_SUR": (
+        "Avellaneda", "Lanús", "Lomas de Zamora", "Quilmes", "Berazategui",
+        "Florencio Varela", "Almirante Brown", "Esteban Echeverría",
+        "Ezeiza", "San Vicente", "Presidente Perón", "La Plata",
+        "Berisso", "Ensenada",
+    ),
+}
+
 
 def slugify(text: str) -> str:
     """Slug ASCII estable, usado para construir ids reproducibles."""
@@ -88,10 +122,31 @@ class Venue:
     id: str
     name: str
     address: Optional[str] = None
+    # Barrio en CABA, localidad en el Conurbano. Es el mismo rol -- el nivel
+    # fino de la geografia -- asi que va en un solo campo: dos campos
+    # paralelos serian dos lugares donde olvidarse de mirar el otro.
     neighborhood: Optional[str] = None
+    # Dato de CABA y solo de CABA: fuera de la Ciudad no existen las comunas.
     commune: Optional[int] = None
     lat: Optional[float] = None
     lon: Optional[float] = None
+    # Nivel grueso de la geografia. Por defecto CABA para que las sedes que
+    # ya estaban no cambien de significado al sumarse este campo.
+    zone: str = "CABA"
+
+    @property
+    def in_caba(self) -> bool:
+        return self.zone == "CABA"
+
+    @property
+    def locality(self) -> str:
+        """Como se nombra la jurisdiccion al final de una direccion.
+
+        Existe para que nadie vuelva a escribir ", CABA" a mano: eso mandaba
+        a quien tocara "Como llegar" a una direccion de Capital aunque el
+        evento fuera en San Isidro.
+        """
+        return "CABA" if self.in_caba else "Provincia de Buenos Aires"
 
     @property
     def is_locatable(self) -> bool:
@@ -130,6 +185,9 @@ class Event:
     # de la app mostraria el estado del scraper sobre eventos que no salieron
     # de ahi. Lo estampa el pipeline, no cada fuente.
     source_id: Optional[str] = None
+    # "A_LA_GORRA" o None. Va aparte de access_mode porque son ejes
+    # distintos: uno dice como se entra, este dice como se paga.
+    contribution: Optional[str] = None
     image_url: Optional[str] = None
     updated_at: Optional[str] = None
     id: str = ""
@@ -160,6 +218,7 @@ class Event:
             "end_time": data["end_time"],
             "all_day": data["all_day"],
             "access_mode": data["access_mode"],
+            "contribution": data["contribution"],
             "reservation_url": data["reservation_url"],
             "venue": data["venue"],
             "source_name": data["source_name"],

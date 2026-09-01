@@ -108,10 +108,12 @@ fun HomeScreen(
             FilterBar(
                 filter = state.filter,
                 countByCategory = state.countByCategory,
+                zones = state.availableZones,
                 neighborhoods = state.availableNeighborhoods,
                 dateRanges = state.availableDateRanges(),
                 resultCount = state.events.size,
                 onCategoryToggle = viewModel::onCategoryToggle,
+                onZoneToggle = viewModel::onZoneToggle,
                 onNeighborhoodToggle = viewModel::onNeighborhoodToggle,
                 onTimeSlotToggle = viewModel::onTimeSlotToggle,
                 onAccessModeToggle = viewModel::onAccessModeToggle,

@@ -24,9 +24,17 @@ import org.osmdroid.views.overlay.Overlay
 import org.osmdroid.views.overlay.OverlayItem
 import org.osmdroid.views.overlay.ItemizedIconOverlay
 
-/** Centro aproximado de CABA, usado cuando no hay eventos que encuadrar. */
-private val CABA_CENTER = GeoPoint(-34.6037, -58.3816)
-private const val DEFAULT_ZOOM = 12.5
+/**
+ * Encuadre inicial: el AMBA, no solo Capital.
+ *
+ * Solo se usa mientras no hay eventos ubicados que encuadrar -- apenas
+ * llegan, `zoomToBoundingBox` los enmarca y esto deja de importar. Aun asi
+ * abrir centrado en el Obelisco dejaba medio Conurbano fuera de pantalla en
+ * el primer cuadro, que es la primera impresion de una agenda que ahora
+ * cubre los tres cordones.
+ */
+private val AMBA_CENTER = GeoPoint(-34.6400, -58.5000)
+private const val DEFAULT_ZOOM = 10.5
 
 /**
  * `MapView` de osmdroid embebido en Compose.
@@ -57,7 +65,7 @@ fun OsmMap(
             isVerticalMapRepetitionEnabled = false
             setUseDataConnection(true)
             controller.setZoom(DEFAULT_ZOOM)
-            controller.setCenter(CABA_CENTER)
+            controller.setCenter(AMBA_CENTER)
             overlays.add(AttributionOverlay())
         }
     }

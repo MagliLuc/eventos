@@ -140,6 +140,15 @@ fun EventDetailScreen(
             })
             DetailRow("Dónde", "${current.venue.name}\n${current.venue.fullAddress}")
             DetailRow("Ingreso", current.accessMode.label)
+            // Fila propia y no pegada al ingreso: son dos datos distintos, y
+            // esta es la que evita que alguien llegue sin plata encima.
+            current.contribution?.let {
+                DetailRow(
+                    "Aporte",
+                    "${it.label} · se entra sin pagar y al final cada uno " +
+                        "aporta lo que quiere",
+                )
+            }
             current.sourceName?.let { DetailRow("Fuente", it) }
 
             current.description?.let { description ->
