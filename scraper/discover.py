@@ -130,6 +130,12 @@ def probar_jsonld(ses, url: str) -> tuple[str, dict] | None:
     return None
 
 
+def es_feed_de_comentarios(url: str) -> bool:
+    """Un feed de comentarios no es una agenda, por mas que parsee."""
+    ruta = urlparse(url).path.lower().rstrip("/")
+    return ruta.endswith("/comments/feed") or "/comments/feed/" in ruta + "/"
+
+
 def _feeds_declarados(ses, url: str, base: str) -> list[str]:
     """Los feeds que el sitio anuncia en su <head>.
 
@@ -145,7 +151,12 @@ def _feeds_declarados(ses, url: str, base: str) -> list[str]:
         tipo = (nodo.get("type") or "").lower()
         if ("xml" in tipo or "json" in tipo) and nodo.get("href"):
             urls.append(urljoin(base, nodo["href"]))
-    return sorted(set(urls))
+    # WordPress declara DOS feeds en el <head>: el de entradas y el de
+    # comentarios. Ordenados alfabeticamente gana "comments/feed", y como
+    # parsea igual de bien, el prospector llego a proponer el feed de
+    # comentarios de la Usina como fuente de eventos. Publicar comentarios
+    # de blog como agenda es peor que no encontrar nada.
+    return sorted(set(u for u in urls if not es_feed_de_comentarios(u)))
 
 
 def probar_feed(ses, base: str, pagina: str = "") -> tuple[str, dict] | None:

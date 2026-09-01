@@ -14,7 +14,9 @@ import time
 from pathlib import Path
 from typing import NamedTuple, Optional
 
-from .models import PARTIDOS_POR_ZONA, Venue, slugify
+from .models import (FUERA_DEL_AMBA, JURISDICCIONES_AMBA, PARTIDOS_POR_ZONA,
+                     Venue, slugify)
+from .normalize import strip_accents
 
 NOMINATIM_URL = "https://nominatim.openstreetmap.org/search"
 USER_AGENT = "eventos-caba-bot/1.0 (https://github.com/MagliLuc/eventos)"
@@ -124,6 +126,37 @@ _ZONA_POR_PARTIDO: dict[str, str] = {
     for zona, partidos in PARTIDOS_POR_ZONA.items()
     for partido in partidos
 }
+
+
+def fuera_del_amba(venue) -> Optional[str]:
+    """Motivo por el que una sede queda fuera del AMBA, o None si entra.
+
+    La app es del AMBA, pero varias fuentes son nacionales: Que Hacemos
+    publica recitales de Cordoba y de Mar del Plata en el mismo listado que
+    los de Capital. Sin este filtro entraban igual.
+
+    Solo decide cuando la propia direccion trae la jurisdiccion escrita, con
+    la forma "calle - localidad - provincia" que usan estas agendas. **No se
+    busca el nombre de una ciudad dentro de la prosa**: en nuestros propios
+    datos "Av. San Juan 350" es el Museo Moderno en San Telmo y "Av.
+    Corrientes 1660" es una sala de CABA -- un barrido por palabras marca
+    treinta y siete eventos buenos como si fueran de San Juan y Corrientes.
+
+    Ante la duda se deja pasar: preferimos un evento de mas antes que tirar
+    uno bueno en silencio.
+    """
+    partes = [p.strip() for p in (venue.address or "").split(" - ") if p.strip()]
+    if len(partes) < 2:
+        return None  # sin jurisdiccion escrita no hay nada que decidir
+
+    provincia = strip_accents(partes[-1])
+    if provincia not in JURISDICCIONES_AMBA:
+        return f"provincia {partes[-1]}"
+
+    localidad = strip_accents(partes[-2])
+    if localidad in FUERA_DEL_AMBA:
+        return f"localidad {partes[-2]}"
+    return None
 
 
 def zona_de_partido(nombre: Optional[str]) -> str:

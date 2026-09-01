@@ -19,6 +19,7 @@ from .informe import ERROR, INCOMPLETA, InformeFuente
 from .registry import cargar as cargar_fuentes
 from .sources import LocalSeedSource, http_session
 from .sources.base import Source
+from .venues import fuera_del_amba
 
 def dedupe(events: Iterable[Event]) -> list[Event]:
     """Un evento suele aparecer en varias agendas: gana el mas completo.
@@ -111,10 +112,27 @@ def run(
 
     # Filtro final: sin sede ubicable el evento no se puede mostrar en el
     # mapa ni abrir en la app de mapas, asi que no llega al feed.
-    events = [e for e in deduped if e.venue.is_locatable]
-    descartados = len(deduped) - len(events)
+    ubicables = [e for e in deduped if e.venue.is_locatable]
+    descartados = len(deduped) - len(ubicables)
     if descartados:
         print(f"  Descartados {descartados} eventos sin sede ubicable.")
+
+    # Y fuera del AMBA tampoco sirve: esta app es del AMBA, pero fuentes como
+    # Que Hacemos son nacionales y publican recitales de Cordoba o de Mar del
+    # Plata en el mismo listado. Se descarta nombrando el motivo, porque un
+    # filtro que tira eventos en silencio es como se nos fueron 40 del Museo
+    # Moderno sin que nadie se enterara.
+    events = []
+    lejos: Counter = Counter()
+    for evento in ubicables:
+        motivo = fuera_del_amba(evento.venue)
+        if motivo:
+            lejos[motivo] += 1
+            continue
+        events.append(evento)
+    if lejos:
+        detalle = ", ".join(f"{m} ({n})" for m, n in lejos.most_common())
+        print(f"  Descartados {sum(lejos.values())} eventos fuera del AMBA: {detalle}")
 
     problems = validate(events)
     if problems:

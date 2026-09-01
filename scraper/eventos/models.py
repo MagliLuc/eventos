@@ -108,6 +108,27 @@ PARTIDOS_POR_ZONA: dict[str, tuple[str, ...]] = {
     ),
 }
 
+# Como escriben la jurisdiccion las agendas que publican direcciones
+# estructuradas ("calle - localidad - provincia").
+JURISDICCIONES_AMBA = (
+    "caba", "ciudad de buenos aires", "ciudad autonoma de buenos aires",
+    "capital federal", "buenos aires", "provincia de buenos aires", "gba",
+)
+
+# Ciudades bonaerenses que NO son del AMBA. Es una lista de rechazo y no de
+# permitidos a proposito: las localidades del AMBA se escriben de mil formas
+# ("San Justo" es La Matanza, "Belen de Escobar" es Escobar), asi que exigir
+# que una localidad este en una lista tiraria eventos buenos. Al reves, lo
+# unico que se pierde es una ciudad de la costa que nadie agrego todavia.
+FUERA_DEL_AMBA = (
+    "mar del plata", "bahia blanca", "tandil", "pinamar", "villa gesell",
+    "necochea", "miramar", "chapadmalal", "mar de ajo", "san bernardo",
+    "santa teresita", "junin", "pergamino", "olavarria", "azul",
+    "tres arroyos", "balcarce", "chascomus", "dolores", "carmen de patagones",
+    "san nicolas de los arroyos", "zarate", "campana", "lujan de cuyo",
+    "mercedes", "bragado", "chivilcoy", "9 de julio", "trenque lauquen",
+)
+
 
 def slugify(text: str) -> str:
     """Slug ASCII estable, usado para construir ids reproducibles."""

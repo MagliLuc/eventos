@@ -424,6 +424,63 @@ se descartaban antes de llegar al campo. Y `detect_contribution` mira la ficha
 entera, igual que la gratuidad y por el mismo motivo: «a la gorra» suele estar
 en el bloque de entradas, bien después del copete.
 
+### Tres bugs que llegaron juntos en una sola tarjeta
+
+Un recital pago de Córdoba apareció en la app como «Ingreso libre», con
+dirección «Córdoba - Córdoba, CABA» y horario «15:14 a 21:14». Una tarjeta,
+tres fallas distintas.
+
+**1. No había filtro geográfico.** Qué Hacemos es una agenda **nacional**;
+nosotros la tratábamos como porteña. Publicaba recitales de Córdoba y de Mar
+del Plata en el mismo listado que los de Capital, y nada los frenaba.
+
+El filtro lee la jurisdicción **escrita** en la dirección, con la forma
+`calle - localidad - provincia` que usan estas agendas. La tentación era
+buscar nombres de ciudad en la prosa, y está medida: un barrido por palabras
+sobre el feed real marca **48 eventos, de los cuales 45 son falsos positivos**
+— «Av. San Juan 350» es el Museo Moderno en San Telmo, «Av. Corrientes 1660»
+es una sala de CABA, «Posadas 1557» está en Recoleta. Leyendo la estructura,
+caen exactamente los 3 reales y ninguno más.
+
+La lista de ciudades bonaerenses fuera del AMBA es de **rechazo y no de
+permitidos**: las localidades del AMBA se escriben de mil formas («San Justo»
+es La Matanza, «Belén de Escobar» es Escobar), así que exigir pertenencia a
+una lista tiraría eventos buenos. Ante la duda, pasa.
+
+**2. El precio declarado se ignoraba.** Había dos ramas que leen
+`schema.org/Event`, y **sólo una miraba `offers`**: `html_source.py` rechaza
+un precio distinto de cero, y `_de_jsonld` en `feeds.py` no leía el campo. Los
+recitales de Córdoba entraron por la segunda. La causa real es la duplicación,
+así que la lógica se mudó a `oferta_de` / `tiene_precio` en `base.py` y las
+dos ramas la usan; hay un test que falla si alguna deja de hacerlo.
+
+**3. La hora de fin no era dato.** Los 22 eventos de Qué Hacemos daban inicio
++ exactamente 6 h, con inicios variados (20:00, 10:00, 15:14). Eso no es una
+coincidencia: es relleno del sitio, y lo publicábamos como el horario del
+show.
+
+No se detecta solo, y conviene ver por qué: el Centro Cultural Recoleta
+**también** da 6 h en sus 23 eventos, pero ahí es real — es el horario de sala,
+igual para todas sus muestras. Una duración pareja no prueba nada por sí sola.
+Por eso es una perilla declarada por fuente (`ignorar_hora_fin`) con la
+evidencia escrita en la nota, y no una heurística.
+
+Queda dicho lo que **no** está verificado: la hora de *inicio* de esta fuente
+tampoco se comprobó contra el sitio.
+
+### Una advertencia sobre buscar palabras en la ficha entera
+
+Ampliar `is_explicitly_free` a la ficha completa destrabó la Usina —su
+«Entrada libre y gratuita» vive muy por debajo del sexto párrafo— y de paso
+**desactivó el filtro de gratuidad en Qué Hacemos**, porque su menú de
+navegación dice «Eventos gratis» y su pie «Reservas gratis». Toda página de
+ese sitio contiene la palabra.
+
+Lo que lo tapó fue el chequeo de precio: con `offers` mirado de verdad, el
+recital pago se rechaza aunque el chrome del sitio diga «gratis». Pero la
+lección queda anotada, porque la próxima fuente sin `offers` va a chocar con
+lo mismo.
+
 ### Qué aportó el documento externo, y qué no
 
 Aportó el encuadre por jurisdicción y tres pistas: Alternativa Teatral (que ya

@@ -70,12 +70,8 @@ class HtmlAgendaSource(Source):
             return None
 
         description = clean_text(node.get("description"))
-        offers = node.get("offers") or {}
-        if isinstance(offers, list):
-            offers = offers[0] if offers else {}
-        price = str(offers.get("price", "")).strip()
-        offer_text = f"{offers.get('name', '')} {offers.get('description', '')}"
-        if price and price not in {"0", "0.0", "0.00"}:
+        price, offer_text = oferta_de(node)
+        if tiene_precio(price):
             return None  # la app solo lista actividades gratuitas
         if not is_free(title, description, offer_text):
             return None
@@ -97,7 +93,8 @@ class HtmlAgendaSource(Source):
             contribution=detect_contribution(title, description, offer_text, str(offers.get("url", ""))),
             date=start[:10],
             start_time=start[11:16] or None,
-            end_time=(node.get("endDate") or "")[11:16] or None,
+            end_time=None if self.ignorar_hora_fin
+                     else ((node.get("endDate") or "")[11:16] or None),
             venue=build_venue(venue_name, address, locality=self.partido),
             reservation_url=offers.get("url") or None,
             source_name=self.name,

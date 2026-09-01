@@ -221,3 +221,171 @@ def test_un_host_caido_se_descarta_antes_de_sondear():
                                            "url": "https://no-existe.test/cultura"}) is None
     # Un solo pedido, no los treinta y pico de los ocho mecanismos.
     assert SesionQueFalla.pedidos == 1
+
+
+# --- El filtro geográfico: eventos de Córdoba en una app del AMBA ---------
+
+def test_el_pipeline_descarta_lo_que_esta_fuera_del_amba():
+    """Ejercita `run()` de punta a punta, no sólo el predicado.
+
+    La primera versión de esto usaba `fuera_del_amba` sin importarlo en
+    `pipeline.py`: los tests del predicado pasaban igual y el pipeline
+    reventaba recién en la corrida.
+    """
+    import tempfile
+    from pathlib import Path
+
+    from eventos.models import DateWindow, Event, Venue, slugify, today_ba
+    from eventos.pipeline import run
+    from eventos.sources.base import Source
+
+    hoy = today_ba()
+
+    def evento(titulo, direccion):
+        return Event(title=titulo, category="MUSICA", date=hoy.isoformat(),
+                     access_mode="INGRESO_LIBRE",
+                     venue=Venue(id=slugify(titulo), name=titulo, address=direccion))
+
+    class FuenteNacional(Source):
+        name = "Fuente nacional"
+
+        def fetch(self, session, window: DateWindow):
+            return [
+                evento("Recital porteño", "Av. Corrientes 1660 - Capital Federal - Buenos Aires"),
+                evento("Recital cordobés", "Cruz Roja Argentina 200 - Córdoba - Córdoba"),
+                evento("Recital marplatense", "Bv. Marítimo 2280 - Mar del Plata - Buenos Aires"),
+            ]
+
+    with tempfile.TemporaryDirectory() as tmp:
+        payload = run(Path(tmp) / "out.json", days=7, sources=[FuenteNacional()],
+                      include_seed=False, keep_existing=False)
+
+    titulos = [e["title"] for e in payload["events"]]
+    assert titulos == ["Recital porteño"], titulos
+
+
+def test_ante_la_duda_el_filtro_deja_pasar():
+    """Una dirección sin jurisdicción escrita no se descarta."""
+    from eventos.models import Venue
+    from eventos.venues import fuera_del_amba
+
+    assert fuera_del_amba(Venue(id="x", name="X", address="Av. San Juan 350")) is None
+    assert fuera_del_amba(Venue(id="x", name="X", address=None)) is None
+
+
+def test_el_filtro_no_confunde_una_calle_con_una_provincia():
+    """El barrido por palabras marcaba 37 eventos buenos; éste, ninguno."""
+    from eventos.models import Venue
+    from eventos.venues import fuera_del_amba
+
+    for direccion in ("Av. San Juan 350",
+                      "Av. Corrientes 1660 - Capital Federal - Buenos Aires",
+                      "Posadas 1557 - Recoleta - Ciudad de Buenos Aires",
+                      "Paraná 353 - Capital Federal - Buenos Aires"):
+        assert fuera_del_amba(Venue(id="x", name="X", address=direccion)) is None, direccion
+
+
+# --- El precio declarado en offers ----------------------------------------
+
+def test_un_evento_con_precio_no_es_gratuito():
+    """`_de_jsonld` ignoraba `offers` por completo.
+
+    Así entraron dos recitales pagos de Córdoba: su descripción no menciona
+    plata, y el precio estaba en un campo que esa rama no miraba.
+    """
+    from eventos.sources.base import oferta_de, tiene_precio
+
+    precio, texto = oferta_de({"offers": {"price": "25000", "name": "Entrada general"}})
+    assert precio == "25000"
+    assert tiene_precio(precio)
+    assert "Entrada general" in texto
+
+
+def test_un_precio_en_cero_sigue_siendo_gratuito():
+    from eventos.sources.base import oferta_de, tiene_precio
+
+    for cero in ("0", "0.0", "0.00", "0,00", ""):
+        assert not tiene_precio(cero), cero
+
+
+def test_offers_como_lista_o_ausente_no_rompe():
+    from eventos.sources.base import oferta_de
+
+    assert oferta_de({"offers": [{"price": "500"}]})[0] == "500"
+    assert oferta_de({}) == ("", "")
+    assert oferta_de({"offers": None}) == ("", "")
+    assert oferta_de({"offers": "gratis"}) == ("", "")
+
+
+def test_las_dos_ramas_jsonld_usan_el_mismo_chequeo():
+    """La duplicación era la causa: una miraba el precio y la otra no."""
+    from pathlib import Path
+
+    raiz = Path(__file__).resolve().parents[1] / "eventos" / "sources"
+    for archivo in ("feeds.py", "html_source.py"):
+        texto = (raiz / archivo).read_text(encoding="utf-8")
+        assert "tiene_precio(" in texto, archivo
+
+
+# --- La hora de fin que no era dato ---------------------------------------
+
+def test_ignorar_hora_fin_borra_solo_el_fin():
+    """Qué Hacemos publicaba inicio + exactamente 6 h en los 22 eventos.
+
+    Con inicios variados (20:00, 10:00, 15:14) esa uniformidad no es dato:
+    es relleno del sitio, y lo estábamos mostrando como el horario del show.
+    """
+    from eventos.models import DateWindow
+    from eventos.sources.feeds import FichasSource
+
+    nodo = {
+        "@type": "Event", "name": "Recital",
+        "startDate": "2026-09-05T20:00", "endDate": "2026-09-06T02:00",
+        "description": "Entrada libre y gratuita",
+        "location": {"name": "Sala X", "address": "Calle 1 - Almagro - CABA"},
+    }
+    ventana = DateWindow.upcoming(21)
+
+    fuente = FichasSource("X", "https://x.test/", "Sala X")
+    normal = fuente._de_jsonld(nodo, ventana, "https://x.test/f")
+    assert (normal.start_time, normal.end_time) == ("20:00", "02:00")
+
+    fuente.ignorar_hora_fin = True
+    recortado = fuente._de_jsonld(nodo, ventana, "https://x.test/f")
+    assert recortado.start_time == "20:00", "el inicio no se toca"
+    assert recortado.end_time is None
+
+
+def test_el_registro_aplica_ignorar_hora_fin():
+    from eventos.registry import _construir, _transporte
+
+    entrada = {"name": "Qué Hacemos", "kind": "fichas", "status": "activo",
+               "url": "https://x.test/eventos-gratis", "venue": "CABA",
+               "ignorar_hora_fin": True}
+    assert _transporte(_construir(entrada), entrada).ignorar_hora_fin is True
+
+
+def test_una_fuente_normal_conserva_su_hora_de_fin():
+    from eventos.registry import _construir, _transporte
+
+    entrada = {"name": "Museo Moderno", "kind": "fichas", "status": "activo",
+               "url": "https://x.test/agenda", "venue": "Museo Moderno"}
+    assert _transporte(_construir(entrada), entrada).ignorar_hora_fin is False
+
+
+# --- El prospector proponía un feed de comentarios como agenda ------------
+
+def test_el_feed_de_comentarios_no_es_una_agenda():
+    """WordPress declara dos feeds en el <head>: entradas y comentarios.
+
+    Ordenados alfabéticamente gana "comments/feed", y como parsea igual de
+    bien, la prospección del 2026-09-01 propuso el feed de COMENTARIOS de la
+    Usina como fuente de eventos. Pegar esa configuración habría publicado
+    comentarios de blog como si fueran la agenda.
+    """
+    from discover import es_feed_de_comentarios
+
+    assert es_feed_de_comentarios("https://usinadelarte.ar/comments/feed/")
+    assert es_feed_de_comentarios("https://x.ar/comments/feed")
+    assert not es_feed_de_comentarios("https://usinadelarte.ar/feed/")
+    assert not es_feed_de_comentarios("https://museomoderno.org/agenda/feed/")
