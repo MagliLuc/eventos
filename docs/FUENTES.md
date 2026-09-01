@@ -122,9 +122,10 @@ Se evaluó, porque parecía lo obvio:
 - Y el punto de fondo: **ninguno ejecuta el JavaScript del desafío**, que es lo
   que el CDN está pidiendo.
 
-Lo que sí queda por probar, y es gratis: que el mismo CDN sirva alguna ruta con
-datos desde su caché (`sitemap.xml`, `/feed`, `wp-json`, `.ics`). El
-diagnóstico las sondea cuando la agenda viene desafiada.
+Esa vía —que el CDN sirviera alguna ruta con datos desde su caché— **se probó
+y está cerrada**: las nueve rutas (`sitemap.xml`, `/feed`, `wp-json`, `.ics`…)
+vuelven 403 con `Cf-Mitigated` en los cuatro dominios. El diagnóstico las sigue
+sondeando por si algún día se abren.
 
 Dos límites que nos ponemos, y no son decorativos: `robots.txt` manda (si el
 sitio nos prohíbe la ruta, no se pide), y seguimos identificados — `From` y el
@@ -136,30 +137,48 @@ de pedidos por día.
 
 ## 3. Estado real de las fuentes
 
-Medido en la corrida en seco del pipeline (workflow «Diagnóstico de fuentes»,
-paso *Corrida en seco*), no supuesto. **26 eventos de fuentes en vivo**, contra
-0 cuando empezó este trabajo.
+Medido en la **corrida en seco** (`corrida-seco.yml`), no supuesto.
+**106 eventos de fuentes en vivo**, contra 0 cuando empezó este trabajo, y
+**241 publicados** contando la semilla curada.
 
 ### Aportando eventos
 
-| Fuente | Fichas | Eventos | Cómo |
+| Fuente | Fichas | Eventos | Qué la destrabó |
 |---|---|---|---|
-| **Museo Moderno** | 10 | **14** | prosa de la ficha; 8 de 10 con actividad |
-| **Centro Cultural Recoleta** | 27 | **11** | fecha en la tarjeta del listado |
-| **Qué Hacemos** | 8 | **1** | `schema.org/Event` en cada ficha |
+| **Museo Moderno** | 40 | **40** | faltaba su sede en `KNOWN_VENUES`: se descartaban las 40 |
+| **Qué Hacemos** | 48 | **23** | `schema.org/Event` en cada ficha, + 40 URLs de su sitemap |
+| **Usina del Arte** | 48 | **23** | 10 fichas en el listado y 38 más en el sitemap |
+| **Centro Cultural Recoleta** | 27 | **20** | la fecha está en la tarjeta del listado, no en la ficha |
 
-Qué Hacemos rinde poco en número pero es la de mejor dato: su marcado es
-impecable y el filtro descarta bien los shows pagos que su sección «eventos
-gratis» también enlaza. Su sitemap tiene 10 URLs más para explorar.
+Las cuatro comparten una causa: **el sitemap era sólo un respaldo**, consultado
+únicamente cuando el listado no devolvía nada. Sumarlo al listado en vez de
+reemplazarlo cuadruplicó el resultado.
+
+### La sede que descartaba 40 eventos en silencio
+
+El log decía «Descartados 50 eventos sin sede ubicable» sin nombrar la causa.
+Era que `Museo de Arte Moderno de Buenos Aires` no estaba en `KNOWN_VENUES`:
+`build_venue` devolvía una sede sin dirección ni barrio, `is_locatable` la
+rechazaba, y sus 40 eventos se iban enteros. Con la entrada agregada, los
+descartes bajaron de 50 a 10 y lo publicado subió de 201 a 241.
+
+Las direcciones salen del HTML que sirvieron **los propios sitios** (guardado
+en `scraper/diagnostico/`), no de memoria. Las coordenadas quedan en `None` a
+propósito: `is_locatable` se conforma con la dirección, y una coordenada
+inventada manda a alguien al lugar equivocado — peor que no mostrarla.
+
+Un test (`test_schema.py`) cierra la clase entera: toda fuente activa tiene que
+resolver a una sede ubicable, o falla nombrándola.
 
 ### Activas, todavía sin aportar — con el motivo medido
 
 | Fuente | Qué pasa |
 |---|---|
-| **Teatro Colón** | 9 fichas, 9 dicen «Comprar entradas». Es el resultado correcto: el Colón vende entradas. Queda activa por las funciones gratuitas que sí hace. |
-| **Usina del Arte** | 10 fichas; su listado muestra actividades ya pasadas. Cuando publique la agenda siguiente entra sola. |
-| **El Cultural San Martín** | 40 fichas por sitemap, pero el sitemap trae páginas del sitio y no funciones. Falta un `ruta_ficha` sacado de su HTML. |
-| **Fundación Proa** | enlaza una sola ficha y su fecha cayó fuera de la ventana. |
+| **Teatro Colón** | 38 fichas, 28 dicen «Comprar entradas». Es el resultado correcto: el Colón vende entradas. Queda activa por las funciones gratuitas que sí hace. |
+| **Fundación Proa** | su listado enlaza una sola ficha y no dice que sea gratis. Queda activa porque cuesta un pedido. |
+
+El Cultural San Martín salió de esta lista por una razón muy distinta: su
+dominio está comprometido (ver más abajo).
 
 ### Fuera, con motivo probado
 
