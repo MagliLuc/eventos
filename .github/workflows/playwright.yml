@@ -1,0 +1,47 @@
+name: Experimento navegador
+
+# Una sola pregunta: ¿un navegador real pasa el desafío de Cloudflare de los
+# sitios .gob.ar que nos dan 403 en todas sus rutas?
+#
+# Está aparte del diagnóstico a propósito. Es un experimento con criterio de
+# cierre decidido de antemano (ver scraper/experimento_navegador.py): si no
+# pasa, se documenta y no se insiste. Y no toca el pipeline: una falla acá no
+# puede afectar la agenda publicada.
+#
+# Sin cron: corre a mano, o cuando se toca el propio experimento. Ese trigger
+# por push existe para poder lanzarlo sin permisos de workflow_dispatch, no
+# para que se repita solo: no mira ninguna otra ruta del repo.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL a probar (vacío = MNBA)"
+        required: false
+        default: ""
+  push:
+    paths:
+      - "scraper/experimento_navegador.py"
+      - ".github/workflows/playwright.yml"
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Playwright y Chromium
+        # Las dependencias del scraper van también: el experimento importa
+        # `eventos.http` a propósito, para probar con exactamente el mismo
+        # User-Agent y las mismas cabeceras que usa la corrida real. Si se
+        # copiaran acá, el experimento estaría midiendo otra cosa.
+        run: |
+          pip install -r scraper/requirements.txt playwright==1.47.0
+          python -m playwright install --with-deps chromium
+
+      - name: Probar si el navegador pasa el desafío
+        run: python scraper/experimento_navegador.py "${{ inputs.url }}"

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, user-scalable=no" name="viewport"/>
+<meta content="Conocé toda nuestra programación." name="description"/>
+<meta content="Conocé toda nuestra programación." property="og:description"/>
+<meta content="website" property="og:type"/>
+<meta content="Agenda" property="og:title"/>
+<meta content="http://www.centroculturalrecoleta.org/agenda" property="og:url"/>
+<link href="http://www.centroculturalrecoleta.org/agenda" rel="canonical"/>
+<title>Centro Cultural Recoleta — Agenda</title>
+<link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="/manifest.json" rel="manifest"/>
+<link color="#5bbad5" href="/safari-pinned-tab.svg" rel="mask-icon"/>
+<meta content="#ffffff" name="theme-color"/>
+<link href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" media="screen" rel="stylesheet" type="text/css"/>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700,700i,800" media="screen" rel="stylesheet" type="text/css"/>
+<link href="/css/fonts.css?1709780030" rel="stylesheet" type="text/css"/> <link href="/css/style.css?1711580964" rel="stylesheet" type="text/css"/>
+<!-- Google tag (gtag.js) -->
+
+
+</head>
+<body data-page="schedule-events">
+
+<header>
+<div class="header-ba">
+<div class="wrapper">
+<!--<img srcset="/images/common/logo-ba-2x.png 2x" alt="Buenos Aires Ciudad" class="logo-ba" src="/images/common/logo-ba.png" />
+      <img srcset="/images/common/slogan-ba-2x.png 2x" alt="En todo estás vos" class="slogan-ba" src="/images/common/slogan-ba.png" />-->
+</div>
+</div>
+<div class="wrapper site-header">
+<a href="/"><img alt="Centro Cultural Recoleta" class="logo" src="/images/common/logo.svg"/></a>
+<button class="only-mobile" id="mobile-menu-button" type="button"></button>
+<nav>
+<img alt="Centro Cultural Recoleta" class="logo only-mobile" src="/images/common/logo.svg"/>
+<ul id="main-nav"><li>
+<a href="/el-recoleta">El recoleta</a></li><li>
+<a href="/clave1317">Ingreso y horarios</a></li><li>
+<a href="/agenda">Agenda</a></li><li>
+<a href="/talleres">Talleres</a></li><!--<li>
+        <a href="/volvemos-al-reco">Posta de vacunación</a></li>-->
+<li><a href="/tienda">CeDIP</a></li>
+<li><a href="/cafe">LIPM</a></li>
+</ul>
+<ul class="social-networks">
+<li class="search-widget-list-item">
+<div class="search-widget-container">
+<div class="search-widget" id="search-widget">
+<form action="/buscar">
+<input class="search-widget-input" id="search" name="q" placeholder="Buscar..." type="search" value=""/>
+<input class="icon icon-search search-widget-submit" type="submit" value=""/>
+<span class="icon icon-search search-widget-toggle"></span>
+</form>
+</div>
+</div>
+</li>
+<li><a class="icon icon-facebook" href="https://www.facebook.com/CentroCulturalRecoleta/" target="_blank"></a></li><li><a class="icon icon-instagram" href="https://www.instagram.com/elrecoleta/" target="_blank"></a></li><li><a class="icon icon-twitter" href="https://twitter.com/ElRecoleta" target="_blank"></a></li>
+</ul>
+</nav>
+</div>
+</header>
+<div class="content wrapper" id="schedule-events">
+<div class="page-header">
+<picture class="page-header-background">
+<source media="(max-width: 767px)" srcset="/upload/headers/4/mobile_mobile_Header-Agenda.jpg?1743446681"/>
+<img alt="" srcset="/upload/headers/4/1200x220_desktop_Header-Agenda.jpg?1743446680 1x, /upload/headers/4/2400x440_desktop_Header-Agenda.jpg?1743446680 2x"/>
+</picture>
+<h1></h1>
+</div>
+<div class="section-intro">
+</div>
+<div class="filters">
+<div class="container-filter-select">
+<h3 class="only-mobile">Filtrar</h3>
+<ul class="filters-select">
+<li>
+<label class="filter-select-label">Categoría</label>
+<select id="filter-category-select" multiple="" name="categoria">
+<option value="1">Teatro</option>
+<option value="2">Danza</option>
+<option value="3">Música</option>
+<option value="4">Charla</option>
+<option value="5">Muestras</option>
+<option value="6">Otros</option>
+<option value="7">Cultura Hip Hop</option>
+<option value="8">Lecturas Performáticas</option>
+<option value="9">Cine</option>
+<option value="10">Festival</option>
+<option value="11">Música Clásica</option>
+<option value="12">Clases Abiertas</option>
+<option value="13">Presentación de Libro</option>
+<option value="14">Performance</option>
+<option value="34">Visitas Guiadas</option>
+<option value="35">Espacios</option>
+<option value="36">Convocatoria</option>
+</select>
+</li>
+</ul>
+</div>
+<div class="container-cancel-date" style="display:none;">
+<a class="glyphicon glyphicon-remove" id="cancel-date" title="Cancelar búsqueda"></a> CANCELAR FILTROS
+  </div>
+<div class="filter-date">
+<input class="date-button" id="daterange" readonly="" type="text"/>
+</div>
+<div class="filters-mobile-actions only-mobile">
+<button class="button" id="mobile-cancel-filter-button" type="button">Cancelar</button>
+<button class="button" id="mobile-apply-filter-button" type="button">Filtrar</button>
+</div>
+</div><section class="events-wrapper">
+<button class="filter-button only-mobile" type="button">Filtrar</button>
+<button class="filled toggle-button only-mobile" type="button">Ver exposiciones</button>
+<ul class="events" data-url="/agenda"><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/2884/462x454_24-03-22-PUBLICO-EN-SALAS-DE-ARTES-VISUALES-%282%29-%281%29_780.jpg?1712332308">
+<img alt="Sala Histórica" src="/upload/schedule-events/2884/462x454_24-03-22-PUBLICO-EN-SALAS-DE-ARTES-VISUALES-%282%29-%281%29_780.jpg?1712332308"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestras</a>
+<h3><span class="text-ellipsis" title="Sala Histórica">Sala Histórica</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. a dom.</span></div><a class="button see-more-button" href="/agenda/sala-historica" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3552/462x454_111%20%281%29.jpg?1777923075">
+<img alt="Federico Klemm. Iluminador de mitos" src="/upload/schedule-events/3552/462x454_111%20%281%29.jpg?1777923075"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Visuales</a>
+<h3><span class="text-ellipsis" title="Federico Klemm. Iluminador de mitos">Federico Klemm. Iluminador de mitos</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. a dom.</span></div><a class="button see-more-button" href="/agenda/federico-klemm-iluminador-de-mitos" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3662/462x454_1200x688_IVM-agosto2400.jpg?1786382499">
+<img alt="Isidoro Valcárcel Medina. El transcurrir" src="/upload/schedule-events/3662/462x454_1200x688_IVM-agosto2400.jpg?1786382499"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestras</a>
+<h3><span class="text-ellipsis" title="Isidoro Valcárcel Medina. El transcurrir">Isidoro Valcárcel Medina. El transcurrir</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el jueves 06.08 | 18 h</span></div><a class="button see-more-button" href="/agenda/isidoro-valcarcel-medina-el-transcurrir" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3671/462x454_s_t-Arcilla780.jpg?1786385184">
+<img alt="Eslabón Leyes" src="/upload/schedule-events/3671/462x454_s_t-Arcilla780.jpg?1786385184"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestra</a>
+<h3><span class="text-ellipsis" title="Eslabón Leyes">Eslabón Leyes</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el jueves 20.08 | 18 h</span></div><a class="button see-more-button" href="/agenda/eslabon-leyes" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3666/462x454_fantasia780.jpg?1785362398">
+<img alt="Fantasía de valor" src="/upload/schedule-events/3666/462x454_fantasia780.jpg?1785362398"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Visuales</a>
+<h3><span class="text-ellipsis" title="Fantasía de valor">Fantasía de valor</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el jueves 20.08 | 18 h | Sala 11</span></div><a class="button see-more-button" href="/agenda/fantasia-de-valor" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3610/462x454_tapa-del-JR-biblioteca-FINAL780.jpg?1781810301">
+<img alt="El juguete rabioso: 100 años" src="/upload/schedule-events/3610/462x454_tapa-del-JR-biblioteca-FINAL780.jpg?1781810301"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestra</a>
+<h3><span class="text-ellipsis" title="El juguete rabioso: 100 años">El juguete rabioso: 100 años</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el 25.06 | 18 h</span></div><a class="button see-more-button" href="/agenda/el-juguete-rabioso-100-anos" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3670/462x454_Flyer3780.jpg?1786397779">
+<img alt="Melodía encadenada" src="/upload/schedule-events/3670/462x454_Flyer3780.jpg?1786397779"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestra</a>
+<h3><span class="text-ellipsis" title="Melodía encadenada">Melodía encadenada</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el jueves 20.08 | 18 h</span></div><a class="button see-more-button" href="/agenda/melodia-encadenada" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3674/462x454_CATALOGO-PARA-UNA-FAMILIA780.jpg?1787686042">
+<img alt="Catálogo para una familia" src="/upload/schedule-events/3674/462x454_CATALOGO-PARA-UNA-FAMILIA780.jpg?1787686042"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Cine</a>
+<h3><span class="text-ellipsis" title="Catálogo para una familia">Catálogo para una familia</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Jueves de septiembre | 18 h | Cine</span></div><a class="button see-more-button" href="/agenda/catalogo-para-una-familia" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3686/462x454_Ibaibarriaga780.jpg?1787690156">
+<img alt="HAITZ - Iñigo Ibaibarriaga" src="/upload/schedule-events/3686/462x454_Ibaibarriaga780.jpg?1787690156"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#LIPM</a>
+<h3><span class="text-ellipsis" title="HAITZ - Iñigo Ibaibarriaga">HAITZ - Iñigo Ibaibarriaga</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. 01.09 | 19 h</span></div><a class="button see-more-button" href="/agenda/haitz-inigo-ibaibarriaga" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3613/462x454_foto-corazon-retrato780.jpg?1781815859">
+<img alt="Plástica escatológica" src="/upload/schedule-events/3613/462x454_foto-corazon-retrato780.jpg?1781815859"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestra</a>
+<h3><span class="text-ellipsis" title="Plástica escatológica">Plástica escatológica</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el 25.06 | 18 h</span></div><a class="button see-more-button" href="/agenda/plastica-escatologica" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3614/462x454_Mario-Scorzelli---Sin-Titulo780.jpg?1781816608">
+<img alt="Calabxzxs &amp; Dragxnes" src="/upload/schedule-events/3614/462x454_Mario-Scorzelli---Sin-Titulo780.jpg?1781816608"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Muestra</a>
+<h3><span class="text-ellipsis" title="Calabxzxs &amp; Dragxnes">Calabxzxs &amp; Dragxnes</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Desde el 25.06 | 18 h</span></div><a class="button see-more-button" href="/agenda/calabxzxs-dragxnes" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/event-cycles/285/462x454_EL-COLOR-DE-LA-GRANADA780.jpg?1787686218">
+<img alt="Rarezas del este" src="/upload/event-cycles/285/462x454_EL-COLOR-DE-LA-GRANADA780.jpg?1787686218"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Cine</a>
+<h3><span class="text-ellipsis" title="Rarezas del este">Rarezas del este</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Sábados y domingos de septiembre | 18 h | Cine</span></div><a class="button see-more-button" href="/agenda/ciclos/rarezas-del-este" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3689/462x454_IMG_1622-780.jpg?1788139251">
+<img alt="Lucio Mantel" src="/upload/schedule-events/3689/462x454_IMG_1622-780.jpg?1788139251"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Música</a>
+<h3><span class="text-ellipsis" title="Lucio Mantel">Lucio Mantel</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Vie. 18.09  | 19.30 h</span></div><a class="button see-more-button" href="/agenda/lucio-mantel" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3687/462x454_IMG_1555780.jpg?1787773540">
+<img alt="Sofa" src="/upload/schedule-events/3687/462x454_IMG_1555780.jpg?1787773540"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Música</a>
+<h3><span class="text-ellipsis" title="Sofa">Sofa</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Vie. 04.09 | 19.30 h</span></div><a class="button see-more-button" href="/agenda/sofa" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3536/462x454_111.jpg?1774885263">
+<img alt="Borges 360°" src="/upload/schedule-events/3536/462x454_111.jpg?1774885263"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Literatura</a>
+<h3><span class="text-ellipsis" title="Borges 360°">Borges 360°</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mié. 09.09 | 19 h</span></div><a class="button see-more-button" href="/agenda/borges-360" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3685/462x454_0M2A1677780.jpg?1787689940">
+<img alt="FLU - La Fiesta del Libro Usado" src="/upload/schedule-events/3685/462x454_0M2A1677780.jpg?1787689940"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Feria</a>
+<h3><span class="text-ellipsis" title="FLU - La Fiesta del Libro Usado">FLU - La Fiesta del Libro Usado</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Sáb. 05.09 y Dom. 06.09 | 12 h</span></div><a class="button see-more-button" href="/agenda/flu-la-fiesta-del-libro-usado" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/event-cycles/286/462x454_VERTIGO780.jpg?1787687300">
+<img alt="Viernes de Hitchcock" src="/upload/event-cycles/286/462x454_VERTIGO780.jpg?1787687300"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Cine</a>
+<h3><span class="text-ellipsis" title="Viernes de Hitchcock">Viernes de Hitchcock</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Viernes de septiembre | 18 h | Cine</span></div><a class="button see-more-button" href="/agenda/ciclos/viernes-de-hitchcock" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3688/462x454_1000241221780.jpg?1787774430">
+<img alt="Alfredo Piro Rinaldi" src="/upload/schedule-events/3688/462x454_1000241221780.jpg?1787774430"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Música</a>
+<h3><span class="text-ellipsis" title="Alfredo Piro Rinaldi">Alfredo Piro Rinaldi</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Vie. 25.09 | 19.30 h</span></div><a class="button see-more-button" href="/agenda/alfredo-piro-rinaldi" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3692/462x454_foto-karen-y-nora-780.jpg?1788140931">
+<img alt="Metáforas" src="/upload/schedule-events/3692/462x454_foto-karen-y-nora-780.jpg?1788140931"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#LIPM</a>
+<h3><span class="text-ellipsis" title="Metáforas">Metáforas</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mié. 16.09 y Jue. 17.09 | 17 a 20 h</span></div><a class="button see-more-button" href="/agenda/metaforas" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/3298/462x454_FOTO-TROPI-CETC-780.jpg?1788139169">
+<img alt="Ensamble Tropi" src="/upload/schedule-events/3298/462x454_FOTO-TROPI-CETC-780.jpg?1788139169"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#MúsicaClásica</a>
+<h3><span class="text-ellipsis" title="Ensamble Tropi">Ensamble Tropi</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Sáb. 26.09 | 18 h</span></div><a class="button see-more-button" href="/agenda/ensamble-tropi" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/2096/462x454_visita-chica.jpg?1711033007">
+<img alt="Visitas guiadas para instituciones educativas" src="/upload/schedule-events/2096/462x454_visita-chica.jpg?1711033007"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#VisitasGuiadas</a>
+<h3><span class="text-ellipsis" title="Visitas guiadas para instituciones educativas">Visitas guiadas para instituciones educativas</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. a vie.</span></div><a class="button see-more-button" href="/agenda/visitas-guiadas-para-instituciones-educativas" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/event-cycles/207/462x454_bbbbb.jpg?1713279490">
+<img alt="Sábados de superacción" src="/upload/event-cycles/207/462x454_bbbbb.jpg?1713279490"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Cine</a>
+<h3><span class="text-ellipsis" title="Sábados de superacción">Sábados de superacción</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Sábados</span></div><a class="button see-more-button" href="/agenda/ciclos/sabados-de-superaccion" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/1791/462x454_espa%202.jpg?1666981653">
+<img alt="Sala Abierta" src="/upload/schedule-events/1791/462x454_espa%202.jpg?1666981653"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Espacios</a>
+<h3><span class="text-ellipsis" title="Sala Abierta">Sala Abierta</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. a dom.</span></div><a class="button see-more-button" href="/agenda/sala-abierta" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/1808/462x454_sala-de-dibujo.jpg?1711032972">
+<img alt="Sala de dibujo" src="/upload/schedule-events/1808/462x454_sala-de-dibujo.jpg?1711032972"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Espacios</a>
+<h3><span class="text-ellipsis" title="Sala de dibujo">Sala de dibujo</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. a dom.</span></div><a class="button see-more-button" href="/agenda/sala-de-dibujo" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/2484/462x454_Recortes%20Sala%20de%20entrenamiento%20libre1_780x780.jpg?1673979174">
+<img alt="Sala de entrenamiento libre" src="/upload/schedule-events/2484/462x454_Recortes%20Sala%20de%20entrenamiento%20libre1_780x780.jpg?1673979174"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Espacios</a>
+<h3><span class="text-ellipsis" title="Sala de entrenamiento libre">Sala de entrenamiento libre</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Mar. a dom. </span></div><a class="button see-more-button" href="/agenda/sala-de-entrenamiento-libre" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/event-cycles/271/462x454_111.jpg?1771608213">
+<img alt="Antidomingos en el Recoleta" src="/upload/event-cycles/271/462x454_111.jpg?1771608213"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#Música</a>
+<h3><span class="text-ellipsis" title="Antidomingos en el Recoleta">Antidomingos en el Recoleta</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Domingos, 19 h</span></div><a class="button see-more-button" href="/agenda/ciclos/antidomingos-en-el-recoleta" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li><li class="box event">
+<picture>
+<source media="(max-width: 1024px)" srcset="/upload/schedule-events/2953/462x454_788x788_1200x688_museo.jpg?1719268951">
+<img alt="Museo Participativo Prohibido No Tocar" src="/upload/schedule-events/2953/462x454_788x788_1200x688_museo.jpg?1719268951"/>
+</source></picture>
+<div class="box-info event-info" style="background-color: #000000; color: #ffffff;">
+<a class="link1" href="" style="color: #ffffff;">#ProhibidoNoTocar</a>
+<h3><span class="text-ellipsis" title="Museo Participativo Prohibido No Tocar">Museo Participativo Prohibido No Tocar</span></h3>
+<div class="more-info" style="color: #000000;">
+<div class="date" style="color: #ffffff; border-color: #ffffff;"><span>Martes a domingos</span></div><a class="button see-more-button" href="/agenda/museo-participativo-prohibido-no-tocar" style="color: #ffffff; border-color: #ffffff;">Ver más</a>
+</div>
+</div>
+</li></ul>
+<div class="no-events-message">
+<p></p>
+</div>
+</section>
+
+</div>
+<footer class="wrapper">
+<img alt="Buenos Aires Ciudad" class="logo-ba" src="/images/common/logo-ba-light.png" srcset="/images/common/logo-ba-light-2x.png 2x"/>
+<div class="social-networks">
+<span class="hashtag">#elrecoleta</span>
+<ul><li><a class="icon icon-facebook" href="https://www.facebook.com/CentroCulturalRecoleta/" target="_blank"></a></li><li><a class="icon icon-instagram" href="https://www.instagram.com/elrecoleta/" target="_blank"></a></li><li><a class="icon icon-twitter" href="https://twitter.com/ElRecoleta" target="_blank"></a></li></ul>
+</div>
+</footer> 
+
+
+
+
+
+</body>
+</html>

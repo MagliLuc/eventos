@@ -1,0 +1,1318 @@
+[
+  {
+    "name": "Usina del Arte",
+    "url": "https://usinadelarte.ar/actividades",
+    "status_registro": "activo",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://usinadelarte.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 0,
+      "cabeceras": {
+        "Content-Type": "text/plain",
+        "Server": "hcdn"
+      },
+      "cookies": [],
+      "final": "https://usinadelarte.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://usinadelarte.ar/actividades",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 33033,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "x-powered-by": "PHP/8.2.30",
+        "link": "<https://usinadelarte.ar/wp-json/>; rel=\"https://api.w.org/\"",
+        "Server": "hcdn"
+      },
+      "cookies": [],
+      "final": "https://usinadelarte.ar/actividades/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://usinadelarte.ar/actividades",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 141678,
+      "cabeceras": {
+        "content-type": "text/html; charset=UTF-8",
+        "x-powered-by": "PHP/8.2.30",
+        "link": "<https://usinadelarte.ar/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "hcdn"
+      },
+      "cookies": [],
+      "final": "https://usinadelarte.ar/actividades/"
+    },
+    "ipv4_forzado": {
+      "url": "https://usinadelarte.ar/actividades",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 33031,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "x-powered-by": "PHP/8.2.30",
+        "link": "<https://usinadelarte.ar/wp-json/>; rel=\"https://api.w.org/\"",
+        "Server": "hcdn"
+      },
+      "cookies": [],
+      "final": "https://usinadelarte.ar/actividades/"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es-AR",
+    "titulo_pagina": "Actividades – Usina del arte",
+    "feeds_declarados": [
+      "https://usinadelarte.ar/actividades/?feed=rss2",
+      "https://usinadelarte.ar/comments/feed/",
+      "https://usinadelarte.ar/feed/"
+    ],
+    "sitemap": "https://usinadelarte.ar/sitemap.xml",
+    "urls_sitemap": [
+      "https://usinadelarte.ar/wp-sitemap-posts-actividad-1.xml",
+      "https://usinadelarte.ar/wp-sitemap-taxonomies-funcion-fecha-1.xml",
+      "https://usinadelarte.ar/wp-sitemap-taxonomies-funcion-hora-1.xml",
+      "https://usinadelarte.ar/wp-sitemap-taxonomies-tipo-de-actividad-1.xml"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://usinadelarte.ar/actividad/ludo-espacio/",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/"
+  },
+  {
+    "name": "Centro Cultural Recoleta",
+    "url": "http://www.centroculturalrecoleta.org/agenda",
+    "status_registro": "activo",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "http://www.centroculturalrecoleta.org/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 24,
+      "cabeceras": {
+        "Server": "Apache/2.2.16 (Debian)",
+        "Content-Type": "text/plain"
+      },
+      "cookies": [],
+      "final": "http://www.centroculturalrecoleta.org/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "http://www.centroculturalrecoleta.org/agenda",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 33125,
+      "cabeceras": {
+        "Server": "Apache/2.2.16 (Debian)",
+        "X-Powered-By": "PHP/5.6.24",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        "app"
+      ],
+      "final": "http://www.centroculturalrecoleta.org/agenda"
+    },
+    "curl_cffi_chrome": {
+      "url": "http://www.centroculturalrecoleta.org/agenda",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 33125,
+      "cabeceras": {
+        "server": "Apache/2.2.16 (Debian)",
+        "x-powered-by": "PHP/5.6.24",
+        "content-type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        "app"
+      ],
+      "final": "http://www.centroculturalrecoleta.org/agenda"
+    },
+    "ipv4_forzado": {
+      "url": "http://www.centroculturalrecoleta.org/agenda",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 33125,
+      "cabeceras": {
+        "Server": "Apache/2.2.16 (Debian)",
+        "X-Powered-By": "PHP/5.6.24",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        "app"
+      ],
+      "final": "http://www.centroculturalrecoleta.org/agenda"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es",
+    "titulo_pagina": "Centro Cultural Recoleta — Agenda",
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "http://www.centroculturalrecoleta.org/agenda/sala-historica",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "http://www.centroculturalrecoleta.org/agenda/federico-klemm-iluminador-de-mitos",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "http://www.centroculturalrecoleta.org/agenda/isidoro-valcarcel-medina-el-transcurrir",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "http://www.centroculturalrecoleta.org/agenda/sala-historica"
+  },
+  {
+    "name": "Turismo Buenos Aires",
+    "url": "https://turismo.buenosaires.gob.ar/es/eventos",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://turismo.buenosaires.gob.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 1479,
+      "cabeceras": {
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "cookies": [
+        " TS0164d353",
+        " TS9d594f32027",
+        "BIGipServerPool_Varnish-Enterprise"
+      ],
+      "final": "https://turismo.buenosaires.gob.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 222258,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "cookies": [
+        "TS9d594f32027"
+      ],
+      "final": "https://turismo.buenosaires.gob.ar/es/eventos"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 222258,
+      "cabeceras": {
+        "content-type": "text/html; charset=utf-8"
+      },
+      "cookies": [
+        " TS0164d353",
+        " TS9d594f32027",
+        "BIGipServerPool_Varnish-Enterprise"
+      ],
+      "final": "https://turismo.buenosaires.gob.ar/es/eventos"
+    },
+    "ipv4_forzado": {
+      "url": "https://turismo.buenosaires.gob.ar/es/eventos",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 222258,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=utf-8"
+      },
+      "cookies": [
+        " TS0164d353",
+        " TS9d594f32027",
+        "BIGipServerPool_Varnish-Enterprise"
+      ],
+      "final": "https://turismo.buenosaires.gob.ar/es/eventos"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es",
+    "titulo_pagina": "Eventos | Sitio oficial de turismo de la Ciudad de Buenos Aires",
+    "feeds_declarados": [],
+    "sitemap": "https://turismo.buenosaires.gob.ar/sitemap.xml",
+    "urls_sitemap": [
+      "http://www.turismo.buenosaires.gob.ar/es/article/noticia-la-ciudad-recibi%C3%B3-27-millones-de-turistas-internacionales-y-la-actividad-dej%C3%B3-us3000",
+      "http://www.turismo.buenosaires.gob.ar/es/otros-establecimientos/centro-de-exposiciones-municipal",
+      "http://www.turismo.buenosaires.gob.ar/es/article/la-ciudad-de-tu-pr%C3%B3ximo-evento",
+      "http://www.turismo.buenosaires.gob.ar/es/article/expo-eventos-2018",
+      "http://www.turismo.buenosaires.gob.ar/es/article/noticia-empez%C3%B3-expoeventos-2016-en-buenos-aires",
+      "http://www.turismo.buenosaires.gob.ar/es/article/noticia-la-ciudad-de-buenos-aires-particip%C3%B3-del-evento-viv%C3%AD-sustentabilidad",
+      "http://www.turismo.buenosaires.gob.ar/es/article/noticia-ferias-y-eventos-destacados-de-diciembre",
+      "http://www.turismo.buenosaires.gob.ar/es/article/10-actividades-culturales-imperdibles",
+      "http://www.turismo.buenosaires.gob.ar/es/article/noticia-actividades-barrio-31",
+      "http://www.turismo.buenosaires.gob.ar/es/agrupador-noticias/registro-de-actividades-tur%C3%ADsticas",
+      "http://www.turismo.buenosaires.gob.ar/es/article/noticia-la-ciudad-recibi%C3%B3-27-millones-de-turistas-internacionales-y-la-actividad-dej%C3%B3-us30-0",
+      "http://www.turismo.buenosaires.gob.ar/es/article/actividades-en-el-museo-carlos-gardel",
+      "http://www.turismo.buenosaires.gob.ar/es/article/muestra-tst",
+      "http://www.turismo.buenosaires.gob.ar/es/article/arboles-un-espectaculo-aparte",
+      "http://www.turismo.buenosaires.gob.ar/es/eventos"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "http://www.turismo.buenosaires.gob.ar/es/article/noticia-la-ciudad-recibi%C3%B3-27-millones-de-turistas-internacionales-y-la-actividad-dej%C3%B3-us3000",
+        "eventos": 0,
+        "nota": "no responde"
+      },
+      {
+        "url": "http://www.turismo.buenosaires.gob.ar/es/otros-establecimientos/centro-de-exposiciones-municipal",
+        "eventos": 0,
+        "nota": "no responde"
+      },
+      {
+        "url": "http://www.turismo.buenosaires.gob.ar/es/article/la-ciudad-de-tu-pr%C3%B3ximo-evento",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0
+  },
+  {
+    "name": "Qué Hacemos",
+    "url": "https://www.quehacemos.com.ar/eventos-gratis",
+    "status_registro": "activo",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.quehacemos.com.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 1814,
+      "cabeceras": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "X-Powered-By": "Express",
+        "Server": "cloudflare",
+        "Cf-Cache-Status": "HIT",
+        "CF-RAY": "a340f2aa5b9175ee-SEA"
+      },
+      "cookies": [],
+      "final": "https://www.quehacemos.com.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.quehacemos.com.ar/eventos-gratis",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 19462,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=utf-8",
+        "x-powered-by": "Express",
+        "Server": "cloudflare",
+        "cf-cache-status": "REVALIDATED",
+        "CF-RAY": "a340f2bbda0775ee-SEA"
+      },
+      "cookies": [],
+      "final": "https://www.quehacemos.com.ar/eventos-gratis"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.quehacemos.com.ar/eventos-gratis",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 108932,
+      "cabeceras": {
+        "content-type": "text/html; charset=utf-8",
+        "x-powered-by": "Express",
+        "server": "cloudflare",
+        "cf-cache-status": "HIT",
+        "cf-ray": "a340f2c549c916ae-SEA"
+      },
+      "cookies": [],
+      "final": "https://www.quehacemos.com.ar/eventos-gratis"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.quehacemos.com.ar/eventos-gratis",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 19544,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=utf-8",
+        "x-powered-by": "Express",
+        "Server": "cloudflare",
+        "cf-cache-status": "HIT",
+        "CF-RAY": "a340f2ceb87ddf2d-SEA"
+      },
+      "cookies": [],
+      "final": "https://www.quehacemos.com.ar/eventos-gratis"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es-AR",
+    "titulo_pagina": "Eventos Gratis en Argentina 2026 | Cultura Gratuita - Qué Hacemos",
+    "feeds_declarados": [
+      "https://api.quehacemos.com.ar/feed.xml"
+    ],
+    "sitemap": "https://www.quehacemos.com.ar/sitemap.xml",
+    "urls_sitemap": [
+      "https://www.quehacemos.com.ar/sitemap-static.xml",
+      "https://www.quehacemos.com.ar/sitemap-events.xml",
+      "https://www.quehacemos.com.ar/sitemap-events-today.xml",
+      "https://www.quehacemos.com.ar/sitemap-events-archive.xml",
+      "https://www.quehacemos.com.ar/sitemap-landings.xml",
+      "https://www.quehacemos.com.ar/sitemap-venues.xml",
+      "https://www.quehacemos.com.ar/sitemap-artists.xml",
+      "https://www.quehacemos.com.ar/sitemap-neighborhoods.xml",
+      "https://www.quehacemos.com.ar/sitemap-blog.xml",
+      "https://www.quehacemos.com.ar/sitemap-guias.xml"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://www.quehacemos.com.ar/eventos/tributo-gardelitos-en-la-cupula-50909",
+        "eventos": 1,
+        "muestra": [
+          {
+            "name": "Tributo Gardelitos en La Cúpula !",
+            "startDate": "2026-09-04T22:00:00-03:00",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://bbticket.com.ar/evento/tributo-gardelitos-en-la-cupula-04-09-2026",
+              "price": "0",
+              "priceCurrency": "ARS",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2026-09-01T02:47:12.114Z",
+              "category": "Free"
+            }
+          }
+        ]
+      },
+      {
+        "url": "https://www.quehacemos.com.ar/eventos/colaboracion-3356",
+        "eventos": 1,
+        "muestra": [
+          {
+            "name": "COLABORACION",
+            "startDate": "2026-09-24T00:00:00-03:00",
+            "offers": {
+              "@type": "Offer",
+              "url": "https://ventas.autoentrada.com/events/colaboracion",
+              "price": "0",
+              "priceCurrency": "ARS",
+              "availability": "https://schema.org/InStock",
+              "validFrom": "2026-09-01T02:47:13.624Z",
+              "category": "Free"
+            }
+          }
+        ]
+      },
+      {
+        "url": "https://www.quehacemos.com.ar/eventos/die-toten-hosen-1524",
+        "eventos": 1,
+        "muestra": [
+          {
+            "name": "Die Toten Hosen",
+            "startDate": "2026-10-05T20:00:00-03:00",
+            "offers": null
+          }
+        ]
+      }
+    ],
+    "jsonld_en_fichas": 3,
+    "ficha_guardada": "https://www.quehacemos.com.ar/eventos/tributo-gardelitos-en-la-cupula-50909"
+  },
+  {
+    "name": "Gratis en Buenos Aires",
+    "url": "https://gratisenbuenosaires.com/",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://gratisenbuenosaires.com/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 336,
+      "cabeceras": {
+        "Server": "nginx",
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "cookies": [],
+      "final": "https://gratisenbuenosaires.com/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://gratisenbuenosaires.com/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 60292,
+      "cabeceras": {
+        "Server": "nginx",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Link": "<https://public-api.wordpress.com/wp-json/?rest_route=/sites/gratisenbuenosaires.wordpress.com>; rel=\"https://api.w.org/\", <https://wp.me/36yS4>; rel=shortlink"
+      },
+      "cookies": [],
+      "final": "https://gratisenbuenosaires.com/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://gratisenbuenosaires.com/",
+      "resultado": "HTTP 403",
+      "status": 403,
+      "bytes": 4291,
+      "cabeceras": {
+        "server": "nginx",
+        "content-type": "text/html"
+      },
+      "cookies": [
+        "_hcc"
+      ],
+      "final": "https://gratisenbuenosaires.com/"
+    },
+    "ipv4_forzado": {
+      "url": "https://gratisenbuenosaires.com/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 60322,
+      "cabeceras": {
+        "Server": "nginx",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Link": "<https://public-api.wordpress.com/wp-json/?rest_route=/sites/gratisenbuenosaires.wordpress.com>; rel=\"https://api.w.org/\", <https://wp.me/36yS4>; rel=shortlink"
+      },
+      "cookies": [],
+      "final": "https://gratisenbuenosaires.com/"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "requests",
+    "lang": "",
+    "titulo_pagina": null,
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [],
+    "jsonld_en_fichas": 0
+  },
+  {
+    "name": "Time Out Buenos Aires",
+    "url": "https://www.timeout.com/es/buenos-aires",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.timeout.com/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 943,
+      "cabeceras": {
+        "server": "akka-http/10.2.10",
+        "via": "1.1 google",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "cookies": [
+        "_TO_Canary"
+      ],
+      "final": "https://www.timeout.com/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.timeout.com/es/buenos-aires",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 40735,
+      "cabeceras": {
+        "server": "akka-http/10.2.10",
+        "content-type": "text/html; charset=UTF-8",
+        "via": "1.1 google"
+      },
+      "cookies": [],
+      "final": "https://www.timeout.com/es/buenos-aires"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.timeout.com/es/buenos-aires",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 284225,
+      "cabeceras": {
+        "server": "akka-http/10.2.10",
+        "via": "1.1 google",
+        "content-type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        "_TO_Canary"
+      ],
+      "final": "https://www.timeout.com/es/buenos-aires"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.timeout.com/es/buenos-aires",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 40735,
+      "cabeceras": {
+        "server": "akka-http/10.2.10",
+        "via": "1.1 google",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        "_TO_Canary"
+      ],
+      "final": "https://www.timeout.com/es/buenos-aires"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es-419",
+    "titulo_pagina": "Time Out Buenos Aires | Eventos y cosas para hacer en Buenos Aires durante todo el año",
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://www.timeout.com/es/buenos-aires/agenda-semana",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://www.timeout.com/es/buenos-aires/agenda",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://www.timeout.com/es/buenos-aires/que-hacer/calle-corrientes-las-mejores-obras-de-teatro-cartelera",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://www.timeout.com/es/buenos-aires/agenda-semana"
+  },
+  {
+    "name": "Alternativa Teatral",
+    "url": "https://www.alternativateatral.com/",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.alternativateatral.com/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 1697,
+      "cabeceras": {
+        "Content-Type": "text/plain",
+        "Server": "Microsoft-IIS/10.0",
+        "X-Powered-By": "ASP.NET"
+      },
+      "cookies": [],
+      "final": "https://www.alternativateatral.com/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.alternativateatral.com/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 17960,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-Powered-By": "PHP/5.6.31, ASP.NET"
+      },
+      "cookies": [],
+      "final": "https://www.alternativateatral.com/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.alternativateatral.com/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 17960,
+      "cabeceras": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "Microsoft-IIS/10.0",
+        "x-powered-by": "PHP/5.6.31, ASP.NET"
+      },
+      "cookies": [],
+      "final": "https://www.alternativateatral.com/"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.alternativateatral.com/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 17960,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "Microsoft-IIS/10.0",
+        "X-Powered-By": "PHP/5.6.31, ASP.NET"
+      },
+      "cookies": [],
+      "final": "https://www.alternativateatral.com/"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "",
+    "titulo_pagina": "Alternativa. Comunidad en escena.",
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [],
+    "jsonld_en_fichas": 0
+  },
+  {
+    "name": "Teatro Colón",
+    "url": "https://teatrocolon.org.ar/",
+    "status_registro": "activo",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://teatrocolon.org.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 208,
+      "cabeceras": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Server": "cloudflare",
+        "x-powered-by": "PleskLin",
+        "cf-cache-status": "HIT",
+        "CF-RAY": "a340f41adf7ac078-SEA"
+      },
+      "cookies": [],
+      "final": "https://teatrocolon.org.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://teatrocolon.org.ar/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 21729,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "x-powered-by": "PleskLin",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "a340f42c5b51c078-SEA"
+      },
+      "cookies": [],
+      "final": "https://teatrocolon.org.ar/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://teatrocolon.org.ar/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 132668,
+      "cabeceras": {
+        "content-type": "text/html; charset=UTF-8",
+        "server": "cloudflare",
+        "x-powered-by": "PleskLin",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a340f435dcb7757b-SEA"
+      },
+      "cookies": [],
+      "final": "https://teatrocolon.org.ar/"
+    },
+    "ipv4_forzado": {
+      "url": "https://teatrocolon.org.ar/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 21820,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "Server": "cloudflare",
+        "x-powered-by": "PleskLin",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "a340f43f3b317594-SEA"
+      },
+      "cookies": [],
+      "final": "https://teatrocolon.org.ar/"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es-AR",
+    "titulo_pagina": "Teatro Colón",
+    "feeds_declarados": [
+      "https://teatrocolon.org.ar/feed/"
+    ],
+    "sitemap": "https://teatrocolon.org.ar/sitemap.xml",
+    "urls_sitemap": [
+      "https://teatrocolon.org.ar/post-sitemap.xml",
+      "https://teatrocolon.org.ar/page-sitemap.xml",
+      "https://teatrocolon.org.ar/production-sitemap.xml",
+      "https://teatrocolon.org.ar/cronologia-sitemap.xml",
+      "https://teatrocolon.org.ar/concurso-sitemap.xml",
+      "https://teatrocolon.org.ar/audition-sitemap.xml",
+      "https://teatrocolon.org.ar/llamados-sitemap.xml",
+      "https://teatrocolon.org.ar/artist-sitemap.xml",
+      "https://teatrocolon.org.ar/artist-sitemap2.xml",
+      "https://teatrocolon.org.ar/festival-sitemap.xml",
+      "https://teatrocolon.org.ar/category-sitemap.xml",
+      "https://teatrocolon.org.ar/season-sitemap.xml",
+      "https://teatrocolon.org.ar/production-category-sitemap.xml",
+      "https://teatrocolon.org.ar/places-sitemap.xml"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://teatrocolon.org.ar/ciclo/funciones-extraordinarias/",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://teatrocolon.org.ar/ciclo/funciones-extraordinarias/"
+  },
+  {
+    "name": "MALBA",
+    "url": "https://www.malba.org.ar/actividades/",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.malba.org.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 108,
+      "cabeceras": {
+        "Server": "nginx",
+        "Content-Type": "text/plain; charset=utf-8"
+      },
+      "cookies": [],
+      "final": "https://malba.org.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.malba.org.ar/actividades/",
+      "resultado": "HTTP 429",
+      "status": 429,
+      "bytes": 1168,
+      "cabeceras": {
+        "Server": "nginx",
+        "Content-Type": "text/html"
+      },
+      "cookies": [],
+      "final": "https://malba.org.ar/actividades/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.malba.org.ar/actividades/",
+      "resultado": "HTTP 403",
+      "status": 403,
+      "bytes": 4291,
+      "cabeceras": {
+        "server": "nginx",
+        "content-type": "text/html"
+      },
+      "cookies": [
+        "_hcc"
+      ],
+      "final": "https://www.malba.org.ar/actividades/"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.malba.org.ar/actividades/",
+      "resultado": "HTTP 429",
+      "status": 429,
+      "bytes": 1168,
+      "cabeceras": {
+        "Server": "nginx",
+        "Content-Type": "text/html"
+      },
+      "cookies": [],
+      "final": "https://malba.org.ar/actividades/"
+    },
+    "veredicto": "HTTP 429: es ritmo, no bloqueo. El sitio responde; hay que espaciar los pedidos y volver a probar.",
+    "puertas": [
+      {
+        "url": "https://www.malba.org.ar/events.ics",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.malba.org.ar/?ical=1",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.malba.org.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.malba.org.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.malba.org.ar/sitemap.xml",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.malba.org.ar/sitemap_index.xml",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.malba.org.ar/feed",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.malba.org.ar/feed/",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.malba.org.ar/rss",
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
+        "cabeceras": {
+          "Server": "nginx",
+          "Content-Type": "text/html"
+        },
+        "cookies": [],
+        "final": "https://malba.org.ar/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": false,
+      "timestamp": null,
+      "url": null
+    }
+  },
+  {
+    "name": "Museo Moderno",
+    "url": "https://museomoderno.org/agenda/",
+    "status_registro": "activo",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://museomoderno.org/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 120,
+      "cabeceras": {
+        "Content-Type": "text/plain; charset=utf-8",
+        "x-powered-by": "PHP/8.3.24",
+        "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "cloudflare",
+        "cf-cache-status": "BYPASS",
+        "CF-RAY": "a340fdc7be8d681b-SEA"
+      },
+      "cookies": [],
+      "final": "https://museomoderno.org/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://museomoderno.org/agenda/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 24612,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "x-powered-by": "PHP/8.3.24",
+        "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "a340fdd95d32681b-SEA"
+      },
+      "cookies": [],
+      "final": "https://museomoderno.org/agenda/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://museomoderno.org/agenda/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 202379,
+      "cabeceras": {
+        "content-type": "text/html; charset=UTF-8",
+        "x-powered-by": "PHP/8.3.24",
+        "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "cf-ray": "a340fde2ccbde945-SEA"
+      },
+      "cookies": [],
+      "final": "https://museomoderno.org/agenda/"
+    },
+    "ipv4_forzado": {
+      "url": "https://museomoderno.org/agenda/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 24612,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=UTF-8",
+        "x-powered-by": "PHP/8.3.24",
+        "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
+        "server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "a340fdec38525907-SEA"
+      },
+      "cookies": [],
+      "final": "https://museomoderno.org/agenda/"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es-ES",
+    "titulo_pagina": "Agenda - Museo Moderno",
+    "feeds_declarados": [
+      "https://museomoderno.org/agenda/feed/",
+      "https://museomoderno.org/comments/feed/",
+      "https://museomoderno.org/feed/"
+    ],
+    "sitemap": "https://museomoderno.org/sitemap.xml",
+    "urls_sitemap": [
+      "https://museomoderno.org/agenda-sitemap1.xml",
+      "https://museomoderno.org/agenda-sitemap2.xml",
+      "https://museomoderno.org/agenda-sitemap3.xml",
+      "https://museomoderno.org/exposiciones-sitemap1.xml",
+      "https://museomoderno.org/exposiciones-sitemap2.xml"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://museomoderno.org/agenda/historias-compartidas-2/",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://museomoderno.org/agenda/recorridos-publicos-6/",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://museomoderno.org/agenda/trama-3/",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://museomoderno.org/agenda/historias-compartidas-2/"
+  },
+  {
+    "name": "Fundación Proa",
+    "url": "https://proa.org/",
+    "status_registro": "activo",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://proa.org/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 195,
+      "cabeceras": {
+        "Content-Type": "text/plain",
+        "Server": "Apache"
+      },
+      "cookies": [],
+      "final": "https://proa.org/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://proa.org/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 20370,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "Apache"
+      },
+      "cookies": [],
+      "final": "https://proa.org/esp/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://proa.org/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 20370,
+      "cabeceras": {
+        "content-type": "text/html",
+        "server": "Apache"
+      },
+      "cookies": [],
+      "final": "https://proa.org/esp/"
+    },
+    "ipv4_forzado": {
+      "url": "https://proa.org/",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 20370,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "Apache"
+      },
+      "cookies": [],
+      "final": "https://proa.org/esp/"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es",
+    "titulo_pagina": "Fundación PROA",
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [],
+    "jsonld_en_fichas": 0
+  },
+  {
+    "name": "Planetario Galileo Galilei",
+    "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://planetario.buenosaires.gob.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 1596,
+      "cabeceras": {
+        "Server": "Apache",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "cookies": [
+        " TS9d594f32027",
+        "BIGipServerPool_planetario-PRD"
+      ],
+      "final": "https://planetario.buenosaires.gob.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 46916,
+      "cabeceras": {
+        "Server": "Apache",
+        "X-Powered-By": "PHP/7.1.30",
+        "Link": "</espectaculos-publico-general>; rel=\"canonical\", </node/139>; rel=\"shortlink\", </espectaculos-publico-general>; rel=\"revision\"",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        "TS9d594f32027"
+      ],
+      "final": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 46916,
+      "cabeceras": {
+        "server": "Apache",
+        "x-powered-by": "PHP/7.1.30",
+        "link": "</espectaculos-publico-general>; rel=\"canonical\", </node/139>; rel=\"shortlink\", </espectaculos-publico-general>; rel=\"revision\"",
+        "content-type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        " TS9d594f32027",
+        "BIGipServerPool_planetario-PRD"
+      ],
+      "final": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general"
+    },
+    "ipv4_forzado": {
+      "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 46916,
+      "cabeceras": {
+        "Server": "Apache",
+        "X-Powered-By": "PHP/7.1.30",
+        "Link": "</espectaculos-publico-general>; rel=\"canonical\", </node/139>; rel=\"shortlink\", </espectaculos-publico-general>; rel=\"revision\"",
+        "Content-Type": "text/html; charset=UTF-8"
+      },
+      "cookies": [
+        " TS9d594f32027",
+        "BIGipServerPool_planetario-PRD"
+      ],
+      "final": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es",
+    "titulo_pagina": "Planetario Galileo Galilei",
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [],
+    "jsonld_en_fichas": 0
+  },
+  {
+    "name": "Bibliotecas de la Ciudad",
+    "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://buenosaires.gob.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 2141,
+      "cabeceras": {
+        "content-type": "text/plain; charset=UTF-8",
+        "X-Cache": "HIT"
+      },
+      "cookies": [
+        " BIGipServerPool_Varnish-Enterprise",
+        " TS01842bc0",
+        " TSd756dd8e027",
+        "ab246e51d7c4e71b6a5fb66583eff23b"
+      ],
+      "final": "https://buenosaires.gob.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 56472,
+      "cabeceras": {
+        "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
+        "content-type": "text/html; charset=UTF-8",
+        "X-Cache": "HIT"
+      },
+      "cookies": [
+        " TS019ed99a",
+        " TSd756dd8e027",
+        "a98f8af3197ae016e517143635e419df"
+      ],
+      "final": "https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 56472,
+      "cabeceras": {
+        "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
+        "content-type": "text/html; charset=UTF-8",
+        "x-cache": "HIT"
+      },
+      "cookies": [
+        " TS019ed99a",
+        " TSd756dd8e027",
+        "a98f8af3197ae016e517143635e419df"
+      ],
+      "final": "https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb"
+    },
+    "ipv4_forzado": {
+      "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 56472,
+      "cabeceras": {
+        "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
+        "content-type": "text/html; charset=UTF-8",
+        "X-Cache": "HIT"
+      },
+      "cookies": [
+        " TS019ed99a",
+        " TSd756dd8e027",
+        "a98f8af3197ae016e517143635e419df"
+      ],
+      "final": "https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es",
+    "titulo_pagina": "Talleres Programa Cultural en Barrios | Buenos Aires Ciudad - Gobierno de la Ciudad Autónoma de Buenos Aires",
+    "feeds_declarados": [],
+    "sitemap": "https://buenosaires.gob.ar/sitemap.xml",
+    "urls_sitemap": [
+      "https://buenosaires.gob.ar/sitemap-inspectores%20y%20evento-%20D8.xml"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb"
+  }
+]

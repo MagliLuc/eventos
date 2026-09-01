@@ -81,21 +81,51 @@ Lo que cada combinación significa:
 | 200 | 200 | — | — | El transporte no es el problema |
 | 200 | 403 | **200** | — | **Fingerprinting TLS**: activar `curl_cffi` |
 | 200 | timeout | timeout | **200** | AAAA sin ruta: marcar `force_ipv4` |
-| 200 | 403 | 403 | 403 | **No es la IP** — es la forma del pedido, y el perfil de Chrome no alcanzó |
-| 403 | 403 | 403 | 403 | Recién acá tiene sentido sospechar de la IP |
+| 200 | 403 | 403 | 403 | Ni TLS ni IPv6. **Mirar las cabeceras**: ahí está el mecanismo real |
 | — | prohibido por robots | — | — | No se scrapea, punto |
 
-La fila importante es la segunda. Un WAF (Cloudflare, Akamai, DataDome) lee el
-*ClientHello* de TLS antes de que el pedido llegue a la capa HTTP: el orden de
-cifrados y extensiones de `requests`/OpenSSL —el «JA3»— es idéntico en millones
-de bots y no se parece al de ningún navegador. **Eso explica por qué mandar
-diez cabeceras de navegador no movió nada**: la decisión ya estaba tomada.
-`curl_cffi` reproduce el stack TLS de Chrome, incluido el frame `SETTINGS` de
-HTTP/2.
+**La conclusión no está en el código de estado: está en las cabeceras.** Dos
+que deciden todo:
 
-La cuarta fila también decide algo que se venía suponiendo: si `robots.txt`
-responde 200 desde la misma IP y con el mismo cliente, y la agenda no, **no es
-bloqueo por IP**.
+- `Cf-Mitigated: challenge` — Cloudflare sirvió una **página de desafío** en
+  lugar de la respuesta. Se resuelve ejecutando el JavaScript del desafío y
+  quedándose con la cookie `cf_clearance`; no se resuelve cambiando de IP ni de
+  país.
+- `cf-cache-status: HIT` — la respuesta salió de la caché del borde y **nunca
+  llegó al origen**.
+
+### Una corrección, porque el error es instructivo
+
+Acá se afirmó: *«si robots.txt responde 200 desde la misma IP y con el mismo
+cliente, y la agenda no, no es bloqueo por IP»*. **Para el Complejo Teatral eso
+es falso**: su robots.txt volvió con `cf-cache-status: HIT`, o sea servido por
+la caché sin tocar el origen ni el desafío. No probaba nada sobre la IP.
+
+Lo que sí quedó probado, con las cabeceras a la vista: los cuatro `.gob.ar` y
+Baires Secreta devuelven un **desafío del CDN** (Cloudflare en los cuatro,
+CloudFront en Baires Secreta). Y la hipótesis del fingerprinting TLS quedó
+descartada aparte: `curl_cffi` con perfil de Chrome recibe el mismo 403 que
+`requests` — y en Gratis en Buenos Aires es directamente peor, porque ahí
+`requests` pasa con 200 y el perfil de Chrome recibe 403.
+
+### Por qué un proxy argentino no es la respuesta
+
+Se evaluó, porque parecía lo obvio:
+
+- **VPN gratuita con salida argentina no existe**: ProtonVPN free da 5 países y
+  Windscribe free 11; en los dos, Argentina es plan pago.
+- **Cloudflare Workers free** (100k pedidos/día, sin tarjeta) no deja elegir
+  país de egreso: saldría por EE.UU. igual que el runner.
+- **Listas de proxies públicos argentinos**: existen, pero son IPs que caen sin
+  aviso, ya vienen marcadas, y meten un intermediario que puede alterar el
+  contenido en tránsito. No se justifica para leer una agenda pública.
+- Y el punto de fondo: **ninguno ejecuta el JavaScript del desafío**, que es lo
+  que el CDN está pidiendo.
+
+Esa vía —que el CDN sirviera alguna ruta con datos desde su caché— **se probó
+y está cerrada**: las nueve rutas (`sitemap.xml`, `/feed`, `wp-json`, `.ics`…)
+vuelven 403 con `Cf-Mitigated` en los cuatro dominios. El diagnóstico las sigue
+sondeando por si algún día se abren.
 
 Dos límites que nos ponemos, y no son decorativos: `robots.txt` manda (si el
 sitio nos prohíbe la ruta, no se pide), y seguimos identificados — `From` y el
@@ -107,27 +137,131 @@ de pedidos por día.
 
 ## 3. Estado real de las fuentes
 
-Verificado en corridas de GitHub Actions del 2026-08-30, no supuesto.
+Medido en la **corrida en seco** (`corrida-seco.yml`), no supuesto.
+**106 eventos de fuentes en vivo**, contra 0 cuando empezó este trabajo, y
+**241 publicados** contando la semilla curada.
 
-### Funcionando
-- **BA Data (CKAN)** — alcanzable desde CI, pero **sus datasets culturales son
-  archivo histórico** (ver más abajo). Aporta cero eventos vigentes.
-- **Usina del Arte**, **Centro Cultural Recoleta**, **Turismo BA** — responden
-  200 pero los selectores no extraen fecha. Necesitan `discover.py`.
+### Aportando eventos
 
-### Bloqueadas: 403 desde GitHub Actions
-`palaciolibertad.gob.ar`, `bellasartes.gob.ar`, `complejoteatral.gob.ar`,
-`cultura.gob.ar` devuelven **403 en los tres intentos, también con un set
-completo de cabeceras de navegador**. Eso descarta el filtrado por User-Agent.
+| Fuente | Fichas | Eventos | Qué la destrabó |
+|---|---|---|---|
+| **Museo Moderno** | 40 | **40** | faltaba su sede en `KNOWN_VENUES`: se descartaban las 40 |
+| **Qué Hacemos** | 48 | **23** | `schema.org/Event` en cada ficha, + 40 URLs de su sitemap |
+| **Usina del Arte** | 48 | **23** | 10 fichas en el listado y 38 más en el sitemap |
+| **Centro Cultural Recoleta** | 27 | **20** | la fecha está en la tarjeta del listado, no en la ficha |
 
-El dato que orienta: `data.buenosaires.gob.ar` **sí** responde desde el mismo
-runner. Que caigan los cuatro `www.*` y no el portal de datos apunta a
-**bloqueo por IP de datacenter** — los runners de GitHub corren en rangos de
-Azure en EE.UU.
+Las cuatro comparten una causa: **el sitemap era sólo un respaldo**, consultado
+únicamente cuando el listado no devolvía nada. Sumarlo al listado en vez de
+reemplazarlo cuadruplicó el resultado.
 
-> **Cómo confirmarlo**: correr `python scraper/discover.py` desde una red
-> argentina. Si esos sitios responden 200 ahí y 403 en CI, es la IP. Ningún
-> cambio de código lo arregla; hay que mover *dónde* corre el scraper.
+### La sede que descartaba 40 eventos en silencio
+
+El log decía «Descartados 50 eventos sin sede ubicable» sin nombrar la causa.
+Era que `Museo de Arte Moderno de Buenos Aires` no estaba en `KNOWN_VENUES`:
+`build_venue` devolvía una sede sin dirección ni barrio, `is_locatable` la
+rechazaba, y sus 40 eventos se iban enteros. Con la entrada agregada, los
+descartes bajaron de 50 a 10 y lo publicado subió de 201 a 241.
+
+Las direcciones salen del HTML que sirvieron **los propios sitios** (guardado
+en `scraper/diagnostico/`), no de memoria. Las coordenadas quedan en `None` a
+propósito: `is_locatable` se conforma con la dirección, y una coordenada
+inventada manda a alguien al lugar equivocado — peor que no mostrarla.
+
+Un test (`test_schema.py`) cierra la clase entera: toda fuente activa tiene que
+resolver a una sede ubicable, o falla nombrándola.
+
+### Activas, todavía sin aportar — con el motivo medido
+
+| Fuente | Qué pasa |
+|---|---|
+| **Teatro Colón** | 38 fichas, 28 dicen «Comprar entradas». Es el resultado correcto: el Colón vende entradas. Queda activa por las funciones gratuitas que sí hace. |
+| **Fundación Proa** | su listado enlaza una sola ficha y no dice que sea gratis. Queda activa porque cuesta un pedido. |
+
+El Cultural San Martín salió de esta lista por una razón muy distinta: su
+dominio está comprometido (ver más abajo).
+
+### Fuera, con motivo probado
+
+- **BA Data (CKAN)** — su propio `robots.txt` prohíbe `/api/`. No se fuerza: la
+  regla vale también cuando incomoda. Da igual para el resultado, porque ya
+  estaba probado que sus datasets culturales son archivo (2015-2017) y
+  estadística, no agenda.
+- **Turismo BA** — su sitemap está podrido: de 21 URLs, 12 dan 404 y el resto
+  son notas de 2016-2018. Gastaba 21 pedidos por corrida en nada.
+- **Planetario** — sus espectáculos cuelgan de la raíz sin prefijo común
+  (`/agujeros-negros-supermasivos`, `/alerta-espacial…`), así que ningún
+  `ruta_ficha` los distingue del menú. Y tiene `/tickets`: además son pagos.
+
+### Un dominio secuestrado, y la guarda que salió de ahí
+
+**`elculturalsanmartin.org` está comprometido.** No es un problema de
+extracción: el dominio sirve spam de apuestas en turco.
+
+```
+<title>Canlı Bahis Siteleri - En Güvenilir Canlı Bahis Sitesi Listesi 2026
+75 enlaces a /canli-bahis/   ("apuestas en vivo")
+imágenes en wp-content/uploads/2022/12/canli-bahis-siteleri-….jpg
+```
+
+Un WordPress hackeado desde diciembre de 2022. Estaba **`activo`** en el
+registro y el scraper lo consultaba en cada corrida. No llegó a publicar nada
+sólo porque `is_explicitly_free()` exige la palabra «gratis» en castellano y el
+spam no la traía: **nos salvó la suerte, no el diseño**. Si un dominio
+secuestrado publicara la palabra correcta, sus URLs entrarían a la app.
+
+De ahí sale la guarda de `idioma_ajeno()` en `sources/feeds.py`: si el listado
+declara un `<html lang>` que no es castellano, la fuente se descarta entera con
+un aviso ruidoso. Ataca la clase entera de problema —dominio vencido,
+secuestrado o redirigido— y no este caso puntual. Sólo rechaza cuando el
+atributo existe y no es `es*`; los sitios que no lo declaran siguen igual.
+
+El `<title>` turco estaba a la vista desde la primera corrida del diagnóstico y
+no se miró. Por eso ahora el informe registra `lang` y `title` de cada sitio.
+
+**La sala existe**; lo tomado es el `.org`. Su dominio real quedó como
+candidato a sondear, sin inventarlo.
+
+### El tema de los `.gob.ar` está cerrado, y así se cerró
+
+Se probaron las tres vías gratuitas, en orden de costo, y ninguna abre:
+
+| Intento | Resultado |
+|---|---|
+| Cabeceras completas de navegador | 403. La decisión no la tomaban las cabeceras. |
+| TLS de Chrome (`curl_cffi`) | 403 igual. Y en Gratis en BA es **peor**: `requests` pasa y el perfil de Chrome no. |
+| IPv4 forzado / timeout largo | Sin cambios. |
+| Rutas que el CDN pueda servir cacheadas | **9 de 9 desafiadas** en los cuatro dominios: `sitemap.xml`, `/feed`, `wp-json`, `.ics`, todas 403 con `Cf-Mitigated`. No hay puerta lateral. |
+| Navegador real (Playwright + Chromium en CI) | **No pasa.** Ver abajo. |
+
+La corrida del workflow «Experimento navegador» contra
+`bellasartes.gob.ar/agenda/` devolvió, con Chromium de verdad:
+
+```
+cf_clearance : no
+cookies      : []
+cuerpo       : "Verificación de seguridad en curso … Este sitio web utiliza un
+                servicio de seguridad para protegerse contra bots maliciosos."
+```
+
+**Y acá se cierra**, por el criterio escrito de antemano en
+`scraper/experimento_navegador.py`: no se escala a plugins de sigilo, huellas
+falsas ni resolvedores de captcha. Es una carrera contra un antibot que este
+proyecto no puede sostener gratis, y además iría contra lo que el sitio está
+diciendo explícitamente.
+
+Lo que sí destrabaría el caso, y está fuera de nuestro alcance: que el
+organismo publique un feed o un ICS, o que el scraper corra desde una máquina
+en Argentina (por ejemplo un runner self-hosted en una PC propia). Ninguna de
+las dos es un cambio de código.
+
+### Sin solución dentro de la restricción de costo cero
+
+Los cuatro `.gob.ar` (`bellasartes`, `complejoteatral`, `cultura`,
+`palaciolibertad`) y Baires Secreta. La sección 2 explica qué quedó descartado
+y qué queda: un WAF con cookie de challenge o un filtro por país. Ninguno se
+resuelve desde un runner en EE.UU. sin pagar un proxy, así que **se documentan
+en vez de seguir intentando**. `disfrutemosba` y Konex directamente no
+responden por ninguna vía.
 
 ### Prospección del 2026-08-30 desde el runner
 

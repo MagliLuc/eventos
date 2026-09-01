@@ -8,17 +8,32 @@ name: Diagnóstico de fuentes
 # Un artifact .zip no se puede leer desde ahí; un archivo commiteado sí.
 #
 # Nunca falla: lo que produce es evidencia, no un veredicto.
+#
+# NO corre con cada cambio del scraper. Tarda ~12 minutos porque sondea 21
+# sitios con una pausa por dominio, y responde una pregunta que no es la de
+# todos los días: "¿por qué este sitio no me deja entrar?". La pregunta
+# frecuente —"¿mi cambio suma eventos?"— la contesta `corrida-seco.yml` en un
+# cuarto del tiempo. Estaban juntas y la verificación quedaba atrás del
+# diagnóstico.
 
 on:
   workflow_dispatch:
   push:
     paths:
+      # Sólo lo que cambia el diagnóstico en sí, o el transporte que usa.
       - "scraper/diagnostico.py"
       - "scraper/eventos/http.py"
+      - "scraper/sources.json"
       - ".github/workflows/diagnostico.yml"
 
 permissions:
   contents: write
+
+concurrency:
+  # Dos diagnósticos a la vez se pisarían el commit de la evidencia. El nuevo
+  # gana: siempre trae el estado más reciente.
+  group: diagnostico-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   diagnosticar:
@@ -44,17 +59,35 @@ jobs:
           print("curl_cffi OK:", requests.__name__)
           PY
 
-      - name: Diagnosticar todas las fuentes
+      - name: Diagnosticar las fuentes
+        # Sin `--todos`: las bloqueadas ya tienen veredicto y son las más caras
+        # (nueve pedidos de sondeo de caché cada una). Para incluirlas hay que
+        # correrlo a mano con --todos; el sondeo semanal de discover.yml es el
+        # que detecta si alguna vuelve a responder.
         run: python scraper/diagnostico.py || true
 
       - name: Commitear la evidencia
+        # El diagnóstico tarda ~15 min y en ese rato la rama puede haber
+        # avanzado. La primera corrida perdió toda la evidencia justamente por
+        # eso: el push salió rechazado con "fetch first". Se reintenta con
+        # rebase, que es seguro porque este job solo agrega archivos suyos.
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A scraper/diagnostico
           if git diff --cached --quiet; then
             echo "Sin cambios en el diagnóstico."
-          else
-            git commit -m "chore(diagnostico): evidencia de las fuentes $(date -u +%Y-%m-%d)"
-            git push origin HEAD:${GITHUB_REF_NAME}
+            exit 0
           fi
+          git commit -m "chore(diagnostico): evidencia de las fuentes $(date -u +%Y-%m-%d)"
+          for intento in 1 2 3 4; do
+            if git push origin HEAD:${GITHUB_REF_NAME}; then
+              echo "Evidencia pusheada en el intento $intento."
+              exit 0
+            fi
+            echo "Push rechazado; traigo lo que haya y reintento."
+            git pull --rebase origin ${GITHUB_REF_NAME} || exit 1
+            sleep $((intento * 3))
+          done
+          echo "::error::No se pudo pushear la evidencia tras 4 intentos."
+          exit 1

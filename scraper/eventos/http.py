@@ -25,6 +25,7 @@ from __future__ import annotations
 
 import socket
 import threading
+import time
 import urllib.robotparser
 from contextlib import contextmanager
 from typing import Optional
@@ -74,6 +75,49 @@ def hay_tls_de_navegador() -> bool:
 # intento cuelga hasta agotar el timeout sin llegar a probar IPv4.
 
 _lock_ipv4 = threading.Lock()
+
+# ---------------------------------------------------------------------------
+# Ritmo por dominio
+# ---------------------------------------------------------------------------
+# El primer diagnóstico se ganó un HTTP 429 de MALBA él solito: le pegó cuatro
+# veces seguidas (robots + tres transportes) en menos de un segundo. Un 429 no
+# dice nada del sitio, dice que fuimos maleducados. Un intervalo mínimo por
+# host lo evita y de paso es la forma correcta de tratar a un servidor ajeno.
+
+PAUSA_POR_HOST = 1.5  # segundos, por defecto
+
+# Algunos servidores piden más aire. MALBA corre nginx sin CDN y su `limit_req`
+# devolvió 429 incluso con 1,5 s; su robots.txt nos permite, así que es ritmo y
+# no rechazo. Se ajusta por host en vez de castigar la corrida entera.
+PAUSA_ESPECIAL = {
+    "www.malba.org.ar": 5.0,
+    "malba.org.ar": 5.0,
+}
+
+_ultimo_pedido: dict[str, float] = {}
+_lock_ritmo = threading.Lock()
+
+
+def pausa_de(host: str) -> float:
+    return PAUSA_ESPECIAL.get(host, PAUSA_POR_HOST)
+
+
+def penalizar(url: str, segundos: float) -> None:
+    """Alarga la espera de un host porque él mismo lo pidió (429/Retry-After)."""
+    host = urlparse(url).netloc
+    with _lock_ritmo:
+        # Se anota en el futuro: el próximo turno de ese host recién sale ahí.
+        _ultimo_pedido[host] = time.monotonic() + max(segundos - pausa_de(host), 0)
+
+
+def _esperar_turno(url: str) -> None:
+    host = urlparse(url).netloc
+    pausa = pausa_de(host)
+    with _lock_ritmo:
+        desde = time.monotonic() - _ultimo_pedido.get(host, 0.0)
+        if desde < pausa:
+            time.sleep(pausa - desde)
+        _ultimo_pedido[host] = time.monotonic()
 
 
 @contextmanager
@@ -169,6 +213,7 @@ class PoliteSession:
         """GET sin chequear robots.txt. Solo para pedir robots.txt mismo."""
         kwargs.setdefault("timeout", timeout or self.timeout)
         kwargs.setdefault("allow_redirects", True)
+        _esperar_turno(url)
         if self.force_ipv4:
             with solo_ipv4():
                 return self._session.get(url, **kwargs)
@@ -177,7 +222,17 @@ class PoliteSession:
     def get(self, url: str, timeout: Optional[int] = None, **kwargs):
         if self.respetar_robots and not permitido(url, self._fetch_robots):
             raise RobotsBloqueado(url)
-        return self.get_crudo(url, timeout=timeout, **kwargs)
+        respuesta = self.get_crudo(url, timeout=timeout, **kwargs)
+
+        # Un 429 es el sitio diciendo "más despacio". Se le hace caso: se
+        # penaliza el host para lo que quede de la corrida.
+        if getattr(respuesta, "status_code", None) == 429:
+            espera = respuesta.headers.get("Retry-After", "")
+            segundos = float(espera) if espera.strip().isdigit() else 30.0
+            print(f"  [http] {urlparse(url).netloc} pidio esperar "
+                  f"{segundos:.0f}s (HTTP 429); se respeta")
+            penalizar(url, min(segundos, 120.0))
+        return respuesta
 
     def _fetch_robots(self, url: str):
         try:

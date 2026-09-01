@@ -21,7 +21,13 @@ USER_AGENT = "eventos-caba-bot/1.0 (https://github.com/MagliLuc/eventos)"
 CACHE_PATH = Path(__file__).resolve().parent.parent / "geocache.json"
 
 # Sedes conocidas. name -> (address, neighborhood, commune, lat, lon)
-KNOWN_VENUES: dict[str, tuple[str, str, int, float, float]] = {
+#
+# Las coordenadas pueden ir en None: `is_locatable` se conforma con la
+# direccion, y una sede sin coordenadas se publica igual (no aparece en el
+# mapa, nada mas). Es preferible eso a inventar un par de numeros: una
+# coordenada equivocada manda a alguien al lugar equivocado, que es peor que
+# no mostrarla.
+KNOWN_VENUES: dict[str, tuple[str, str, int, Optional[float], Optional[float]]] = {
     "usina-del-arte": ("Caffarena 1", "La Boca", 4, -34.6390, -58.3576),
     "palacio-libertad": ("Sarmiento 151", "San Nicolás", 1, -34.6031, -58.3696),
     "centro-cultural-recoleta": ("Junín 1930", "Recoleta", 2, -34.5830, -58.3937),
@@ -38,6 +44,14 @@ KNOWN_VENUES: dict[str, tuple[str, str, int, float, float]] = {
     "usina-cultural-sur": ("Av. Caseros 2739", "Parque Patricios", 4, -34.6367, -58.3979),
     "museo-sivori": ("Av. Infanta Isabel 555", "Palermo", 14, -34.5731, -58.4200),
     "parque-centenario": ("Av. Díaz Vélez y L. Marechal", "Caballito", 6, -34.6062, -58.4358),
+
+    # Estas dos faltaban y costaban caro: sin entrada acá, `build_venue`
+    # devolvía una sede sin dirección ni barrio, `is_locatable` la rechazaba, y
+    # el pipeline tiraba los 40 eventos del Museo Moderno enteros. Las
+    # direcciones salen del HTML que los propios sitios sirvieron y que quedó
+    # guardado en scraper/diagnostico/, no de memoria.
+    "museo-de-arte-moderno": ("Av. San Juan 350", "San Telmo", 1, None, None),
+    "fundacion-proa": ("Av. Pedro de Mendoza 1929", "La Boca", 4, None, None),
 }
 
 # Alias frecuentes -> id canonico. Las agendas escriben la misma sede de
@@ -46,6 +60,12 @@ ALIASES: dict[str, str] = {
     "cck": "palacio-libertad",
     "centro-cultural-kirchner": "palacio-libertad",
     "ex-cck": "palacio-libertad",
+    # El sitio se nombra a sí mismo de las dos formas: "Museo Moderno" en el
+    # <title> de cada ficha y el nombre largo en el pie.
+    "museo-moderno": "museo-de-arte-moderno",
+    "museo-de-arte-moderno-de-buenos-aires": "museo-de-arte-moderno",
+    "mamba": "museo-de-arte-moderno",
+    "proa": "fundacion-proa",
     "usina": "usina-del-arte",
     "ccr": "centro-cultural-recoleta",
     "recoleta": "centro-cultural-recoleta",

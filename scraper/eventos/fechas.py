@@ -43,6 +43,12 @@ DIA_MES_RE = re.compile(
 # "06/09", "06/09/2026" — se lee día/mes, que es como se escribe acá
 BARRAS_RE = re.compile(r"\b(\d{1,2})/(\d{1,2})(?:/(\d{2,4}))?\b")
 
+# "20.08", como escribe el Centro Cultural Recoleta ("Desde el jueves 20.08").
+# El punto también separa horas ("18.30 h"), así que se descarta lo que venga
+# seguido de h/hs: sin ese recaudo, un horario entraría como fecha.
+PUNTOS_RE = re.compile(
+    r"\b(\d{1,2})\.(\d{1,2})(?:\.(\d{2,4}))?\b(?!\s*(?:h|hs)\b)", re.IGNORECASE)
+
 ISO_RE = re.compile(r"\b(\d{4})-(\d{2})-(\d{2})\b")
 
 MAX_DIAS = 40  # tope de un rango: una muestra larga no debe inundar la agenda
@@ -120,13 +126,15 @@ def extraer_fechas(texto: Optional[str], window: DateWindow) -> list[str]:
         if valor:
             encontradas.append(valor)
 
-    for dia, mes, anio in BARRAS_RE.findall(plano):
-        if not 1 <= int(mes) <= 12:
-            continue
-        completo = int(anio) + 2000 if anio and len(anio) == 2 else (int(anio) if anio else None)
-        valor = _armar(int(dia), int(mes), completo, window)
-        if valor:
-            encontradas.append(valor)
+    for patron in (BARRAS_RE, PUNTOS_RE):
+        for dia, mes, anio in patron.findall(plano):
+            if not 1 <= int(mes) <= 12 or not 1 <= int(dia) <= 31:
+                continue
+            completo = (int(anio) + 2000 if anio and len(anio) == 2
+                        else (int(anio) if anio else None))
+            valor = _armar(int(dia), int(mes), completo, window)
+            if valor:
+                encontradas.append(valor)
 
     for anio, mes, dia in ISO_RE.findall(plano):
         try:

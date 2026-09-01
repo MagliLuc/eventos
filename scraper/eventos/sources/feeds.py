@@ -22,6 +22,7 @@ from __future__ import annotations
 import json
 import re
 import xml.etree.ElementTree as ET
+from collections import Counter
 from datetime import datetime
 from typing import Iterable, Optional
 from urllib.parse import urljoin, urlparse
@@ -249,6 +250,83 @@ def parse_feed(texto: str) -> list[dict]:
 PALABRAS_EVENTO = ("evento", "agenda", "actividad", "cartelera", "espectaculo",
                    "muestra", "exposicion", "programacion", "funcion", "obra")
 
+TOPE_FICHA = 9000  # caracteres de la ficha que se miran para fecha y precio.
+
+MOTIVOS = {
+    "ok": "con evento",
+    "titulo": "sin titulo legible",
+    "fecha": "sin fecha escrita",
+    "precio": "sin decir que sean gratis",
+}
+
+def idioma_ajeno(sopa) -> str:
+    """Devuelve el `lang` del sitio si NO es castellano, o "" si esta bien.
+
+    Existe por un caso concreto: `elculturalsanmartin.org` habia sido tomado
+    por spam de apuestas en turco (`<title>Canli Bahis Siteleri...`) y el
+    scraper lo consultaba en cada corrida, con status `activo`. No publico nada
+    de puro azar, porque `is_explicitly_free()` exige la palabra "gratis" en
+    castellano y el spam no la traia. Eso es suerte, no diseno.
+
+    Se rechaza solo si el atributo existe y no es castellano: muchos sitios no
+    lo declaran, y esos siguen pasando como antes.
+    """
+    html = sopa.find("html")
+    lang = (html.get("lang") if html else None) or ""
+    lang = lang.strip().lower()
+    if not lang or lang.startswith("es"):
+        return ""
+    return lang
+
+
+RUTAS_SITEMAP = ("/sitemap.xml", "/sitemap_index.xml")
+LOC_RE = re.compile(r"<loc>\s*([^<\s]+)\s*</loc>")
+
+
+def urls_de_sitemap(session, base: str, filtro: str = "",
+                    tope: int = 40) -> list[str]:
+    """URLs de ficha sacadas del sitemap, siguiendo los índices.
+
+    Hace falta porque varios listados se arman por JavaScript y no dejan un
+    solo enlace que leer, pero el sitemap sí lista cada actividad. Y hay que
+    seguir los índices: `sitemap.xml` suele ser sólo un índice que apunta a
+    `production-sitemap.xml` o similar, que es donde están los eventos de
+    verdad. Sin esto se leían los índices como si fueran fichas.
+    """
+    for ruta in RUTAS_SITEMAP:
+        try:
+            r = session.get(urljoin(base, ruta), timeout=25)
+            if r.status_code != 200:
+                continue
+        except Exception:
+            continue
+
+        urls = LOC_RE.findall(r.text)
+        if "<sitemapindex" in r.text:
+            # Es un índice: bajar a los sub-sitemaps que suenen a evento.
+            hojas = [u for u in urls
+                     if any(p in u.lower() for p in PALABRAS_EVENTO)] or urls[:3]
+            urls = []
+            for hoja in hojas[:3]:
+                try:
+                    rh = session.get(hoja, timeout=25)
+                    if rh.status_code == 200:
+                        urls.extend(LOC_RE.findall(rh.text))
+                except Exception:
+                    continue
+
+        # Un sub-sitemap no vuelve a filtrarse por palabra: ya lo dijo su
+        # nombre, y adentro las URLs pueden no repetirla.
+        candidatas = [u for u in urls if not u.endswith(".xml")]
+        if filtro:
+            candidatas = [u for u in candidatas if filtro in u.lower()]
+        elif "<sitemapindex" not in r.text:
+            candidatas = [u for u in candidatas
+                          if any(p in u.lower() for p in PALABRAS_EVENTO)]
+        if candidatas:
+            return candidatas[:tope]
+    return []
+
 
 class LectorDeFichas(Source):
     """Entra a la ficha de cada actividad y saca el evento de ahí.
@@ -269,13 +347,21 @@ class LectorDeFichas(Source):
     """
 
     default_venue: str = ""
-    max_items: int = 15
+    # Recoleta expone 27 fichas y con el tope en 15 se perdian 12. El costo de
+    # subirlo es tiempo, no dinero: la pausa por dominio lo mantiene cortes.
+    max_items: int = 30
 
     def _leer_fichas(self, session, enlaces: list[str], window: DateWindow,
-                     titulos: dict[str, str] | None = None) -> list[Event]:
-        titulos = titulos or {}
+                     titulos: dict[str, str] | None = None,
+                     contexto: dict[str, str] | None = None) -> list[Event]:
+        titulos, contexto = titulos or {}, contexto or {}
         eventos: list[Event] = []
-        sin_marcado = sin_fecha = sin_precio = 0
+        sin_marcado = 0
+        # Se cuentan TODOS los motivos, no una seleccion. La corrida anterior
+        # reporto "0 sin fecha, 0 sin precio" en fichas que rendian cero: el
+        # motivo real era "titulo" y no estaba en el contador, asi que el fallo
+        # se veia como un exito vacio.
+        motivos: Counter[str] = Counter()
 
         for enlace in enlaces[: self.max_items]:
             sopa = fetch_soup(session, enlace, retries=1)
@@ -292,46 +378,58 @@ class LectorDeFichas(Source):
 
             sin_marcado += 1
             desde_texto, motivo = self._de_texto(
-                sopa, {"title": titulos.get(enlace)}, window, enlace)
+                sopa, {"title": titulos.get(enlace)}, window, enlace,
+                contexto.get(enlace, ""))
             eventos.extend(desde_texto)
-            sin_fecha += motivo == "fecha"
-            sin_precio += motivo == "precio"
+            motivos[motivo or "ok"] += 1
 
         if sin_marcado:
+            detalle = ", ".join(
+                f"{n} {MOTIVOS.get(m, m)}" for m, n in motivos.most_common())
             print(f"  [{self.name}] {sin_marcado} fichas sin schema.org/Event "
-                  f"(leidas como texto: {sin_fecha} sin fecha escrita, "
-                  f"{sin_precio} sin decir que sean gratis)")
+                  f"(leidas como texto: {detalle})")
         return eventos
 
     # -- Plan B: la ficha en prosa ----------------------------------------
     def _de_texto(self, sopa, entrada: dict, window: DateWindow,
-                  enlace: str) -> tuple[list[Event], str]:
+                  enlace: str, tarjeta: str = "") -> tuple[list[Event], str]:
         """Arma eventos leyendo la nota. Devuelve (eventos, motivo del cero).
 
         Se mira solo el titulo y la entradilla, no la nota entera: la fecha de
         la actividad esta arriba, y mas abajo aparecen fechas de otras cosas
         que meterian eventos que no son.
+
+        `tarjeta` es el texto del listado que enlazaba a esta ficha. Va aparte
+        porque muchas veces es donde esta la fecha ("Desde el jueves 20.08 |
+        18 h") mientras la ficha solo describe la actividad.
         """
-        titular = sopa.find("h1")
-        titulo = clean_text(
-            (titular.get_text(" ", strip=True) if titular else None)
-            or entrada.get("title"), 160)
+        titulo = _titulo_de(sopa, entrada.get("title"))
         if not titulo:
             return [], "titulo"
 
         cuerpo = sopa.find("article") or sopa.find("main") or sopa
         parrafos = [p.get_text(" ", strip=True) for p in cuerpo.find_all("p")[:6]]
         entradilla = " ".join(p for p in parrafos if p)[:900]
-        clave = f"{titulo}. {entradilla}"
 
-        if not is_explicitly_free(clave):
+        # La descripcion sale de la entradilla, pero la fecha y la gratuidad se
+        # buscan en toda la ficha: la Usina del Arte, por ejemplo, pone
+        # "Entrada libre y gratuita" y el bloque "Fechas y horarios" en una
+        # seccion aparte, bien despues del sexto parrafo. Mirar solo la
+        # entradilla descartaba sus diez actividades.
+        completo = f"{titulo}. {cuerpo.get_text(' ', strip=True)[:TOPE_FICHA]}"
+
+        if not is_explicitly_free(f"{completo} {tarjeta}"):
             return [], "precio"
 
-        fechas = extraer_fechas(clave, window)
+        # La ficha manda; la tarjeta es el respaldo. La ventana es la que evita
+        # que una fecha suelta del pie de pagina se cuele como evento.
+        fechas = extraer_fechas(completo, window) or extraer_fechas(tarjeta, window)
         if not fechas:
             return [], "fecha"
 
-        inicio, fin = parse_times(clave)
+        inicio, fin = parse_times(f"{titulo}. {entradilla}")
+        if not inicio:
+            inicio, fin = parse_times(tarjeta) or (None, None)
         descripcion = clean_text(entradilla)
         return [
             Event(
@@ -386,7 +484,7 @@ class RssSource(LectorDeFichas):
     """Feed RSS/Atom: se usa solo para descubrir qué fichas leer."""
 
     def __init__(self, name: str, url: str, default_venue: str = "",
-                 max_items: int = 15):
+                 max_items: int = 30):
         self.name, self.url = name, url
         self.default_venue, self.max_items = default_venue, max_items
 
@@ -421,30 +519,63 @@ class FichasSource(LectorDeFichas):
     """
 
     def __init__(self, name: str, url: str, default_venue: str = "",
-                 max_items: int = 15, ruta_ficha: str = ""):
+                 max_items: int = 30, ruta_ficha: str = ""):
         self.name, self.url = name, url
         self.default_venue, self.max_items = default_venue, max_items
         # Opcional: fragmento que debe aparecer en la ruta de la ficha, para
         # cuando las palabras genéricas traen de más (p. ej. "/actividad/").
         self.ruta_ficha = ruta_ficha
 
-    def fetch(self, session, window: DateWindow) -> list[Event]:
-        sopa = fetch_soup(session, self.url)
-        if sopa is None:
-            return []
-        enlaces = self._fichas(sopa)
-        if not enlaces:
-            print(f"  [{self.name}] el listado no expone enlaces a fichas")
-            return []
-        print(f"  [{self.name}] {len(enlaces)} fichas encontradas en el listado")
-        return self._leer_fichas(session, enlaces, window)
+    @property
+    def base(self) -> str:
+        partes = urlparse(self.url)
+        return f"{partes.scheme}://{partes.netloc}"
 
-    def _fichas(self, sopa) -> list[str]:
-        base = f"{urlparse(self.url).scheme}://{urlparse(self.url).netloc}"
+    def fetch(self, session, window: DateWindow) -> list[Event]:
+        contexto: dict[str, str] = {}
+        enlaces: list[str] = []
+
+        sopa = fetch_soup(session, self.url)
+        if sopa is not None:
+            idioma = idioma_ajeno(sopa)
+            if idioma:
+                # Un dominio secuestrado o vencido sirve otra cosa entera. Paso
+                # con elculturalsanmartin.org: era spam de apuestas en turco y
+                # el scraper lo consultaba en cada corrida.
+                print(f"  [{self.name}] DESCARTADA: el sitio declara lang="
+                      f"'{idioma}', no castellano. Revisar si el dominio sigue "
+                      f"siendo de quien creemos.")
+                return []
+            enlaces, contexto = self._fichas(sopa)
+            if enlaces:
+                print(f"  [{self.name}] {len(enlaces)} fichas en el listado")
+
+        # El sitemap se suma al listado, no lo reemplaza: Que Hacemos expone 8
+        # fichas en la pagina y otras 10 solo en el sitemap. Antes, con el
+        # sitemap como puro respaldo, esas 10 no se leian nunca.
+        del_sitemap = urls_de_sitemap(session, self.base, self.ruta_ficha)
+        nuevas = [u for u in del_sitemap if u not in contexto and u not in enlaces]
+        if nuevas:
+            print(f"  [{self.name}] +{len(nuevas)} fichas del sitemap")
+            enlaces = enlaces + nuevas
+
+        if not enlaces:
+            print(f"  [{self.name}] sin fichas ni por listado ni por sitemap")
+            return []
+        return self._leer_fichas(session, enlaces, window, contexto=contexto)
+
+    def _fichas(self, sopa) -> tuple[list[str], dict[str, str]]:
+        """Enlaces de ficha y el texto de la tarjeta que los contiene.
+
+        La tarjeta importa: en varios listados la fecha está ahí y no en la
+        ficha ("Desde el jueves 20.08 | 18 h"). Guardarla evita perder el
+        evento cuando la ficha describe la actividad sin fecharla.
+        """
         encontrados: list[str] = []
+        contexto: dict[str, str] = {}
         for a in sopa.find_all("a", href=True):
             destino = urljoin(self.url, a["href"]).split("#")[0]
-            if not destino.startswith(base):
+            if not destino.startswith(self.base):
                 continue
             if destino.rstrip("/") == self.url.rstrip("/"):
                 continue
@@ -456,6 +587,59 @@ class FichasSource(LectorDeFichas):
                 # segmento extra evita traerse el propio menú del sitio.
                 calza = (any(p in ruta for p in PALABRAS_EVENTO)
                          and len(ruta.strip("/").split("/")) >= 2)
-            if calza and destino not in encontrados:
-                encontrados.append(destino)
-        return encontrados
+            if not calza or destino in contexto:
+                continue
+            encontrados.append(destino)
+            contexto[destino] = _texto_de_la_tarjeta(a)
+        return encontrados, contexto
+
+
+SEPARADORES_DE_TITULO = (" – ", " — ", " | ", " - ", " · ")
+
+
+def _titulo_de(sopa, respaldo: Optional[str] = None) -> Optional[str]:
+    """Titulo de la ficha: h1, si no og:title, si no <title>.
+
+    El respaldo no es teorico: las fichas de la Usina del Arte no tienen h1
+    y el titulo vive solo en <title>. Sin esto sus diez actividades se caian
+    todas, y encima en silencio.
+    """
+    titular = sopa.find("h1")
+    if titular:
+        limpio = clean_text(titular.get_text(" ", strip=True), 160)
+        if limpio:
+            return limpio
+
+    og = sopa.find("meta", attrs={"property": "og:title"})
+    crudo = (og.get("content") if og else None) or (
+        sopa.title.get_text(strip=True) if sopa.title else None)
+    if crudo:
+        # <title> casi siempre termina en el nombre del sitio: "Obra – Sala X".
+        # Se corta solo si la cola es mas corta que la cabeza, que es como se
+        # comporta un nombre de sitio. Sin ese recaudo, un titulo que ya usa el
+        # separador se parte al medio: "A + C | El detras de escena de una
+        # muestra" (Fundacion Proa) quedaba reducido a "A + C".
+        for sep in SEPARADORES_DE_TITULO:
+            if sep in crudo:
+                cabeza, cola = (p.strip() for p in crudo.rsplit(sep, 1))
+                if cabeza and len(cola) < len(cabeza):
+                    crudo = cabeza
+                break
+        limpio = clean_text(crudo, 160)
+        if limpio:
+            return limpio
+
+    return clean_text(respaldo, 160)
+
+
+def _texto_de_la_tarjeta(enlace) -> str:
+    """Sube por el DOM hasta el primer ancestro con texto suficiente."""
+    nodo = enlace
+    for _ in range(5):
+        nodo = nodo.parent
+        if nodo is None:
+            break
+        texto = nodo.get_text(" ", strip=True)
+        if len(texto) > 40:
+            return texto[:400]
+    return enlace.get_text(" ", strip=True)[:400]

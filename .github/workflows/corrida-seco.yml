@@ -1,0 +1,53 @@
+name: Corrida en seco
+
+# La verificación de que el scraper sirve: corre el pipeline completo contra un
+# archivo descartable y deja en el log cuántos eventos aporta cada fuente.
+#
+# Está separada del diagnóstico a propósito. Las dos cosas responden preguntas
+# distintas y tienen costos muy distintos:
+#
+#   diagnóstico    -> "¿por qué este sitio no me deja entrar?"  ~12 min, 21 sitios
+#   corrida en seco -> "¿mi cambio suma eventos?"                ~3 min, las activas
+#
+# Estaban juntas y la segunda quedaba atrás de la primera, así que cada cambio
+# del scraper costaba un cuarto de hora antes de saber si había servido de algo.
+#
+# `update-events.yml` sólo corre en main, así que sin esto no hay forma de
+# verificar un cambio en una rama sin mergear primero.
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "scraper/**"
+      - "!scraper/diagnostico/**"   # el commit de evidencia no se re-dispara
+      - ".github/workflows/corrida-seco.yml"
+
+concurrency:
+  group: corrida-seco-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  correr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: scraper/requirements.txt
+
+      - name: Instalar dependencias
+        run: pip install -r scraper/requirements.txt pytest
+
+      - name: Tests
+        run: python -m pytest scraper/tests -q
+
+      - name: Correr el pipeline contra un archivo descartable
+        run: |
+          python scraper/run_scraper.py --days 21 \
+            --output "${RUNNER_TEMP}/prueba-events.json" || true
+          echo "--- la agenda publicada quedó intacta: ---"
+          git diff --stat docs/events.json || true

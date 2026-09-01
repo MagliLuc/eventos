@@ -35,11 +35,17 @@ RESERVA_KEYWORDS = ("reserva", "inscripcion previa", "entrada previa",
 ORDEN_KEYWORDS = ("orden de llegada", "hasta agotar", "por orden",
                   "sujeto a capacidad", "aforo", "capacidad de la sala")
 
+# El punto separa horas ("18.30 h") pero tambien fechas ("Desde el 20.09"),
+# que es como escribe su agenda el Centro Cultural Recoleta. Con los dos
+# puntos no hay ambiguedad; con el punto se exige la "h" o "hs", porque si no
+# una fecha entra como horario: "20.09" se leia como las 20:09.
 TIME_RANGE_RE = re.compile(
-    r"(\d{1,2})[:.](\d{2})\s*(?:h|hs)?\s*(?:a|hasta|-|–|—)\s*(\d{1,2})[:.](\d{2})",
+    r"(\d{1,2})(?::(\d{2})|\.(\d{2})\s*(?:h|hs))\s*(?:h|hs)?"
+    r"\s*(?:a|hasta|-|–|—)\s*(\d{1,2})(?::(\d{2})|\.(\d{2})\s*(?:h|hs))",
     re.IGNORECASE,
 )
-SINGLE_TIME_RE = re.compile(r"(\d{1,2})[:.](\d{2})\s*(?:h|hs)?", re.IGNORECASE)
+SINGLE_TIME_RE = re.compile(
+    r"(\d{1,2})(?::(\d{2})\s*(?:h|hs)?|\.(\d{2})\s*(?:h|hs))", re.IGNORECASE)
 BARE_HOUR_RE = re.compile(r"(?:^|\s)(\d{1,2})\s*(?:h|hs)\b", re.IGNORECASE)
 
 
@@ -82,16 +88,21 @@ def parse_times(text: Optional[str]) -> tuple[Optional[str], Optional[str]]:
     if not text:
         return None, None
 
+    # Los minutos vienen por dos ramas alternativas (dos puntos o punto), asi
+    # que se toma la que haya matcheado.
+    def _minutos(*grupos: Optional[str]) -> int:
+        return int(next((g for g in grupos if g is not None), 0))
+
     match = TIME_RANGE_RE.search(text)
     if match:
-        start = _clamp_time(int(match.group(1)), int(match.group(2)))
-        end = _clamp_time(int(match.group(3)), int(match.group(4)))
+        start = _clamp_time(int(match.group(1)), _minutos(match.group(2), match.group(3)))
+        end = _clamp_time(int(match.group(4)), _minutos(match.group(5), match.group(6)))
         if start:
             return start, end
 
     match = SINGLE_TIME_RE.search(text)
     if match:
-        start = _clamp_time(int(match.group(1)), int(match.group(2)))
+        start = _clamp_time(int(match.group(1)), _minutos(match.group(2), match.group(3)))
         if start:
             return start, None
 
@@ -123,9 +134,13 @@ def is_explicitly_free(*texts: Optional[str]) -> bool:
     significa gratis, asi que se exige la palabra.
     """
     haystack = strip_accents(" ".join(t for t in texts if t))
+    # "libre" solo no alcanza ("aire libre", "libre albedrio"), pero varias
+    # salas escriben "Actividad libre" o "Asistencia libre" y sin esos giros
+    # se descartaban eventos que si eran gratuitos: Fundacion Proa, por caso.
     return any(marker in haystack for marker in
                ("gratis", "gratuit", "entrada libre", "ingreso libre",
-                "acceso libre", "sin cargo"))
+                "acceso libre", "actividad libre", "asistencia libre",
+                "participacion libre", "entrada gratuita", "sin cargo"))
 
 
 def clean_text(text: Optional[str], limit: int = 400) -> Optional[str]:

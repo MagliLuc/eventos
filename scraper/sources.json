@@ -18,25 +18,29 @@
     "        candidato -> NO se consulta; solo lo sondea discover.py",
     "        bloqueado -> no se consulta; se deja documentado el porqué",
     "",
-    "Las notas que empiezan con 'Prospección:' salen de la corrida real del",
-    "workflow discover.yml, no de suposiciones. Para volver a sondear todo:",
-    "Actions -> Prospección de fuentes -> Run workflow."
+    "Ninguna nota de acá es una suposición: todas salen de una corrida real.",
+    "  'Diagnóstico <fecha>:' -> workflow 'Diagnóstico de fuentes', que prueba",
+    "                            robots.txt y cuatro transportes por sitio y",
+    "                            deja el HTML en scraper/diagnostico/.",
+    "  'Prospección:'         -> workflow 'Prospección de fuentes'.",
+    "Para rehacerlas: Actions -> el workflow que corresponda -> Run workflow."
   ],
   "sources": [
     {
       "name": "BA Data (datos abiertos GCBA)",
       "kind": "ckan",
       "url": "https://data.buenosaires.gob.ar/api/3/action",
-      "status": "activo",
-      "note": "Alcanzable, pero es un portal de transparencia y estadística, no una agenda: sus datasets culturales son archivo (2015-2017) o conteos de asistentes. Quedan solo los dos ids que podrían traer programación vigente."
+      "status": "bloqueado",
+      "note": "Corrida en seco 2026-08-31: su propio robots.txt prohíbe /api/, así que el gate lo frena antes de pedir nada. No se fuerza: la regla vale también cuando incomoda. Da igual para el resultado — ya estaba probado que sus datasets culturales son archivo (2015-2017) y estadística, no agenda, y aportaba cero."
     },
     {
       "name": "Usina del Arte",
-      "kind": "rss",
-      "url": "https://usinadelarte.ar/feed/atom",
+      "kind": "fichas",
+      "url": "https://usinadelarte.ar/actividades",
       "venue": "Usina del Arte",
       "status": "activo",
-      "note": "Prospección: feed Atom con 10 entradas. Antes se leía por selectores y no sacaba fecha."
+      "note": "Corrida en seco 2026-09-01: 23 eventos. Su listado da 10 fichas y el sitemap 38 mas; con el sitemap sumando (antes era solo respaldo) paso de 0 a 23.",
+      "ruta_ficha": "/actividad/"
     },
     {
       "name": "Centro Cultural Recoleta",
@@ -44,15 +48,16 @@
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "Prospección: 200 sin ICS, Tribe, JSON-LD ni feed *en el listado*. Pasó de 'css' a 'fichas': con selectores genéricos daba 0, y lo que falta probar es si la ficha de cada actividad trae JSON-LD o la fecha escrita."
+      "note": "Corrida en seco 2026-09-01: 20 eventos (antes 11). Con el tope de fichas en 30 se leen las 27 que expone, no 15.",
+      "ruta_ficha": "/agenda/"
     },
     {
       "name": "Turismo Buenos Aires",
       "kind": "fichas",
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "venue": "Ciudad de Buenos Aires",
-      "status": "activo",
-      "note": "Prospección: 200 sin marcado en el listado. Pasó de 'css' a 'fichas' por lo mismo que Recoleta."
+      "status": "candidato",
+      "note": "Corrida en seco 2026-08-31: su listado no expone enlaces y su sitemap está podrido — de 21 URLs, 12 devuelven 404 y el resto son notas de 2016-2018, no eventos. Aportó 0. Se saca de activo para no gastar 21 pedidos por corrida en nada."
     },
     {
       "name": "Palacio Libertad",
@@ -60,7 +65,7 @@
       "url": "https://palaciolibertad.gob.ar/agenda/",
       "venue": "Palacio Libertad",
       "status": "bloqueado",
-      "note": "403 en 3 intentos, también con cabeceras completas de navegador. Sospecha: bloqueo por IP de datacenter."
+      "note": "Diagnóstico 2026-08-31: 403 por los cuatro transportes, robots.txt incluido — o sea que acá el dominio entero nos cierra la puerta, a diferencia de los otros tres. Hay copia en Wayback de abril 2026, muy vieja para una agenda."
     },
     {
       "name": "Museo Nacional de Bellas Artes",
@@ -68,7 +73,7 @@
       "url": "https://www.bellasartes.gob.ar/agenda/",
       "venue": "Museo Nacional de Bellas Artes",
       "status": "bloqueado",
-      "note": "403 igual que arriba."
+      "note": "Diagnóstico 2026-08-31: 403 con requests Y con el perfil TLS de Chrome, pero robots.txt del mismo dominio responde 200 desde la misma IP y el mismo cliente. Eso descarta dos cosas: no es bloqueo por IP y no es fingerprinting TLS. Queda un WAF que exige cookie de challenge, o un filtro por país sobre las rutas de contenido. Ninguna de las dos se resuelve gratis desde un runner en EE.UU."
     },
     {
       "name": "Complejo Teatral de Buenos Aires",
@@ -76,7 +81,7 @@
       "url": "https://complejoteatral.gob.ar/cartelera",
       "venue": "Teatro San Martín",
       "status": "bloqueado",
-      "note": "403 igual que arriba."
+      "note": "Diagnóstico 2026-08-31: 403 con requests Y con el perfil TLS de Chrome, pero robots.txt del mismo dominio responde 200 desde la misma IP y el mismo cliente. Eso descarta dos cosas: no es bloqueo por IP y no es fingerprinting TLS. Queda un WAF que exige cookie de challenge, o un filtro por país sobre las rutas de contenido. Ninguna de las dos se resuelve gratis desde un runner en EE.UU."
     },
     {
       "name": "Cultura Nación",
@@ -84,7 +89,7 @@
       "url": "https://www.cultura.gob.ar/agenda/",
       "venue": "Ciudad de Buenos Aires",
       "status": "bloqueado",
-      "note": "403 igual que arriba."
+      "note": "Diagnóstico 2026-08-31: 403 con requests Y con el perfil TLS de Chrome, pero robots.txt del mismo dominio responde 200 desde la misma IP y el mismo cliente. Eso descarta dos cosas: no es bloqueo por IP y no es fingerprinting TLS. Queda un WAF que exige cookie de challenge, o un filtro por país sobre las rutas de contenido. Ninguna de las dos se resuelve gratis desde un runner en EE.UU."
     },
     {
       "name": "DisfrutemosBA",
@@ -94,15 +99,16 @@
       "status": "bloqueado",
       "force_ipv4": true,
       "timeout": 60,
-      "note": "Prospección: ConnectTimeout desde el runner. Hipótesis a confirmar con diagnostico.py: registro AAAA sin ruta real desde el runner, que cuelga hasta agotar el timeout sin llegar a probar IPv4. Por eso quedan declarados force_ipv4 y un timeout largo."
+      "note": "Diagnóstico 2026-08-31: descartada la hipótesis de IPv6. Con force_ipv4 y 60s de timeout tampoco responde, ni siquiera robots.txt. No es que tarde: no contesta. Hay copia en Wayback de 2023, inservible para agenda."
     },
     {
       "name": "Qué Hacemos",
-      "kind": "rss",
+      "kind": "fichas",
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
-      "status": "candidato",
-      "note": "Prospección: 200 pero sin ICS/Tribe/JSON-LD/feed ni wp-json. Requiere selectores; revisar a mano."
+      "status": "activo",
+      "note": "Corrida en seco 2026-09-01: 23 eventos (antes 1). Sus fichas traen schema.org/Event impecable; lo que faltaba eran las 40 URLs de su sitemap, que no se leian porque el sitemap era puro respaldo.",
+      "ruta_ficha": "/eventos/"
     },
     {
       "name": "Gratis en Buenos Aires",
@@ -110,7 +116,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Prospección: 200 sin marcado ni wp-json. El mejor calce temático, pero hoy solo por selectores."
+      "note": "Diagnóstico 2026-08-31: 200 con requests — y 403 con el perfil TLS de Chrome, o sea que acá imitar al navegador es PEOR. Sin feed, sin sitemap y sin fichas detectables. HTML capturado; requiere selectores."
     },
     {
       "name": "Baires Secreta",
@@ -118,7 +124,7 @@
       "url": "https://bairessecreta.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "bloqueado",
-      "note": "Prospección: HTTP 202, respuesta típica de un challenge de Cloudflare. No se resuelve sin navegador."
+      "note": "Diagnóstico 2026-08-31: HTTP 202 por los cuatro transportes, robots.txt incluido. Challenge de Cloudflare confirmado, y el perfil TLS de Chrome no lo pasa. Sin navegador no se resuelve, y eso está fuera de alcance."
     },
     {
       "name": "Time Out Buenos Aires",
@@ -126,7 +132,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Prospección: 200 sin marcado estructurado."
+      "note": "Diagnóstico 2026-08-31: 200, HTML capturado. 3 fichas, ninguna con JSON-LD y sin feed ni sitemap. Requiere selectores escritos sobre el HTML real."
     },
     {
       "name": "Alternativa Teatral",
@@ -134,15 +140,16 @@
       "url": "https://www.alternativateatral.com/",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Prospección: 200 sin marcado estructurado."
+      "note": "Diagnóstico 2026-08-31: 200, HTML capturado. Ni fichas ni feed ni sitemap. Requiere selectores escritos sobre el HTML real."
     },
     {
       "name": "Teatro Colón",
-      "kind": "rss",
-      "url": "https://teatrocolon.org.ar/feed",
+      "kind": "fichas",
+      "url": "https://teatrocolon.org.ar/",
       "venue": "Teatro Colón",
       "status": "activo",
-      "note": "Prospección: RSS con 10 entradas. Dominio .org.ar, no afectado por los 403 de los .gob.ar."
+      "note": "Corrida en seco 2026-09-01: 38 fichas, 28 descartadas por decir 'Comprar entradas'. Resultado correcto: el Colon vende entradas. Queda activa por las funciones gratuitas que si hace.",
+      "ruta_ficha": "/produccion"
     },
     {
       "name": "Casa Nacional del Bicentenario",
@@ -152,7 +159,6 @@
       "status": "candidato",
       "note": "URL A CONFIRMAR. El dominio que se supuso antes no resuelve por DNS; no volver a inventarlo."
     },
-
     {
       "_comment": [
         "De acá para abajo, salas y museos que todavía no se sondearon. Las",
@@ -166,55 +172,64 @@
       "url": "https://www.malba.org.ar/actividades/",
       "venue": "MALBA",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "note": "HTML 2026-08-31: 429 incluso con la pausa de 1,5 s. Sus cabeceras dicen 'Server: nginx' sin CDN — es limit_req del propio servidor, no un WAF — y su robots.txt nos permite. Se le asignó una pausa de 5 s por host y ahora se respeta Retry-After. Queda candidato hasta que una corrida lo confirme."
     },
     {
       "name": "Museo Moderno",
       "kind": "fichas",
-      "url": "https://www.museomoderno.org/es/actividades",
+      "url": "https://museomoderno.org/agenda/",
       "venue": "Museo de Arte Moderno de Buenos Aires",
-      "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "status": "activo",
+      "note": "Corrida en seco 2026-09-01: 40 eventos (antes 14), la mejor fuente. Ojo: se descartaban TODOS por no estar en KNOWN_VENUES; su direccion (Av. San Juan 350) salio del HTML que sirvio el propio sitio.",
+      "ruta_ficha": "/agenda/"
     },
     {
       "name": "Fundación Proa",
       "kind": "fichas",
-      "url": "https://proa.org/esp/agenda.php",
+      "url": "https://proa.org/",
       "venue": "Fundación Proa",
-      "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "status": "activo",
+      "note": "Corrida en seco 2026-09-01: su listado enlaza una sola ficha y no dice que sea gratis. Queda activa porque cuesta un pedido, y ya esta en KNOWN_VENUES (Av. Pedro de Mendoza 1929)."
     },
     {
       "name": "Ciudad Cultural Konex",
       "kind": "fichas",
       "url": "https://www.ciudadculturalkonex.org/agenda/",
       "venue": "Ciudad Cultural Konex",
-      "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar. Ojo: mucha programación paga; el filtro de gratuidad va a descartar casi todo."
+      "status": "bloqueado",
+      "note": "Diagnóstico 2026-08-31: no resuelve por DNS desde el runner, por ninguno de los cuatro transportes, y no hay copia en Wayback. El dominio que supuse probablemente no sea el real."
     },
     {
       "name": "El Cultural San Martín",
       "kind": "fichas",
-      "url": "https://elculturalsanmartin.org/agenda",
+      "url": "https://www.elculturalsanmartin.org/",
       "venue": "El Cultural San Martín",
-      "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "status": "bloqueado",
+      "note": "HTML 2026-08-31: DOMINIO COMPROMETIDO. elculturalsanmartin.org sirve spam de apuestas en turco: <title> 'Canlı Bahis Siteleri - En Güvenilir Canlı Bahis Sitesi Listesi 2026', 75 enlaces a /canli-bahis/, imágenes en wp-content/uploads/2022/12/. Es un WordPress hackeado desde diciembre de 2022. NO reactivar esta URL. El dominio real de la sala está sin confirmar."
     },
     {
       "name": "Planetario Galileo Galilei",
       "kind": "fichas",
-      "url": "https://planetario.buenosaires.gob.ar/agenda",
+      "url": "https://planetario.buenosaires.gob.ar/espectaculos-publico-general",
       "venue": "Planetario Galileo Galilei",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar. Dominio .gob.ar: puede caer en el mismo 403 que los otros."
+      "note": "Corrida en seco 2026-08-31 (2ª): sin fichas. Sus espectáculos cuelgan de la raíz sin prefijo común (/agujeros-negros-supermasivos, /alerta-espacial…), así que no hay `ruta_ficha` que los distinga del menú. Y tiene /tickets, o sea que además son pagos. Sale de activo: no vale el pedido."
     },
     {
       "name": "Bibliotecas de la Ciudad",
       "kind": "fichas",
-      "url": "https://buenosaires.gob.ar/cultura/bibliotecas",
+      "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Sin sondear. URL sin confirmar."
+      "note": "HTML 2026-08-31: la única URL con pinta de programación que expone el sitio. Sin sondear todavía."
+    },
+    {
+      "name": "El Cultural San Martín (dominio real)",
+      "kind": "fichas",
+      "url": "",
+      "venue": "El Cultural San Martín",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. La sala existe; el .org fue tomado por spam. No inventar el dominio: sondearlo con discover.py y confirmarlo antes de activar."
     }
   ]
 }

@@ -11,13 +11,16 @@ puedan escribir selectores contra el marcado de verdad en vez de adivinarlo.
 Lo que responde, por sitio:
 
   * ¿robots.txt nos deja? (y si no, se acabó la discusión para esa ruta)
-  * ¿el 403 es por IP o por forma del pedido? Si robots.txt da 200 desde la
-    misma IP y el mismo cliente, y la agenda da 403, no es la IP.
+  * ¿quién rechaza, y con qué? Las cabeceras lo dicen: `Cf-Mitigated:
+    challenge` es un desafío de Cloudflare, `cf-cache-status: HIT` es una
+    respuesta servida del borde sin llegar al origen. Ojo con confundirlos:
+    que robots.txt vuelva 200 NO prueba que el origen nos deje entrar, porque
+    puede haber salido de la caché. Es un error que ya cometimos acá.
   * ¿es fingerprinting TLS? Si `curl_cffi` con el perfil de Chrome pasa donde
-    `requests` falla, sí: el WAF decidió mirando el ClientHello, antes de leer
-    una sola cabecera. Es la hipótesis que explica por qué mandar diez
-    cabeceras de navegador no movió nada.
+    `requests` falla, sí. (Se probó: no lo era.)
   * ¿el timeout es IPv6 sin ruta? Se repite el pedido forzando IPv4.
+  * Si la agenda está desafiada, ¿hay alguna ruta con datos que el CDN igual
+    sirva cacheada? Es la vía barata: no necesita ni navegador ni proxy.
   * ¿hay un mecanismo mejor que los selectores? Feeds declarados en el <head>,
     sitemap, y —esto es lo que más suele destrabar— JSON-LD en la *ficha* del
     evento aunque el listado no lo tenga.
@@ -183,6 +186,41 @@ def jsonld_en_fichas(sesion, urls: list[str]) -> list[dict]:
     return hallazgos
 
 
+# Rutas que un CDN suele servir desde su caché. Van en orden de calidad de dato.
+RUTAS_POR_LA_CACHE = (
+    "/events.ics", "/?ical=1",
+    "/wp-json/tribe/events/v1/events", "/wp-json/wp/v2/posts?per_page=5",
+    "/sitemap.xml", "/sitemap_index.xml",
+    "/feed", "/feed/", "/rss",
+)
+
+
+def puertas_por_la_cache(sesion, base: str) -> list[dict]:
+    """Busca rutas que el CDN sirva sin lanzar el desafío.
+
+    De dónde sale la idea: el robots.txt del Complejo Teatral volvió con
+    `cf-cache-status: HIT` y **sin** `Cf-Mitigated`, mientras su agenda volvía
+    403 con desafío. O sea que Cloudflare desafía lo dinámico y entrega lo
+    cacheado sin preguntar. Si alguna ruta con datos cae del lado cacheado, se
+    entra por ahí y no hace falta ni navegador ni proxy.
+    """
+    puertas = []
+    for ruta in RUTAS_POR_LA_CACHE:
+        info = _registrar(sesion, urljoin(base, ruta), timeout=20)
+        cabeceras = {k.lower(): v for k, v in (info.get("cabeceras") or {}).items()}
+        info["desafiada"] = "cf-mitigated" in cabeceras
+        info["cache"] = cabeceras.get("cf-cache-status", "")
+        info["ruta"] = ruta
+        if info.get("status") == 200 and not info["desafiada"] and info.get("bytes"):
+            info["abierta"] = True
+            puertas.append(info)
+            print(f"    ABIERTA: {ruta:<34} 200, {info['bytes']} bytes"
+                  f"{', cache ' + info['cache'] if info['cache'] else ''}")
+        else:
+            puertas.append(info)
+    return puertas
+
+
 def wayback(sesion, url: str) -> dict:
     """Último recurso: si el sitio nos cierra la puerta, ¿hay copia archivada?
 
@@ -229,6 +267,11 @@ def revisar(entrada: dict) -> dict:
     informe["curl_cffi_chrome"] = _registrar(chrome, url)
     informe["ipv4_forzado"] = _registrar(ipv4, url, timeout=60)
 
+    # Un 404 en la ruta configurada no dice si el dominio sirve: la URL puede
+    # estar simplemente mal. Distinguirlo evita descartar un sitio bueno.
+    if informe["requests"].get("status") == 404 and base != url.rstrip("/"):
+        informe["raiz_responde"] = _registrar(plano, base).get("status")
+
     for etiqueta in ("robots", "requests", "curl_cffi_chrome", "ipv4_forzado"):
         print(f"  {etiqueta:<18} {informe[etiqueta].get('resultado')}")
 
@@ -248,11 +291,34 @@ def revisar(entrada: dict) -> dict:
             break
 
     if not crudo:
-        informe["wayback"] = wayback(plano, url)
-        print(f"  wayback: {informe['wayback'] or 'sin copia'}")
+        # La agenda no se puede leer. Antes de rendirse, ver si el CDN entrega
+        # alguna ruta con datos desde su caché, sin lanzar el desafío.
+        print("  -- rutas que el CDN podria servir cacheadas --")
+        informe["puertas"] = puertas_por_la_cache(plano, base)
+        abiertas = [p for p in informe["puertas"] if p.get("abierta")]
+        if abiertas:
+            informe["veredicto"] += (
+                f"  PERO hay {len(abiertas)} ruta(s) abierta(s) sin desafio: "
+                + ", ".join(p["ruta"] for p in abiertas))
+            print(f"  -> {len(abiertas)} puerta(s) abierta(s); "
+                  f"la agenda se puede leer por ahi")
+        else:
+            print("    ninguna: el desafio tapa todo el dominio")
+            informe["wayback"] = wayback(plano, url)
+            print(f"  wayback: {informe['wayback'] or 'sin copia'}")
         return informe
 
     sopa = BeautifulSoup(crudo, "lxml")
+
+    # El idioma declarado delata un dominio que ya no es de quien creemos.
+    # elculturalsanmartin.org venia sirviendo spam de apuestas en turco y su
+    # <title> lo decia desde la primera corrida: estaba a la vista y no se miro.
+    etiqueta_html = sopa.find("html")
+    informe["lang"] = (etiqueta_html.get("lang") if etiqueta_html else "") or ""
+    if informe["lang"] and not informe["lang"].lower().startswith("es"):
+        print(f"  !! OJO: el sitio declara lang='{informe['lang']}', no "
+              f"castellano. Revisar si el dominio sigue siendo de quien creemos.")
+
     informe["titulo_pagina"] = (sopa.title.get_text(strip=True)
                                 if sopa.title else None)
     informe["feeds_declarados"] = feeds_declarados(sopa, base)
@@ -271,6 +337,14 @@ def revisar(entrada: dict) -> dict:
     print(f"  JSON-LD fichas   : {con_evento} en {len(informe['fichas_probadas'])} fichas")
 
     _guardar_html(nombre, sopa)
+
+    # El listado solo dice a dónde ir. Para escribir la extracción por prosa
+    # hace falta ver una ficha, así que se guarda la primera que responda.
+    for ficha in fichas[:1]:
+        crudo_ficha = _texto(exitosa, ficha, timeout=25)
+        if crudo_ficha:
+            _guardar_html(f"{nombre} ficha", BeautifulSoup(crudo_ficha, "lxml"))
+            informe["ficha_guardada"] = ficha
     return informe
 
 
@@ -291,12 +365,23 @@ def _veredicto(informe: dict) -> str:
     if ipv4 == 200 and plano != 200:
         return ("era IPv6 sin ruta: forzando IPv4 responde. Marcar "
                 "force_ipv4 en sources.json.")
-    if robots == 200 and plano in (403, 202, 429):
-        return (f"HTTP {plano} en la agenda pero robots.txt da 200 desde la misma "
-                f"IP y el mismo cliente: NO es bloqueo por IP, es por forma del "
-                f"pedido, y el perfil de Chrome tampoco alcanzo.")
+    if 429 in (plano, chrome, ipv4):
+        # Un 429 no dice nada del sitio: dice que pedimos demasiado rapido.
+        return ("HTTP 429: es ritmo, no bloqueo. El sitio responde; hay que "
+                "espaciar los pedidos y volver a probar.")
+    if plano == 404:
+        raiz = informe.get("raiz_responde")
+        if raiz == 200:
+            return ("404: la URL esta mal, pero el dominio responde. Sondear la "
+                    "raiz con discover.py para encontrar la agenda.")
+        return "404: la URL configurada no existe. Hay que corregirla."
     if plano is None and chrome is None and ipv4 is None:
         return "no responde por ninguna via: caida, DNS o bloqueo de red"
+    if robots == 200 and plano in (403, 202):
+        return (f"HTTP {plano} en la agenda pero robots.txt da 200 desde la misma "
+                f"IP y el mismo cliente: NO es bloqueo por IP ni fingerprinting "
+                f"TLS (el perfil de Chrome da lo mismo). Queda un WAF que exige "
+                f"cookie de challenge, o filtro por pais.")
     return f"sin via de acceso (requests {plano}, chrome {chrome}, ipv4 {ipv4})"
 
 
@@ -315,12 +400,25 @@ def main() -> int:
     from eventos.registry import REGISTRO
 
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    todos = "--todos" in sys.argv
     if args:
         entradas = [{"name": u, "url": u} for u in args]
     else:
         datos = json.loads(REGISTRO.read_text(encoding="utf-8"))
         entradas = [e for e in datos.get("sources", [])
                     if e.get("url") and e.get("kind") != "ckan"]
+        if not todos:
+            # Las bloqueadas ya tienen veredicto y son las mas caras: cada una
+            # suma nueve pedidos de sondeo de cache, con su pausa. Re-probarlas
+            # en cada cambio del scraper no aporta nada y alarga la corrida.
+            # Para revisarlas: `--todos`, o el sondeo semanal de discover.yml,
+            # que es el que detecta si alguna vuelve (como paso con la Usina).
+            antes = len(entradas)
+            entradas = [e for e in entradas if e.get("status") != "bloqueado"]
+            saltadas = antes - len(entradas)
+            if saltadas:
+                print(f"Se saltean {saltadas} fuentes bloqueadas (ya tienen "
+                      f"veredicto). Para incluirlas: --todos\n")
 
     SALIDA.mkdir(parents=True, exist_ok=True)
     if not hay_tls_de_navegador():
