@@ -102,11 +102,30 @@ def run(
         collected.extend(eventos)
         informes.append(informe)
 
-    # Red de seguridad: si hoy no scrapeamos nada (sitio caido, cambio de
-    # maquetado), conservamos el JSON anterior en vez de publicar un archivo
-    # vacio que dejaria la app en blanco.
+    # Red de seguridad: si una fuente se cae hoy (sitio caido, cambio de
+    # maquetado), conservamos sus eventos del JSON anterior en vez de dejar
+    # un hueco.
+    #
+    # Pero SOLO los de las fuentes que fallaron. Arrastrar tambien los de las
+    # que anduvieron bien tiene dos problemas: sus datos ya se volvieron a
+    # bajar, y sobre todo se perpetuan los errores viejos -- despues de
+    # arreglar el chequeo de precio, la corrida en seco daba 8 eventos de Que
+    # Hacemos y el feed publicaba 21, porque 19 venian del archivo anterior
+    # con la hora inventada y sin haber pasado nunca por el chequeo nuevo.
+    # Un arreglo que no limpia lo que ya publico solo arregla la mitad.
     if keep_existing and output.exists():
-        collected.extend(_read_existing(output))
+        vivas = {i.id for i in informes if i.estado != ERROR}
+        rescatados = [
+            e for e in _read_existing(output)
+            # Sin source_id no se puede atribuir (feed anterior al campo):
+            # se conserva, porque tirarlo seria hacerlo desaparecer sin saber
+            # si su fuente anda. Se vence solo al pasar su fecha.
+            if e.source_id is None or e.source_id not in vivas
+        ]
+        collected.extend(rescatados)
+        if rescatados:
+            print(f"  Rescatados {len(rescatados)} eventos del feed anterior "
+                  f"(fuentes caidas o sin identificar).")
 
     deduped = [e for e in dedupe(collected) if e.date >= today.isoformat()]
 

@@ -468,6 +468,25 @@ evidencia escrita en la nota, y no una heurística.
 Queda dicho lo que **no** está verificado: la hora de *inicio* de esta fuente
 tampoco se comprobó contra el sitio.
 
+### Un arreglo que no limpia lo que ya publicó arregla la mitad
+
+Con los tres bugs de arriba corregidos y mergeados, el feed publicado
+**seguía trayendo 21 eventos de Qué Hacemos cuando la corrida en seco daba 8**.
+Los 19 de más venían del archivo anterior: conservaban la hora inventada y
+nunca habían pasado por el chequeo de precio, porque se extrajeron con el
+código viejo.
+
+La causa es la red de seguridad del pipeline. Existe para que un sitio caído no
+deje un hueco en la app, y para eso está bien; el error era arrastrar **todo**
+el feed anterior, incluidos los eventos de fuentes que hoy anduvieron
+perfectamente. Sus datos ya se volvieron a bajar, así que lo único que aportaba
+el arrastre era perpetuar los errores viejos.
+
+Ahora se rescatan sólo los eventos de las fuentes que **fallaron** en esta
+corrida. Los que no tienen `source_id` (feed anterior al campo) se conservan
+igual: no se pueden atribuir, y tirarlos sería hacerlos desaparecer sin saber
+si su fuente anda. Se vencen solos al pasar su fecha.
+
 ### Una advertencia sobre buscar palabras en la ficha entera
 
 Ampliar `is_explicitly_free` a la ficha completa destrabó la Usina —su
