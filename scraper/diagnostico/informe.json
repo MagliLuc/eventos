@@ -21,7 +21,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33033,
+      "bytes": 33031,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -49,7 +49,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33031,
+      "bytes": 33032,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -309,7 +309,7 @@
         "X-Powered-By": "Express",
         "Server": "cloudflare",
         "Cf-Cache-Status": "HIT",
-        "CF-RAY": "a340f2aa5b9175ee-SEA"
+        "CF-RAY": "a34105377fced116-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/robots.txt",
@@ -325,7 +325,7 @@
         "x-powered-by": "Express",
         "Server": "cloudflare",
         "cf-cache-status": "REVALIDATED",
-        "CF-RAY": "a340f2bbda0775ee-SEA"
+        "CF-RAY": "a34105490d71d116-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -340,7 +340,7 @@
         "x-powered-by": "Express",
         "server": "cloudflare",
         "cf-cache-status": "HIT",
-        "cf-ray": "a340f2c549c916ae-SEA"
+        "cf-ray": "a3410552af768969-PDX"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -349,13 +349,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 19544,
+      "bytes": 19462,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "Server": "cloudflare",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a340f2ceb87ddf2d-SEA"
+        "CF-RAY": "a341055bdcd65c1c-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -395,7 +395,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-09-01T02:47:12.114Z",
+              "validFrom": "2026-09-01T02:39:23.436Z",
               "category": "Free"
             }
           }
@@ -414,7 +414,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-09-01T02:47:13.624Z",
+              "validFrom": "2026-09-01T02:39:24.798Z",
               "category": "Free"
             }
           }
@@ -457,7 +457,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60292,
+      "bytes": 60322,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -484,7 +484,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60322,
+      "bytes": 60198,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -516,8 +516,8 @@
       "bytes": 943,
       "cabeceras": {
         "server": "akka-http/10.2.10",
-        "via": "1.1 google",
-        "Content-Type": "text/plain; charset=UTF-8"
+        "content-type": "text/plain; charset=UTF-8",
+        "via": "1.1 google"
       },
       "cookies": [
         "_TO_Canary"
@@ -529,7 +529,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40735,
+      "bytes": 40676,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "content-type": "text/html; charset=UTF-8",
@@ -542,7 +542,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 284225,
+      "bytes": 283898,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -557,7 +557,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40735,
+      "bytes": 40676,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -578,6 +578,11 @@
     "jsonld_en_listado": 0,
     "fichas_probadas": [
       {
+        "url": "https://www.timeout.com/es/buenos-aires/que-hacer-este-mes-agenda",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
         "url": "https://www.timeout.com/es/buenos-aires/agenda-semana",
         "eventos": 0,
         "muestra": []
@@ -586,15 +591,10 @@
         "url": "https://www.timeout.com/es/buenos-aires/agenda",
         "eventos": 0,
         "muestra": []
-      },
-      {
-        "url": "https://www.timeout.com/es/buenos-aires/que-hacer/calle-corrientes-las-mejores-obras-de-teatro-cartelera",
-        "eventos": 0,
-        "muestra": []
       }
     ],
     "jsonld_en_fichas": 0,
-    "ficha_guardada": "https://www.timeout.com/es/buenos-aires/agenda-semana"
+    "ficha_guardada": "https://www.timeout.com/es/buenos-aires/que-hacer-este-mes-agenda"
   },
   {
     "name": "Alternativa Teatral",
@@ -619,7 +619,7 @@
       "url": "https://www.alternativateatral.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 17960,
+      "bytes": 17872,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "Microsoft-IIS/10.0",
@@ -632,7 +632,7 @@
       "url": "https://www.alternativateatral.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 17960,
+      "bytes": 17872,
       "cabeceras": {
         "content-type": "text/html; charset=UTF-8",
         "server": "Microsoft-IIS/10.0",
@@ -645,7 +645,7 @@
       "url": "https://www.alternativateatral.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 17960,
+      "bytes": 17872,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "Microsoft-IIS/10.0",
@@ -680,7 +680,7 @@
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a340f41adf7ac078-SEA"
+        "CF-RAY": "a34106a7c8bcf997-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/robots.txt",
@@ -690,13 +690,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21729,
+      "bytes": 21668,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a340f42c5b51c078-SEA"
+        "CF-RAY": "a34106b94c0ef997-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -705,13 +705,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 132668,
+      "bytes": 131879,
       "cabeceras": {
         "content-type": "text/html; charset=UTF-8",
         "server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a340f435dcb7757b-SEA"
+        "cf-ray": "a34106c2dd0017e6-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -720,13 +720,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21820,
+      "bytes": 21668,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a340f43f3b317594-SEA"
+        "CF-RAY": "a34106cc18156037-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -931,12 +931,12 @@
       },
       {
         "url": "https://www.malba.org.ar/feed/",
-        "resultado": "HTTP 429",
-        "status": 429,
-        "bytes": 1168,
+        "resultado": "HTTP 403",
+        "status": 403,
+        "bytes": 17,
         "cabeceras": {
           "Server": "nginx",
-          "Content-Type": "text/html"
+          "Content-Type": "application/rss+xml; charset=UTF-8"
         },
         "cookies": [],
         "final": "https://malba.org.ar/feed/",
@@ -982,7 +982,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "BYPASS",
-        "CF-RAY": "a340fdc7be8d681b-SEA"
+        "CF-RAY": "a3410fcbce2e52dc-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/robots.txt",
@@ -999,7 +999,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a340fdd95d32681b-SEA"
+        "CF-RAY": "a3410fdceb1252dc-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1015,7 +1015,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a340fde2ccbde945-SEA"
+        "cf-ray": "a3410fe66df41d57-PDX"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1024,14 +1024,14 @@
       "url": "https://museomoderno.org/agenda/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 24612,
+      "bytes": 24631,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.3.24",
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a340fdec38525907-SEA"
+        "CF-RAY": "a3410ff0583e02a2-ORD"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
