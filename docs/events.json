@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T18:41:41-03:00",
-  "city": "Ciudad Autónoma de Buenos Aires",
+  "generated_at": "2026-09-01T19:17:02-03:00",
+  "city": "Área Metropolitana de Buenos Aires",
   "license": "Datos públicos recopilados de agendas oficiales. Uso informativo.",
   "sources": [
     {
@@ -104,6 +104,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -112,7 +113,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -131,6 +133,7 @@
       "end_time": "16:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "teatro-picadilly",
@@ -139,13 +142,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/a-midsummer-night-s-dream-01-09-10-00-hs-47912",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:17-03:00"
+      "updated_at": "2026-09-01T19:14:38-03:00"
     },
     {
       "id": "shopping-portal-escobar-funpass-parque-inflable-2026-09-01",
@@ -158,6 +162,7 @@
       "end_time": "16:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "shopping-portal-escobar",
@@ -166,13 +171,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/funpass-parque-inflable-46855",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:19-03:00"
+      "updated_at": "2026-09-01T19:14:39-03:00"
     },
     {
       "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-01",
@@ -188,6 +194,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -196,7 +203,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -218,6 +226,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -226,7 +235,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -248,6 +258,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -256,7 +267,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -278,6 +290,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -286,7 +299,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -308,6 +322,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -316,7 +331,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -335,6 +351,7 @@
       "end_time": "21:14",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "quality-espacio",
@@ -343,13 +360,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/love-the-90-s-48172",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:23-03:00"
+      "updated_at": "2026-09-01T19:14:44-03:00"
     },
     {
       "id": "quality-espacio-sin-bandera-2026-09-01",
@@ -362,6 +380,7 @@
       "end_time": "21:14",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "quality-espacio",
@@ -370,13 +389,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/sin-bandera-48173",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:25-03:00"
+      "updated_at": "2026-09-01T19:14:46-03:00"
     },
     {
       "id": "centro-cultural-y-politico-el-hormiguero-conversatorio-etica-del-arte-territorio-y-resiliencia-2026-09-01",
@@ -389,6 +409,7 @@
       "end_time": "23:30",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-y-politico-el-hormiguero",
@@ -397,13 +418,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/conversatorio-etica-del-arte-territorio-y-resiliencia-51448",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:26-03:00"
+      "updated_at": "2026-09-01T19:14:47-03:00"
     },
     {
       "id": "centro-cultural-recoleta-calabxzxs-dragxnes-2026-09-01",
@@ -416,6 +438,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -424,13 +447,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/calabxzxs-dragxnes",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:32-03:00"
+      "updated_at": "2026-09-01T19:13:53-03:00"
     },
     {
       "id": "cementerio-britanico-de-buenos-aires-shakespeare-en-el-cementerio-2026-09-01",
@@ -443,6 +467,7 @@
       "end_time": "00:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "cementerio-britanico-de-buenos-aires",
@@ -451,13 +476,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/shakespeare-en-el-cementerio-51449",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:28-03:00"
+      "updated_at": "2026-09-01T19:14:49-03:00"
     },
     {
       "id": "centro-cultural-recoleta-haitz-inigo-ibaibarriaga-2026-09-01",
@@ -470,6 +496,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -478,13 +505,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/haitz-inigo-ibaibarriaga",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:29-03:00"
+      "updated_at": "2026-09-01T19:13:50-03:00"
     },
     {
       "id": "dumont-4040-martes-de-la-grande-2026-09-01",
@@ -497,6 +525,7 @@
       "end_time": "01:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "dumont-4040",
@@ -505,13 +534,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/martes-de-la-grande-51714",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:32-03:00"
+      "updated_at": "2026-09-01T19:14:53-03:00"
     },
     {
       "id": "teatro-hasta-trilce-pena-sin-cadenas-2026-09-01",
@@ -524,6 +554,7 @@
       "end_time": "01:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "teatro-hasta-trilce",
@@ -532,13 +563,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/pena-sin-cadenas-51715",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:37-03:00"
+      "updated_at": "2026-09-01T19:14:57-03:00"
     },
     {
       "id": "espacio-biarritz-una-casa-en-biarritz-2026-09-01",
@@ -551,6 +583,7 @@
       "end_time": "01:30",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "espacio-biarritz",
@@ -559,13 +592,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/una-casa-en-biarritz-51450",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:38-03:00"
+      "updated_at": "2026-09-01T19:14:59-03:00"
     },
     {
       "id": "jazz-voyeur-club-hotel-melia-recoleta-plaza-denise-izaguirre-quartet-west-coast-jazz-always-cool-jazz-vo-2026-09-01",
@@ -578,6 +612,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "jazz-voyeur-club-hotel-melia-recoleta-plaza",
@@ -586,7 +621,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/denise-izaguirre-quartet-west-coast-jazz-always-cool-jazz-voyeur-club-43851",
@@ -605,6 +641,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "teatro-auditorium-centro-provincial-de-las-artes",
@@ -613,13 +650,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/disparate-51453",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:49-03:00"
+      "updated_at": "2026-09-01T19:15:09-03:00"
     },
     {
       "id": "paseo-la-plaza-el-tiempo-todo-entero-2026-09-01",
@@ -632,6 +670,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "paseo-la-plaza",
@@ -640,13 +679,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/el-tiempo-todo-entero-44604",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:47-03:00"
+      "updated_at": "2026-09-01T19:15:08-03:00"
     },
     {
       "id": "itaca-complejo-teatral-kristallnacht-la-noche-de-los-cristales-rotos-2026-09-01",
@@ -659,6 +699,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "itaca-complejo-teatral",
@@ -667,7 +708,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/kristallnacht-la-noche-de-los-cristales-rotos-51456",
@@ -686,6 +728,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "picadero",
@@ -694,13 +737,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/la-vida-extraordinaria-44919",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:41-03:00"
+      "updated_at": "2026-09-01T19:15:02-03:00"
     },
     {
       "id": "politeama-los-ojos-del-perro-siberiano-2026-09-01",
@@ -713,6 +757,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "politeama",
@@ -721,13 +766,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/los-ojos-del-perro-siberiano-41482",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:46-03:00"
+      "updated_at": "2026-09-01T19:15:07-03:00"
     },
     {
       "id": "biri-biri-las-lindas-gregorio-2026-09-01",
@@ -740,6 +786,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "biri-biri",
@@ -748,7 +795,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/las-lindas-gregorio-49441",
@@ -767,6 +815,7 @@
       "end_time": "02:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "auditorio-aic-abasto",
@@ -775,7 +824,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/mio-51451",
@@ -794,6 +844,7 @@
       "end_time": "02:30",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "sala-caras-y-caretas",
@@ -802,7 +853,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/persona-martes-1-de-septiembre-de-2026-48647",
@@ -821,6 +873,7 @@
       "end_time": "02:30",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "maipo",
@@ -829,7 +882,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/saraos-uranistas-45424",
@@ -848,6 +902,7 @@
       "end_time": "02:30",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "teatro-metropolitan",
@@ -856,7 +911,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/suavecita-46357",
@@ -875,6 +931,7 @@
       "end_time": "02:45",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "paseo-la-plaza",
@@ -883,7 +940,8 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/la-desgracia-44854",
@@ -905,6 +963,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -913,7 +972,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -935,6 +995,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -943,7 +1004,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -965,6 +1027,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -973,7 +1036,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -995,6 +1059,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1003,7 +1068,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1025,6 +1091,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1033,7 +1100,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1055,6 +1123,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -1063,7 +1132,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1082,6 +1152,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "RESERVA_PREVIA",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -1090,13 +1161,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/tercera-dimension-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:28-03:00"
+      "updated_at": "2026-09-01T19:16:49-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-02",
@@ -1109,6 +1181,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -1117,13 +1190,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "usina-del-arte-la-filarmonica-de-buenos-aires-en-la-usina-del-arte-2026-09-03",
@@ -1136,6 +1210,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -1144,13 +1219,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/la-filarmonica-de-buenos-aires-en-la-usina-del-arte-septiembre/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:31-03:00"
+      "updated_at": "2026-09-01T19:12:52-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-03",
@@ -1166,6 +1242,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -1174,7 +1251,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1196,6 +1274,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -1204,7 +1283,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1226,6 +1306,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -1234,7 +1315,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -1256,6 +1338,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1264,7 +1347,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1286,6 +1370,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1294,7 +1379,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1316,6 +1402,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -1324,7 +1411,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1343,6 +1431,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -1351,13 +1440,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/trama-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:40:54-03:00"
+      "updated_at": "2026-09-01T19:16:15-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-03",
@@ -1370,6 +1460,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -1378,13 +1469,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "usina-del-arte-la-filarmonica-de-buenos-aires-en-la-usina-del-arte-2026-09-04",
@@ -1397,6 +1489,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -1405,13 +1498,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/la-filarmonica-de-buenos-aires-en-la-usina-del-arte-septiembre/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:31-03:00"
+      "updated_at": "2026-09-01T19:12:52-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-04",
@@ -1427,6 +1521,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -1435,7 +1530,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1457,6 +1553,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -1465,7 +1562,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1487,6 +1585,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -1495,7 +1594,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -1514,6 +1614,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -1522,13 +1623,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-16/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:27-03:00"
+      "updated_at": "2026-09-01T19:16:48-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-04",
@@ -1544,6 +1646,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1552,7 +1655,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1574,6 +1678,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1582,7 +1687,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1604,6 +1710,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -1612,7 +1719,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1631,6 +1739,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -1639,13 +1748,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/viernes-de-hitchcock",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:41-03:00"
+      "updated_at": "2026-09-01T19:14:02-03:00"
     },
     {
       "id": "centro-cultural-recoleta-sofa-2026-09-04",
@@ -1658,6 +1768,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -1666,13 +1777,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/sofa",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:36-03:00"
+      "updated_at": "2026-09-01T19:13:57-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-2026-09-04",
@@ -1685,6 +1797,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -1693,13 +1806,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:27-03:00"
+      "updated_at": "2026-09-01T19:12:48-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-between-time-and-sound-2026-09-04",
@@ -1712,6 +1826,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -1720,13 +1835,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:30-03:00"
+      "updated_at": "2026-09-01T19:12:51-03:00"
     },
     {
       "id": "usina-del-arte-ludo-espacio-usina-del-arte-2026-09-04",
@@ -1739,6 +1855,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -1747,13 +1864,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/ludo-espacio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:28-03:00"
+      "updated_at": "2026-09-01T19:12:49-03:00"
     },
     {
       "id": "la-cupula-bar-rock-tributo-gardelitos-en-la-cupula-2026-09-04",
@@ -1766,6 +1884,7 @@
       "end_time": "04:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "la-cupula-bar-rock",
@@ -1774,13 +1893,14 @@
         "neighborhood": null,
         "commune": null,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Qué Hacemos",
       "source_url": "https://www.quehacemos.com.ar/eventos/tributo-gardelitos-en-la-cupula-50909",
       "source_id": "que-hacemos",
       "image_url": null,
-      "updated_at": "2026-09-01T18:39:05-03:00"
+      "updated_at": "2026-09-01T19:14:26-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-05",
@@ -1796,6 +1916,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -1804,7 +1925,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1826,6 +1948,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -1834,7 +1957,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -1856,6 +1980,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -1864,7 +1989,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -1883,6 +2009,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -1891,13 +2018,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/flu-la-fiesta-del-libro-usado",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:39-03:00"
+      "updated_at": "2026-09-01T19:14:00-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-05",
@@ -1913,6 +2041,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1921,7 +2050,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1943,6 +2073,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -1951,7 +2082,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -1973,6 +2105,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -1981,7 +2114,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2000,6 +2134,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -2008,13 +2143,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/caleidoscopio-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:00-03:00"
+      "updated_at": "2026-09-01T19:16:21-03:00"
     },
     {
       "id": "centro-cultural-recoleta-rarezas-del-este-2026-09-05",
@@ -2027,6 +2163,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -2035,13 +2172,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:33-03:00"
+      "updated_at": "2026-09-01T19:13:54-03:00"
     },
     {
       "id": "museo-de-arte-moderno-ensayo-infinito-2026-09-05",
@@ -2054,6 +2192,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -2062,13 +2201,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/ensayo-infinito-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:02-03:00"
+      "updated_at": "2026-09-01T19:16:22-03:00"
     },
     {
       "id": "usina-del-arte-baila-funk-usina-del-arte-2026-09-05",
@@ -2081,6 +2221,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2089,13 +2230,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/baila-funk/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:39-03:00"
+      "updated_at": "2026-09-01T19:13:00-03:00"
     },
     {
       "id": "usina-del-arte-coro-experiencia-gospel-2026-09-05",
@@ -2108,6 +2250,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2116,13 +2259,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/coro-experiencia-gospel/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:41-03:00"
+      "updated_at": "2026-09-01T19:13:01-03:00"
     },
     {
       "id": "usina-del-arte-coro-gospel-avellaneda-2026-09-05",
@@ -2135,6 +2279,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2143,13 +2288,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/coro-gospel-avellaneda/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:37-03:00"
+      "updated_at": "2026-09-01T19:12:58-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-2026-09-05",
@@ -2162,6 +2308,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2170,13 +2317,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:27-03:00"
+      "updated_at": "2026-09-01T19:12:48-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-between-time-and-sound-2026-09-05",
@@ -2189,6 +2337,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2197,13 +2346,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:30-03:00"
+      "updated_at": "2026-09-01T19:12:51-03:00"
     },
     {
       "id": "usina-del-arte-ludo-espacio-usina-del-arte-2026-09-05",
@@ -2216,6 +2366,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2224,13 +2375,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/ludo-espacio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:28-03:00"
+      "updated_at": "2026-09-01T19:12:49-03:00"
     },
     {
       "id": "usina-del-arte-raices-beats-dj-gospel-2026-09-05",
@@ -2243,6 +2395,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2251,13 +2404,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/raices-beats-dj-gospel/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:34-03:00"
+      "updated_at": "2026-09-01T19:12:55-03:00"
     },
     {
       "id": "usina-del-arte-solo-jazz-exploracion-del-movimiento-2026-09-05",
@@ -2270,6 +2424,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2278,13 +2433,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/solo-jazz-exploracion-del-movimiento/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:36-03:00"
+      "updated_at": "2026-09-01T19:12:57-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-05",
@@ -2297,6 +2453,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -2305,13 +2462,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-de-arte-moderno-modos-de-existencia-de-la-costa-de-buenos-aires-2026-09-05",
@@ -2324,6 +2482,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -2332,13 +2491,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/modos-de-existencia-de-la-costa-de-buenos-aires/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:25-03:00"
+      "updated_at": "2026-09-01T19:16:46-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-06",
@@ -2354,6 +2514,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -2362,7 +2523,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2384,6 +2546,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -2392,7 +2555,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2415,6 +2579,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "feria-de-mataderos",
@@ -2423,7 +2588,8 @@
         "neighborhood": "Mataderos",
         "commune": 9,
         "lat": -34.658,
-        "lon": -58.503
+        "lon": -58.503,
+        "zone": "CABA"
       },
       "source_name": "Turismo Buenos Aires",
       "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
@@ -2445,6 +2611,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -2453,7 +2620,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -2472,6 +2640,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -2480,13 +2649,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/flu-la-fiesta-del-libro-usado",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:39-03:00"
+      "updated_at": "2026-09-01T19:14:00-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-06",
@@ -2502,6 +2672,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -2510,7 +2681,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -2532,6 +2704,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -2540,7 +2713,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -2562,6 +2736,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -2570,7 +2745,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2589,6 +2765,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -2597,13 +2774,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/miradas-cruzadas-2/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:24-03:00"
+      "updated_at": "2026-09-01T19:16:45-03:00"
     },
     {
       "id": "centro-cultural-recoleta-rarezas-del-este-2026-09-06",
@@ -2616,6 +2794,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -2624,13 +2803,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:33-03:00"
+      "updated_at": "2026-09-01T19:13:54-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-2026-09-06",
@@ -2643,6 +2823,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2651,13 +2832,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:27-03:00"
+      "updated_at": "2026-09-01T19:12:48-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-between-time-and-sound-2026-09-06",
@@ -2670,6 +2852,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2678,13 +2861,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:30-03:00"
+      "updated_at": "2026-09-01T19:12:51-03:00"
     },
     {
       "id": "usina-del-arte-ludo-espacio-usina-del-arte-2026-09-06",
@@ -2697,6 +2881,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -2705,13 +2890,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/ludo-espacio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:28-03:00"
+      "updated_at": "2026-09-01T19:12:49-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-07",
@@ -2727,6 +2913,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -2735,7 +2922,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2757,6 +2945,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -2765,7 +2954,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2787,6 +2977,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -2795,7 +2986,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2817,6 +3009,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -2825,7 +3018,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -2847,6 +3041,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -2855,7 +3050,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -2877,6 +3073,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -2885,7 +3082,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -2907,6 +3105,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -2915,7 +3114,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2934,6 +3134,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -2942,13 +3143,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/calabxzxs-dragxnes",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:32-03:00"
+      "updated_at": "2026-09-01T19:13:53-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-09",
@@ -2964,6 +3166,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -2972,7 +3175,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -2994,6 +3198,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -3002,7 +3207,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3024,6 +3230,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -3032,7 +3239,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -3054,6 +3262,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3062,7 +3271,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3084,6 +3294,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3092,7 +3303,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3114,6 +3326,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -3122,7 +3335,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3141,6 +3355,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "RESERVA_PREVIA",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3149,13 +3364,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/tercera-dimension-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:28-03:00"
+      "updated_at": "2026-09-01T19:16:49-03:00"
     },
     {
       "id": "centro-cultural-recoleta-borges-360-2026-09-09",
@@ -3168,6 +3384,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -3176,13 +3393,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/borges-360",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:38-03:00"
+      "updated_at": "2026-09-01T19:13:59-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-09",
@@ -3195,6 +3413,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3203,13 +3422,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-10",
@@ -3225,6 +3445,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -3233,7 +3454,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3255,6 +3477,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -3263,7 +3486,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3285,6 +3509,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -3293,7 +3518,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -3315,6 +3541,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3323,7 +3550,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3345,6 +3573,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3353,7 +3582,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3375,6 +3605,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -3383,7 +3614,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3402,6 +3634,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3410,13 +3643,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/trama-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:40:54-03:00"
+      "updated_at": "2026-09-01T19:16:15-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-10",
@@ -3429,6 +3663,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3437,13 +3672,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-de-arte-moderno-terra-forma-2026-09-10",
@@ -3456,6 +3692,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3464,13 +3701,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/terra-forma/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:21-03:00"
+      "updated_at": "2026-09-01T19:16:42-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-11",
@@ -3486,6 +3724,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -3494,7 +3733,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3516,6 +3756,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -3524,7 +3765,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3546,6 +3788,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -3554,7 +3797,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -3576,6 +3820,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3584,7 +3829,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3606,6 +3852,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3614,7 +3861,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3636,6 +3884,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -3644,7 +3893,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3663,6 +3913,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3671,13 +3922,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/tela-papel-tijera-pablo-ramirez/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:07-03:00"
+      "updated_at": "2026-09-01T19:16:28-03:00"
     },
     {
       "id": "centro-cultural-recoleta-viernes-de-hitchcock-2026-09-11",
@@ -3690,6 +3942,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -3698,13 +3951,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/viernes-de-hitchcock",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:41-03:00"
+      "updated_at": "2026-09-01T19:14:02-03:00"
     },
     {
       "id": "usina-del-arte-luis-salinas-y-juan-salinas-2026-09-11",
@@ -3717,6 +3971,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -3725,13 +3980,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/luis-salinas-y-juan-salinas/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:43-03:00"
+      "updated_at": "2026-09-01T19:13:04-03:00"
     },
     {
       "id": "museo-de-arte-moderno-terra-forma-2026-09-11",
@@ -3744,6 +4000,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3752,13 +4009,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/terra-forma/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:21-03:00"
+      "updated_at": "2026-09-01T19:16:42-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-12",
@@ -3774,6 +4032,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -3782,7 +4041,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3804,6 +4064,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -3812,7 +4073,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3831,6 +4093,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3839,13 +4102,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/moderno-bailable/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:40:58-03:00"
+      "updated_at": "2026-09-01T19:16:19-03:00"
     },
     {
       "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-12",
@@ -3861,6 +4125,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -3869,7 +4134,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -3891,6 +4157,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3899,7 +4166,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3921,6 +4189,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -3929,7 +4198,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -3951,6 +4221,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -3959,7 +4230,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -3978,6 +4250,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -3986,13 +4259,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/caleidoscopio-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:00-03:00"
+      "updated_at": "2026-09-01T19:16:21-03:00"
     },
     {
       "id": "museo-de-arte-moderno-ensayo-infinito-2026-09-12",
@@ -4005,6 +4279,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4013,13 +4288,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/ensayo-infinito-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:02-03:00"
+      "updated_at": "2026-09-01T19:16:22-03:00"
     },
     {
       "id": "usina-del-arte-sur-sinfonico-por-fundacion-x-la-bocaorquestas-infantiles-y--2026-09-12",
@@ -4032,6 +4308,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -4040,13 +4317,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/sur-sinfonico-por-fundacion-x-la-bocaorquestas-infantiles-y-juveniles-tam-lugano-natatorio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:45-03:00"
+      "updated_at": "2026-09-01T19:13:06-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-12",
@@ -4059,6 +4337,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4067,13 +4346,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-de-arte-moderno-las-tres-ecologias-2026-09-12",
@@ -4086,6 +4366,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4094,13 +4375,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-17/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:19-03:00"
+      "updated_at": "2026-09-01T19:16:40-03:00"
     },
     {
       "id": "centro-cultural-recoleta-sabados-de-superaccion-2026-09-12",
@@ -4113,6 +4395,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -4121,13 +4404,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/sabados-de-superaccion",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:48-03:00"
+      "updated_at": "2026-09-01T19:14:09-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-13",
@@ -4143,6 +4427,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -4151,7 +4436,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4173,6 +4459,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -4181,7 +4468,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4204,6 +4492,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "feria-de-mataderos",
@@ -4212,7 +4501,8 @@
         "neighborhood": "Mataderos",
         "commune": 9,
         "lat": -34.658,
-        "lon": -58.503
+        "lon": -58.503,
+        "zone": "CABA"
       },
       "source_name": "Turismo Buenos Aires",
       "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
@@ -4234,6 +4524,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -4242,7 +4533,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -4261,6 +4553,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4269,13 +4562,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/caja-de-sorpresas/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:03-03:00"
+      "updated_at": "2026-09-01T19:16:24-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-13",
@@ -4291,6 +4585,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -4299,7 +4594,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -4321,6 +4617,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -4329,7 +4626,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -4351,6 +4649,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -4359,7 +4658,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4378,6 +4678,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -4386,13 +4687,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:33-03:00"
+      "updated_at": "2026-09-01T19:13:54-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-13",
@@ -4405,6 +4707,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4413,13 +4716,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-14",
@@ -4435,6 +4739,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -4443,7 +4748,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4462,6 +4768,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "ORDEN_DE_LLEGADA",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -4470,13 +4777,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/emilio-peroni-piano/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:48-03:00"
+      "updated_at": "2026-09-01T19:13:09-03:00"
     },
     {
       "id": "usina-del-arte-ojos-en-zoom-taller-de-dibujo-sobre-tela-nos-acompana-filgo-2026-09-14",
@@ -4489,6 +4797,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -4497,13 +4806,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/ojos-en-zoom-taller-de-dibujo-sobre-tela-nos-acompana-filgo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:49-03:00"
+      "updated_at": "2026-09-01T19:13:10-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-15",
@@ -4519,6 +4829,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -4527,7 +4838,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4549,6 +4861,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -4557,7 +4870,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4579,6 +4893,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -4587,7 +4902,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -4609,6 +4925,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -4617,7 +4934,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -4639,6 +4957,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -4647,7 +4966,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -4669,6 +4989,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -4677,7 +4998,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4696,6 +5018,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -4704,13 +5027,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/calabxzxs-dragxnes",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:32-03:00"
+      "updated_at": "2026-09-01T19:13:53-03:00"
     },
     {
       "id": "usina-del-arte-dakhabrakha-usina-del-arte-2026-09-15",
@@ -4723,6 +5047,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -4731,13 +5056,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/dakhabrakha/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:58-03:00"
+      "updated_at": "2026-09-01T19:13:19-03:00"
     },
     {
       "id": "usina-del-arte-barbie-martinez-cuarteto-2026-09-15",
@@ -4750,6 +5076,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -4758,13 +5085,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/barbie-martinez-cuarteto/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:52-03:00"
+      "updated_at": "2026-09-01T19:13:14-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-16",
@@ -4780,6 +5108,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -4788,7 +5117,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4810,6 +5140,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -4818,7 +5149,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4840,6 +5172,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -4848,7 +5181,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -4867,6 +5201,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4875,13 +5210,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/historias-compartidas-6/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:18-03:00"
+      "updated_at": "2026-09-01T19:16:39-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-16",
@@ -4897,6 +5233,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -4905,7 +5242,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -4927,6 +5265,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -4935,7 +5274,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -4957,6 +5297,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -4965,7 +5306,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -4984,6 +5326,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "RESERVA_PREVIA",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -4992,13 +5335,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/tercera-dimension-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:28-03:00"
+      "updated_at": "2026-09-01T19:16:49-03:00"
     },
     {
       "id": "centro-cultural-recoleta-metaforas-2026-09-16",
@@ -5011,6 +5355,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5019,13 +5364,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/metaforas",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:44-03:00"
+      "updated_at": "2026-09-01T19:14:05-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-16",
@@ -5038,6 +5384,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5046,13 +5393,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-17",
@@ -5068,6 +5416,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -5076,7 +5425,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5098,6 +5448,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -5106,7 +5457,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5128,6 +5480,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5136,7 +5489,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -5158,6 +5512,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -5166,7 +5521,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -5188,6 +5544,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -5196,7 +5553,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -5218,6 +5576,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -5226,7 +5585,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5245,6 +5605,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5253,13 +5614,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/trama-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:40:54-03:00"
+      "updated_at": "2026-09-01T19:16:15-03:00"
     },
     {
       "id": "centro-cultural-recoleta-metaforas-2026-09-17",
@@ -5272,6 +5634,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5280,13 +5643,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/metaforas",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:44-03:00"
+      "updated_at": "2026-09-01T19:14:05-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-17",
@@ -5299,6 +5663,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5307,13 +5672,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-de-arte-moderno-las-tres-ecologias-2026-09-17",
@@ -5326,6 +5692,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5334,13 +5701,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-17/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:19-03:00"
+      "updated_at": "2026-09-01T19:16:40-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-18",
@@ -5356,6 +5724,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -5364,7 +5733,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5383,6 +5753,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5391,13 +5762,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-13/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:40:55-03:00"
+      "updated_at": "2026-09-01T19:16:16-03:00"
     },
     {
       "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-18",
@@ -5413,6 +5785,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -5421,7 +5794,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5443,6 +5817,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5451,7 +5826,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -5473,6 +5849,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -5481,7 +5858,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -5503,6 +5881,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -5511,7 +5890,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -5533,6 +5913,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -5541,7 +5922,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5560,6 +5942,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5568,13 +5951,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/viernes-de-hitchcock",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:41-03:00"
+      "updated_at": "2026-09-01T19:14:02-03:00"
     },
     {
       "id": "centro-cultural-recoleta-lucio-mantel-2026-09-18",
@@ -5587,6 +5971,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "ORDEN_DE_LLEGADA",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5595,13 +5980,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/lucio-mantel",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:35-03:00"
+      "updated_at": "2026-09-01T19:13:56-03:00"
     },
     {
       "id": "usina-del-arte-barbie-martinez-cuarteto-2026-09-18",
@@ -5614,6 +6000,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -5622,13 +6009,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/barbie-martinez-cuarteto/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:52-03:00"
+      "updated_at": "2026-09-01T19:13:14-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-18",
@@ -5641,6 +6029,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5649,13 +6038,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-19",
@@ -5671,6 +6061,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -5679,7 +6070,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5701,6 +6093,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -5709,7 +6102,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5728,6 +6122,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5736,13 +6131,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/moderno-bailable/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:40:58-03:00"
+      "updated_at": "2026-09-01T19:16:19-03:00"
     },
     {
       "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-19",
@@ -5758,6 +6154,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5766,7 +6163,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -5788,6 +6186,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -5796,7 +6195,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -5818,6 +6218,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -5826,7 +6227,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -5848,6 +6250,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -5856,7 +6259,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -5875,6 +6279,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5883,13 +6288,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/caleidoscopio-edicion-especial-en-parque-lezama/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:15-03:00"
+      "updated_at": "2026-09-01T19:16:36-03:00"
     },
     {
       "id": "centro-cultural-recoleta-rarezas-del-este-2026-09-19",
@@ -5902,6 +6308,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -5910,13 +6317,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:33-03:00"
+      "updated_at": "2026-09-01T19:13:54-03:00"
     },
     {
       "id": "museo-de-arte-moderno-ensayo-infinito-2026-09-19",
@@ -5929,6 +6337,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5937,13 +6346,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/ensayo-infinito-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:02-03:00"
+      "updated_at": "2026-09-01T19:16:22-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-19",
@@ -5956,6 +6366,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -5964,13 +6375,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:06-03:00"
+      "updated_at": "2026-09-01T19:16:27-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-20",
@@ -5986,6 +6398,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -5994,7 +6407,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6016,6 +6430,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -6024,7 +6439,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6047,6 +6463,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "feria-de-mataderos",
@@ -6055,7 +6472,8 @@
         "neighborhood": "Mataderos",
         "commune": 9,
         "lat": -34.658,
-        "lon": -58.503
+        "lon": -58.503,
+        "zone": "CABA"
       },
       "source_name": "Turismo Buenos Aires",
       "source_url": "https://turismo.buenosaires.gob.ar/es/eventos",
@@ -6077,6 +6495,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -6085,7 +6504,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -6107,6 +6527,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6115,7 +6536,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6137,6 +6559,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6145,7 +6568,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6167,6 +6591,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -6175,7 +6600,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6194,6 +6620,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-de-arte-moderno",
@@ -6202,13 +6629,14 @@
         "neighborhood": "San Telmo",
         "commune": 1,
         "lat": null,
-        "lon": null
+        "lon": null,
+        "zone": "CABA"
       },
       "source_name": "Museo Moderno",
       "source_url": "https://museomoderno.org/agenda/miradas-cruzadas-2/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T18:41:24-03:00"
+      "updated_at": "2026-09-01T19:16:45-03:00"
     },
     {
       "id": "centro-cultural-recoleta-antidomingos-en-el-recoleta-2026-09-20",
@@ -6221,6 +6649,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "ORDEN_DE_LLEGADA",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -6229,13 +6658,14 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/antidomingos-en-el-recoleta",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:54-03:00"
+      "updated_at": "2026-09-01T19:14:15-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-21",
@@ -6251,6 +6681,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -6259,7 +6690,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6278,6 +6710,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -6286,13 +6719,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/dakhabrakha/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:37:58-03:00"
+      "updated_at": "2026-09-01T19:13:19-03:00"
     },
     {
       "id": "usina-del-arte-paisajes-panoramicos-taller-de-dibujo-y-pintura-con-acuarela-2026-09-21",
@@ -6305,6 +6739,7 @@
       "end_time": null,
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "usina-del-arte",
@@ -6313,13 +6748,14 @@
         "neighborhood": "La Boca",
         "commune": 4,
         "lat": -34.639,
-        "lon": -58.3576
+        "lon": -58.3576,
+        "zone": "CABA"
       },
       "source_name": "Usina del Arte",
       "source_url": "https://usinadelarte.ar/actividad/paisajes-panoramicos-taller-de-dibujo-y-pintura-con-acuarela-nos-acompana-filgo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T18:38:02-03:00"
+      "updated_at": "2026-09-01T19:13:22-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-22",
@@ -6335,6 +6771,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -6343,7 +6780,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6365,6 +6803,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -6373,7 +6812,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6395,6 +6835,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -6403,7 +6844,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -6425,6 +6867,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6433,7 +6876,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6455,6 +6899,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6463,7 +6908,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6485,6 +6931,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -6493,7 +6940,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6515,6 +6963,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -6523,7 +6972,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6545,6 +6995,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -6553,7 +7004,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6575,6 +7027,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -6583,7 +7036,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -6605,6 +7059,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6613,7 +7068,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6635,6 +7091,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6643,7 +7100,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6665,6 +7123,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -6673,7 +7132,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6695,6 +7155,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -6703,7 +7164,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6725,6 +7187,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -6733,7 +7196,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6755,6 +7219,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -6763,7 +7228,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -6785,6 +7251,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6793,7 +7260,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6815,6 +7283,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6823,7 +7292,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6845,6 +7315,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -6853,7 +7324,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6875,6 +7347,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -6883,7 +7356,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6905,6 +7379,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -6913,7 +7388,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -6935,6 +7411,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -6943,7 +7420,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -6965,6 +7443,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -6973,7 +7452,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -6995,6 +7475,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -7003,7 +7484,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -7025,6 +7507,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -7033,7 +7516,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -7055,6 +7539,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-nacional-bellas-artes",
@@ -7063,7 +7548,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.5838,
-        "lon": -58.3919
+        "lon": -58.3919,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -7085,6 +7571,7 @@
       "end_time": "18:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "museo-del-cabildo",
@@ -7093,7 +7580,8 @@
         "neighborhood": "Monserrat",
         "commune": 1,
         "lat": -34.6086,
-        "lon": -58.373
+        "lon": -58.373,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
@@ -7115,6 +7603,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "centro-cultural-recoleta",
@@ -7123,7 +7612,8 @@
         "neighborhood": "Recoleta",
         "commune": 2,
         "lat": -34.583,
-        "lon": -58.3937
+        "lon": -58.3937,
+        "zone": "CABA"
       },
       "source_name": "Centro Cultural Recoleta",
       "source_url": "http://www.centroculturalrecoleta.org/agenda",
@@ -7145,6 +7635,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -7153,7 +7644,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -7175,6 +7667,7 @@
       "end_time": "19:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "palacio-libertad",
@@ -7183,7 +7676,8 @@
         "neighborhood": "San Nicolás",
         "commune": 1,
         "lat": -34.6031,
-        "lon": -58.3696
+        "lon": -58.3696,
+        "zone": "CABA"
       },
       "source_name": "Palacio Libertad",
       "source_url": "https://palaciolibertad.gob.ar/agenda/",
@@ -7205,6 +7699,7 @@
       "end_time": "20:00",
       "all_day": false,
       "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
       "reservation_url": null,
       "venue": {
         "id": "casa-nacional-bicentenario",
@@ -7213,7 +7708,8 @@
         "neighborhood": "Balvanera",
         "commune": 3,
         "lat": -34.5959,
-        "lon": -58.3945
+        "lon": -58.3945,
+        "zone": "CABA"
       },
       "source_name": "Argentina.gob.ar",
       "source_url": "https://www.argentina.gob.ar/noticias/agenda-de-cultura-para-el-fin-de-semana-97",
