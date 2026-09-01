@@ -371,3 +371,21 @@ def test_una_fuente_normal_conserva_su_hora_de_fin():
     entrada = {"name": "Museo Moderno", "kind": "fichas", "status": "activo",
                "url": "https://x.test/agenda", "venue": "Museo Moderno"}
     assert _transporte(_construir(entrada), entrada).ignorar_hora_fin is False
+
+
+# --- El prospector proponía un feed de comentarios como agenda ------------
+
+def test_el_feed_de_comentarios_no_es_una_agenda():
+    """WordPress declara dos feeds en el <head>: entradas y comentarios.
+
+    Ordenados alfabéticamente gana "comments/feed", y como parsea igual de
+    bien, la prospección del 2026-09-01 propuso el feed de COMENTARIOS de la
+    Usina como fuente de eventos. Pegar esa configuración habría publicado
+    comentarios de blog como si fueran la agenda.
+    """
+    from discover import es_feed_de_comentarios
+
+    assert es_feed_de_comentarios("https://usinadelarte.ar/comments/feed/")
+    assert es_feed_de_comentarios("https://x.ar/comments/feed")
+    assert not es_feed_de_comentarios("https://usinadelarte.ar/feed/")
+    assert not es_feed_de_comentarios("https://museomoderno.org/agenda/feed/")
