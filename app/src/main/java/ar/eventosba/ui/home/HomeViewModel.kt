@@ -16,6 +16,7 @@ import ar.eventosba.domain.model.Event
 import ar.eventosba.domain.model.EventFilter
 import ar.eventosba.domain.model.SortOrder
 import ar.eventosba.domain.model.TimeSlot
+import ar.eventosba.domain.model.Zone
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -34,9 +35,33 @@ data class HomeUiState(
     val errorMessage: String? = null,
     val lastSyncMillis: Long? = null,
 ) {
-    /** Barrios presentes en la agenda actual: los chips no se inventan. */
+    /** Zonas presentes en la agenda actual, en el orden del enum. */
+    val availableZones: List<Zone>
+        get() {
+            val presentes = allEvents.map { it.venue.zone }.toSet()
+            return Zone.entries.filter { it in presentes }
+        }
+
+    /**
+     * Barrios y localidades de las zonas elegidas -- todas si no hay
+     * ninguna elegida. Es el segundo nivel del filtro: con el AMBA entero,
+     * una lista con los 48 barrios de CABA mas las localidades del
+     * Conurbano no la recorre nadie.
+     *
+     * Los chips no se inventan: salen de la agenda que hay.
+     */
     val availableNeighborhoods: List<String>
-        get() = allEvents.mapNotNull { it.venue.neighborhood }.distinct().sorted()
+        get() = allEvents
+            .filter { filter.zones.isEmpty() || it.venue.zone in filter.zones }
+            .mapNotNull { it.venue.neighborhood }
+            .distinct()
+            .sorted()
+
+    /** Barrios que pertenecen a una zona, para que apagarla se los lleve. */
+    fun neighborhoodsIn(zone: Zone): Set<String> =
+        allEvents.filter { it.venue.zone == zone }
+            .mapNotNull { it.venue.neighborhood }
+            .toSet()
 
     /**
      * Rangos con al menos un evento. Evita ofrecer "Fin de semana" cuando no
@@ -117,6 +142,16 @@ class HomeViewModel(
     fun onQueryChange(value: String) = filter.update { it.copy(query = value) }
     fun onCategoryToggle(value: Category) = filter.update { it.toggleCategory(value) }
     fun onNeighborhoodToggle(value: String) = filter.update { it.toggleNeighborhood(value) }
+
+    /**
+     * Los barrios de la zona se calculan sobre la agenda cacheada y se le
+     * pasan al filtro: `EventFilter` es dominio puro y no conoce la lista
+     * de eventos, asi que solo no puede saber que barrios arrastrar.
+     */
+    fun onZoneToggle(value: Zone) {
+        val barrios = uiState.value.neighborhoodsIn(value)
+        filter.update { it.toggleZone(value, barrios) }
+    }
     fun onTimeSlotToggle(value: TimeSlot) = filter.update { it.toggleTimeSlot(value) }
     fun onAccessModeToggle(value: AccessMode) = filter.update { it.toggleAccessMode(value) }
     fun onDateRangeToggle(value: DateRangeFilter) = filter.update { it.toggleDateRange(value) }

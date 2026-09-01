@@ -57,6 +57,9 @@ data class EventDto(
     @SerialName("end_time") val endTime: String? = null,
     @SerialName("all_day") val allDay: Boolean = false,
     @SerialName("access_mode") val accessMode: String = "INGRESO_LIBRE",
+    // Nulo en un feed viejo, y nulo tambien cuando el evento no es a la
+    // gorra: son el mismo caso para la app.
+    val contribution: String? = null,
     @SerialName("reservation_url") val reservationUrl: String? = null,
     val venue: VenueDto,
     @SerialName("source_name") val sourceName: String? = null,
@@ -75,6 +78,9 @@ data class VenueDto(
     val commune: Int? = null,
     val lat: Double? = null,
     val lon: Double? = null,
+    // Un feed anterior a la ampliacion al AMBA no la trae: ahi todo era
+    // de CABA, que es justo el valor por defecto.
+    val zone: String = "CABA",
 )
 
 /**
@@ -94,6 +100,7 @@ fun EventDto.toEntity(): EventEntity? {
         startTime = startTime.toLocalTimeOrNull(),
         endTime = endTime.toLocalTimeOrNull(),
         accessMode = accessMode.uppercase(),
+        contribution = contribution?.uppercase(),
         reservationUrl = reservationUrl,
         venue = VenueEmbedded(
             id = venue.id,
@@ -103,6 +110,7 @@ fun EventDto.toEntity(): EventEntity? {
             commune = venue.commune,
             lat = venue.lat,
             lon = venue.lon,
+            zone = venue.zone.uppercase(),
         ),
         sourceName = sourceName,
         sourceUrl = sourceUrl,

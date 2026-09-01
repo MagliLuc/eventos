@@ -8,6 +8,8 @@ import ar.eventosba.domain.model.EventFilter
 import ar.eventosba.domain.model.SortOrder
 import ar.eventosba.domain.model.TimeSlot
 import ar.eventosba.domain.model.Venue
+import ar.eventosba.domain.model.Zone
+import ar.eventosba.domain.model.Contribution
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
@@ -154,6 +156,8 @@ class EventFilterTest {
         start: LocalTime?,
         access: AccessMode,
         sourceId: String? = null,
+        zone: Zone = Zone.CABA,
+        contribution: Contribution? = null,
     ) = Event(
         id = id,
         title = title,
@@ -164,6 +168,7 @@ class EventFilterTest {
         startTime = start,
         endTime = null,
         accessMode = access,
+        contribution = contribution,
         reservationUrl = null,
         venue = Venue(
             id = "sede-$id",
@@ -173,6 +178,7 @@ class EventFilterTest {
             commune = 1,
             lat = -34.6,
             lon = -58.4,
+            zone = zone,
         ),
         sourceName = null,
         sourceUrl = null,
@@ -292,6 +298,99 @@ class EventFilterTest {
             disabledSources = setOf("curada"),
         )
         assertEquals(setOf("curada"), filtro.cleared().disabledSources)
+    }
+
+    // --- Zona: la ampliacion al AMBA -------------------------------------
+
+    @Test
+    fun `filtrar por zona deja fuera las otras`() {
+        val enSanIsidro = milonga.copy(
+            id = "san-isidro",
+            venue = milonga.venue.copy(neighborhood = "San Isidro", zone = Zone.CONURBANO_NORTE),
+        )
+        val lista = listOf(enSanIsidro, milonga)
+        val filtro = EventFilter(zones = setOf(Zone.CABA))
+        assertEquals(listOf("milonga"), filtro.apply(lista, hoy).map { it.id })
+    }
+
+    @Test
+    fun `sin zonas elegidas se ve todo el AMBA`() {
+        // Es la decision de producto: la app abre mostrando el AMBA entero,
+        // no CABA con el Conurbano escondido detras de un filtro.
+        val enQuilmes = milonga.copy(
+            id = "quilmes",
+            venue = milonga.venue.copy(neighborhood = "Quilmes", zone = Zone.CONURBANO_SUR),
+        )
+        val filtro = EventFilter()
+        assertEquals(2, filtro.apply(listOf(enQuilmes, milonga), hoy).size)
+    }
+
+    @Test
+    fun `apagar una zona se lleva sus barrios elegidos`() {
+        // Si el barrio quedara marcado, su chip desaparece de la pantalla
+        // pero el filtro sigue puesto y la lista se vacia sin que se vea
+        // por que.
+        val filtro = EventFilter(
+            zones = setOf(Zone.CONURBANO_NORTE),
+            neighborhoods = setOf("San Isidro", "Palermo"),
+        )
+        val apagada = filtro.toggleZone(Zone.CONURBANO_NORTE, setOf("San Isidro"))
+        assertEquals(emptySet<Zone>(), apagada.zones)
+        assertEquals(setOf("Palermo"), apagada.neighborhoods)
+    }
+
+    @Test
+    fun `la zona cuenta como filtro activo`() {
+        assertEquals(1, EventFilter(zones = setOf(Zone.CONURBANO_OESTE)).activeCount)
+    }
+
+    // --- Direccion: el bug que motivo todo -------------------------------
+
+    @Test
+    fun `una sede del Conurbano no dice CABA en la direccion`() {
+        // Era el error con mas consecuencia: "Como llegar" mandaba a la calle
+        // homonima de Capital para cualquier evento fuera de CABA.
+        val sede = milonga.venue.copy(
+            address = "Av. Mitre 500",
+            neighborhood = "Avellaneda",
+            zone = Zone.CONURBANO_SUR,
+        )
+        assertEquals("Av. Mitre 500, Avellaneda, Provincia de Buenos Aires", sede.fullAddress)
+    }
+
+    @Test
+    fun `una sede de CABA sigue diciendo CABA`() {
+        val sede = milonga.venue.copy(address = "Caffarena 1", neighborhood = "La Boca")
+        assertEquals("Caffarena 1, La Boca, CABA", sede.fullAddress)
+    }
+
+    @Test
+    fun `una zona desconocida del feed cae en CABA sin romper`() {
+        // Tolerante hacia adelante: si manana el scraper publica una zona que
+        // esta version no conoce, la app no puede crashear.
+        assertEquals(Zone.CABA, Zone.fromRaw("CONURBANO_LEJANO"))
+        assertEquals(Zone.CABA, Zone.fromRaw(null))
+    }
+
+    // --- A la gorra ------------------------------------------------------
+
+    @Test
+    fun `a la gorra convive con la reserva previa`() {
+        // Son ejes distintos: uno dice como se entra, el otro como se paga.
+        // Es el caso que se perderia si fuera un valor mas de AccessMode.
+        val funcion = milonga.copy(
+            accessMode = AccessMode.RESERVA_PREVIA,
+            contribution = Contribution.A_LA_GORRA,
+        )
+        assertEquals(AccessMode.RESERVA_PREVIA, funcion.accessMode)
+        assertEquals(Contribution.A_LA_GORRA, funcion.contribution)
+    }
+
+    @Test
+    fun `un evento sin contribucion la deja en null`() {
+        assertEquals(null, Contribution.fromRaw(null))
+        assertEquals(null, Contribution.fromRaw("BONO"))
+        assertEquals(Contribution.A_LA_GORRA, Contribution.fromRaw("a_la_gorra"))
     }
 
 }

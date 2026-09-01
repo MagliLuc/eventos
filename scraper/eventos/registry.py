@@ -43,6 +43,12 @@ def _transporte(fuente: Source, entrada: dict) -> Source:
         fuente.force_ipv4 = True
     if isinstance(entrada.get("timeout"), int):
         fuente.timeout = entrada["timeout"]
+    # El partido no es transporte, pero se aplica en el mismo lugar por el
+    # mismo motivo: es una perilla declarada por fuente. Sin esto, una fuente
+    # del Conurbano publicaria sus eventos como si fueran de CABA, y "Como
+    # llegar" mandaria a la calle homonima de Capital.
+    if entrada.get("partido"):
+        fuente.partido = entrada["partido"]
     return fuente
 
 

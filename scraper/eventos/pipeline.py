@@ -139,7 +139,7 @@ def run(
     payload = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": now_ba_iso(),
-        "city": "Ciudad Autónoma de Buenos Aires",
+        "city": "Área Metropolitana de Buenos Aires",
         "license": "Datos públicos recopilados de agendas oficiales. Uso informativo.",
         "sources": [i.to_dict() for i in informes],
         "events": [e.to_dict() for e in events],

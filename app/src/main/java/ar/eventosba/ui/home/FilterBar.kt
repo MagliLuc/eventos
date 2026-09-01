@@ -42,6 +42,7 @@ import ar.eventosba.domain.model.DateRangeFilter
 import ar.eventosba.domain.model.EventFilter
 import ar.eventosba.domain.model.SortOrder
 import ar.eventosba.domain.model.TimeSlot
+import ar.eventosba.domain.model.Zone
 
 /**
  * Filtros y orden de la home.
@@ -58,10 +59,12 @@ import ar.eventosba.domain.model.TimeSlot
 fun FilterBar(
     filter: EventFilter,
     countByCategory: Map<Category, Int>,
+    zones: List<Zone>,
     neighborhoods: List<String>,
     dateRanges: List<DateRangeFilter>,
     resultCount: Int,
     onCategoryToggle: (Category) -> Unit,
+    onZoneToggle: (Zone) -> Unit,
     onNeighborhoodToggle: (String) -> Unit,
     onTimeSlotToggle: (TimeSlot) -> Unit,
     onAccessModeToggle: (AccessMode) -> Unit,
@@ -73,7 +76,8 @@ fun FilterBar(
     var expanded by remember { mutableStateOf(false) }
     // Filtros ocultos activos: si expandís, cerrás y quedaba algo puesto, no
     // se puede quedar sin ninguna pista de por qué faltan eventos.
-    val hiddenActive = filter.neighborhoods.size + filter.timeSlots.size + filter.accessModes.size
+    val hiddenActive = filter.zones.size + filter.neighborhoods.size +
+        filter.timeSlots.size + filter.accessModes.size
 
     Column(modifier, verticalArrangement = Arrangement.spacedBy(6.dp)) {
 
@@ -118,6 +122,20 @@ fun FilterBar(
                             selected = mode in filter.accessModes,
                             onClick = { onAccessModeToggle(mode) },
                         )
+                    }
+                }
+                // La zona va antes que el barrio, y solo si hay mas de una:
+                // con la agenda entera en CABA, un unico chip "Capital" no
+                // ofrece ninguna eleccion y solo ocupa una fila.
+                if (zones.size > 1) {
+                    ChipRow {
+                        items(zones, key = { it.name }) { zone ->
+                            Chip(
+                                label = zone.label,
+                                selected = zone in filter.zones,
+                                onClick = { onZoneToggle(zone) },
+                            )
+                        }
                     }
                 }
                 if (neighborhoods.isNotEmpty()) {

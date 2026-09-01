@@ -32,6 +32,12 @@ data class Event(
      * las dos.
      */
     val sourceId: String?,
+    /**
+     * Como se paga, que es un eje distinto de [accessMode], que dice como se
+     * entra. Una funcion puede ser a la gorra *y* pedir reserva previa: si
+     * fueran el mismo enum, uno de los dos datos se perderia.
+     */
+    val contribution: Contribution?,
     val imageUrl: String?,
     val isFavorite: Boolean = false,
 ) {
@@ -60,16 +66,64 @@ data class Venue(
     val id: String,
     val name: String,
     val address: String?,
+    /** Barrio en CABA, localidad en el Conurbano: el mismo rol, un solo campo. */
     val neighborhood: String?,
+    /** Solo CABA: fuera de la Ciudad no existen las comunas. */
     val commune: Int?,
     val lat: Double?,
     val lon: Double?,
+    val zone: Zone = Zone.CABA,
 ) {
     val hasCoordinates: Boolean get() = lat != null && lon != null
 
-    /** Direccion legible para el Intent de mapas y para la ficha. */
+    /**
+     * Direccion legible para el Intent de mapas y para la ficha.
+     *
+     * La cola sale de la zona y no de una constante. Antes decia "CABA"
+     * siempre: con la agenda ampliada al AMBA, eso mandaba a quien tocara
+     * "Como llegar" a la calle homonima de Capital -- "Av. Mitre 500" existe
+     * en media docena de partidos.
+     */
     val fullAddress: String
-        get() = listOfNotNull(address, neighborhood, "CABA").joinToString(", ")
+        get() = listOfNotNull(address, neighborhood, zone.locality).joinToString(", ")
+}
+
+/**
+ * Zonas del AMBA.
+ *
+ * El corte sigue los accesos por los que la gente se mueve (Norte por el
+ * Mitre y Panamericana, Oeste por el Sarmiento, Sur por el Roca), asi que la
+ * zona contesta la pregunta real, que es cuanto me cuesta llegar.
+ */
+enum class Zone(val label: String, val locality: String) {
+    CABA("Capital", "CABA"),
+    CONURBANO_NORTE("GBA Norte", "Provincia de Buenos Aires"),
+    CONURBANO_OESTE("GBA Oeste", "Provincia de Buenos Aires"),
+    CONURBANO_SUR("GBA Sur", "Provincia de Buenos Aires");
+
+    companion object {
+        /** Un feed viejo no trae zona: esos eventos son de CABA. */
+        fun fromRaw(raw: String?): Zone =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) } ?: CABA
+    }
+}
+
+/**
+ * Como se paga. Hoy solo distingue la modalidad que necesitaba nombre propio.
+ *
+ * No se agrego como un valor mas de [AccessMode] por dos razones: son ejes
+ * independientes -- una funcion puede ser a la gorra y con reserva previa --
+ * y `AccessMode.fromRaw` cae en `INGRESO_LIBRE` ante un valor que no conoce,
+ * asi que una app sin actualizar mostraria "Ingreso libre" sobre una funcion
+ * a la gorra. Un campo aparte lo ignora sin mentir.
+ */
+enum class Contribution(val label: String, val shortLabel: String) {
+    A_LA_GORRA("A la gorra", "Gorra");
+
+    companion object {
+        fun fromRaw(raw: String?): Contribution? =
+            entries.firstOrNull { it.name.equals(raw, ignoreCase = true) }
+    }
 }
 
 enum class Category(val label: String) {

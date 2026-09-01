@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.github.io/eventos/events.schema.json",
-  "title": "Agenda de eventos gratuitos CABA",
+  "title": "Agenda de eventos gratuitos del AMBA",
   "type": "object",
   "required": [
     "schema_version",
@@ -107,7 +107,19 @@
             "INGRESO_LIBRE",
             "ORDEN_DE_LLEGADA",
             "RESERVA_PREVIA"
-          ]
+          ],
+          "description": "Como se entra."
+        },
+        "contribution": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "A_LA_GORRA",
+            null
+          ],
+          "description": "Como se paga, que es un eje distinto de como se entra: una funcion puede ser a la gorra Y con reserva previa. Va aparte de access_mode para no perder uno de los dos datos, y para que una app vieja que no conozca el campo lo ignore en vez de mostrar 'Ingreso libre' sobre una funcion a la gorra."
         },
         "reservation_url": {
           "type": [
@@ -174,7 +186,8 @@
           "type": [
             "string",
             "null"
-          ]
+          ],
+          "description": "Nivel fino de la geografia: barrio en CABA, localidad en el Conurbano."
         },
         "commune": {
           "type": [
@@ -182,7 +195,19 @@
             "null"
           ],
           "minimum": 1,
-          "maximum": 15
+          "maximum": 15,
+          "description": "Solo CABA: fuera de la Ciudad no existen las comunas, y va en null."
+        },
+        "zone": {
+          "type": "string",
+          "enum": [
+            "CABA",
+            "CONURBANO_NORTE",
+            "CONURBANO_SUR",
+            "CONURBANO_OESTE"
+          ],
+          "default": "CABA",
+          "description": "Nivel grueso de la geografia del AMBA. Decide, entre otras cosas, si la direccion termina en 'CABA' o en 'Provincia de Buenos Aires'."
         },
         "lat": {
           "type": [

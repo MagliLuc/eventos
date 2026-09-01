@@ -188,4 +188,44 @@ class EventDtoMappingTest {
         }
     """.trimIndent()
 
+    // --- Ampliacion al AMBA ----------------------------------------------
+
+    @Test
+    fun `zone y contribution viajan del feed a la entidad`() {
+        val entidad = json.decodeFromString<EventsFeedDto>(feedAmba)
+            .events.first().toEntity()!!
+        assertEquals("CONURBANO_NORTE", entidad.venue.zone)
+        assertEquals("A_LA_GORRA", entidad.contribution)
+        assertEquals("San Isidro", entidad.venue.neighborhood)
+    }
+
+    @Test
+    fun `un feed anterior al AMBA no rompe y queda en CABA`() {
+        // Es el feed que hoy esta publicado: sin `zone` ni `contribution`.
+        // Un evento de entonces era de CABA, que es el valor por defecto, y
+        // la contribucion ausente es lo mismo que no ser a la gorra.
+        val entidad = json.decodeFromString<EventsFeedDto>(feedConSourceId)
+            .events.first().toEntity()!!
+        assertEquals("CABA", entidad.venue.zone)
+        assertNull(entidad.contribution)
+    }
+
+    private val feedAmba = """
+        {
+          "schema_version": 1,
+          "events": [
+            {
+              "id": "y", "title": "Y", "category": "TEATRO", "date": "2026-09-02",
+              "access_mode": "RESERVA_PREVIA",
+              "contribution": "A_LA_GORRA",
+              "venue": {
+                "id": "sala", "name": "Sala", "address": "Av. Mitre 500",
+                "neighborhood": "San Isidro", "zone": "CONURBANO_NORTE"
+              },
+              "source_id": "alternativa-teatral"
+            }
+          ]
+        }
+    """.trimIndent()
+
 }

@@ -82,6 +82,15 @@ class Source:
     force_ipv4: bool = False
     timeout: Optional[int] = None
 
+    # Partido del Conurbano donde publica esta fuente. Lo declara la entrada
+    # del registro (`"partido": "San Isidro"`); vacio = CABA.
+    #
+    # Se declara y no se infiere del texto: buscar nombres de partido dentro
+    # de una direccion se equivoca solo, y en nuestros propios datos ya hay
+    # con que -- "Vicente Lopez 2220" es la direccion del Museo Roca, en
+    # Recoleta, y se escribe igual que el partido de Vicente Lopez.
+    partido: Optional[str] = None
+
     def fetch(self, session, window: DateWindow) -> list[Event]:
         raise NotImplementedError
 
