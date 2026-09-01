@@ -71,6 +71,15 @@ data class EventFilter(
     val dateRange: DateRangeFilter = DateRangeFilter.TODAS,
     val sortOrder: SortOrder = SortOrder.FECHA_ASC,
     val onlyFavorites: Boolean = false,
+    /**
+     * Fuentes que el usuario apago en el panel.
+     *
+     * Se guardan las apagadas y no las encendidas: asi un evento cuya fuente
+     * la app no conoce -- por ejemplo uno que quedo cacheado de un feed
+     * anterior -- se sigue viendo. Ocultarlo por no estar en una lista de
+     * permitidos seria hacerlo desaparecer sin que nadie lo haya pedido.
+     */
+    val disabledSources: Set<String> = emptySet(),
 ) {
     /** Cuántos filtros hay puestos. El orden no cuenta: no descarta nada. */
     val activeCount: Int
@@ -86,7 +95,8 @@ data class EventFilter(
             (timeSlots.isEmpty() || event.timeSlot in timeSlots) &&
             (accessModes.isEmpty() || event.accessMode in accessModes) &&
             dateRange.matches(event.date, today) &&
-            (!onlyFavorites || event.isFavorite)
+            (!onlyFavorites || event.isFavorite) &&
+            (event.sourceId == null || event.sourceId !in disabledSources)
 
     /** Filtra y ordena en un solo paso. */
     fun apply(events: List<Event>, today: LocalDate = LocalDate.now()): List<Event> =
@@ -101,11 +111,16 @@ data class EventFilter(
     fun toggleDateRange(value: DateRangeFilter) =
         copy(dateRange = if (dateRange == value) DateRangeFilter.TODAS else value)
 
-    /** Limpiar borra los filtros, no la búsqueda, el orden ni los guardados. */
+    /**
+     * Limpiar borra los filtros de la home, no la busqueda, el orden, los
+     * guardados ni las fuentes apagadas: esas ultimas se manejan en su propio
+     * panel y borrarlas desde aca seria una sorpresa.
+     */
     fun cleared() = EventFilter(
         query = query,
         sortOrder = sortOrder,
         onlyFavorites = onlyFavorites,
+        disabledSources = disabledSources,
     )
 }
 

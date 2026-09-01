@@ -74,6 +74,31 @@ interface EventDao {
         deleteBefore(today)
     }
 
+    // --- fuentes ---------------------------------------------------------
+
+    @Query("SELECT * FROM sources ORDER BY name COLLATE NOCASE")
+    fun observeSources(): Flow<List<SourceEntity>>
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun upsertSources(sources: List<SourceEntity>)
+
+    @Query("DELETE FROM sources WHERE id NOT IN (:keepIds)")
+    suspend fun deleteSourcesNotIn(keepIds: List<String>)
+
+    /**
+     * Reemplazo atomico del estado de las fuentes.
+     *
+     * Si el feed no trae ninguna (JSON viejo), NO se borra lo cacheado: es
+     * preferible mostrar el estado de ayer que dejar el panel en blanco y que
+     * parezca que se rompio.
+     */
+    @Transaction
+    suspend fun replaceSources(sources: List<SourceEntity>) {
+        if (sources.isEmpty()) return
+        upsertSources(sources)
+        deleteSourcesNotIn(sources.map { it.id })
+    }
+
     // Sin valores por defecto en los parametros: Room genera la
     // implementacion de estos metodos y conviene no depender de los
     // bridges sinteticos de Kotlin.

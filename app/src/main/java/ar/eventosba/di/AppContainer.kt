@@ -3,6 +3,7 @@ package ar.eventosba.di
 import android.content.Context
 import ar.eventosba.BuildConfig
 import ar.eventosba.data.local.EventDatabase
+import ar.eventosba.data.prefs.SourcePreferences
 import ar.eventosba.data.prefs.SyncPreferences
 import ar.eventosba.data.remote.NetworkModule
 import ar.eventosba.data.repository.EventRepository
@@ -21,6 +22,9 @@ class AppContainer private constructor(context: Context) {
     private val database by lazy { EventDatabase.get(appContext) }
     private val api by lazy { NetworkModule.eventsApi(appContext) }
     private val syncPreferences by lazy { SyncPreferences(appContext) }
+
+    /** Que fuentes apago el usuario. Lo comparten la home y el panel. */
+    val sourcePreferences: SourcePreferences by lazy { SourcePreferences(appContext) }
 
     val eventRepository: EventRepository by lazy {
         EventRepository(

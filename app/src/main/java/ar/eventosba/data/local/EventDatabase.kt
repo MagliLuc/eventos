@@ -7,8 +7,9 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
 @Database(
-    entities = [EventEntity::class, FavoriteEntity::class],
-    version = 1,
+    entities = [EventEntity::class, FavoriteEntity::class, SourceEntity::class],
+    // 2: se suma `sources` y la columna source_id en `events`.
+    version = 2,
     exportSchema = true,
 )
 @TypeConverters(Converters::class)

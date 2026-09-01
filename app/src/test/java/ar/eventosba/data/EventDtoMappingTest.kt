@@ -3,6 +3,7 @@ package ar.eventosba.data
 import ar.eventosba.data.remote.EventsFeedDto
 import ar.eventosba.data.remote.NetworkModule
 import ar.eventosba.data.remote.toEntity
+import ar.eventosba.domain.model.SourceStatus
 // decodeFromString reificado es extension de StringFormat en
 // kotlinx.serialization (core): sin este import no resuelve.
 import kotlinx.serialization.decodeFromString
@@ -105,4 +106,86 @@ class EventDtoMappingTest {
         assertNotNull(entity)
         assertNull(entity?.startTime)
     }
+
+    // --- bloque de fuentes -----------------------------------------------
+
+    private val feedConFuentes = """
+        {
+          "schema_version": 1,
+          "generated_at": "2026-09-01T06:00:00-03:00",
+          "sources": [
+            {
+              "id": "museo-moderno",
+              "name": "Museo Moderno",
+              "url": "https://museomoderno.org/agenda/",
+              "status": "OK",
+              "detail": "40 eventos de 30 actividades leídas.",
+              "events": 40,
+              "items_read": 30
+            },
+            {
+              "id": "teatro-colon",
+              "name": "Teatro Colón",
+              "status": "SIN_EVENTOS",
+              "detail": "El sitio responde, pero ninguna es gratuita ahora.",
+              "events": 0,
+              "items_read": 38
+            }
+          ],
+          "events": []
+        }
+    """.trimIndent()
+
+    @Test
+    fun `mapea el bloque de fuentes a entidades`() {
+        val feed = json.decodeFromString<EventsFeedDto>(feedConFuentes)
+        val fuentes = feed.sources.map { it.toEntity() }
+
+        assertEquals(2, fuentes.size)
+        assertEquals("museo-moderno", fuentes[0].id)
+        assertEquals("OK", fuentes[0].status)
+        assertEquals(40, fuentes[0].events)
+        // Sin `url` en el JSON el campo queda nulo, no en cadena vacia.
+        assertNull(fuentes[1].url)
+        assertEquals("SIN_EVENTOS", fuentes[1].status)
+    }
+
+    @Test
+    fun `un feed sin bloque de fuentes no rompe`() {
+        // El JSON ya publicado no lo trae. La app tiene que seguir andando
+        // contra el feed viejo mientras el scraper no se actualice.
+        val feed = json.decodeFromString<EventsFeedDto>(feedSample)
+        assertEquals(emptyList<Any>(), feed.sources)
+    }
+
+    @Test
+    fun `un estado desconocido no crashea la app`() {
+        // Si el scraper agrega un estado nuevo, una app vieja no puede
+        // reventar: cae en DESCONOCIDA y lo muestra como tal.
+        assertEquals(SourceStatus.DESCONOCIDA, SourceStatus.fromRaw("INVENTADO"))
+        assertEquals(SourceStatus.DESCONOCIDA, SourceStatus.fromRaw(null))
+        assertEquals(SourceStatus.INCOMPLETA, SourceStatus.fromRaw("incompleta"))
+    }
+
+    @Test
+    fun `source_id viaja del feed a la entidad`() {
+        val feed = json.decodeFromString<EventsFeedDto>(feedConSourceId)
+        assertEquals("curada", feed.events.first().toEntity()!!.sourceId)
+    }
+
+    private val feedConSourceId = """
+        {
+          "schema_version": 1,
+          "events": [
+            {
+              "id": "x", "title": "X", "category": "OTROS", "date": "2026-09-01",
+              "access_mode": "INGRESO_LIBRE",
+              "venue": { "id": "v", "name": "V" },
+              "source_name": "Palacio Libertad",
+              "source_id": "curada"
+            }
+          ]
+        }
+    """.trimIndent()
+
 }

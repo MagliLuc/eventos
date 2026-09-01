@@ -19,6 +19,7 @@ import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.CalendarMonth
 import androidx.compose.material.icons.outlined.Place
+import androidx.compose.material.icons.outlined.RssFeed
 import androidx.compose.material.icons.outlined.Schedule
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -106,6 +107,10 @@ fun EventCard(
                     text = listOfNotNull(event.venue.name, event.venue.neighborhood)
                         .joinToString(" · "),
                 )
+                // De donde salio el dato. Va en la tarjeta y no solo en la
+                // ficha porque es lo que deja decidir cuanto confiar en el
+                // horario antes de cruzar la ciudad.
+                event.sourceName?.let { InfoRow(Icons.Outlined.RssFeed, it) }
 
                 Spacer(Modifier.height(10.dp))
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -257,6 +262,7 @@ private fun EventCardPreview() {
                     ),
                     sourceName = "Tango BA",
                     sourceUrl = null,
+                    sourceId = "tango-ba",
                     imageUrl = null,
                     isFavorite = true,
                 ),

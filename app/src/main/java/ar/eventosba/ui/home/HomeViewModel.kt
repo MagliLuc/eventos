@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.lifecycle.viewmodel.CreationExtras
+import ar.eventosba.data.prefs.SourcePreferences
 import ar.eventosba.data.repository.EventRepository
 import ar.eventosba.di.AppContainer
 import ar.eventosba.domain.model.AccessMode
@@ -15,6 +16,7 @@ import ar.eventosba.domain.model.Event
 import ar.eventosba.domain.model.EventFilter
 import ar.eventosba.domain.model.SortOrder
 import ar.eventosba.domain.model.TimeSlot
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -56,15 +58,24 @@ data class HomeUiState(
 class HomeViewModel(
     application: Application,
     private val repository: EventRepository,
+    private val sourcePrefs: SourcePreferences,
 ) : AndroidViewModel(application) {
 
     private val filter = MutableStateFlow(EventFilter())
     private val refreshing = MutableStateFlow(false)
     private val error = MutableStateFlow<String?>(null)
 
+    // Las fuentes apagadas entran al filtro por aca y no por un toggle de la
+    // home: viven en DataStore, las edita el panel, y asi lista y mapa quedan
+    // sincronizados sin que ninguna pantalla tenga que avisarle a la otra.
+    private val filterConFuentes: Flow<EventFilter> =
+        combine(filter, sourcePrefs.disabledIds) { activeFilter, apagadas ->
+            activeFilter.copy(disabledSources = apagadas)
+        }
+
     val uiState: StateFlow<HomeUiState> = combine(
         repository.observeUpcoming(),
-        filter,
+        filterConFuentes,
         refreshing,
         error,
         repository.lastSyncMillis,
@@ -128,7 +139,12 @@ class HomeViewModel(
                 val app = checkNotNull(
                     extras[ViewModelProvider.AndroidViewModelFactory.APPLICATION_KEY],
                 )
-                return HomeViewModel(app, AppContainer.from(app).eventRepository) as T
+                val container = AppContainer.from(app)
+                return HomeViewModel(
+                    app,
+                    container.eventRepository,
+                    container.sourcePreferences,
+                ) as T
             }
         }
     }

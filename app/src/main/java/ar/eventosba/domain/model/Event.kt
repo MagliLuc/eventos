@@ -23,6 +23,15 @@ data class Event(
     val venue: Venue,
     val sourceName: String?,
     val sourceUrl: String?,
+    /**
+     * Quien produjo el evento, aparte del nombre que se muestra.
+     *
+     * Hacen falta los dos: la agenda curada publica eventos con el
+     * `sourceName` de la sede ("Centro Cultural Recoleta"), igual que la
+     * fuente en vivo homonima. Sin este id, apagar una en el panel apagaria
+     * las dos.
+     */
+    val sourceId: String?,
     val imageUrl: String?,
     val isFavorite: Boolean = false,
 ) {

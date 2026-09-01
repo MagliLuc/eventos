@@ -6,6 +6,7 @@ import ar.eventosba.data.prefs.SyncPreferences
 import ar.eventosba.data.remote.EventsApi
 import ar.eventosba.data.remote.toEntity
 import ar.eventosba.domain.model.Event
+import ar.eventosba.domain.model.EventSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
@@ -29,6 +30,10 @@ class EventRepository(
 
     fun observeFavorites(): Flow<List<Event>> =
         dao.observeFavorites().map { rows -> rows.map { it.toDomain() } }
+
+    /** Estado de cada fuente segun la ultima corrida del scraper. */
+    fun observeSources(): Flow<List<EventSource>> =
+        dao.observeSources().map { rows -> rows.map { it.toDomain() } }
 
     fun observeEvent(id: String): Flow<Event?> =
         dao.observeById(id).map { it?.toDomain() }
@@ -54,6 +59,7 @@ class EventRepository(
             error("El feed llegó vacío; se conserva la agenda en caché.")
         }
         dao.replaceAll(entities, LocalDate.now())
+        dao.replaceSources(feed.sources.map { it.toEntity() })
         prefs.recordSync(feed.generatedAt)
         entities.size
     }

@@ -1,6 +1,7 @@
 package ar.eventosba.data.remote
 
 import ar.eventosba.data.local.EventEntity
+import ar.eventosba.data.local.SourceEntity
 import ar.eventosba.data.local.VenueEmbedded
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -17,7 +18,31 @@ data class EventsFeedDto(
     @SerialName("generated_at") val generatedAt: String? = null,
     val city: String? = null,
     val license: String? = null,
+    // Un feed viejo no trae este bloque: por eso la lista vacia por defecto.
+    // La app tiene que seguir andando contra el JSON que ya esta publicado.
+    val sources: List<SourceDto> = emptyList(),
     val events: List<EventDto> = emptyList(),
+)
+
+@Serializable
+data class SourceDto(
+    val id: String,
+    val name: String,
+    val url: String? = null,
+    val status: String = "DESCONOCIDA",
+    val detail: String = "",
+    val events: Int = 0,
+    @SerialName("items_read") val itemsRead: Int = 0,
+)
+
+fun SourceDto.toEntity(): SourceEntity = SourceEntity(
+    id = id,
+    name = name.trim(),
+    url = url,
+    status = status.uppercase(),
+    detail = detail.trim(),
+    events = events,
+    itemsRead = itemsRead,
 )
 
 @Serializable
@@ -35,6 +60,7 @@ data class EventDto(
     @SerialName("reservation_url") val reservationUrl: String? = null,
     val venue: VenueDto,
     @SerialName("source_name") val sourceName: String? = null,
+    @SerialName("source_id") val sourceId: String? = null,
     @SerialName("source_url") val sourceUrl: String? = null,
     @SerialName("image_url") val imageUrl: String? = null,
     @SerialName("updated_at") val updatedAt: String? = null,
@@ -80,6 +106,7 @@ fun EventDto.toEntity(): EventEntity? {
         ),
         sourceName = sourceName,
         sourceUrl = sourceUrl,
+        sourceId = sourceId,
         imageUrl = imageUrl,
     )
 }

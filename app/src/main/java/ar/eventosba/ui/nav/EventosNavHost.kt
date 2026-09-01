@@ -16,11 +16,13 @@ import ar.eventosba.ui.detail.EventDetailViewModel
 import ar.eventosba.ui.home.HomeScreen
 import ar.eventosba.ui.home.HomeViewModel
 import ar.eventosba.ui.map.MapScreen
+import ar.eventosba.ui.sources.SourcesScreen
 
 object Routes {
     const val GRAPH = "agenda"
     const val HOME = "home"
     const val MAP = "map"
+    const val SOURCES = "sources"
     const val DETAIL = "event/{${EventDetailViewModel.ARG_EVENT_ID}}"
 
     fun detail(eventId: String) = "event/$eventId"
@@ -41,6 +43,7 @@ fun EventosNavHost(
             HomeScreen(
                 onEventClick = { navController.navigate(Routes.detail(it)) },
                 onMapClick = { navController.navigate(Routes.MAP) },
+                onSourcesClick = { navController.navigate(Routes.SOURCES) },
                 viewModel = entry.sharedHomeViewModel(navController),
             )
         }
@@ -53,6 +56,12 @@ fun EventosNavHost(
                 // aplico siguen valiendo en el mapa.
                 viewModel = entry.sharedHomeViewModel(navController),
             )
+        }
+
+        composable(Routes.SOURCES) {
+            // ViewModel propio: el panel lee las fuentes y las preferencias,
+            // no los filtros de la home.
+            SourcesScreen(onBack = navController::popBackStack)
         }
 
         composable(
