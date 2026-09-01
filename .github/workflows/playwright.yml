@@ -35,8 +35,12 @@ jobs:
           python-version: "3.12"
 
       - name: Instalar Playwright y Chromium
+        # Las dependencias del scraper van también: el experimento importa
+        # `eventos.http` a propósito, para probar con exactamente el mismo
+        # User-Agent y las mismas cabeceras que usa la corrida real. Si se
+        # copiaran acá, el experimento estaría midiendo otra cosa.
         run: |
-          pip install playwright==1.47.0
+          pip install -r scraper/requirements.txt playwright==1.47.0
           python -m playwright install --with-deps chromium
 
       - name: Probar si el navegador pasa el desafío
