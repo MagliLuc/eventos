@@ -137,10 +137,10 @@
     {
       "name": "Alternativa Teatral",
       "kind": "jsonld",
-      "url": "https://www.alternativateatral.com/",
+      "url": "https://www.alternativateatral.com/entradas.asp?opcion=gratis",
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
-      "note": "Diagnóstico 2026-08-31: 200, HTML capturado. Ni fichas ni feed ni sitemap. Requiere selectores escritos sobre el HTML real."
+      "note": "Diagnóstico 2026-08-31: 200, HTML capturado. Ni fichas ni feed ni sitemap. Requiere selectores escritos sobre el HTML real. 2026-09-01: la URL pasa de la raíz a la cartelera gratuita, que es lo que interesa. Es la candidata de mayor valor para el AMBA — cubre CABA y Conurbano — y la que trae las funciones a la gorra."
     },
     {
       "name": "Teatro Colón",
@@ -230,6 +230,110 @@
       "venue": "El Cultural San Martín",
       "status": "candidato",
       "note": "URL A CONFIRMAR. La sala existe; el .org fue tomado por spam. No inventar el dominio: sondearlo con discover.py y confirmarlo antes de activar."
+    },
+
+    {
+      "_comment": [
+        "AMBA — Conurbano. Todo lo de acá para abajo entra por la ampliación",
+        "de la app más allá de CABA.",
+        "",
+        "LAS URLs SON CONJETURA y no están confirmadas: se armaron con el",
+        "patrón de dominio municipal habitual, no con una respuesta. Por eso",
+        "entran como 'candidato' — nadie las consulta hasta que discover.py",
+        "las pruebe. Que un dominio no resuelva ES el resultado esperado para",
+        "varias de estas, y ahí se corrige o se borra la entrada.",
+        "",
+        "El documento de fuentes que originó esta tanda recomendaba además",
+        "Eventbrite y la ingeniería inversa de la app ReCreo. Lo primero no",
+        "existe (Eventbrite retiró /v3/events/search/ a fines de 2019) y lo",
+        "segundo está fuera de lo acordado; de ReCreo se sondea su web."
+      ],
+      "name": "ReCreo (Provincia de Buenos Aires)",
+      "kind": "fichas",
+      "url": "https://www.gba.gob.ar/recreo",
+      "venue": "Provincia de Buenos Aires",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Programa provincial de agenda cultural y turística. Es la fuente que más cobertura de Conurbano daría de una sola vez, si publica algo legible por web."
+    },
+    {
+      "name": "Cultura San Isidro",
+      "kind": "fichas",
+      "url": "https://www.sanisidro.gob.ar/municipio/cultura",
+      "venue": "San Isidro",
+      "status": "candidato",
+      "note": "La única URL municipal de esta tanda que no es conjetura: sale del documento de fuentes. Ojo: publica las actividades como notas de prensa, así que puede caer en el mismo problema que los RSS — nota sin fecha de evento."
+    },
+    {
+      "name": "Cultura Vicente López",
+      "kind": "fichas",
+      "url": "https://vicentelopez.gov.ar/cultura",
+      "venue": "Vicente López",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Norte."
+    },
+    {
+      "name": "Cultura Tigre",
+      "kind": "fichas",
+      "url": "https://www.tigre.gob.ar/cultura",
+      "venue": "Tigre",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Norte."
+    },
+    {
+      "name": "Cultura General San Martín",
+      "kind": "fichas",
+      "url": "https://www.sanmartin.gov.ar/cultura",
+      "venue": "General San Martín",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Norte. No confundir con el Teatro San Martín de CABA ni con El Cultural San Martín."
+    },
+    {
+      "name": "Cultura Morón",
+      "kind": "fichas",
+      "url": "https://www.moron.gob.ar/cultura",
+      "venue": "Morón",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Oeste."
+    },
+    {
+      "name": "Cultura La Matanza",
+      "kind": "fichas",
+      "url": "https://www.lamatanza.gov.ar/cultura",
+      "venue": "La Matanza",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Oeste, y el partido más poblado del país: si responde, es la de mayor alcance de la tanda."
+    },
+    {
+      "name": "Cultura Quilmes",
+      "kind": "fichas",
+      "url": "https://www.quilmes.gov.ar/cultura",
+      "venue": "Quilmes",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Sur."
+    },
+    {
+      "name": "Cultura Avellaneda",
+      "kind": "fichas",
+      "url": "https://www.mda.gob.ar/cultura",
+      "venue": "Avellaneda",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR, y el dominio es el más dudoso de la tanda. Conurbano Sur."
+    },
+    {
+      "name": "Cultura Lomas de Zamora",
+      "kind": "fichas",
+      "url": "https://www.lomasdezamora.gov.ar/cultura",
+      "venue": "Lomas de Zamora",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Conurbano Sur."
+    },
+    {
+      "name": "UNSAM Cultura",
+      "kind": "fichas",
+      "url": "https://www.unsam.edu.ar/cultura/",
+      "venue": "Universidad Nacional de San Martín",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. Los centros culturales universitarios del Conurbano suelen tener agenda propia y gratuita, y no dependen de que el municipio publique bien."
     }
   ]
 }
