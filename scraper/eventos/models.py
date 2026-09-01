@@ -124,6 +124,12 @@ class Event:
     reservation_url: Optional[str] = None
     source_name: Optional[str] = None
     source_url: Optional[str] = None
+    # Quien PRODUJO el evento, aparte del nombre humano. Hacen falta los dos:
+    # la semilla curada publica eventos con source_name "Centro Cultural
+    # Recoleta", igual que la fuente en vivo homonima, y sin este id el panel
+    # de la app mostraria el estado del scraper sobre eventos que no salieron
+    # de ahi. Lo estampa el pipeline, no cada fuente.
+    source_id: Optional[str] = None
     image_url: Optional[str] = None
     updated_at: Optional[str] = None
     id: str = ""
@@ -158,6 +164,7 @@ class Event:
             "venue": data["venue"],
             "source_name": data["source_name"],
             "source_url": data["source_url"],
+            "source_id": data["source_id"],
             "image_url": data["image_url"],
             "updated_at": data["updated_at"],
         }

@@ -383,6 +383,11 @@ class LectorDeFichas(Source):
             eventos.extend(desde_texto)
             motivos[motivo or "ok"] += 1
 
+        # Lo que el log ya decia, ahora tambien como dato: es lo que alimenta
+        # el estado de la fuente en el panel de la app.
+        self._ultimas_fichas = len(enlaces[: self.max_items])
+        self._ultimos_motivos = dict(motivos)
+
         if sin_marcado:
             detalle = ", ".join(
                 f"{n} {MOTIVOS.get(m, m)}" for m, n in motivos.most_common())

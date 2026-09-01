@@ -18,8 +18,15 @@ SEED_DIR = Path(__file__).resolve().parents[2] / "seed"
 
 
 class LocalSeedSource(Source):
-    name = "seed local"
-    url = str(SEED_DIR)
+    # Nombre pensado para que lo lea alguien en la app, no para el log. Y sin
+    # `url`: apuntaba a la ruta del directorio en disco, que en el runner es
+    # /home/runner/work/... y no tiene por que terminar publicada en el JSON.
+    name = "Agenda curada"
+    url = ""
+
+    @property
+    def id(self) -> str:
+        return "curada"
 
     def fetch(self, session: requests.Session, window: DateWindow) -> list[Event]:
         if not SEED_DIR.exists():

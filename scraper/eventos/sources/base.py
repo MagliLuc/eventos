@@ -14,9 +14,11 @@ from ..http import (  # re-exportados: el resto del scraper los importa de aca
     RobotsBloqueado,
     http_session,
 )
+from ..informe import InformeFuente
 from ..models import DateWindow, Event
 
 __all__ = [
+    "InformeFuente",
     "BROWSER_HEADERS", "CONTACTO", "USER_AGENT", "PoliteSession",
     "RobotsBloqueado", "http_session", "fetch_soup", "Source",
     "extract_jsonld_events", "text_of", "link_of",
@@ -58,6 +60,22 @@ class Source:
     name: str = "generic"
     url: str = ""
 
+    # Id estable para la app. Se separa de `name` porque el nombre humano se
+    # repite: la semilla curada publica eventos con source_name "Centro
+    # Cultural Recoleta", igual que la fuente en vivo del mismo nombre. Sin un
+    # id propio, el panel mostraria el estado del scraper sobre eventos que no
+    # salieron de ahi.
+    @property
+    def id(self) -> str:
+        from ..models import slugify
+        return slugify(self.name)
+
+    # Lo que la fuente quiere contar de la corrida: cuantas fichas leyo y por
+    # que descarto las que descarto. Lo llena `_leer_fichas`; las fuentes que
+    # no leen fichas lo dejan vacio y su estado sale solo de si trajo eventos.
+    _ultimos_motivos: dict[str, int]
+    _ultimas_fichas: int
+
     # Una fuente puede pedir un transporte propio: IPv4 forzado cuando el
     # dominio tiene AAAA sin ruta real (sintoma: ConnectTimeout) o un timeout
     # mas largo si el sitio es lento. Vacio = usa la sesion compartida.
@@ -79,13 +97,36 @@ class Source:
         return sesion
 
     def safe_fetch(self, session, window: DateWindow) -> list[Event]:
+        """Compatibilidad: solo los eventos. El informe queda en `ultimo_informe`."""
+        events, _ = self.fetch_con_informe(session, window)
+        return events
+
+    def fetch_con_informe(self, session,
+                          window: DateWindow) -> tuple[list[Event], InformeFuente]:
+        """Corre la fuente y devuelve tambien como le fue.
+
+        El informe sale de aca y no del pipeline porque este es el unico lugar
+        que ve la excepcion: antes se imprimia y se perdia, y entonces "0
+        eventos" en el log podia ser tanto un sitio caido como una agenda sin
+        nada gratis. Son cosas distintas y ahora se distinguen.
+        """
+        self._ultimos_motivos = {}
+        self._ultimas_fichas = 0
+        informe = InformeFuente(id=self.id, nombre=self.name, url=self.url or None)
         try:
             events = self.fetch(self._session_propia(session), window)
-            print(f"  [{self.name}] {len(events)} eventos")
-            return events
         except Exception as exc:  # una fuente rota no tumba la corrida
             print(f"  [{self.name}] ERROR: {type(exc).__name__}: {exc}")
-            return []
+            informe.error = f"{type(exc).__name__}: {exc}"
+            return [], informe
+
+        informe.eventos = len(events)
+        informe.motivos = dict(self._ultimos_motivos)
+        # Sin fichas contadas (ICS, Tribe, semilla), cada evento cuenta como
+        # una lectura: si no, `estado` los tomaria por inalcanzables.
+        informe.fichas = self._ultimas_fichas or len(events)
+        print(f"  [{self.name}] {len(events)} eventos -> {informe.estado}")
+        return events, informe
 
 
 # ---------------------------------------------------------------------------
