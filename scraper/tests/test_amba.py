@@ -196,3 +196,28 @@ def test_todo_partido_declarado_en_el_registro_es_conocido():
                 f"'{entrada['name']}' declara el partido '{partido}', que no está "
                 f"en PARTIDOS_POR_ZONA: sus eventos saldrían marcados como CABA."
             )
+
+
+# --- Prospección: no gastar una hora en un dominio inventado --------------
+
+def test_un_host_caido_se_descarta_antes_de_sondear():
+    """Sin este corte, un dominio que traga paquetes cuesta ~15 minutos.
+
+    Cada mecanismo sondea entre 1 y 12 rutas con timeouts de 20-30 s. Con
+    once candidatas municipales de URL conjeturada, eso convirtió una
+    prospección de veinte minutos en una de más de una hora.
+    """
+    import discover
+
+    class SesionQueFalla:
+        pedidos = 0
+
+        def get(self, url, **kwargs):
+            SesionQueFalla.pedidos += 1
+            raise OSError("sin ruta al host")
+
+    ses = SesionQueFalla()
+    assert discover.revisar_compacto(ses, {"name": "Inventada",
+                                           "url": "https://no-existe.test/cultura"}) is None
+    # Un solo pedido, no los treinta y pico de los ocho mecanismos.
+    assert SesionQueFalla.pedidos == 1
