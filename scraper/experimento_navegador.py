@@ -43,8 +43,20 @@ MARCAS_DE_DESAFIO = (
 )
 
 
+def url_pedida(argv: list[str]) -> str:
+    """URL del primer argumento no vacío, o el objetivo por defecto.
+
+    El "no vacío" importa: cuando el workflow se dispara por push no existe
+    `inputs.url`, así que el paso pasa una cadena vacía como argumento.
+    """
+    for arg in argv:
+        if arg.strip():
+            return arg.strip()
+    return OBJETIVO
+
+
 def main() -> int:
-    url = (sys.argv[1] if len(sys.argv) > 1 else OBJETIVO)
+    url = url_pedida(sys.argv[1:])
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
@@ -70,6 +82,14 @@ def main() -> int:
             titulo = pagina.title()
             cuerpo = pagina.inner_text("body")[:400]
             cookies = {c["name"] for c in contexto.cookies()}
+        except Exception as exc:
+            # Un error de red no es "no pasó el desafío": son cosas distintas y
+            # confundirlas daría por cerrado el tema sin haberlo respondido.
+            print(f"El navegador no llegó a cargar la página: "
+                  f"{type(exc).__name__}: {exc}")
+            print("Eso NO responde la pregunta del experimento; hay que "
+                  "repetirlo.")
+            return 1
         finally:
             navegador.close()
 
