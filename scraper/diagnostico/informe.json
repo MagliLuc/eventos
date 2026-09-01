@@ -21,7 +21,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33032,
+      "bytes": 33033,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -49,7 +49,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33034,
+      "bytes": 33032,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -309,7 +309,7 @@
         "X-Powered-By": "Express",
         "Server": "cloudflare",
         "Cf-Cache-Status": "HIT",
-        "CF-RAY": "a3476bb109b367f5-SJC"
+        "CF-RAY": "a347c275be7ba6c4-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/robots.txt",
@@ -319,13 +319,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 20445,
+      "bytes": 19486,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "Server": "cloudflare",
-        "cf-cache-status": "EXPIRED",
-        "CF-RAY": "a3476bc269e167f5-SJC"
+        "cf-cache-status": "HIT",
+        "CF-RAY": "a347c2875b4fa6c4-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -339,8 +339,8 @@
         "content-type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "server": "cloudflare",
-        "cf-cache-status": "REVALIDATED",
-        "cf-ray": "a3476bccefb90c1e-BOS"
+        "cf-cache-status": "HIT",
+        "cf-ray": "a347c290ce5aeb22-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -349,13 +349,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 19486,
+      "bytes": 19570,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "Server": "cloudflare",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a3476bd64a803762-BOS"
+        "CF-RAY": "a347c29a2d5ccf23-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -395,7 +395,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-09-01T21:38:23.990Z",
+              "validFrom": "2026-09-01T22:13:41.955Z",
               "category": "Free"
             }
           }
@@ -414,7 +414,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-09-01T21:38:25.366Z",
+              "validFrom": "2026-09-01T22:13:43.415Z",
               "category": "Free"
             }
           }
@@ -457,7 +457,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60198,
+      "bytes": 60084,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -484,7 +484,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60029,
+      "bytes": 60288,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -516,8 +516,8 @@
       "bytes": 943,
       "cabeceras": {
         "server": "akka-http/10.2.10",
-        "content-type": "text/plain; charset=UTF-8",
-        "via": "1.1 google"
+        "via": "1.1 google",
+        "Content-Type": "text/plain; charset=UTF-8"
       },
       "cookies": [
         "_TO_Canary"
@@ -529,11 +529,11 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40718,
+      "bytes": 40737,
       "cabeceras": {
         "server": "akka-http/10.2.10",
-        "content-type": "text/html; charset=UTF-8",
-        "via": "1.1 google"
+        "via": "1.1 google",
+        "Content-Type": "text/html; charset=UTF-8"
       },
       "cookies": [],
       "final": "https://www.timeout.com/es/buenos-aires"
@@ -542,7 +542,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 283896,
+      "bytes": 283902,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -557,7 +557,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40718,
+      "bytes": 40737,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -626,7 +626,7 @@
         "X-Powered-By": "ASP.NET"
       },
       "cookies": [
-        "ASPSESSIONIDCWQRQARA"
+        "ASPSESSIONIDSGRTTBTD"
       ],
       "final": "https://www.alternativateatral.com/entradas.asp?opcion=gratis"
     },
@@ -641,7 +641,7 @@
         "x-powered-by": "ASP.NET"
       },
       "cookies": [
-        "ASPSESSIONIDSESSTCSC"
+        "ASPSESSIONIDQESRSCSC"
       ],
       "final": "https://www.alternativateatral.com/entradas.asp?opcion=gratis"
     },
@@ -656,7 +656,7 @@
         "X-Powered-By": "ASP.NET"
       },
       "cookies": [
-        "ASPSESSIONIDAWSRRATB"
+        "ASPSESSIONIDCUSQRCSB"
       ],
       "final": "https://www.alternativateatral.com/entradas.asp?opcion=gratis"
     },
@@ -686,7 +686,7 @@
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a3476d21eab8ff03-PDX"
+        "CF-RAY": "a347c3e62bde5585-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/robots.txt",
@@ -696,13 +696,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21692,
+      "bytes": 21687,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a3476d332e69ff03-PDX"
+        "CF-RAY": "a347c3f7cdc85585-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -717,7 +717,7 @@
         "server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a3476d62cc7d3335-BOS"
+        "cf-ray": "a347c4014c80cf8f-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -726,13 +726,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21692,
+      "bytes": 21687,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a3476d6ddbae3884-SJC"
+        "CF-RAY": "a347c40a9af35b6a-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -779,12 +779,12 @@
     "tls_navegador_disponible": true,
     "robots": {
       "url": "https://www.malba.org.ar/robots.txt",
-      "resultado": "HTTP 429",
-      "status": 429,
-      "bytes": 1168,
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 108,
       "cabeceras": {
         "Server": "nginx",
-        "Content-Type": "text/html"
+        "Content-Type": "text/plain; charset=utf-8"
       },
       "cookies": [],
       "final": "https://malba.org.ar/robots.txt",
@@ -826,7 +826,7 @@
         "Content-Type": "text/html"
       },
       "cookies": [],
-      "final": "https://malba.org.ar/evento/actividades-2016-2017/"
+      "final": "https://malba.org.ar/actividades/"
     },
     "veredicto": "HTTP 429: es ritmo, no bloqueo. El sitio responde; hay que espaciar los pedidos y volver a probar.",
     "puertas": [
@@ -877,12 +877,13 @@
       },
       {
         "url": "https://www.malba.org.ar/wp-json/wp/v2/posts?per_page=5",
-        "resultado": "HTTP 429",
-        "status": 429,
-        "bytes": 1168,
+        "resultado": "HTTP 401",
+        "status": 401,
+        "bytes": 138,
         "cabeceras": {
           "Server": "nginx",
-          "Content-Type": "text/html"
+          "Content-Type": "application/json; charset=UTF-8",
+          "Link": "<https://malba.org.ar/wp-json/>; rel=\"https://api.w.org/\""
         },
         "cookies": [],
         "final": "https://malba.org.ar/wp-json/wp/v2/posts?per_page=5",
@@ -930,7 +931,7 @@
           "Content-Type": "text/html"
         },
         "cookies": [],
-        "final": "https://malba.org.ar/feed",
+        "final": "https://malba.org.ar/feed/",
         "desafiada": false,
         "cache": "",
         "ruta": "/feed"
@@ -988,7 +989,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "BYPASS",
-        "CF-RAY": "a34777a04ad4b602-MIA"
+        "CF-RAY": "a347cceeaa2e2fe9-SJC"
       },
       "cookies": [],
       "final": "https://museomoderno.org/robots.txt",
@@ -1005,7 +1006,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a34777b13848b602-MIA"
+        "CF-RAY": "a347cd0059092fe9-SJC"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1021,7 +1022,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a34777babc328123-SJC"
+        "cf-ray": "a347cd09cb9115ef-SJC"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1037,7 +1038,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a34777c4fee28f78-BOS"
+        "CF-RAY": "a347cd1328c60b82-SJC"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1343,18 +1344,8 @@
     },
     "requests": {
       "url": "https://www.gba.gob.ar/recreo",
-      "resultado": "HTTP 404",
-      "status": 404,
-      "bytes": 144405,
-      "cabeceras": {
-        "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
-        "content-type": "text/html; charset=utf-8",
-        "via": "1.1 varnish (Varnish/6.0)"
-      },
-      "cookies": [
-        "SERVERID"
-      ],
-      "final": "https://www.gba.gob.ar/recreo"
+      "resultado": "error",
+      "error": "ReadTimeout: HTTPSConnectionPool(host='www.gba.gob.ar', port=443): Read timed out. (read timeout=30)"
     },
     "curl_cffi_chrome": {
       "url": "https://www.gba.gob.ar/recreo",
@@ -1386,8 +1377,7 @@
       ],
       "final": "https://www.gba.gob.ar/recreo"
     },
-    "raiz_responde": 200,
-    "veredicto": "404: la URL esta mal, pero el dominio responde. Sondear la raiz con discover.py para encontrar la agenda.  PERO hay 2 ruta(s) abierta(s) sin desafio: /?ical=1, /sitemap.xml",
+    "veredicto": "sin via de acceso (requests None, chrome 404, ipv4 404)  PERO hay 2 ruta(s) abierta(s) sin desafio: /?ical=1, /sitemap.xml",
     "puertas": [
       {
         "url": "https://www.gba.gob.ar/events.ics",
@@ -1889,7 +1879,7 @@
         "Content-Type": "text/html",
         "Server": "nginx",
         "X-Cache": "Miss from cloudfront",
-        "Via": "1.1 38ee5718746cc97ac8d334cadbdf695c.cloudfront.net (CloudFront)"
+        "Via": "1.1 b17f8a118d57b4772c5ae067cb6b9686.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://www.sanmartin.gob.ar/robots.txt",
@@ -1904,7 +1894,7 @@
         "Content-Type": "text/html",
         "Server": "nginx",
         "X-Cache": "Miss from cloudfront",
-        "Via": "1.1 38ee5718746cc97ac8d334cadbdf695c.cloudfront.net (CloudFront)"
+        "Via": "1.1 b17f8a118d57b4772c5ae067cb6b9686.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://www.sanmartin.gob.ar/cultura"
@@ -1918,7 +1908,7 @@
         "content-type": "text/html",
         "server": "nginx",
         "x-cache": "Miss from cloudfront",
-        "via": "1.1 594d6e43a4b7edb10443ddc27d344208.cloudfront.net (CloudFront)"
+        "via": "1.1 1fd3242984ceacb561c135f27536c5da.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://www.sanmartin.gob.ar/cultura"
@@ -1932,7 +1922,7 @@
         "Content-Type": "text/html",
         "Server": "nginx",
         "X-Cache": "Miss from cloudfront",
-        "Via": "1.1 d5d518c7e2144001e68c14feb018a41c.cloudfront.net (CloudFront)"
+        "Via": "1.1 1b3830d707f4ac60e56d5750ec483784.cloudfront.net (CloudFront)"
       },
       "cookies": [],
       "final": "https://www.sanmartin.gob.ar/cultura"
@@ -1980,13 +1970,13 @@
     "robots": {
       "url": "https://www.moron.gob.ar/robots.txt",
       "resultado": "error",
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb47bc0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddf45220>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
       "permite_la_ruta": true
     },
     "requests": {
       "url": "https://www.moron.gob.ar/cultura",
       "resultado": "error",
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb7c2f0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=30)'))"
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddf44fb0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=30)'))"
     },
     "curl_cffi_chrome": {
       "url": "https://www.moron.gob.ar/cultura",
@@ -1996,14 +1986,14 @@
     "ipv4_forzado": {
       "url": "https://www.moron.gob.ar/cultura",
       "resultado": "error",
-      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8e60>, 'Connection to www.moron.gob.ar timed out. (connect timeout=60)'))"
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbde30b410>, 'Connection to www.moron.gob.ar timed out. (connect timeout=60)'))"
     },
     "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
     "puertas": [
       {
         "url": "https://www.moron.gob.ar/events.ics",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8e30>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddd8be90>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/events.ics"
@@ -2011,7 +2001,7 @@
       {
         "url": "https://www.moron.gob.ar/?ical=1",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00ca390>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddd898e0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/?ical=1"
@@ -2019,7 +2009,7 @@
       {
         "url": "https://www.moron.gob.ar/wp-json/tribe/events/v1/events",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d04b94c0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddf468a0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/wp-json/tribe/events/v1/events"
@@ -2027,7 +2017,7 @@
       {
         "url": "https://www.moron.gob.ar/wp-json/wp/v2/posts?per_page=5",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8980>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddf44cb0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/wp-json/wp/v2/posts?per_page=5"
@@ -2035,7 +2025,7 @@
       {
         "url": "https://www.moron.gob.ar/sitemap.xml",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8bc0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddf47da0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/sitemap.xml"
@@ -2043,7 +2033,7 @@
       {
         "url": "https://www.moron.gob.ar/sitemap_index.xml",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c9640>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbddf47c50>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/sitemap_index.xml"
@@ -2051,7 +2041,7 @@
       {
         "url": "https://www.moron.gob.ar/feed",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00cbd40>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbde72de50>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/feed"
@@ -2059,7 +2049,7 @@
       {
         "url": "https://www.moron.gob.ar/feed/",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb7ef30>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbde30b1d0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/feed/"
@@ -2067,7 +2057,7 @@
       {
         "url": "https://www.moron.gob.ar/rss",
         "resultado": "error",
-        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb7dc40>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7fbbde30b380>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
         "desafiada": false,
         "cache": "",
         "ruta": "/rss"
@@ -2579,7 +2569,7 @@
         "Content-Type": "text/html",
         "Server": "cloudflare",
         "cf-cache-status": "EXPIRED",
-        "CF-RAY": "a34793e9bec3f037-SJC"
+        "CF-RAY": "a347ea213992942c-SJC"
       },
       "cookies": [],
       "final": "https://www.unsam.edu.ar/robots.txt",
@@ -2589,12 +2579,12 @@
       "url": "https://www.unsam.edu.ar/cultura/",
       "resultado": "HTTP 404",
       "status": 404,
-      "bytes": 1142,
+      "bytes": 1129,
       "cabeceras": {
         "Content-Type": "text/html",
         "Server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a34793fa2929f037-SJC"
+        "CF-RAY": "a347ea32ec53942c-SJC"
       },
       "cookies": [],
       "final": "https://www.unsam.edu.ar/cultura/"
@@ -2608,7 +2598,7 @@
         "content-type": "text/html; charset=UTF-8",
         "cf-mitigated": "challenge",
         "server": "cloudflare",
-        "cf-ray": "a3479403cceb8e9b-SJC"
+        "cf-ray": "a347ea3c5b4aa63b-SJC"
       },
       "cookies": [],
       "final": "https://www.unsam.edu.ar/cultura/"
@@ -2617,12 +2607,12 @@
       "url": "https://www.unsam.edu.ar/cultura/",
       "resultado": "HTTP 404",
       "status": 404,
-      "bytes": 1130,
+      "bytes": 1129,
       "cabeceras": {
         "Content-Type": "text/html",
         "Server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a347940d28cf35d6-SJC"
+        "CF-RAY": "a347ea45bd8ecf22-SJC"
       },
       "cookies": [],
       "final": "https://www.unsam.edu.ar/cultura/"
@@ -2634,12 +2624,12 @@
         "url": "https://www.unsam.edu.ar/events.ics",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1142,
+        "bytes": 1130,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a347943bcdb8f037-SJC"
+          "CF-RAY": "a347ea748f42942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/events.ics",
@@ -2651,12 +2641,12 @@
         "url": "https://www.unsam.edu.ar/?ical=1",
         "resultado": "ok",
         "status": 200,
-        "bytes": 17822,
+        "bytes": 17823,
         "cabeceras": {
           "Content-Type": "text/html; charset=UTF-8",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a3479445299ff037-SJC"
+          "CF-RAY": "a347ea7de975942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/?ical=1",
@@ -2669,12 +2659,12 @@
         "url": "https://www.unsam.edu.ar/wp-json/tribe/events/v1/events",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1143,
+        "bytes": 1129,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a347944e8919f037-SJC"
+          "CF-RAY": "a347ea875b02942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/wp-json/tribe/events/v1/events",
@@ -2686,12 +2676,12 @@
         "url": "https://www.unsam.edu.ar/wp-json/wp/v2/posts?per_page=5",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1130,
+        "bytes": 1128,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a3479457eed5f037-SJC"
+          "CF-RAY": "a347ea90acf5942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/wp-json/wp/v2/posts?per_page=5",
@@ -2708,7 +2698,7 @@
           "Content-Type": "application/xml",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a34794614d5bf037-SJC"
+          "CF-RAY": "a347ea9a0e71942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/sitemap.xml",
@@ -2721,12 +2711,12 @@
         "url": "https://www.unsam.edu.ar/sitemap_index.xml",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1143,
+        "bytes": 1141,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a347946aad33f037-SJC"
+          "CF-RAY": "a347eaa368a7942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/sitemap_index.xml",
@@ -2738,12 +2728,12 @@
         "url": "https://www.unsam.edu.ar/feed",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1143,
+        "bytes": 1129,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a34794740c66f037-SJC"
+          "CF-RAY": "a347eaaccfd0942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/feed",
@@ -2755,12 +2745,12 @@
         "url": "https://www.unsam.edu.ar/feed/",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1131,
+        "bytes": 1142,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a347947d6b85f037-SJC"
+          "CF-RAY": "a347eab62f77942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/feed/",
@@ -2772,12 +2762,12 @@
         "url": "https://www.unsam.edu.ar/rss",
         "resultado": "HTTP 404",
         "status": 404,
-        "bytes": 1143,
+        "bytes": 1142,
         "cabeceras": {
           "Content-Type": "text/html",
           "Server": "cloudflare",
           "cf-cache-status": "DYNAMIC",
-          "CF-RAY": "a3479486ca50f037-SJC"
+          "CF-RAY": "a347eabf8fb9942c-SJC"
         },
         "cookies": [],
         "final": "https://www.unsam.edu.ar/rss",
