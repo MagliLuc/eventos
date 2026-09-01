@@ -8,6 +8,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
 from eventos.models import PARTIDOS_POR_ZONA, ZONES, Venue  # noqa: E402
+from eventos.sources.base import Source  # noqa: E402
 from eventos.normalize import (  # noqa: E402
     detect_access_mode,
     detect_contribution,
@@ -389,3 +390,99 @@ def test_el_feed_de_comentarios_no_es_una_agenda():
     assert es_feed_de_comentarios("https://x.ar/comments/feed")
     assert not es_feed_de_comentarios("https://usinadelarte.ar/feed/")
     assert not es_feed_de_comentarios("https://museomoderno.org/agenda/feed/")
+
+
+# --- La red de seguridad no debe perpetuar datos viejos -------------------
+
+def _pipeline_con_archivo_previo(fuente, previos):
+    """Corre `run` dos veces: la segunda ve el JSON que dejó la primera."""
+    import json
+    import tempfile
+    from pathlib import Path
+
+    from eventos.pipeline import run
+
+    with tempfile.TemporaryDirectory() as tmp:
+        salida = Path(tmp) / "events.json"
+        salida.write_text(json.dumps(previos, ensure_ascii=False), encoding="utf-8")
+        return run(salida, days=21, sources=[fuente], include_seed=False,
+                   keep_existing=True)
+
+
+def _feed_previo(*eventos):
+    return {"schema_version": 1, "generated_at": "2026-09-01T00:00:00-03:00",
+            "events": list(eventos)}
+
+
+def _evento_crudo(titulo, source_id, fecha):
+    return {
+        "id": f"{source_id}-{titulo}", "title": titulo, "category": "MUSICA",
+        "date": fecha, "access_mode": "INGRESO_LIBRE", "source_id": source_id,
+        "start_time": "10:00", "end_time": "16:00",
+        "venue": {"id": "sala", "name": "Sala", "address": "Calle 1",
+                  "neighborhood": "Almagro"},
+    }
+
+
+def test_una_fuente_que_anduvo_no_arrastra_sus_eventos_viejos():
+    """El arreglo tiene que limpiar también lo que ya se publicó.
+
+    Después de arreglar el chequeo de precio, la corrida en seco daba 8
+    eventos de Qué Hacemos y el feed publicaba 21: 19 venían del archivo
+    anterior, con la hora inventada y sin haber pasado nunca por el chequeo
+    nuevo.
+    """
+    from eventos.models import DateWindow, Event, Venue, today_ba
+
+    hoy = today_ba().isoformat()
+
+    class FuenteQueAnda(Source):
+        name = "Fuente"
+
+        def fetch(self, session, window: DateWindow):
+            return [Event(title="Fresco", category="MUSICA", date=hoy,
+                          access_mode="INGRESO_LIBRE",
+                          venue=Venue(id="sala", name="Sala", address="Calle 1",
+                                      neighborhood="Almagro"))]
+
+    payload = _pipeline_con_archivo_previo(
+        FuenteQueAnda(), _feed_previo(_evento_crudo("Viejo", "fuente", hoy)))
+    assert [e["title"] for e in payload["events"]] == ["Fresco"]
+
+
+def test_una_fuente_caida_si_conserva_sus_eventos():
+    """Para esto existe la red: un sitio caído no deja un hueco en la app."""
+    from eventos.models import DateWindow, today_ba
+
+    hoy = today_ba().isoformat()
+
+    class FuenteCaida(Source):
+        name = "Fuente"
+
+        def fetch(self, session, window: DateWindow):
+            raise ConnectionError("timeout")
+
+    payload = _pipeline_con_archivo_previo(
+        FuenteCaida(), _feed_previo(_evento_crudo("Viejo", "fuente", hoy)))
+    assert [e["title"] for e in payload["events"]] == ["Viejo"]
+
+
+def test_un_evento_sin_fuente_conocida_se_conserva():
+    """No se puede atribuir, así que tirarlo sería hacerlo desaparecer."""
+    from eventos.models import DateWindow, Event, Venue, today_ba
+
+    hoy = today_ba().isoformat()
+
+    class FuenteQueAnda(Source):
+        name = "Fuente"
+
+        def fetch(self, session, window: DateWindow):
+            return [Event(title="Fresco", category="MUSICA", date=hoy,
+                          access_mode="INGRESO_LIBRE",
+                          venue=Venue(id="sala", name="Sala", address="Calle 1",
+                                      neighborhood="Almagro"))]
+
+    huerfano = _evento_crudo("Huérfano", "x", hoy)
+    del huerfano["source_id"]
+    payload = _pipeline_con_archivo_previo(FuenteQueAnda(), _feed_previo(huerfano))
+    assert sorted(e["title"] for e in payload["events"]) == ["Fresco", "Huérfano"]
