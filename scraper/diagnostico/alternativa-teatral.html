@@ -5,26 +5,25 @@
 <meta content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" name="viewport"/>
 <meta content="402681196437" property="fb:app_id"/>
 <meta content="595006335" property="fb:admins"/>
-<meta content="Alternativa. Comunidad en escena." property="og:title"/>
-<meta content="https://www.alternativateatral.com" property="og:url"/>
+<meta content="Entradas de teatro: gratis, 2x1 y descuentos | Alternativa" property="og:title"/>
+<meta content="https://www.alternativateatral.com/entradas.asp" property="og:url"/>
 <meta content="article" property="og:type"/>
+<meta content="" property="og:image"/>
 <meta content="Alternativa. Comunidad en escena." property="og:site_name"/>
-<meta content="La escena independiente, las artes escénicas y performáticas viven en Alternativa. Comunidad en escena. Teatro. Danza. Performance. Experiencias. Video a demanda, streaming." property="og:description"/>
+<meta content="Entradas gratis, 2x1, descuentos y clubes de beneficios para teatro y espectáculos, con la fecha, la sala y el precio a la vista. Alternativa Teatral, la comunidad en escena." property="og:description"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<meta content="Alternativa. Comunidad en escena." name="title"/>
-<meta content="La escena independiente, las artes escénicas y performáticas viven en Alternativa. Comunidad en escena. Teatro. Danza. Performance. Experiencias. Video a demanda, streaming." name="description"/>
-<meta content="Alternativa. Comunidad en escena. Teatro. Danza. Performance. Experiencias." name="keywords"/>
-<meta content="no-store" http-equiv="Cache-Control"/>
-<meta content="no-cache" http-equiv="Pragma"/>
-<meta content="0" http-equiv="Expires"/>
-<title>Alternativa. Comunidad en escena.</title>
+<meta content="Entradas de teatro: gratis, 2x1 y descuentos | Alternativa" name="title"/>
+<meta content="Entradas gratis, 2x1, descuentos y clubes de beneficios para teatro y espectáculos, con la fecha, la sala y el precio a la vista. Alternativa Teatral, la comunidad en escena." name="description"/>
+<meta content="entradas de teatro, entradas gratis, entradas 2x1, descuentos teatro, alternativa teatral, alternativa comunidad en escena" name="keywords"/>
+<title>Entradas de teatro: gratis, 2x1 y descuentos | Alternativa</title>
+<link href="https://www.alternativateatral.com/entradas.asp" rel="canonical"/>
+<meta content="index,follow" name="robots"/>
 <link href="https://unpkg.com/material-components-web@4.0.0/dist/material-components-web.min.css" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Changa:wght@800&amp;family=Roboto&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@700;800&amp;family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
 <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-material-ui@3.2.0/material-ui.min.css" rel="stylesheet"/>
-<link href="//static.alternativateatral.com/css/alternativa-min.css?0=7" rel="stylesheet"/>
-<link href="//static.alternativa.ar/css/alternativa-showcase-carousel-min.css?0" rel="stylesheet"/>
-
+<link href="//static.alternativateatral.com/css/alternativa-min.css?0=6" rel="stylesheet"/>
+<link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet"/>
 
 
 
@@ -112,7 +111,7 @@
 </aside>
 <div class="mdc-drawer-scrim"></div>
 <div class="mdc-drawer-app-content">
-<header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z2">
+<header class="mdc-top-app-bar mdc-top-app-bar--fixed mdc-elevation--z2" id="ctAppBar">
 <div class="mdc-top-app-bar__row">
 <section class="mdc-top-app-bar__section">
 <button aria-label="Open navigation menu" class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" id="menu">menu</button>
@@ -134,73 +133,81 @@
 </section>
 </div>
 </header>
-<div aria-label="Destacados de Alternativa" class="fondo row mdc-top-app-bar--fixed-adjust" id="fotos">
-<div aria-hidden="true" class="loader">
-
-</div>
-</div>
-<div class="row">
+<!-- The flexible grid (content) -->
+<div class="row mdc-top-app-bar--fixed-adjust">
 <div class="main">
-<div class="alter-padding-left alter-padding-right">
-<div class="cabecera-cartelera">
-<h1>Cartelera de espectáculos</h1>
+<div class="ct" id="ct">
+<div class="ct-head">
+<h1 id="ctH1">Entradas de teatro: gratis, 2x1 y descuentos</h1>
+<p class="ct-sub" hidden="" id="ctSub"></p>
+<p>Las promociones que están vivas hoy, con la fecha y el precio a la vista. Elegí el tipo de promoción, el día o la zona y quedate con lo que te sirve.</p>
 </div>
-<div class="row busqueda alter-margin-bottom alter-margin-top">
-<div class="col-xs-8">
-<span class="textobusqueda">
-<input id="textobusqueda" placeholder="¿Qué querés ver?" type="search"/>
-<span class="textobusqueda-icono"></span>
-</span>
+<div class="ct-bar" id="ctBar">
+<div class="ct-bar-1">
+<div class="ct-search" id="ctSearchWrap">
+<span aria-hidden="true" class="ct-ico"></span>
+<label class="ct-sr" for="ctQ">Buscar obra, sala o barrio</label>
+<input autocomplete="off" id="ctQ" placeholder="¿Qué querés ver? Obra, sala o barrio" type="search"/>
+<button aria-label="Borrar búsqueda" class="ct-clr" id="ctQClear"></button>
 </div>
-<div class="col-xs-4">
-<a href="javascript:void(0);" id="mostrar-filtros">Filtros<span class="desplegable"></span></a>
+<button aria-expanded="false" class="ct-btn" id="ctFiltrosBtn">Filtros<span class="ct-nb" hidden="" id="ctFiltrosN">0</span></button>
+<button aria-pressed="false" class="ct-btn" id="ctMapBtn">Mapa</button>
 </div>
-<div class="col-xs-12" id="filtros" style="display:none;">
+<div class="ct-when" id="ctPromo"><span class="ct-lbl">Promoción</span></div>
+<div class="ct-when" id="ctWhen"><span class="ct-lbl">Cuándo</span></div>
+</div>
+<div class="ct-cols">
+<aside aria-label="Filtros" class="ct-side" id="ctSide">
+<div class="ct-side-head">
+<h2>Filtrar</h2>
+<button class="ct-reset" id="ctReset">Limpiar todo</button>
+<button aria-label="Cerrar filtros" class="ct-cerrar" id="ctCerrar"></button>
+</div>
+<div id="ctFacets"></div>
+<details class="ct-grp" open="">
+<summary>Cerca mío <span aria-hidden="true" class="ct-car"></span></summary>
+<div class="ct-grp-body ct-near">
+<button class="ct-btn" id="ctGeo">Usar mi ubicación</button>
+<input aria-label="Radio en kilómetros" class="ct-range" disabled="" id="ctRadio" max="30" min="1" step="1" type="range" value="5"/>
+<span class="ct-rd" id="ctRadioTx">Activá la ubicación para filtrar por distancia.</span>
+</div>
+</details>
+</aside>
+<div class="ct-main" id="ctResultados">
+<div class="ct-tools">
+<div aria-live="polite" class="ct-count" id="ctCount">Cargando</div>
+<div class="ct-tools-r">
+<div aria-label="Vista" class="ct-seg" role="group">
+<button aria-pressed="true" data-vista="grilla">Grilla</button>
+<button aria-pressed="false" data-vista="mural">Mural</button>
+<button aria-pressed="false" data-vista="lista">Lista</button>
+<button aria-pressed="false" data-vista="agenda">Agenda</button>
+</div>
+<label class="ct-sr" for="ctOrden">Ordenar por</label>
+<select class="ct-sel" id="ctOrden">
+<option value="proxima">Próxima función</option>
+<option value="descuento">Mayor descuento</option>
+<option value="precio">Precio más bajo</option>
+<option value="titulo">Título A–Z</option>
+<option value="funciones">Más funciones</option>
+<option disabled="" value="distancia">Más cerca mío</option>
+</select>
 </div>
 </div>
-<div id="cartelera">
+<div class="ct-active" id="ctActive"></div>
+<div class="ct-mapwrap" id="ctMapWrap">
+<div aria-label="Mapa de salas con entradas en promoción en los filtros activos" id="ctMap" role="application"></div>
+<div class="ct-zoomer">
+<button aria-label="Ver todas las salas" aria-pressed="false" id="ctZRst">⤢</button>
 </div>
-<div class="final"></div>
+<div class="ct-legend" id="ctMapLegend">Salas</div>
+</div>
+<div id="ctOut"><div class="ct-loading"><span class="ct-pulse"></span> Trayendo las entradas…</div></div>
+<div class="ct-sentinel" id="ctSentinel"></div>
 </div>
 </div>
-<div class="side">
-<div class="banner300x250">
-<div id="div-gpt-ad-1480356758576-2" style="height:250px; width:300px;">
-
+<div class="ct-scrim" id="ctScrim"></div>
 </div>
-</div>
-<ul class="pila-banners">
-<li>
-<div id="div-gpt-ad-1599582257041-0" style="height:100px; width:300px;">
-
-</div>
-</li>
-<li>
-<div id="div-gpt-ad-1603493090778-0" style="width: 300px; height: 100px;">
-
-</div>
-</li>
-<li>
-<div id="div-gpt-ad-1603493090779-0" style="width: 300px; height: 100px;">
-
-</div>
-</li>
-<li>
-<div id="div-gpt-ad-1603493090780-0" style="width: 300px; height: 100px;">
-
-</div>
-</li>
-<li>
-<div id="div-gpt-ad-1603493090781-0" style="width: 300px; height: 100px;">
-
-</div>
-</li>
-<li>
-<div id="div-gpt-ad-1603493090782-0" style="width: 300px; height: 100px;">
-
-</div>
-</li>
-</ul>
 </div>
 </div>
 <!-- Footer -->
@@ -240,8 +247,6 @@
 <br/>
 </div>
 </div>
-
-
 
 
 </body>

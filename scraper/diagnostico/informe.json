@@ -21,7 +21,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33031,
+      "bytes": 33032,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -49,7 +49,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "resultado": "ok",
       "status": 200,
-      "bytes": 33032,
+      "bytes": 33034,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.2.30",
@@ -212,7 +212,7 @@
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "resultado": "ok",
       "status": 200,
-      "bytes": 222258,
+      "bytes": 222227,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8"
       },
@@ -225,7 +225,7 @@
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "resultado": "ok",
       "status": 200,
-      "bytes": 222258,
+      "bytes": 222227,
       "cabeceras": {
         "content-type": "text/html; charset=utf-8"
       },
@@ -240,7 +240,7 @@
       "url": "https://turismo.buenosaires.gob.ar/es/eventos",
       "resultado": "ok",
       "status": 200,
-      "bytes": 222258,
+      "bytes": 222227,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8"
       },
@@ -309,7 +309,7 @@
         "X-Powered-By": "Express",
         "Server": "cloudflare",
         "Cf-Cache-Status": "HIT",
-        "CF-RAY": "a34105377fced116-SJC"
+        "CF-RAY": "a3476bb109b367f5-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/robots.txt",
@@ -319,13 +319,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 19462,
+      "bytes": 20445,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "Server": "cloudflare",
-        "cf-cache-status": "REVALIDATED",
-        "CF-RAY": "a34105490d71d116-SJC"
+        "cf-cache-status": "EXPIRED",
+        "CF-RAY": "a3476bc269e167f5-SJC"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -334,13 +334,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 108932,
+      "bytes": 108935,
       "cabeceras": {
         "content-type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "server": "cloudflare",
-        "cf-cache-status": "HIT",
-        "cf-ray": "a3410552af768969-PDX"
+        "cf-cache-status": "REVALIDATED",
+        "cf-ray": "a3476bccefb90c1e-BOS"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -349,13 +349,13 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 19462,
+      "bytes": 19486,
       "cabeceras": {
         "Content-Type": "text/html; charset=utf-8",
         "x-powered-by": "Express",
         "Server": "cloudflare",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a341055bdcd65c1c-SJC"
+        "CF-RAY": "a3476bd64a803762-BOS"
       },
       "cookies": [],
       "final": "https://www.quehacemos.com.ar/eventos-gratis"
@@ -395,7 +395,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-09-01T02:39:23.436Z",
+              "validFrom": "2026-09-01T21:38:23.990Z",
               "category": "Free"
             }
           }
@@ -414,7 +414,7 @@
               "price": "0",
               "priceCurrency": "ARS",
               "availability": "https://schema.org/InStock",
-              "validFrom": "2026-09-01T02:39:24.798Z",
+              "validFrom": "2026-09-01T21:38:25.366Z",
               "category": "Free"
             }
           }
@@ -457,7 +457,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60322,
+      "bytes": 60198,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -484,7 +484,7 @@
       "url": "https://gratisenbuenosaires.com/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 60198,
+      "bytes": 60029,
       "cabeceras": {
         "Server": "nginx",
         "Content-Type": "text/html; charset=UTF-8",
@@ -529,7 +529,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40676,
+      "bytes": 40718,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "content-type": "text/html; charset=UTF-8",
@@ -542,7 +542,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 283898,
+      "bytes": 283896,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -557,7 +557,7 @@
       "url": "https://www.timeout.com/es/buenos-aires",
       "resultado": "ok",
       "status": 200,
-      "bytes": 40676,
+      "bytes": 40718,
       "cabeceras": {
         "server": "akka-http/10.2.10",
         "via": "1.1 google",
@@ -598,7 +598,7 @@
   },
   {
     "name": "Alternativa Teatral",
-    "url": "https://www.alternativateatral.com/",
+    "url": "https://www.alternativateatral.com/entradas.asp?opcion=gratis",
     "status_registro": "candidato",
     "tls_navegador_disponible": true,
     "robots": {
@@ -616,48 +616,54 @@
       "permite_la_ruta": true
     },
     "requests": {
-      "url": "https://www.alternativateatral.com/",
+      "url": "https://www.alternativateatral.com/entradas.asp?opcion=gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 17872,
+      "bytes": 39362,
       "cabeceras": {
-        "Content-Type": "text/html; charset=UTF-8",
+        "Content-Type": "text/html; Charset=utf-8",
         "Server": "Microsoft-IIS/10.0",
-        "X-Powered-By": "PHP/5.6.31, ASP.NET"
+        "X-Powered-By": "ASP.NET"
       },
-      "cookies": [],
-      "final": "https://www.alternativateatral.com/"
+      "cookies": [
+        "ASPSESSIONIDCWQRQARA"
+      ],
+      "final": "https://www.alternativateatral.com/entradas.asp?opcion=gratis"
     },
     "curl_cffi_chrome": {
-      "url": "https://www.alternativateatral.com/",
+      "url": "https://www.alternativateatral.com/entradas.asp?opcion=gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 17872,
+      "bytes": 39362,
       "cabeceras": {
-        "content-type": "text/html; charset=UTF-8",
+        "content-type": "text/html; Charset=utf-8",
         "server": "Microsoft-IIS/10.0",
-        "x-powered-by": "PHP/5.6.31, ASP.NET"
+        "x-powered-by": "ASP.NET"
       },
-      "cookies": [],
-      "final": "https://www.alternativateatral.com/"
+      "cookies": [
+        "ASPSESSIONIDSESSTCSC"
+      ],
+      "final": "https://www.alternativateatral.com/entradas.asp?opcion=gratis"
     },
     "ipv4_forzado": {
-      "url": "https://www.alternativateatral.com/",
+      "url": "https://www.alternativateatral.com/entradas.asp?opcion=gratis",
       "resultado": "ok",
       "status": 200,
-      "bytes": 17872,
+      "bytes": 39362,
       "cabeceras": {
-        "Content-Type": "text/html; charset=UTF-8",
+        "Content-Type": "text/html; Charset=utf-8",
         "Server": "Microsoft-IIS/10.0",
-        "X-Powered-By": "PHP/5.6.31, ASP.NET"
+        "X-Powered-By": "ASP.NET"
       },
-      "cookies": [],
-      "final": "https://www.alternativateatral.com/"
+      "cookies": [
+        "ASPSESSIONIDAWSRRATB"
+      ],
+      "final": "https://www.alternativateatral.com/entradas.asp?opcion=gratis"
     },
     "veredicto": "responde bien con requests; el problema no es el transporte",
     "transporte_que_funciono": "curl_cffi/chrome",
     "lang": "",
-    "titulo_pagina": "Alternativa. Comunidad en escena.",
+    "titulo_pagina": "Entradas de teatro: gratis, 2x1 y descuentos | Alternativa",
     "feeds_declarados": [],
     "sitemap": "",
     "urls_sitemap": [],
@@ -680,7 +686,7 @@
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "HIT",
-        "CF-RAY": "a34106a7c8bcf997-SJC"
+        "CF-RAY": "a3476d21eab8ff03-PDX"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/robots.txt",
@@ -690,13 +696,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21668,
+      "bytes": 21692,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a34106b94c0ef997-SJC"
+        "CF-RAY": "a3476d332e69ff03-PDX"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -711,7 +717,7 @@
         "server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a34106c2dd0017e6-SJC"
+        "cf-ray": "a3476d62cc7d3335-BOS"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -720,13 +726,13 @@
       "url": "https://teatrocolon.org.ar/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 21668,
+      "bytes": 21692,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "Server": "cloudflare",
         "x-powered-by": "PleskLin",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a34106cc18156037-SJC"
+        "CF-RAY": "a3476d6ddbae3884-SJC"
       },
       "cookies": [],
       "final": "https://teatrocolon.org.ar/"
@@ -773,12 +779,12 @@
     "tls_navegador_disponible": true,
     "robots": {
       "url": "https://www.malba.org.ar/robots.txt",
-      "resultado": "ok",
-      "status": 200,
-      "bytes": 108,
+      "resultado": "HTTP 429",
+      "status": 429,
+      "bytes": 1168,
       "cabeceras": {
         "Server": "nginx",
-        "Content-Type": "text/plain; charset=utf-8"
+        "Content-Type": "text/html"
       },
       "cookies": [],
       "final": "https://malba.org.ar/robots.txt",
@@ -820,7 +826,7 @@
         "Content-Type": "text/html"
       },
       "cookies": [],
-      "final": "https://malba.org.ar/actividades/"
+      "final": "https://malba.org.ar/evento/actividades-2016-2017/"
     },
     "veredicto": "HTTP 429: es ritmo, no bloqueo. El sitio responde; hay que espaciar los pedidos y volver a probar.",
     "puertas": [
@@ -894,7 +900,7 @@
           "Content-Type": "text/html"
         },
         "cookies": [],
-        "final": "https://malba.org.ar/sitemap_index.xml",
+        "final": "https://malba.org.ar/sitemap.xml",
         "desafiada": false,
         "cache": "",
         "ruta": "/sitemap.xml"
@@ -931,12 +937,12 @@
       },
       {
         "url": "https://www.malba.org.ar/feed/",
-        "resultado": "HTTP 403",
-        "status": 403,
-        "bytes": 17,
+        "resultado": "HTTP 429",
+        "status": 429,
+        "bytes": 1168,
         "cabeceras": {
           "Server": "nginx",
-          "Content-Type": "application/rss+xml; charset=UTF-8"
+          "Content-Type": "text/html"
         },
         "cookies": [],
         "final": "https://malba.org.ar/feed/",
@@ -954,7 +960,7 @@
           "Content-Type": "text/html"
         },
         "cookies": [],
-        "final": "https://malba.org.ar/rss",
+        "final": "https://malba.org.ar/feed/",
         "desafiada": false,
         "cache": "",
         "ruta": "/rss"
@@ -982,7 +988,7 @@
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "BYPASS",
-        "CF-RAY": "a3410fcbce2e52dc-ORD"
+        "CF-RAY": "a34777a04ad4b602-MIA"
       },
       "cookies": [],
       "final": "https://museomoderno.org/robots.txt",
@@ -992,14 +998,14 @@
       "url": "https://museomoderno.org/agenda/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 24612,
+      "bytes": 24626,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.3.24",
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a3410fdceb1252dc-ORD"
+        "CF-RAY": "a34777b13848b602-MIA"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1008,14 +1014,14 @@
       "url": "https://museomoderno.org/agenda/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 202379,
+      "bytes": 202377,
       "cabeceras": {
         "content-type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.3.24",
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "cf-ray": "a3410fe66df41d57-PDX"
+        "cf-ray": "a34777babc328123-SJC"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1024,14 +1030,14 @@
       "url": "https://museomoderno.org/agenda/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 24631,
+      "bytes": 24626,
       "cabeceras": {
         "Content-Type": "text/html; charset=UTF-8",
         "x-powered-by": "PHP/8.3.24",
         "link": "<https://museomoderno.org/wp-json/>; rel=\"https://api.w.org/\"",
         "server": "cloudflare",
         "cf-cache-status": "DYNAMIC",
-        "CF-RAY": "a3410ff0583e02a2-ORD"
+        "CF-RAY": "a34777c4fee28f78-BOS"
       },
       "cookies": [],
       "final": "https://museomoderno.org/agenda/"
@@ -1096,7 +1102,7 @@
       "url": "https://proa.org/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 20370,
+      "bytes": 19969,
       "cabeceras": {
         "Content-Type": "text/html",
         "Server": "Apache"
@@ -1108,7 +1114,7 @@
       "url": "https://proa.org/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 20370,
+      "bytes": 19969,
       "cabeceras": {
         "content-type": "text/html",
         "server": "Apache"
@@ -1120,7 +1126,7 @@
       "url": "https://proa.org/",
       "resultado": "ok",
       "status": 200,
-      "bytes": 20370,
+      "bytes": 19969,
       "cabeceras": {
         "Content-Type": "text/html",
         "Server": "Apache"
@@ -1248,7 +1254,7 @@
       "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
       "resultado": "ok",
       "status": 200,
-      "bytes": 56472,
+      "bytes": 56471,
       "cabeceras": {
         "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
         "content-type": "text/html; charset=UTF-8",
@@ -1265,7 +1271,7 @@
       "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
       "resultado": "ok",
       "status": 200,
-      "bytes": 56472,
+      "bytes": 56471,
       "cabeceras": {
         "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
         "content-type": "text/html; charset=UTF-8",
@@ -1282,7 +1288,7 @@
       "url": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb",
       "resultado": "ok",
       "status": 200,
-      "bytes": 56472,
+      "bytes": 56471,
       "cabeceras": {
         "link": "<https://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"canonical\", <http://buenosaires.gob.ar/gcaba_historico/cultura/promocioncultural/programacion-pcb>; rel=\"revision\"",
         "content-type": "text/html; charset=UTF-8",
@@ -1314,5 +1320,1471 @@
     ],
     "jsonld_en_fichas": 0,
     "ficha_guardada": "https://buenosaires.gob.ar/cultura/promocioncultural/programacion-pcb"
+  },
+  {
+    "name": "ReCreo (Provincia de Buenos Aires)",
+    "url": "https://www.gba.gob.ar/recreo",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.gba.gob.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 2189,
+      "cabeceras": {
+        "content-type": "text/plain",
+        "via": "1.1 varnish (Varnish/6.0)"
+      },
+      "cookies": [
+        "SERVERID"
+      ],
+      "final": "https://www.gba.gob.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.gba.gob.ar/recreo",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 144405,
+      "cabeceras": {
+        "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+        "content-type": "text/html; charset=utf-8",
+        "via": "1.1 varnish (Varnish/6.0)"
+      },
+      "cookies": [
+        "SERVERID"
+      ],
+      "final": "https://www.gba.gob.ar/recreo"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.gba.gob.ar/recreo",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 144405,
+      "cabeceras": {
+        "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+        "content-type": "text/html; charset=utf-8",
+        "via": "1.1 varnish (Varnish/6.0)"
+      },
+      "cookies": [
+        "SERVERID"
+      ],
+      "final": "https://www.gba.gob.ar/recreo"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.gba.gob.ar/recreo",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 144405,
+      "cabeceras": {
+        "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+        "content-type": "text/html; charset=utf-8",
+        "via": "1.1 varnish (Varnish/6.0)"
+      },
+      "cookies": [
+        "SERVERID"
+      ],
+      "final": "https://www.gba.gob.ar/recreo"
+    },
+    "raiz_responde": 200,
+    "veredicto": "404: la URL esta mal, pero el dominio responde. Sondear la raiz con discover.py para encontrar la agenda.  PERO hay 2 ruta(s) abierta(s) sin desafio: /?ical=1, /sitemap.xml",
+    "puertas": [
+      {
+        "url": "https://www.gba.gob.ar/events.ics",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.gba.gob.ar/?ical=1",
+        "resultado": "ok",
+        "status": 200,
+        "bytes": 211377,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1",
+        "abierta": true
+      },
+      {
+        "url": "https://www.gba.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.gba.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.gba.gob.ar/sitemap.xml",
+        "resultado": "ok",
+        "status": 200,
+        "bytes": 265,
+        "cabeceras": {
+          "content-type": "text/xml; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/sitemap.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml",
+        "abierta": true
+      },
+      {
+        "url": "https://www.gba.gob.ar/sitemap_index.xml",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.gba.gob.ar/feed",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.gba.gob.ar/feed/",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.gba.gob.ar/rss",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 144405,
+        "cabeceras": {
+          "link": "<https://www.gba.gob.ar/>; rel=\"canonical\",<https://www.gba.gob.ar/>; rel=\"shortlink\"",
+          "content-type": "text/html; charset=utf-8",
+          "via": "1.1 varnish (Varnish/6.0)"
+        },
+        "cookies": [
+          "SERVERID"
+        ],
+        "final": "https://www.gba.gob.ar/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ]
+  },
+  {
+    "name": "Cultura San Isidro",
+    "url": "https://www.sanisidro.gob.ar/municipio/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.sanisidro.gob.ar/robots.txt",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.sanisidro.gob.ar/municipio/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /municipio/cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.sanisidro.gob.ar/municipio/cultura",
+      "resultado": "error",
+      "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate problem: unable to get local issuer certificate. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    "ipv4_forzado": {
+      "url": "https://www.sanisidro.gob.ar/municipio/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /municipio/cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://www.sanisidro.gob.ar/events.ics",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/?ical=1",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/feed",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/feed/",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.sanisidro.gob.ar/rss",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.sanisidro.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": true,
+      "timestamp": "20260520145957",
+      "url": "http://web.archive.org/web/20260520145957/https://www.sanisidro.gob.ar/municipio/cultura"
+    }
+  },
+  {
+    "name": "Cultura Vicente López",
+    "url": "https://vicentelopez.gov.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://vicentelopez.gov.ar/robots.txt",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://vicentelopez.gov.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://vicentelopez.gov.ar/cultura",
+      "resultado": "error",
+      "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate problem: self signed certificate in certificate chain. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    "ipv4_forzado": {
+      "url": "https://vicentelopez.gov.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))"
+    },
+    "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://vicentelopez.gov.ar/events.ics",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /events.ics (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/?ical=1",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/feed",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/feed/",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://vicentelopez.gov.ar/rss",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='vicentelopez.gov.ar', port=443): Max retries exceeded with url: /rss (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate in certificate chain (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": false,
+      "timestamp": null,
+      "url": null
+    }
+  },
+  {
+    "name": "Cultura Tigre",
+    "url": "https://www.tigre.gob.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.tigre.gob.ar/robots.txt",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.tigre.gob.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.tigre.gob.ar/cultura",
+      "resultado": "error",
+      "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate problem: unable to get local issuer certificate. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    "ipv4_forzado": {
+      "url": "https://www.tigre.gob.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://www.tigre.gob.ar/events.ics",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/?ical=1",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/feed",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/feed/",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.tigre.gob.ar/rss",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.tigre.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": true,
+      "timestamp": "20260713185616",
+      "url": "http://web.archive.org/web/20260713185616/https://www.tigre.gob.ar/cultura"
+    }
+  },
+  {
+    "name": "Cultura General San Martín",
+    "url": "https://www.sanmartin.gov.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.sanmartin.gov.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 3213,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "nginx",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 38ee5718746cc97ac8d334cadbdf695c.cloudfront.net (CloudFront)"
+      },
+      "cookies": [],
+      "final": "https://www.sanmartin.gob.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.sanmartin.gov.ar/cultura",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 3213,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "nginx",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 38ee5718746cc97ac8d334cadbdf695c.cloudfront.net (CloudFront)"
+      },
+      "cookies": [],
+      "final": "https://www.sanmartin.gob.ar/cultura"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.sanmartin.gov.ar/cultura",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 3213,
+      "cabeceras": {
+        "content-type": "text/html",
+        "server": "nginx",
+        "x-cache": "Miss from cloudfront",
+        "via": "1.1 594d6e43a4b7edb10443ddc27d344208.cloudfront.net (CloudFront)"
+      },
+      "cookies": [],
+      "final": "https://www.sanmartin.gob.ar/cultura"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.sanmartin.gov.ar/cultura",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 3213,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "nginx",
+        "X-Cache": "Miss from cloudfront",
+        "Via": "1.1 d5d518c7e2144001e68c14feb018a41c.cloudfront.net (CloudFront)"
+      },
+      "cookies": [],
+      "final": "https://www.sanmartin.gob.ar/cultura"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "es",
+    "titulo_pagina": null,
+    "feeds_declarados": [],
+    "sitemap": "https://www.sanmartin.gov.ar/sitemap.xml",
+    "urls_sitemap": [
+      "https://sanmartin.gov.ar/",
+      "https://sanmartin.gov.ar/ciudad/",
+      "https://sanmartin.gov.ar/tramites/",
+      "https://sanmartin.gov.ar/novedades/",
+      "https://sanmartin.gov.ar/institucional/",
+      "https://sanmartin.gov.ar/transparencia/"
+    ],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://sanmartin.gov.ar/",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://sanmartin.gov.ar/ciudad/",
+        "eventos": 0,
+        "muestra": []
+      },
+      {
+        "url": "https://sanmartin.gov.ar/tramites/",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://sanmartin.gov.ar/"
+  },
+  {
+    "name": "Cultura Morón",
+    "url": "https://www.moron.gob.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.moron.gob.ar/robots.txt",
+      "resultado": "error",
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb47bc0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.moron.gob.ar/cultura",
+      "resultado": "error",
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb7c2f0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=30)'))"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.moron.gob.ar/cultura",
+      "resultado": "error",
+      "error": "Timeout: Failed to perform, curl: (28) Connection timed out after 30002 milliseconds. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    "ipv4_forzado": {
+      "url": "https://www.moron.gob.ar/cultura",
+      "resultado": "error",
+      "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8e60>, 'Connection to www.moron.gob.ar timed out. (connect timeout=60)'))"
+    },
+    "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://www.moron.gob.ar/events.ics",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8e30>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.moron.gob.ar/?ical=1",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00ca390>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.moron.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d04b94c0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.moron.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8980>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.moron.gob.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c8bc0>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.moron.gob.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00c9640>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.moron.gob.ar/feed",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10d00cbd40>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.moron.gob.ar/feed/",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb7ef30>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.moron.gob.ar/rss",
+        "resultado": "error",
+        "error": "ConnectTimeout: HTTPSConnectionPool(host='www.moron.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by ConnectTimeoutError(<HTTPSConnection(host='www.moron.gob.ar', port=443) at 0x7f10cbb7dc40>, 'Connection to www.moron.gob.ar timed out. (connect timeout=20)'))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": false,
+      "timestamp": null,
+      "url": null
+    }
+  },
+  {
+    "name": "Cultura La Matanza",
+    "url": "https://www.lamatanza.gov.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.lamatanza.gov.ar/robots.txt",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 0,
+      "cabeceras": {
+        "Server": "Microsoft-IIS/10.0"
+      },
+      "cookies": [],
+      "final": "https://www.lamatanza.gov.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.lamatanza.gov.ar/cultura",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 16076,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0"
+      },
+      "cookies": [
+        ".AspNetCore.Antiforgery.U8bliFSwB0M"
+      ],
+      "final": "https://www.lamatanza.gov.ar/cultura"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.lamatanza.gov.ar/cultura",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 16076,
+      "cabeceras": {
+        "content-type": "text/html; charset=utf-8",
+        "server": "Microsoft-IIS/10.0"
+      },
+      "cookies": [
+        ".AspNetCore.Antiforgery.U8bliFSwB0M"
+      ],
+      "final": "https://www.lamatanza.gov.ar/cultura"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.lamatanza.gov.ar/cultura",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 16076,
+      "cabeceras": {
+        "Content-Type": "text/html; charset=utf-8",
+        "Server": "Microsoft-IIS/10.0"
+      },
+      "cookies": [
+        ".AspNetCore.Antiforgery.U8bliFSwB0M"
+      ],
+      "final": "https://www.lamatanza.gov.ar/cultura"
+    },
+    "veredicto": "responde bien con requests; el problema no es el transporte",
+    "transporte_que_funciono": "curl_cffi/chrome",
+    "lang": "",
+    "titulo_pagina": "Municipio de La Matanza - Corazon de La Provincia - Cultura y Educación",
+    "feeds_declarados": [],
+    "sitemap": "",
+    "urls_sitemap": [],
+    "jsonld_en_listado": 0,
+    "fichas_probadas": [
+      {
+        "url": "https://www.lamatanza.gov.ar/cultura/eventos",
+        "eventos": 0,
+        "muestra": []
+      }
+    ],
+    "jsonld_en_fichas": 0,
+    "ficha_guardada": "https://www.lamatanza.gov.ar/cultura/eventos"
+  },
+  {
+    "name": "Cultura Quilmes",
+    "url": "https://www.quilmes.gov.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.quilmes.gov.ar/robots.txt",
+      "resultado": "ok",
+      "status": 200,
+      "bytes": 3128,
+      "cabeceras": {
+        "Server": "Apache/2.4.52 (Ubuntu)",
+        "Content-Type": "text/plain; charset=UTF-8"
+      },
+      "cookies": [],
+      "final": "https://www.quilmes.gov.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.quilmes.gov.ar/cultura",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 196,
+      "cabeceras": {
+        "Server": "Apache/2.4.52 (Ubuntu)",
+        "Content-Type": "text/html; charset=iso-8859-1"
+      },
+      "cookies": [],
+      "final": "https://www.quilmes.gov.ar/cultura"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.quilmes.gov.ar/cultura",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 196,
+      "cabeceras": {
+        "server": "Apache/2.4.52 (Ubuntu)",
+        "content-type": "text/html; charset=iso-8859-1"
+      },
+      "cookies": [],
+      "final": "https://www.quilmes.gov.ar/cultura"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.quilmes.gov.ar/cultura",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 196,
+      "cabeceras": {
+        "Server": "Apache/2.4.52 (Ubuntu)",
+        "Content-Type": "text/html; charset=iso-8859-1"
+      },
+      "cookies": [],
+      "final": "https://www.quilmes.gov.ar/cultura"
+    },
+    "raiz_responde": 200,
+    "veredicto": "404: la URL esta mal, pero el dominio responde. Sondear la raiz con discover.py para encontrar la agenda.  PERO hay 1 ruta(s) abierta(s) sin desafio: /?ical=1",
+    "puertas": [
+      {
+        "url": "https://www.quilmes.gov.ar/events.ics",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/events.ics",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/?ical=1",
+        "resultado": "ok",
+        "status": 200,
+        "bytes": 92486,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=UTF-8"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/?ical=1",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1",
+        "abierta": true
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/sitemap.xml",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/sitemap.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/sitemap_index.xml",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/feed",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/feed",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/feed/",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/feed/",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.quilmes.gov.ar/rss",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 196,
+        "cabeceras": {
+          "Server": "Apache/2.4.52 (Ubuntu)",
+          "Content-Type": "text/html; charset=iso-8859-1"
+        },
+        "cookies": [],
+        "final": "https://www.quilmes.gov.ar/rss",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ]
+  },
+  {
+    "name": "Cultura Avellaneda",
+    "url": "https://www.mda.gob.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.mda.gob.ar/robots.txt",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.mda.gob.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.mda.gob.ar/cultura",
+      "resultado": "error",
+      "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate problem: unable to get local issuer certificate. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    "ipv4_forzado": {
+      "url": "https://www.mda.gob.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://www.mda.gob.ar/events.ics",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /events.ics (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.mda.gob.ar/?ical=1",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.mda.gob.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.mda.gob.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.mda.gob.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.mda.gob.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.mda.gob.ar/feed",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.mda.gob.ar/feed/",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.mda.gob.ar/rss",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.mda.gob.ar', port=443): Max retries exceeded with url: /rss (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": false,
+      "timestamp": null,
+      "url": null
+    }
+  },
+  {
+    "name": "Cultura Lomas de Zamora",
+    "url": "https://www.lomasdezamora.gov.ar/cultura",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.lomasdezamora.gov.ar/robots.txt",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /robots.txt (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.lomasdezamora.gov.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.lomasdezamora.gov.ar/cultura",
+      "resultado": "error",
+      "error": "CertificateVerifyError: Failed to perform, curl: (60) SSL certificate problem: unable to get local issuer certificate. See https://curl.se/libcurl/c/libcurl-errors.html first for more details."
+    },
+    "ipv4_forzado": {
+      "url": "https://www.lomasdezamora.gov.ar/cultura",
+      "resultado": "error",
+      "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /cultura (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))"
+    },
+    "veredicto": "no responde por ninguna via: caida, DNS o bloqueo de red",
+    "puertas": [
+      {
+        "url": "https://www.lomasdezamora.gov.ar/events.ics",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /events.ics (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/?ical=1",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /?ical=1 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/?ical=1"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/wp-json/tribe/events/v1/events",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /wp-json/tribe/events/v1/events (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /wp-json/wp/v2/posts?per_page=5 (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/sitemap.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /sitemap.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap.xml"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/sitemap_index.xml",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /sitemap_index.xml (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/feed",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /feed (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/feed/",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /feed/ (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.lomasdezamora.gov.ar/rss",
+        "resultado": "error",
+        "error": "SSLError: HTTPSConnectionPool(host='www.lomasdezamora.gov.ar', port=443): Max retries exceeded with url: /rss (Caused by SSLError(SSLCertVerificationError(1, '[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.c:1010)')))",
+        "desafiada": false,
+        "cache": "",
+        "ruta": "/rss"
+      }
+    ],
+    "wayback": {
+      "disponible": true,
+      "timestamp": "20121002064745",
+      "url": "http://web.archive.org/web/20121002064745/http://www.lomasdezamora.gov.ar/cultura/"
+    }
+  },
+  {
+    "name": "UNSAM Cultura",
+    "url": "https://www.unsam.edu.ar/cultura/",
+    "status_registro": "candidato",
+    "tls_navegador_disponible": true,
+    "robots": {
+      "url": "https://www.unsam.edu.ar/robots.txt",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 775,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "cloudflare",
+        "cf-cache-status": "EXPIRED",
+        "CF-RAY": "a34793e9bec3f037-SJC"
+      },
+      "cookies": [],
+      "final": "https://www.unsam.edu.ar/robots.txt",
+      "permite_la_ruta": true
+    },
+    "requests": {
+      "url": "https://www.unsam.edu.ar/cultura/",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 1142,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "a34793fa2929f037-SJC"
+      },
+      "cookies": [],
+      "final": "https://www.unsam.edu.ar/cultura/"
+    },
+    "curl_cffi_chrome": {
+      "url": "https://www.unsam.edu.ar/cultura/",
+      "resultado": "HTTP 403",
+      "status": 403,
+      "bytes": 6092,
+      "cabeceras": {
+        "content-type": "text/html; charset=UTF-8",
+        "cf-mitigated": "challenge",
+        "server": "cloudflare",
+        "cf-ray": "a3479403cceb8e9b-SJC"
+      },
+      "cookies": [],
+      "final": "https://www.unsam.edu.ar/cultura/"
+    },
+    "ipv4_forzado": {
+      "url": "https://www.unsam.edu.ar/cultura/",
+      "resultado": "HTTP 404",
+      "status": 404,
+      "bytes": 1130,
+      "cabeceras": {
+        "Content-Type": "text/html",
+        "Server": "cloudflare",
+        "cf-cache-status": "DYNAMIC",
+        "CF-RAY": "a347940d28cf35d6-SJC"
+      },
+      "cookies": [],
+      "final": "https://www.unsam.edu.ar/cultura/"
+    },
+    "raiz_responde": 200,
+    "veredicto": "404: la URL esta mal, pero el dominio responde. Sondear la raiz con discover.py para encontrar la agenda.  PERO hay 2 ruta(s) abierta(s) sin desafio: /?ical=1, /sitemap.xml",
+    "puertas": [
+      {
+        "url": "https://www.unsam.edu.ar/events.ics",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1142,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a347943bcdb8f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/events.ics",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/events.ics"
+      },
+      {
+        "url": "https://www.unsam.edu.ar/?ical=1",
+        "resultado": "ok",
+        "status": 200,
+        "bytes": 17822,
+        "cabeceras": {
+          "Content-Type": "text/html; charset=UTF-8",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a3479445299ff037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/?ical=1",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/?ical=1",
+        "abierta": true
+      },
+      {
+        "url": "https://www.unsam.edu.ar/wp-json/tribe/events/v1/events",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1143,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a347944e8919f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/wp-json/tribe/events/v1/events",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/wp-json/tribe/events/v1/events"
+      },
+      {
+        "url": "https://www.unsam.edu.ar/wp-json/wp/v2/posts?per_page=5",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1130,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a3479457eed5f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/wp-json/wp/v2/posts?per_page=5",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/wp-json/wp/v2/posts?per_page=5"
+      },
+      {
+        "url": "https://www.unsam.edu.ar/sitemap.xml",
+        "resultado": "ok",
+        "status": 200,
+        "bytes": 80684,
+        "cabeceras": {
+          "Content-Type": "application/xml",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a34794614d5bf037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/sitemap.xml",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/sitemap.xml",
+        "abierta": true
+      },
+      {
+        "url": "https://www.unsam.edu.ar/sitemap_index.xml",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1143,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a347946aad33f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/sitemap_index.xml",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/sitemap_index.xml"
+      },
+      {
+        "url": "https://www.unsam.edu.ar/feed",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1143,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a34794740c66f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/feed",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/feed"
+      },
+      {
+        "url": "https://www.unsam.edu.ar/feed/",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1131,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a347947d6b85f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/feed/",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/feed/"
+      },
+      {
+        "url": "https://www.unsam.edu.ar/rss",
+        "resultado": "HTTP 404",
+        "status": 404,
+        "bytes": 1143,
+        "cabeceras": {
+          "Content-Type": "text/html",
+          "Server": "cloudflare",
+          "cf-cache-status": "DYNAMIC",
+          "CF-RAY": "a3479486ca50f037-SJC"
+        },
+        "cookies": [],
+        "final": "https://www.unsam.edu.ar/rss",
+        "desafiada": false,
+        "cache": "DYNAMIC",
+        "ruta": "/rss"
+      }
+    ]
   }
 ]
