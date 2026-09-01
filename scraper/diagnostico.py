@@ -400,12 +400,25 @@ def main() -> int:
     from eventos.registry import REGISTRO
 
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    todos = "--todos" in sys.argv
     if args:
         entradas = [{"name": u, "url": u} for u in args]
     else:
         datos = json.loads(REGISTRO.read_text(encoding="utf-8"))
         entradas = [e for e in datos.get("sources", [])
                     if e.get("url") and e.get("kind") != "ckan"]
+        if not todos:
+            # Las bloqueadas ya tienen veredicto y son las mas caras: cada una
+            # suma nueve pedidos de sondeo de cache, con su pausa. Re-probarlas
+            # en cada cambio del scraper no aporta nada y alarga la corrida.
+            # Para revisarlas: `--todos`, o el sondeo semanal de discover.yml,
+            # que es el que detecta si alguna vuelve (como paso con la Usina).
+            antes = len(entradas)
+            entradas = [e for e in entradas if e.get("status") != "bloqueado"]
+            saltadas = antes - len(entradas)
+            if saltadas:
+                print(f"Se saltean {saltadas} fuentes bloqueadas (ya tienen "
+                      f"veredicto). Para incluirlas: --todos\n")
 
     SALIDA.mkdir(parents=True, exist_ok=True)
     if not hay_tls_de_navegador():

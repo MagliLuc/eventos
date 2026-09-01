@@ -8,18 +8,22 @@ name: Diagnóstico de fuentes
 # Un artifact .zip no se puede leer desde ahí; un archivo commiteado sí.
 #
 # Nunca falla: lo que produce es evidencia, no un veredicto.
+#
+# NO corre con cada cambio del scraper. Tarda ~12 minutos porque sondea 21
+# sitios con una pausa por dominio, y responde una pregunta que no es la de
+# todos los días: "¿por qué este sitio no me deja entrar?". La pregunta
+# frecuente —"¿mi cambio suma eventos?"— la contesta `corrida-seco.yml` en un
+# cuarto del tiempo. Estaban juntas y la verificación quedaba atrás del
+# diagnóstico.
 
 on:
   workflow_dispatch:
   push:
     paths:
-      # Cualquier cambio del scraper, no solo del diagnóstico: la corrida en
-      # seco es la única verificación de que una fuente aporta algo, y con el
-      # filtro angosto de antes un arreglo de la extracción no la disparaba.
-      - "scraper/**"
-      # La negación va después porque gana el último patrón que matchea: así
-      # el commit de evidencia del propio job no se dispara a sí mismo.
-      - "!scraper/diagnostico/**"
+      # Sólo lo que cambia el diagnóstico en sí, o el transporte que usa.
+      - "scraper/diagnostico.py"
+      - "scraper/eventos/http.py"
+      - "scraper/sources.json"
       - ".github/workflows/diagnostico.yml"
 
 permissions:
@@ -55,20 +59,12 @@ jobs:
           print("curl_cffi OK:", requests.__name__)
           PY
 
-      - name: Diagnosticar todas las fuentes
+      - name: Diagnosticar las fuentes
+        # Sin `--todos`: las bloqueadas ya tienen veredicto y son las más caras
+        # (nueve pedidos de sondeo de caché cada una). Para incluirlas hay que
+        # correrlo a mano con --todos; el sondeo semanal de discover.yml es el
+        # que detecta si alguna vuelve a responder.
         run: python scraper/diagnostico.py || true
-
-      - name: Corrida en seco del pipeline
-        # `update-events.yml` solo corre en main, así que en una rama no hay
-        # forma de saber si las fuentes activas aportan algo hasta mergear.
-        # Esto corre el pipeline completo contra un archivo descartable: el
-        # log dice cuántos eventos saca cada fuente y la agenda publicada no
-        # se toca. Es la única verificación de que el trabajo sirvió.
-        run: |
-          python scraper/run_scraper.py --days 21 \
-            --output "${RUNNER_TEMP}/prueba-events.json" || true
-          echo "--- la agenda publicada quedó intacta: ---"
-          git diff --stat docs/events.json || true
 
       - name: Commitear la evidencia
         # El diagnóstico tarda ~15 min y en ese rato la rama puede haber
