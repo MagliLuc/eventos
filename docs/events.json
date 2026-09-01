@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-01T19:17:02-03:00",
+  "generated_at": "2026-09-01T19:40:52-03:00",
   "city": "Área Metropolitana de Buenos Aires",
   "license": "Datos públicos recopilados de agendas oficiales. Uso informativo.",
   "sources": [
@@ -35,8 +35,8 @@
       "name": "Qué Hacemos",
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "status": "OK",
-      "detail": "22 eventos de 30 actividades leídas.",
-      "events": 22,
+      "detail": "21 eventos de 30 actividades leídas.",
+      "events": 21,
       "items_read": 30,
       "discarded": {}
     },
@@ -341,64 +341,6 @@
       "updated_at": "2026-08-30T06:00:00-03:00"
     },
     {
-      "id": "quality-espacio-love-the-90s-2026-09-01",
-      "title": "Love The 90’s",
-      "description": "Descubrí este show y toda la programación de Quality Center. Conocé los próximos recitales, espectáculos y experiencias en vivo que te esperan en Córdoba.",
-      "category": "MUSICA",
-      "tags": [],
-      "date": "2026-09-01",
-      "start_time": "15:14",
-      "end_time": "21:14",
-      "all_day": false,
-      "access_mode": "INGRESO_LIBRE",
-      "contribution": null,
-      "reservation_url": null,
-      "venue": {
-        "id": "quality-espacio",
-        "name": "Quality Espacio",
-        "address": "Cruz Roja Argentina 200 - Córdoba - Córdoba",
-        "neighborhood": null,
-        "commune": null,
-        "lat": null,
-        "lon": null,
-        "zone": "CABA"
-      },
-      "source_name": "Qué Hacemos",
-      "source_url": "https://www.quehacemos.com.ar/eventos/love-the-90-s-48172",
-      "source_id": "que-hacemos",
-      "image_url": null,
-      "updated_at": "2026-09-01T19:14:44-03:00"
-    },
-    {
-      "id": "quality-espacio-sin-bandera-2026-09-01",
-      "title": "Sin Bandera",
-      "description": "Viví la emoción de los grandes eventos en Quality Center. Descubrí este espectáculo y accedé a la agenda completa de shows, música y entretenimiento en Córdoba.",
-      "category": "MUSICA",
-      "tags": [],
-      "date": "2026-09-01",
-      "start_time": "15:14",
-      "end_time": "21:14",
-      "all_day": false,
-      "access_mode": "INGRESO_LIBRE",
-      "contribution": null,
-      "reservation_url": null,
-      "venue": {
-        "id": "quality-espacio",
-        "name": "Quality Espacio",
-        "address": "Cruz Roja Argentina 200 - Córdoba - Córdoba",
-        "neighborhood": null,
-        "commune": null,
-        "lat": null,
-        "lon": null,
-        "zone": "CABA"
-      },
-      "source_name": "Qué Hacemos",
-      "source_url": "https://www.quehacemos.com.ar/eventos/sin-bandera-48173",
-      "source_id": "que-hacemos",
-      "image_url": null,
-      "updated_at": "2026-09-01T19:14:46-03:00"
-    },
-    {
       "id": "centro-cultural-y-politico-el-hormiguero-conversatorio-etica-del-arte-territorio-y-resiliencia-2026-09-01",
       "title": "Conversatorio: Ética del arte, territorio y resiliencia",
       "description": "Conversatorio: Ética del arte, territorio y resiliencia en CENTRO CULTURAL Y POLÍTICO EL HORMIGUERO",
@@ -454,7 +396,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/calabxzxs-dragxnes",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:53-03:00"
+      "updated_at": "2026-09-01T19:37:38-03:00"
     },
     {
       "id": "cementerio-britanico-de-buenos-aires-shakespeare-en-el-cementerio-2026-09-01",
@@ -512,7 +454,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/haitz-inigo-ibaibarriaga",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:50-03:00"
+      "updated_at": "2026-09-01T19:37:35-03:00"
     },
     {
       "id": "dumont-4040-martes-de-la-grande-2026-09-01",
@@ -602,6 +544,35 @@
       "updated_at": "2026-09-01T19:14:59-03:00"
     },
     {
+      "id": "el-galpon-de-guevara-civilizacion-2026-09-01",
+      "title": "Civilización",
+      "description": "Civilización en EL GALPÓN DE GUEVARA",
+      "category": "OTROS",
+      "tags": [],
+      "date": "2026-09-01",
+      "start_time": "20:00",
+      "end_time": null,
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
+      "reservation_url": null,
+      "venue": {
+        "id": "el-galpon-de-guevara",
+        "name": "EL GALPÓN DE GUEVARA",
+        "address": "Guevara 326 - Chacarita - CABA",
+        "neighborhood": null,
+        "commune": null,
+        "lat": null,
+        "lon": null,
+        "zone": "CABA"
+      },
+      "source_name": "Qué Hacemos",
+      "source_url": "https://www.quehacemos.com.ar/eventos/civilizacion-51452",
+      "source_id": "que-hacemos",
+      "image_url": null,
+      "updated_at": "2026-09-01T19:38:58-03:00"
+    },
+    {
       "id": "jazz-voyeur-club-hotel-melia-recoleta-plaza-denise-izaguirre-quartet-west-coast-jazz-always-cool-jazz-vo-2026-09-01",
       "title": "Denise Izaguirre Quartet - West Coast Jazz - ALWAYS COOL - Jazz Voyeur Club",
       "description": "Denise Izaguirre Quartet - West Coast Jazz - ALWAYS COOL - Jazz Voyeur Club en JAZZ VOYEUR CLUB - Hotel Melia Recoleta Plaza",
@@ -629,35 +600,6 @@
       "source_id": "que-hacemos",
       "image_url": null,
       "updated_at": "2026-09-01T07:34:19-03:00"
-    },
-    {
-      "id": "teatro-auditorium-centro-provincial-de-las-artes-disparate-2026-09-01",
-      "title": "Disparate",
-      "description": "Disparate en TEATRO AUDITORIUM CENTRO PROVINCIAL DE LAS ARTES",
-      "category": "TEATRO",
-      "tags": [],
-      "date": "2026-09-01",
-      "start_time": "20:00",
-      "end_time": "02:00",
-      "all_day": false,
-      "access_mode": "INGRESO_LIBRE",
-      "contribution": null,
-      "reservation_url": null,
-      "venue": {
-        "id": "teatro-auditorium-centro-provincial-de-las-artes",
-        "name": "TEATRO AUDITORIUM CENTRO PROVINCIAL DE LAS ARTES",
-        "address": "Boulevard Marítimo 2280 (junto al Casino Central) - Mar del Plata - Buenos Aires",
-        "neighborhood": null,
-        "commune": null,
-        "lat": null,
-        "lon": null,
-        "zone": "CABA"
-      },
-      "source_name": "Qué Hacemos",
-      "source_url": "https://www.quehacemos.com.ar/eventos/disparate-51453",
-      "source_id": "que-hacemos",
-      "image_url": null,
-      "updated_at": "2026-09-01T19:15:09-03:00"
     },
     {
       "id": "paseo-la-plaza-el-tiempo-todo-entero-2026-09-01",
@@ -832,6 +774,35 @@
       "source_id": "que-hacemos",
       "image_url": null,
       "updated_at": "2026-09-01T11:00:45-03:00"
+    },
+    {
+      "id": "teatro-astros-salvajada-2026-09-01",
+      "title": "Salvajada",
+      "description": "Salvajada en TEATRO ASTROS",
+      "category": "TEATRO",
+      "tags": [],
+      "date": "2026-09-01",
+      "start_time": "20:00",
+      "end_time": null,
+      "all_day": false,
+      "access_mode": "INGRESO_LIBRE",
+      "contribution": null,
+      "reservation_url": null,
+      "venue": {
+        "id": "teatro-astros",
+        "name": "TEATRO ASTROS",
+        "address": "Av. Corrientes 746 - San Nicolas - CABA",
+        "neighborhood": null,
+        "commune": null,
+        "lat": null,
+        "lon": null,
+        "zone": "CABA"
+      },
+      "source_name": "Qué Hacemos",
+      "source_url": "https://www.quehacemos.com.ar/eventos/salvajada-51454",
+      "source_id": "que-hacemos",
+      "image_url": null,
+      "updated_at": "2026-09-01T19:38:53-03:00"
     },
     {
       "id": "sala-caras-y-caretas-persona-martes-1-de-septiembre-de-2026-2026-09-01",
@@ -1168,7 +1139,7 @@
       "source_url": "https://museomoderno.org/agenda/tercera-dimension-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:49-03:00"
+      "updated_at": "2026-09-01T19:40:39-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-02",
@@ -1197,7 +1168,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "usina-del-arte-la-filarmonica-de-buenos-aires-en-la-usina-del-arte-2026-09-03",
@@ -1226,7 +1197,7 @@
       "source_url": "https://usinadelarte.ar/actividad/la-filarmonica-de-buenos-aires-en-la-usina-del-arte-septiembre/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:52-03:00"
+      "updated_at": "2026-09-01T19:36:38-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-03",
@@ -1447,7 +1418,7 @@
       "source_url": "https://museomoderno.org/agenda/trama-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:15-03:00"
+      "updated_at": "2026-09-01T19:40:05-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-03",
@@ -1476,7 +1447,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "usina-del-arte-la-filarmonica-de-buenos-aires-en-la-usina-del-arte-2026-09-04",
@@ -1505,7 +1476,7 @@
       "source_url": "https://usinadelarte.ar/actividad/la-filarmonica-de-buenos-aires-en-la-usina-del-arte-septiembre/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:52-03:00"
+      "updated_at": "2026-09-01T19:36:38-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-04",
@@ -1630,7 +1601,7 @@
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-16/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:48-03:00"
+      "updated_at": "2026-09-01T19:40:38-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-04",
@@ -1755,7 +1726,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/viernes-de-hitchcock",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:02-03:00"
+      "updated_at": "2026-09-01T19:37:47-03:00"
     },
     {
       "id": "centro-cultural-recoleta-sofa-2026-09-04",
@@ -1784,7 +1755,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/sofa",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:57-03:00"
+      "updated_at": "2026-09-01T19:37:43-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-2026-09-04",
@@ -1813,7 +1784,7 @@
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:48-03:00"
+      "updated_at": "2026-09-01T19:36:33-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-between-time-and-sound-2026-09-04",
@@ -1842,7 +1813,7 @@
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:51-03:00"
+      "updated_at": "2026-09-01T19:36:36-03:00"
     },
     {
       "id": "usina-del-arte-ludo-espacio-usina-del-arte-2026-09-04",
@@ -1871,7 +1842,7 @@
       "source_url": "https://usinadelarte.ar/actividad/ludo-espacio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:49-03:00"
+      "updated_at": "2026-09-01T19:36:35-03:00"
     },
     {
       "id": "la-cupula-bar-rock-tributo-gardelitos-en-la-cupula-2026-09-04",
@@ -2025,7 +1996,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/flu-la-fiesta-del-libro-usado",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:00-03:00"
+      "updated_at": "2026-09-01T19:37:46-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-05",
@@ -2150,7 +2121,7 @@
       "source_url": "https://museomoderno.org/agenda/caleidoscopio-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:21-03:00"
+      "updated_at": "2026-09-01T19:40:11-03:00"
     },
     {
       "id": "centro-cultural-recoleta-rarezas-del-este-2026-09-05",
@@ -2179,7 +2150,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:54-03:00"
+      "updated_at": "2026-09-01T19:37:40-03:00"
     },
     {
       "id": "museo-de-arte-moderno-ensayo-infinito-2026-09-05",
@@ -2208,7 +2179,7 @@
       "source_url": "https://museomoderno.org/agenda/ensayo-infinito-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:22-03:00"
+      "updated_at": "2026-09-01T19:40:12-03:00"
     },
     {
       "id": "usina-del-arte-baila-funk-usina-del-arte-2026-09-05",
@@ -2237,7 +2208,7 @@
       "source_url": "https://usinadelarte.ar/actividad/baila-funk/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:00-03:00"
+      "updated_at": "2026-09-01T19:36:45-03:00"
     },
     {
       "id": "usina-del-arte-coro-experiencia-gospel-2026-09-05",
@@ -2266,7 +2237,7 @@
       "source_url": "https://usinadelarte.ar/actividad/coro-experiencia-gospel/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:01-03:00"
+      "updated_at": "2026-09-01T19:36:47-03:00"
     },
     {
       "id": "usina-del-arte-coro-gospel-avellaneda-2026-09-05",
@@ -2295,7 +2266,7 @@
       "source_url": "https://usinadelarte.ar/actividad/coro-gospel-avellaneda/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:58-03:00"
+      "updated_at": "2026-09-01T19:36:44-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-2026-09-05",
@@ -2324,7 +2295,7 @@
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:48-03:00"
+      "updated_at": "2026-09-01T19:36:33-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-between-time-and-sound-2026-09-05",
@@ -2353,7 +2324,7 @@
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:51-03:00"
+      "updated_at": "2026-09-01T19:36:36-03:00"
     },
     {
       "id": "usina-del-arte-ludo-espacio-usina-del-arte-2026-09-05",
@@ -2382,7 +2353,7 @@
       "source_url": "https://usinadelarte.ar/actividad/ludo-espacio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:49-03:00"
+      "updated_at": "2026-09-01T19:36:35-03:00"
     },
     {
       "id": "usina-del-arte-raices-beats-dj-gospel-2026-09-05",
@@ -2411,7 +2382,7 @@
       "source_url": "https://usinadelarte.ar/actividad/raices-beats-dj-gospel/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:55-03:00"
+      "updated_at": "2026-09-01T19:36:41-03:00"
     },
     {
       "id": "usina-del-arte-solo-jazz-exploracion-del-movimiento-2026-09-05",
@@ -2440,7 +2411,7 @@
       "source_url": "https://usinadelarte.ar/actividad/solo-jazz-exploracion-del-movimiento/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:57-03:00"
+      "updated_at": "2026-09-01T19:36:42-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-05",
@@ -2469,7 +2440,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-de-arte-moderno-modos-de-existencia-de-la-costa-de-buenos-aires-2026-09-05",
@@ -2498,7 +2469,7 @@
       "source_url": "https://museomoderno.org/agenda/modos-de-existencia-de-la-costa-de-buenos-aires/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:46-03:00"
+      "updated_at": "2026-09-01T19:40:36-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-06",
@@ -2656,7 +2627,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/flu-la-fiesta-del-libro-usado",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:00-03:00"
+      "updated_at": "2026-09-01T19:37:46-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-06",
@@ -2781,7 +2752,7 @@
       "source_url": "https://museomoderno.org/agenda/miradas-cruzadas-2/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:45-03:00"
+      "updated_at": "2026-09-01T19:40:35-03:00"
     },
     {
       "id": "centro-cultural-recoleta-rarezas-del-este-2026-09-06",
@@ -2810,7 +2781,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:54-03:00"
+      "updated_at": "2026-09-01T19:37:40-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-2026-09-06",
@@ -2839,7 +2810,7 @@
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:48-03:00"
+      "updated_at": "2026-09-01T19:36:33-03:00"
     },
     {
       "id": "usina-del-arte-entre-el-sonido-y-el-tiempo-between-time-and-sound-2026-09-06",
@@ -2868,7 +2839,7 @@
       "source_url": "https://usinadelarte.ar/actividad/entre-el-sonido-y-el-tiempo-eng/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:51-03:00"
+      "updated_at": "2026-09-01T19:36:36-03:00"
     },
     {
       "id": "usina-del-arte-ludo-espacio-usina-del-arte-2026-09-06",
@@ -2897,7 +2868,7 @@
       "source_url": "https://usinadelarte.ar/actividad/ludo-espacio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:12:49-03:00"
+      "updated_at": "2026-09-01T19:36:35-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-07",
@@ -3150,7 +3121,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/calabxzxs-dragxnes",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:53-03:00"
+      "updated_at": "2026-09-01T19:37:38-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-09",
@@ -3371,7 +3342,7 @@
       "source_url": "https://museomoderno.org/agenda/tercera-dimension-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:49-03:00"
+      "updated_at": "2026-09-01T19:40:39-03:00"
     },
     {
       "id": "centro-cultural-recoleta-borges-360-2026-09-09",
@@ -3400,7 +3371,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/borges-360",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:59-03:00"
+      "updated_at": "2026-09-01T19:37:44-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-09",
@@ -3429,7 +3400,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-10",
@@ -3650,7 +3621,7 @@
       "source_url": "https://museomoderno.org/agenda/trama-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:15-03:00"
+      "updated_at": "2026-09-01T19:40:05-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-10",
@@ -3679,7 +3650,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-de-arte-moderno-terra-forma-2026-09-10",
@@ -3708,7 +3679,7 @@
       "source_url": "https://museomoderno.org/agenda/terra-forma/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:42-03:00"
+      "updated_at": "2026-09-01T19:40:32-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-11",
@@ -3929,7 +3900,7 @@
       "source_url": "https://museomoderno.org/agenda/tela-papel-tijera-pablo-ramirez/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:28-03:00"
+      "updated_at": "2026-09-01T19:40:18-03:00"
     },
     {
       "id": "centro-cultural-recoleta-viernes-de-hitchcock-2026-09-11",
@@ -3958,7 +3929,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/viernes-de-hitchcock",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:02-03:00"
+      "updated_at": "2026-09-01T19:37:47-03:00"
     },
     {
       "id": "usina-del-arte-luis-salinas-y-juan-salinas-2026-09-11",
@@ -3987,7 +3958,7 @@
       "source_url": "https://usinadelarte.ar/actividad/luis-salinas-y-juan-salinas/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:04-03:00"
+      "updated_at": "2026-09-01T19:36:50-03:00"
     },
     {
       "id": "museo-de-arte-moderno-terra-forma-2026-09-11",
@@ -4016,7 +3987,7 @@
       "source_url": "https://museomoderno.org/agenda/terra-forma/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:42-03:00"
+      "updated_at": "2026-09-01T19:40:32-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-12",
@@ -4109,7 +4080,7 @@
       "source_url": "https://museomoderno.org/agenda/moderno-bailable/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:19-03:00"
+      "updated_at": "2026-09-01T19:40:09-03:00"
     },
     {
       "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-12",
@@ -4266,7 +4237,7 @@
       "source_url": "https://museomoderno.org/agenda/caleidoscopio-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:21-03:00"
+      "updated_at": "2026-09-01T19:40:11-03:00"
     },
     {
       "id": "museo-de-arte-moderno-ensayo-infinito-2026-09-12",
@@ -4295,7 +4266,7 @@
       "source_url": "https://museomoderno.org/agenda/ensayo-infinito-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:22-03:00"
+      "updated_at": "2026-09-01T19:40:12-03:00"
     },
     {
       "id": "usina-del-arte-sur-sinfonico-por-fundacion-x-la-bocaorquestas-infantiles-y--2026-09-12",
@@ -4324,7 +4295,7 @@
       "source_url": "https://usinadelarte.ar/actividad/sur-sinfonico-por-fundacion-x-la-bocaorquestas-infantiles-y-juveniles-tam-lugano-natatorio/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:06-03:00"
+      "updated_at": "2026-09-01T19:36:51-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-12",
@@ -4353,7 +4324,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-de-arte-moderno-las-tres-ecologias-2026-09-12",
@@ -4382,7 +4353,7 @@
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-17/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:40-03:00"
+      "updated_at": "2026-09-01T19:40:30-03:00"
     },
     {
       "id": "centro-cultural-recoleta-sabados-de-superaccion-2026-09-12",
@@ -4411,7 +4382,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/sabados-de-superaccion",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:09-03:00"
+      "updated_at": "2026-09-01T19:37:55-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-13",
@@ -4569,7 +4540,7 @@
       "source_url": "https://museomoderno.org/agenda/caja-de-sorpresas/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:24-03:00"
+      "updated_at": "2026-09-01T19:40:14-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-13",
@@ -4694,7 +4665,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:54-03:00"
+      "updated_at": "2026-09-01T19:37:40-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-13",
@@ -4723,7 +4694,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-14",
@@ -4784,7 +4755,7 @@
       "source_url": "https://usinadelarte.ar/actividad/emilio-peroni-piano/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:09-03:00"
+      "updated_at": "2026-09-01T19:36:54-03:00"
     },
     {
       "id": "usina-del-arte-ojos-en-zoom-taller-de-dibujo-sobre-tela-nos-acompana-filgo-2026-09-14",
@@ -4813,7 +4784,7 @@
       "source_url": "https://usinadelarte.ar/actividad/ojos-en-zoom-taller-de-dibujo-sobre-tela-nos-acompana-filgo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:10-03:00"
+      "updated_at": "2026-09-01T19:36:56-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-15",
@@ -5034,7 +5005,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/calabxzxs-dragxnes",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:53-03:00"
+      "updated_at": "2026-09-01T19:37:38-03:00"
     },
     {
       "id": "usina-del-arte-dakhabrakha-usina-del-arte-2026-09-15",
@@ -5063,7 +5034,7 @@
       "source_url": "https://usinadelarte.ar/actividad/dakhabrakha/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:19-03:00"
+      "updated_at": "2026-09-01T19:37:05-03:00"
     },
     {
       "id": "usina-del-arte-barbie-martinez-cuarteto-2026-09-15",
@@ -5092,7 +5063,7 @@
       "source_url": "https://usinadelarte.ar/actividad/barbie-martinez-cuarteto/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:14-03:00"
+      "updated_at": "2026-09-01T19:36:59-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-16",
@@ -5217,7 +5188,7 @@
       "source_url": "https://museomoderno.org/agenda/historias-compartidas-6/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:39-03:00"
+      "updated_at": "2026-09-01T19:40:29-03:00"
     },
     {
       "id": "palacio-libertad-un-palacio-para-borges-muestras-temporales-2026-09-16",
@@ -5342,7 +5313,7 @@
       "source_url": "https://museomoderno.org/agenda/tercera-dimension-4/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:49-03:00"
+      "updated_at": "2026-09-01T19:40:39-03:00"
     },
     {
       "id": "centro-cultural-recoleta-metaforas-2026-09-16",
@@ -5371,7 +5342,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/metaforas",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:05-03:00"
+      "updated_at": "2026-09-01T19:37:50-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-16",
@@ -5400,7 +5371,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-17",
@@ -5621,7 +5592,7 @@
       "source_url": "https://museomoderno.org/agenda/trama-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:15-03:00"
+      "updated_at": "2026-09-01T19:40:05-03:00"
     },
     {
       "id": "centro-cultural-recoleta-metaforas-2026-09-17",
@@ -5650,7 +5621,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/metaforas",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:05-03:00"
+      "updated_at": "2026-09-01T19:37:50-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-17",
@@ -5679,7 +5650,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-de-arte-moderno-las-tres-ecologias-2026-09-17",
@@ -5708,7 +5679,7 @@
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-17/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:40-03:00"
+      "updated_at": "2026-09-01T19:40:30-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-18",
@@ -5769,7 +5740,7 @@
       "source_url": "https://museomoderno.org/agenda/las-tres-ecologias-13/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:16-03:00"
+      "updated_at": "2026-09-01T19:40:06-03:00"
     },
     {
       "id": "museo-del-cabildo-celeste-bandera-nora-iniesta-y-exodo-jujeno-2026-09-18",
@@ -5958,7 +5929,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/viernes-de-hitchcock",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:02-03:00"
+      "updated_at": "2026-09-01T19:37:47-03:00"
     },
     {
       "id": "centro-cultural-recoleta-lucio-mantel-2026-09-18",
@@ -5987,7 +5958,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/lucio-mantel",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:56-03:00"
+      "updated_at": "2026-09-01T19:37:41-03:00"
     },
     {
       "id": "usina-del-arte-barbie-martinez-cuarteto-2026-09-18",
@@ -6016,7 +5987,7 @@
       "source_url": "https://usinadelarte.ar/actividad/barbie-martinez-cuarteto/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:14-03:00"
+      "updated_at": "2026-09-01T19:36:59-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-18",
@@ -6045,7 +6016,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-19",
@@ -6138,7 +6109,7 @@
       "source_url": "https://museomoderno.org/agenda/moderno-bailable/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:19-03:00"
+      "updated_at": "2026-09-01T19:40:09-03:00"
     },
     {
       "id": "centro-cultural-recoleta-exhibiciones-klemm-valcarcel-medina-el-juguete-rabioso-2026-09-19",
@@ -6295,7 +6266,7 @@
       "source_url": "https://museomoderno.org/agenda/caleidoscopio-edicion-especial-en-parque-lezama/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:36-03:00"
+      "updated_at": "2026-09-01T19:40:26-03:00"
     },
     {
       "id": "centro-cultural-recoleta-rarezas-del-este-2026-09-19",
@@ -6324,7 +6295,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/rarezas-del-este",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:54-03:00"
+      "updated_at": "2026-09-01T19:37:40-03:00"
     },
     {
       "id": "museo-de-arte-moderno-ensayo-infinito-2026-09-19",
@@ -6353,7 +6324,7 @@
       "source_url": "https://museomoderno.org/agenda/ensayo-infinito-3/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:22-03:00"
+      "updated_at": "2026-09-01T19:40:12-03:00"
     },
     {
       "id": "museo-de-arte-moderno-agenda-museo-moderno-2026-09-19",
@@ -6382,7 +6353,7 @@
       "source_url": "https://museomoderno.org/agenda/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:27-03:00"
+      "updated_at": "2026-09-01T19:40:17-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-20",
@@ -6636,7 +6607,7 @@
       "source_url": "https://museomoderno.org/agenda/miradas-cruzadas-2/",
       "source_id": "museo-moderno",
       "image_url": null,
-      "updated_at": "2026-09-01T19:16:45-03:00"
+      "updated_at": "2026-09-01T19:40:35-03:00"
     },
     {
       "id": "centro-cultural-recoleta-antidomingos-en-el-recoleta-2026-09-20",
@@ -6665,7 +6636,7 @@
       "source_url": "http://www.centroculturalrecoleta.org/agenda/ciclos/antidomingos-en-el-recoleta",
       "source_id": "centro-cultural-recoleta",
       "image_url": null,
-      "updated_at": "2026-09-01T19:14:15-03:00"
+      "updated_at": "2026-09-01T19:38:01-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-21",
@@ -6726,7 +6697,7 @@
       "source_url": "https://usinadelarte.ar/actividad/dakhabrakha/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:19-03:00"
+      "updated_at": "2026-09-01T19:37:05-03:00"
     },
     {
       "id": "usina-del-arte-paisajes-panoramicos-taller-de-dibujo-y-pintura-con-acuarela-2026-09-21",
@@ -6755,7 +6726,7 @@
       "source_url": "https://usinadelarte.ar/actividad/paisajes-panoramicos-taller-de-dibujo-y-pintura-con-acuarela-nos-acompana-filgo/",
       "source_id": "usina-del-arte",
       "image_url": null,
-      "updated_at": "2026-09-01T19:13:22-03:00"
+      "updated_at": "2026-09-01T19:37:08-03:00"
     },
     {
       "id": "museo-nacional-bellas-artes-paseo-de-las-esculturas-2026-09-22",
