@@ -68,3 +68,36 @@ def test_cobertura_de_coordenadas(payload):
         f"solo {cobertura:.0%} de los eventos tiene coordenadas. "
         f"Sedes a agregar en venues.KNOWN_VENUES: {sin_coords}"
     )
+
+
+# --- sedes: una fuente activa sin entrada en el catalogo tira sus eventos ---
+
+def test_toda_fuente_activa_resuelve_a_una_sede_ubicable():
+    """Museo Moderno perdió sus 40 eventos por faltar en KNOWN_VENUES.
+
+    `build_venue` devolvía una sede sin dirección ni barrio, `is_locatable` la
+    rechazaba y el pipeline los descartaba en silencio — el log sólo decía
+    "Descartados 50 eventos sin sede ubicable", sin nombrar la causa.
+
+    Se exceptúa el marcador genérico de las fuentes que agregan varias sedes:
+    ahí la sede real viene en el JSON-LD de cada ficha, y una que no la traiga
+    debe descartarse.
+    """
+    import json
+    from eventos.venues import build_venue
+
+    GENERICAS = {"Ciudad de Buenos Aires"}
+    registro = json.loads((ROOT / "scraper" / "sources.json").read_text(encoding="utf-8"))
+
+    sin_sede = []
+    for fuente in registro["sources"]:
+        sede = fuente.get("venue")
+        if fuente.get("status") != "activo" or not sede or sede in GENERICAS:
+            continue
+        if not build_venue(sede).is_locatable:
+            sin_sede.append(f"{fuente['name']} -> {sede!r}")
+
+    assert not sin_sede, (
+        "Estas fuentes activas resuelven a una sede que no se puede ubicar, "
+        "así que el pipeline va a descartar todos sus eventos. Agregarlas a "
+        "KNOWN_VENUES en eventos/venues.py:\n  " + "\n  ".join(sin_sede))

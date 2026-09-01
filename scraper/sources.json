@@ -39,7 +39,7 @@
       "url": "https://usinadelarte.ar/actividades",
       "venue": "Usina del Arte",
       "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): 10 fichas, 0 eventos — 7 sin fecha dentro de la ventana y 3 sin decir que sean gratis. Su listado muestra actividades ya pasadas (las fechas leídas eran del 28 al 30/08). Queda activa: cuando publique la agenda siguiente va a entrar sola.",
+      "note": "Corrida en seco 2026-09-01: 23 eventos. Su listado da 10 fichas y el sitemap 38 mas; con el sitemap sumando (antes era solo respaldo) paso de 0 a 23.",
       "ruta_ficha": "/actividad/"
     },
     {
@@ -48,7 +48,7 @@
       "url": "http://www.centroculturalrecoleta.org/agenda",
       "venue": "Centro Cultural Recoleta",
       "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): 11 eventos. Es la mejor fuente en vivo junto con Museo Moderno. Expone 27 fichas y el tope de 15 dejaba 12 afuera, de ahí que ahora sea 30.",
+      "note": "Corrida en seco 2026-09-01: 20 eventos (antes 11). Con el tope de fichas en 30 se leen las 27 que expone, no 15.",
       "ruta_ficha": "/agenda/"
     },
     {
@@ -107,7 +107,7 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): 1 evento. Sus fichas traen schema.org/Event impecable, pero la sección 'eventos gratis' enlaza también shows pagos y el filtro los descarta bien. Su sitemap tiene 10 URLs más para explorar.",
+      "note": "Corrida en seco 2026-09-01: 23 eventos (antes 1). Sus fichas traen schema.org/Event impecable; lo que faltaba eran las 40 URLs de su sitemap, que no se leian porque el sitemap era puro respaldo.",
       "ruta_ficha": "/eventos/"
     },
     {
@@ -148,7 +148,7 @@
       "url": "https://teatrocolon.org.ar/",
       "venue": "Teatro Colón",
       "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): 9 fichas, 9 descartadas por decir 'Comprar entradas'. Es el resultado correcto: el Colón vende entradas. Queda activa por si publica funciones gratuitas, que las hace.",
+      "note": "Corrida en seco 2026-09-01: 38 fichas, 28 descartadas por decir 'Comprar entradas'. Resultado correcto: el Colon vende entradas. Queda activa por las funciones gratuitas que si hace.",
       "ruta_ficha": "/produccion"
     },
     {
@@ -180,7 +180,7 @@
       "url": "https://museomoderno.org/agenda/",
       "venue": "Museo de Arte Moderno de Buenos Aires",
       "status": "activo",
-      "note": "HTML 2026-08-31: 14 eventos, la mejor fuente. Su listado expone 24 enlaces bajo /agenda/ y solo se leían 10; con ruta_ficha declarado y el tope en 30 entran todos.",
+      "note": "Corrida en seco 2026-09-01: 40 eventos (antes 14), la mejor fuente. Ojo: se descartaban TODOS por no estar en KNOWN_VENUES; su direccion (Av. San Juan 350) salio del HTML que sirvio el propio sitio.",
       "ruta_ficha": "/agenda/"
     },
     {
@@ -189,7 +189,7 @@
       "url": "https://proa.org/",
       "venue": "Fundación Proa",
       "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): su listado enlaza una sola ficha y su fecha cayó fuera de la ventana. Queda activa porque cuesta un pedido."
+      "note": "Corrida en seco 2026-09-01: su listado enlaza una sola ficha y no dice que sea gratis. Queda activa porque cuesta un pedido, y ya esta en KNOWN_VENUES (Av. Pedro de Mendoza 1929)."
     },
     {
       "name": "Ciudad Cultural Konex",
