@@ -153,6 +153,7 @@ class EventFilterTest {
         neighborhood: String,
         start: LocalTime?,
         access: AccessMode,
+        sourceId: String? = null,
     ) = Event(
         id = id,
         title = title,
@@ -175,6 +176,7 @@ class EventFilterTest {
         ),
         sourceName = null,
         sourceUrl = null,
+        sourceId = sourceId,
         imageUrl = null,
     )
 
@@ -252,6 +254,44 @@ class EventFilterTest {
     fun `limpiar conserva el orden elegido`() {
         val filtro = EventFilter(sortOrder = SortOrder.TITULO).toggleCategory(Category.MUSICA)
         assertEquals(SortOrder.TITULO, filtro.cleared().sortOrder)
+    }
+
+
+    // --- Fuentes apagadas desde el panel ---------------------------------
+
+    @Test
+    fun `una fuente apagada deja de verse`() {
+        val delSitio = milonga.copy(id = "del-sitio", sourceId = "museo-moderno")
+        val lista = listOf(delSitio, milonga)
+        val filtro = EventFilter(disabledSources = setOf("museo-moderno"))
+        assertEquals(listOf("milonga"), filtro.apply(lista, hoy).map { it.id })
+    }
+
+    @Test
+    fun `un evento sin fuente conocida nunca se oculta`() {
+        // Puede ser uno cacheado de un feed anterior. Ocultarlo por no estar
+        // en una lista seria hacerlo desaparecer sin que nadie lo pidiera.
+        val huerfano = milonga.copy(id = "huerfano", sourceId = null)
+        val filtro = EventFilter(disabledSources = setOf("museo-moderno", "curada"))
+        assertEquals(listOf("huerfano"), filtro.apply(listOf(huerfano), hoy).map { it.id })
+    }
+
+    @Test
+    fun `apagar una fuente no cuenta como filtro de la home`() {
+        // El panel es su propia pantalla: no tiene que inflar el contador de
+        // filtros activos ni encender el boton de "Limpiar".
+        val filtro = EventFilter(disabledSources = setOf("curada"))
+        assertEquals(0, filtro.activeCount)
+        assertTrue(filtro.isEmpty)
+    }
+
+    @Test
+    fun `limpiar filtros no vuelve a encender las fuentes apagadas`() {
+        val filtro = EventFilter(
+            categories = setOf(Category.MUSICA),
+            disabledSources = setOf("curada"),
+        )
+        assertEquals(setOf("curada"), filtro.cleared().disabledSources)
     }
 
 }

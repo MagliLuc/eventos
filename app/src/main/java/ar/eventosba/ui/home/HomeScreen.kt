@@ -17,6 +17,7 @@ import androidx.compose.material.icons.filled.Bookmark
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.outlined.BookmarkBorder
 import androidx.compose.material.icons.outlined.Map
+import androidx.compose.material.icons.outlined.RssFeed
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -51,6 +52,7 @@ import java.time.LocalDate
 fun HomeScreen(
     onEventClick: (String) -> Unit,
     onMapClick: () -> Unit,
+    onSourcesClick: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory),
 ) {
@@ -78,6 +80,12 @@ fun HomeScreen(
                     }
                     IconButton(onClick = onMapClick) {
                         Icon(Icons.Outlined.Map, contentDescription = "Ver en el mapa")
+                    }
+                    IconButton(onClick = onSourcesClick) {
+                        Icon(
+                            Icons.Outlined.RssFeed,
+                            contentDescription = "Fuentes de la agenda",
+                        )
                     }
                 },
             )

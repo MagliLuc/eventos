@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+from collections import Counter
 from datetime import date
 from pathlib import Path
 from typing import Iterable, Optional
@@ -14,6 +15,7 @@ from .models import (
     now_ba_iso,
     today_ba,
 )
+from .informe import ERROR, INCOMPLETA, InformeFuente
 from .registry import cargar as cargar_fuentes
 from .sources import LocalSeedSource, http_session
 from .sources.base import Source
@@ -87,12 +89,17 @@ def run(
     print(f"Ventana: {window}")
 
     collected: list[Event] = []
-    for source in sources:
+    informes: list[InformeFuente] = []
+    a_correr = list(sources) + ([LocalSeedSource()] if include_seed else [])
+    for source in a_correr:
         # Una sola llamada por fuente: la ventana entera va como parametro.
-        collected.extend(source.safe_fetch(session, window))
-
-    if include_seed:
-        collected.extend(LocalSeedSource().safe_fetch(session, window))
+        eventos, informe = source.fetch_con_informe(session, window)
+        # El id se estampa aca y no en cada fuente: es una sola linea y evita
+        # que una fuente nueva se olvide de ponerlo y quede fuera del panel.
+        for evento in eventos:
+            evento.source_id = source.id
+        collected.extend(eventos)
+        informes.append(informe)
 
     # Red de seguridad: si hoy no scrapeamos nada (sitio caido, cambio de
     # maquetado), conservamos el JSON anterior en vez de publicar un archivo
@@ -122,13 +129,22 @@ def run(
             f"{output} sin cambios. Revisar el log de las fuentes."
         )
 
+    # Cuantos eventos de cada fuente sobrevivieron al dedupe y al filtro de
+    # sede. Es lo que la app tiene que mostrar: el informe crudo dice cuantos
+    # extrajo la fuente, no cuantos se terminaron publicando.
+    publicados = Counter(e.source_id for e in events if e.source_id)
+    for informe in informes:
+        informe.eventos = publicados.get(informe.id, 0)
+
     payload = {
         "schema_version": SCHEMA_VERSION,
         "generated_at": now_ba_iso(),
         "city": "Ciudad Autónoma de Buenos Aires",
         "license": "Datos públicos recopilados de agendas oficiales. Uso informativo.",
+        "sources": [i.to_dict() for i in informes],
         "events": [e.to_dict() for e in events],
     }
+    _resumir(informes)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -154,3 +170,16 @@ def _read_existing(path: Path) -> list[Event]:
         except TypeError:
             continue  # campo desconocido de un schema viejo: se descarta
     return events
+
+
+def _resumir(informes: list[InformeFuente]) -> None:
+    """Resumen legible al final de la corrida.
+
+    Va despues del detalle de cada fuente porque en un log de 200 lineas el
+    estado de las fuentes es lo primero que uno quiere ver, y buscarlo linea
+    por linea es como se nos paso mas de un fallo silencioso.
+    """
+    print("\nEstado de las fuentes:")
+    for informe in sorted(informes, key=lambda i: (i.estado != ERROR, i.nombre)):
+        marca = "!!" if informe.estado in (ERROR, INCOMPLETA) else "  "
+        print(f"  {marca} {informe.nombre:<32} {informe.estado:<12} {informe.detalle}")

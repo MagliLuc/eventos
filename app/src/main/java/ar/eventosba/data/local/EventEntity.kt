@@ -40,6 +40,7 @@ data class EventEntity(
     @ColumnInfo(name = "reservation_url") val reservationUrl: String?,
     @Embedded(prefix = "venue_") val venue: VenueEmbedded,
     @ColumnInfo(name = "source_name") val sourceName: String?,
+    @ColumnInfo(name = "source_id") val sourceId: String?,
     @ColumnInfo(name = "source_url") val sourceUrl: String?,
     @ColumnInfo(name = "image_url") val imageUrl: String?,
 )
@@ -93,6 +94,7 @@ fun EventWithFavorite.toDomain(): Event = Event(
     ),
     sourceName = event.sourceName,
     sourceUrl = event.sourceUrl,
+    sourceId = event.sourceId,
     imageUrl = event.imageUrl,
     isFavorite = isFavorite,
 )
