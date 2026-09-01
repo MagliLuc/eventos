@@ -202,6 +202,39 @@ no se miró. Por eso ahora el informe registra `lang` y `title` de cada sitio.
 **La sala existe**; lo tomado es el `.org`. Su dominio real quedó como
 candidato a sondear, sin inventarlo.
 
+### El tema de los `.gob.ar` está cerrado, y así se cerró
+
+Se probaron las tres vías gratuitas, en orden de costo, y ninguna abre:
+
+| Intento | Resultado |
+|---|---|
+| Cabeceras completas de navegador | 403. La decisión no la tomaban las cabeceras. |
+| TLS de Chrome (`curl_cffi`) | 403 igual. Y en Gratis en BA es **peor**: `requests` pasa y el perfil de Chrome no. |
+| IPv4 forzado / timeout largo | Sin cambios. |
+| Rutas que el CDN pueda servir cacheadas | **9 de 9 desafiadas** en los cuatro dominios: `sitemap.xml`, `/feed`, `wp-json`, `.ics`, todas 403 con `Cf-Mitigated`. No hay puerta lateral. |
+| Navegador real (Playwright + Chromium en CI) | **No pasa.** Ver abajo. |
+
+La corrida del workflow «Experimento navegador» contra
+`bellasartes.gob.ar/agenda/` devolvió, con Chromium de verdad:
+
+```
+cf_clearance : no
+cookies      : []
+cuerpo       : "Verificación de seguridad en curso … Este sitio web utiliza un
+                servicio de seguridad para protegerse contra bots maliciosos."
+```
+
+**Y acá se cierra**, por el criterio escrito de antemano en
+`scraper/experimento_navegador.py`: no se escala a plugins de sigilo, huellas
+falsas ni resolvedores de captcha. Es una carrera contra un antibot que este
+proyecto no puede sostener gratis, y además iría contra lo que el sitio está
+diciendo explícitamente.
+
+Lo que sí destrabaría el caso, y está fuera de nuestro alcance: que el
+organismo publique un feed o un ICS, o que el scraper corra desde una máquina
+en Argentina (por ejemplo un runner self-hosted en una PC propia). Ninguna de
+las dos es un cambio de código.
+
 ### Sin solución dentro de la restricción de costo cero
 
 Los cuatro `.gob.ar` (`bellasartes`, `complejoteatral`, `cultura`,
