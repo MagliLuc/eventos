@@ -8,7 +8,9 @@ name: Experimento navegador
 # pasa, se documenta y no se insiste. Y no toca el pipeline: una falla acá no
 # puede afectar la agenda publicada.
 #
-# Sólo a mano: no tiene cron ni se dispara con push.
+# Sin cron: corre a mano, o cuando se toca el propio experimento. Ese trigger
+# por push existe para poder lanzarlo sin permisos de workflow_dispatch, no
+# para que se repita solo: no mira ninguna otra ruta del repo.
 
 on:
   workflow_dispatch:
@@ -17,6 +19,10 @@ on:
         description: "URL a probar (vacío = MNBA)"
         required: false
         default: ""
+  push:
+    paths:
+      - "scraper/experimento_navegador.py"
+      - ".github/workflows/playwright.yml"
 
 jobs:
   probar:
