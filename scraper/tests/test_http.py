@@ -97,3 +97,33 @@ def test_el_registro_aplica_force_ipv4_y_timeout():
 def test_una_fuente_sin_pedidos_usa_la_sesion_compartida():
     compartida = object()
     assert Source()._session_propia(compartida) is compartida
+
+
+# --- ritmo por dominio -----------------------------------------------------
+
+def test_hay_una_pausa_mayor_para_los_hosts_que_la_piden():
+    """MALBA devolvió 429 aun con la pausa por defecto: necesita más aire."""
+    from eventos.http import pausa_de, PAUSA_POR_HOST
+    assert pausa_de("www.malba.org.ar") > PAUSA_POR_HOST
+    assert pausa_de("cualquier-otro.ar") == PAUSA_POR_HOST
+
+
+def test_un_429_con_retry_after_se_respeta(capsys):
+    """Un 429 es el sitio pidiendo más despacio; se le hace caso."""
+    sesion = PoliteSession(impersonate=False, respetar_robots=False)
+    sesion._session = Mock()
+    sesion._session.get.return_value = Mock(
+        status_code=429, text="", headers={"Retry-After": "45"})
+
+    antes = http._ultimo_pedido.get("lento.ar", 0)
+    sesion.get("https://lento.ar/agenda")
+    assert "pidio esperar 45s" in capsys.readouterr().out
+    assert http._ultimo_pedido["lento.ar"] > antes
+
+
+def test_un_429_sin_retry_after_igual_penaliza():
+    sesion = PoliteSession(impersonate=False, respetar_robots=False)
+    sesion._session = Mock()
+    sesion._session.get.return_value = Mock(status_code=429, text="", headers={})
+    sesion.get("https://otro.ar/agenda")
+    assert "otro.ar" in http._ultimo_pedido

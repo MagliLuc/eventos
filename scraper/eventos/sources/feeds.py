@@ -259,6 +259,26 @@ MOTIVOS = {
     "precio": "sin decir que sean gratis",
 }
 
+def idioma_ajeno(sopa) -> str:
+    """Devuelve el `lang` del sitio si NO es castellano, o "" si esta bien.
+
+    Existe por un caso concreto: `elculturalsanmartin.org` habia sido tomado
+    por spam de apuestas en turco (`<title>Canli Bahis Siteleri...`) y el
+    scraper lo consultaba en cada corrida, con status `activo`. No publico nada
+    de puro azar, porque `is_explicitly_free()` exige la palabra "gratis" en
+    castellano y el spam no la traia. Eso es suerte, no diseno.
+
+    Se rechaza solo si el atributo existe y no es castellano: muchos sitios no
+    lo declaran, y esos siguen pasando como antes.
+    """
+    html = sopa.find("html")
+    lang = (html.get("lang") if html else None) or ""
+    lang = lang.strip().lower()
+    if not lang or lang.startswith("es"):
+        return ""
+    return lang
+
+
 RUTAS_SITEMAP = ("/sitemap.xml", "/sitemap_index.xml")
 LOC_RE = re.compile(r"<loc>\s*([^<\s]+)\s*</loc>")
 
@@ -517,17 +537,27 @@ class FichasSource(LectorDeFichas):
 
         sopa = fetch_soup(session, self.url)
         if sopa is not None:
+            idioma = idioma_ajeno(sopa)
+            if idioma:
+                # Un dominio secuestrado o vencido sirve otra cosa entera. Paso
+                # con elculturalsanmartin.org: era spam de apuestas en turco y
+                # el scraper lo consultaba en cada corrida.
+                print(f"  [{self.name}] DESCARTADA: el sitio declara lang="
+                      f"'{idioma}', no castellano. Revisar si el dominio sigue "
+                      f"siendo de quien creemos.")
+                return []
             enlaces, contexto = self._fichas(sopa)
             if enlaces:
                 print(f"  [{self.name}] {len(enlaces)} fichas en el listado")
 
-        if not enlaces:
-            # Varios listados se arman por JavaScript y no dejan un enlace que
-            # leer, pero su sitemap lista cada actividad igual.
-            enlaces = urls_de_sitemap(session, self.base, self.ruta_ficha)
-            if enlaces:
-                print(f"  [{self.name}] {len(enlaces)} fichas por sitemap "
-                      f"(el listado no expone enlaces)")
+        # El sitemap se suma al listado, no lo reemplaza: Que Hacemos expone 8
+        # fichas en la pagina y otras 10 solo en el sitemap. Antes, con el
+        # sitemap como puro respaldo, esas 10 no se leian nunca.
+        del_sitemap = urls_de_sitemap(session, self.base, self.ruta_ficha)
+        nuevas = [u for u in del_sitemap if u not in contexto and u not in enlaces]
+        if nuevas:
+            print(f"  [{self.name}] +{len(nuevas)} fichas del sitemap")
+            enlaces = enlaces + nuevas
 
         if not enlaces:
             print(f"  [{self.name}] sin fichas ni por listado ni por sitemap")

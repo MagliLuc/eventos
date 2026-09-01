@@ -172,7 +172,7 @@
       "url": "https://www.malba.org.ar/actividades/",
       "venue": "MALBA",
       "status": "candidato",
-      "note": "Diagnóstico 2026-08-31: HTTP 429. No es bloqueo: es que el diagnóstico le pegó cuatro veces en menos de un segundo. Ya se agregó una pausa mínima por dominio; hay que volver a sondearlo."
+      "note": "HTML 2026-08-31: 429 incluso con la pausa de 1,5 s. Sus cabeceras dicen 'Server: nginx' sin CDN — es limit_req del propio servidor, no un WAF — y su robots.txt nos permite. Se le asignó una pausa de 5 s por host y ahora se respeta Retry-After. Queda candidato hasta que una corrida lo confirme."
     },
     {
       "name": "Museo Moderno",
@@ -180,7 +180,8 @@
       "url": "https://museomoderno.org/agenda/",
       "venue": "Museo de Arte Moderno de Buenos Aires",
       "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): 14 eventos, 8 de 10 fichas con actividad. La mejor de todas."
+      "note": "HTML 2026-08-31: 14 eventos, la mejor fuente. Su listado expone 24 enlaces bajo /agenda/ y solo se leían 10; con ruta_ficha declarado y el tope en 30 entran todos.",
+      "ruta_ficha": "/agenda/"
     },
     {
       "name": "Fundación Proa",
@@ -203,8 +204,8 @@
       "kind": "fichas",
       "url": "https://www.elculturalsanmartin.org/",
       "venue": "El Cultural San Martín",
-      "status": "activo",
-      "note": "Corrida en seco 2026-08-31 (2ª): 40 fichas por sitemap, 15 leídas, todas descartadas por no decir que sean gratis. El sitemap trae páginas del sitio, no funciones. Falta un `ruta_ficha` que salga de mirar su HTML."
+      "status": "bloqueado",
+      "note": "HTML 2026-08-31: DOMINIO COMPROMETIDO. elculturalsanmartin.org sirve spam de apuestas en turco: <title> 'Canlı Bahis Siteleri - En Güvenilir Canlı Bahis Sitesi Listesi 2026', 75 enlaces a /canli-bahis/, imágenes en wp-content/uploads/2022/12/. Es un WordPress hackeado desde diciembre de 2022. NO reactivar esta URL. El dominio real de la sala está sin confirmar."
     },
     {
       "name": "Planetario Galileo Galilei",
@@ -221,6 +222,14 @@
       "venue": "Ciudad de Buenos Aires",
       "status": "candidato",
       "note": "HTML 2026-08-31: la única URL con pinta de programación que expone el sitio. Sin sondear todavía."
+    },
+    {
+      "name": "El Cultural San Martín (dominio real)",
+      "kind": "fichas",
+      "url": "",
+      "venue": "El Cultural San Martín",
+      "status": "candidato",
+      "note": "URL A CONFIRMAR. La sala existe; el .org fue tomado por spam. No inventar el dominio: sondearlo con discover.py y confirmarlo antes de activar."
     }
   ]
 }

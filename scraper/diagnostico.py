@@ -309,6 +309,16 @@ def revisar(entrada: dict) -> dict:
         return informe
 
     sopa = BeautifulSoup(crudo, "lxml")
+
+    # El idioma declarado delata un dominio que ya no es de quien creemos.
+    # elculturalsanmartin.org venia sirviendo spam de apuestas en turco y su
+    # <title> lo decia desde la primera corrida: estaba a la vista y no se miro.
+    etiqueta_html = sopa.find("html")
+    informe["lang"] = (etiqueta_html.get("lang") if etiqueta_html else "") or ""
+    if informe["lang"] and not informe["lang"].lower().startswith("es"):
+        print(f"  !! OJO: el sitio declara lang='{informe['lang']}', no "
+              f"castellano. Revisar si el dominio sigue siendo de quien creemos.")
+
     informe["titulo_pagina"] = (sopa.title.get_text(strip=True)
                                 if sopa.title else None)
     informe["feeds_declarados"] = feeds_declarados(sopa, base)

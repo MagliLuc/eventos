@@ -1,0 +1,37 @@
+name: Experimento navegador
+
+# Una sola pregunta: ¿un navegador real pasa el desafío de Cloudflare de los
+# sitios .gob.ar que nos dan 403 en todas sus rutas?
+#
+# Está aparte del diagnóstico a propósito. Es un experimento con criterio de
+# cierre decidido de antemano (ver scraper/experimento_navegador.py): si no
+# pasa, se documenta y no se insiste. Y no toca el pipeline: una falla acá no
+# puede afectar la agenda publicada.
+#
+# Sólo a mano: no tiene cron ni se dispara con push.
+
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: "URL a probar (vacío = MNBA)"
+        required: false
+        default: ""
+
+jobs:
+  probar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar Playwright y Chromium
+        run: |
+          pip install playwright==1.47.0
+          python -m playwright install --with-deps chromium
+
+      - name: Probar si el navegador pasa el desafío
+        run: python scraper/experimento_navegador.py "${{ inputs.url }}"

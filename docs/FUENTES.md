@@ -173,6 +173,35 @@ gratis» también enlaza. Su sitemap tiene 10 URLs más para explorar.
   (`/agujeros-negros-supermasivos`, `/alerta-espacial…`), así que ningún
   `ruta_ficha` los distingue del menú. Y tiene `/tickets`: además son pagos.
 
+### Un dominio secuestrado, y la guarda que salió de ahí
+
+**`elculturalsanmartin.org` está comprometido.** No es un problema de
+extracción: el dominio sirve spam de apuestas en turco.
+
+```
+<title>Canlı Bahis Siteleri - En Güvenilir Canlı Bahis Sitesi Listesi 2026
+75 enlaces a /canli-bahis/   ("apuestas en vivo")
+imágenes en wp-content/uploads/2022/12/canli-bahis-siteleri-….jpg
+```
+
+Un WordPress hackeado desde diciembre de 2022. Estaba **`activo`** en el
+registro y el scraper lo consultaba en cada corrida. No llegó a publicar nada
+sólo porque `is_explicitly_free()` exige la palabra «gratis» en castellano y el
+spam no la traía: **nos salvó la suerte, no el diseño**. Si un dominio
+secuestrado publicara la palabra correcta, sus URLs entrarían a la app.
+
+De ahí sale la guarda de `idioma_ajeno()` en `sources/feeds.py`: si el listado
+declara un `<html lang>` que no es castellano, la fuente se descarta entera con
+un aviso ruidoso. Ataca la clase entera de problema —dominio vencido,
+secuestrado o redirigido— y no este caso puntual. Sólo rechaza cuando el
+atributo existe y no es `es*`; los sitios que no lo declaran siguen igual.
+
+El `<title>` turco estaba a la vista desde la primera corrida del diagnóstico y
+no se miró. Por eso ahora el informe registra `lang` y `title` de cada sitio.
+
+**La sala existe**; lo tomado es el `.org`. Su dominio real quedó como
+candidato a sondear, sin inventarlo.
+
 ### Sin solución dentro de la restricción de costo cero
 
 Los cuatro `.gob.ar` (`bellasartes`, `complejoteatral`, `cultura`,

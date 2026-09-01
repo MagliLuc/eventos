@@ -259,3 +259,61 @@ def test_se_informa_el_motivo_de_cada_ficha_que_no_rinde(capsys):
                                 raise_for_status=Mock())
     _fuente()._leer_fichas(ses, ["https://sala.ar/agenda/x"], VENTANA)
     assert "sin titulo legible" in capsys.readouterr().out
+
+
+# --- guarda contra un dominio que ya no es de quien creemos -----------------
+
+def test_un_sitio_en_otro_idioma_se_descarta_entero(capsys):
+    """Caso real: elculturalsanmartin.org servía spam de apuestas en turco.
+
+    Estaba `activo` en el registro y se consultaba en cada corrida. No publicó
+    nada sólo porque `is_explicitly_free` exige la palabra en castellano — o
+    sea, por suerte. Esta guarda lo convierte en diseño.
+    """
+    ses = Mock()
+    ses.get.return_value = Mock(status_code=200, raise_for_status=Mock(), text="""
+      <html lang="tr"><head><title>Canlı Bahis Siteleri 2026</title></head>
+      <body><a href="/agenda/canli-bahis">Canlı Bahis</a></body></html>
+    """)
+    assert _fuente().fetch(ses, VENTANA) == []
+    salida = capsys.readouterr().out
+    assert "DESCARTADA" in salida and "lang='tr'" in salida
+
+
+def test_un_sitio_sin_lang_declarado_sigue_pasando():
+    """Muchos sitios no declaran `lang`; ésos no se tocan."""
+    from eventos.sources.feeds import idioma_ajeno
+    assert idioma_ajeno(BeautifulSoup("<html><body></body></html>", "lxml")) == ""
+    assert idioma_ajeno(BeautifulSoup('<html lang="es-AR"></html>', "lxml")) == ""
+    assert idioma_ajeno(BeautifulSoup('<html lang="ES"></html>', "lxml")) == ""
+    assert idioma_ajeno(BeautifulSoup('<html lang="tr"></html>', "lxml")) == "tr"
+
+
+# --- el sitemap suma, no reemplaza -----------------------------------------
+
+def test_el_sitemap_se_suma_al_listado_sin_duplicar(capsys, monkeypatch):
+    """Qué Hacemos expone 8 fichas en la página y otras 10 sólo en el sitemap.
+
+    Con el sitemap como puro respaldo esas 10 no se leían nunca, porque el
+    respaldo sólo entraba si el listado no devolvía nada.
+    """
+    import eventos.sources.feeds as feeds
+    monkeypatch.setattr(feeds, "urls_de_sitemap", lambda *a, **k: [
+        "https://sala.ar/agenda/concierto-de-camara",   # ya está en el listado
+        "https://sala.ar/agenda/solo-en-el-sitemap",
+    ])
+    leidos = {}
+    monkeypatch.setattr(feeds.LectorDeFichas, "_leer_fichas",
+                        lambda self, s, enlaces, w, **kw: leidos.setdefault("e", enlaces) and [])
+
+    ses = Mock()
+    ses.get.return_value = Mock(text=LISTADO, status_code=200,
+                                raise_for_status=Mock())
+    _fuente().fetch(ses, VENTANA)
+
+    assert leidos["e"] == [
+        "https://sala.ar/agenda/concierto-de-camara",
+        "https://sala.ar/agenda/muestra-de-fotografia",
+        "https://sala.ar/agenda/solo-en-el-sitemap",
+    ]
+    assert "+1 fichas del sitemap" in capsys.readouterr().out
