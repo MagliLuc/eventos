@@ -21,6 +21,11 @@
     "  equivoca solo, y ya tenemos el caso — 'Vicente López 2220' es la",
     "  dirección del Museo Roca, en Recoleta.",
     "",
+    "ignorar_hora_fin: la fuente publica una hora de fin que no es dato.",
+    "  Se declara con evidencia en la nota. No se detecta solo: una",
+    "  duración pareja también puede ser real — las muestras del Recoleta",
+    "  duran 6 h porque ese es el horario de sala.",
+    "",
     "status: activo    -> se consulta en cada corrida",
     "        candidato -> NO se consulta; solo lo sondea discover.py",
     "        bloqueado -> no se consulta; se deja documentado el porqué",
@@ -114,7 +119,8 @@
       "url": "https://www.quehacemos.com.ar/eventos-gratis",
       "venue": "Ciudad de Buenos Aires",
       "status": "activo",
-      "note": "Corrida en seco 2026-09-01: 23 eventos (antes 1). Sus fichas traen schema.org/Event impecable; lo que faltaba eran las 40 URLs de su sitemap, que no se leian porque el sitemap era puro respaldo.",
+      "ignorar_hora_fin": true,
+      "note": "Corrida en seco 2026-09-01: 23 eventos (antes 1). Sus fichas traen schema.org/Event; lo que faltaba eran las 40 URLs de su sitemap, que no se leian porque el sitemap era puro respaldo. 2026-09-01 (2ª): es una agenda NACIONAL — publicaba recitales de Córdoba y Mar del Plata, que ahora corta el filtro del AMBA. Y su hora de fin no es dato: los 22 eventos publicados daban inicio + exactamente 6 h, con inicios variados (20:00, 10:00, 15:14). Por eso ignorar_hora_fin. Ojo: la hora de INICIO de esta fuente tampoco está verificada.",
       "ruta_ficha": "/eventos/"
     },
     {

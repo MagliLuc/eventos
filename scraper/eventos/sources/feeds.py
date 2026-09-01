@@ -41,7 +41,8 @@ from ..normalize import (
     parse_times,
 )
 from ..venues import build_venue
-from .base import Source, extract_jsonld_events, fetch_soup
+from .base import (Source, extract_jsonld_events, fetch_soup, oferta_de,
+                   tiene_precio)
 
 
 # ---------------------------------------------------------------------------
@@ -471,7 +472,14 @@ class LectorDeFichas(Source):
         if not titulo or not window.contains(inicio):
             return None
         descripcion = clean_text(nodo.get("description"))
-        if not is_free(titulo, descripcion):
+        # El precio de `offers` manda sobre cualquier lectura del texto: es
+        # el dato que la propia fuente declara. Sin este chequeo, un recital
+        # con entrada de 25.000 pesos entraba como gratuito porque su
+        # descripcion no menciona plata.
+        precio, texto_oferta = oferta_de(nodo)
+        if tiene_precio(precio):
+            return None
+        if not is_free(titulo, descripcion, texto_oferta):
             return None
 
         lugar = nodo.get("location") or {}
@@ -485,11 +493,12 @@ class LectorDeFichas(Source):
             title=titulo,
             description=descripcion,
             category=detect_category(titulo, descripcion),
-            access_mode=detect_access_mode(titulo, descripcion),
-            contribution=detect_contribution(titulo, descripcion),
+            access_mode=detect_access_mode(titulo, descripcion, texto_oferta),
+            contribution=detect_contribution(titulo, descripcion, texto_oferta),
             date=inicio[:10],
             start_time=inicio[11:16] or None,
-            end_time=(nodo.get("endDate") or "")[11:16] or None,
+            end_time=None if self.ignorar_hora_fin
+                     else ((nodo.get("endDate") or "")[11:16] or None),
             venue=build_venue(lugar.get("name") or self.default_venue, direccion,
                               locality=self.partido),
             source_name=self.name,

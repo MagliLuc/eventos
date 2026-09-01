@@ -49,6 +49,8 @@ def _transporte(fuente: Source, entrada: dict) -> Source:
     # llegar" mandaria a la calle homonima de Capital.
     if entrada.get("partido"):
         fuente.partido = entrada["partido"]
+    if entrada.get("ignorar_hora_fin"):
+        fuente.ignorar_hora_fin = True
     return fuente
 
 

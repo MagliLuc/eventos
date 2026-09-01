@@ -21,7 +21,7 @@ __all__ = [
     "InformeFuente",
     "BROWSER_HEADERS", "CONTACTO", "USER_AGENT", "PoliteSession",
     "RobotsBloqueado", "http_session", "fetch_soup", "Source",
-    "extract_jsonld_events", "text_of", "link_of",
+    "extract_jsonld_events", "oferta_de", "tiene_precio", "text_of", "link_of",
 ]
 
 
@@ -91,6 +91,12 @@ class Source:
     # Recoleta, y se escribe igual que el partido de Vicente Lopez.
     partido: Optional[str] = None
 
+    # La fuente publica una hora de fin que no es dato. Se declara por
+    # fuente y con evidencia en la nota del registro: no hay forma confiable
+    # de detectarlo solo, porque una duracion pareja tambien puede ser real
+    # (las muestras del Recoleta duran 6 h porque ese es el horario de sala).
+    ignorar_hora_fin: bool = False
+
     def fetch(self, session, window: DateWindow) -> list[Event]:
         raise NotImplementedError
 
@@ -149,6 +155,33 @@ class Source:
 # pipeline: cada fuente declara sus selectores como atributos de clase.
 
 import json as _json  # noqa: E402  (import local para no ensuciar la API)
+
+
+def oferta_de(nodo: dict) -> tuple[str, str]:
+    """Precio y texto de la `offers` de un schema.org/Event.
+
+    Existia dos veces, y solo una de las dos miraba el precio: `_de_jsonld`
+    en feeds.py lo ignoraba por completo, asi que un recital con
+    `offers.price` de 25000 pasaba como gratuito -- fue como entraron dos
+    shows pagos de Cordoba a la agenda. Vive aca, en un solo lugar, para que
+    las dos ramas no se puedan volver a separar.
+    """
+    ofertas = nodo.get("offers") or {}
+    if isinstance(ofertas, list):
+        ofertas = ofertas[0] if ofertas else {}
+    if not isinstance(ofertas, dict):
+        return "", ""
+    precio = str(ofertas.get("price", "")).strip()
+    texto = " ".join(
+        s for c in ("name", "description", "url")
+        if (s := str(ofertas.get(c, "")).strip())
+    )
+    return precio, texto
+
+
+def tiene_precio(precio: str) -> bool:
+    """True si la oferta declara un precio que no es cero."""
+    return bool(precio) and precio not in {"0", "0.0", "0.00", "0,00"}
 
 
 def extract_jsonld_events(soup: BeautifulSoup) -> list[dict]:
